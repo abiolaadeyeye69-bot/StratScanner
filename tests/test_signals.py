@@ -160,11 +160,12 @@ class TestSignalEnabled:
         # toggles the dashboard's "1-3" and "Failed 2" family filters need.
         assert _signal_enabled("outside_bar", config) is True
         assert _signal_enabled("failing_2", config) is True
-        # Bare bar patterns: off by default (unmeasured volume impact —
-        # see config.py's comment on show_inside_bars).
-        assert _signal_enabled("inside_bar", config) is False
-        assert _signal_enabled("double_inside_bar", config) is False
-        assert _signal_enabled("outside_then_inside", config) is False
+        # Bare bar patterns: on by default — see config.py's comment on
+        # show_inside_bars for why (explicit user ask to scan "closed as
+        # a 1", volume impact still unmeasured).
+        assert _signal_enabled("inside_bar", config) is True
+        assert _signal_enabled("double_inside_bar", config) is True
+        assert _signal_enabled("outside_then_inside", config) is True
 
 
 # =========================================================================
