@@ -23,6 +23,7 @@ from signals import (
     format_panel,
     _classify_signal_type,
     _signal_enabled,
+    _pattern_tag,
 )
 
 
@@ -110,15 +111,37 @@ class TestClassifySignalType:
         results = _classify_signal_type(state)
         assert ("failing_2", "bearish") in results
 
-    def test_no_signal(self):
-        """Inside bar that doesn't break either side."""
+    def test_double_inside_bar(self):
+        """C1 and CC both inside ('1-1') — a bare context pattern, not a
+        directional break. Was asserted as producing NO signal before the
+        bare-bar-pattern types existed; now it's an explicit neutral one."""
         state = TimeframeState(
             c1_is_inside=True, c1_is_3=False,
             c1_num="1", cc_type="1u", cc_num="1",
             c2_type="2d", c2_num="2",
         )
         results = _classify_signal_type(state)
-        assert len(results) == 0
+        assert results == [("double_inside_bar", "neutral")]
+
+    def test_inside_bar(self):
+        """CC is inside, C1 was not — bare '1'."""
+        state = TimeframeState(
+            c1_is_inside=False, c1_is_3=False,
+            c1_type="2u", c1_num="2", cc_type="1d", cc_num="1",
+            c2_type="2d", c2_num="2",
+        )
+        results = _classify_signal_type(state)
+        assert results == [("inside_bar", "neutral")]
+
+    def test_outside_then_inside(self):
+        """C1 was an outside bar, CC is inside — '3-1'."""
+        state = TimeframeState(
+            c1_is_inside=False, c1_is_3=True,
+            c1_type="3u", c1_num="3", cc_type="1u", cc_num="1",
+            c2_type="2d", c2_num="2",
+        )
+        results = _classify_signal_type(state)
+        assert results == [("outside_then_inside", "neutral")]
 
 
 # =========================================================================
@@ -133,8 +156,60 @@ class TestSignalEnabled:
         assert _signal_enabled("inside_continuation", config) is True
         assert _signal_enabled("22_continuation", config) is False  # off by default
         assert _signal_enabled("32_expansion", config) is False
-        assert _signal_enabled("outside_bar", config) is False
-        assert _signal_enabled("failing_2", config) is False
+        # outside_bar / failing_2: on by default now — they're the master
+        # toggles the dashboard's "1-3" and "Failed 2" family filters need.
+        assert _signal_enabled("outside_bar", config) is True
+        assert _signal_enabled("failing_2", config) is True
+        # Bare bar patterns: off by default (unmeasured volume impact —
+        # see config.py's comment on show_inside_bars).
+        assert _signal_enabled("inside_bar", config) is False
+        assert _signal_enabled("double_inside_bar", config) is False
+        assert _signal_enabled("outside_then_inside", config) is False
+
+
+# =========================================================================
+# PATTERN TAG (finer-grained labels for the dashboard's filter chips)
+# =========================================================================
+
+class TestPatternTag:
+    def test_bare_failed_2(self):
+        """C1 was a clean 2 (not inside, not outside, not itself failed)."""
+        state = TimeframeState(c1_num="2", c1_was_f2=False)
+        assert _pattern_tag("failing_2", state) == "failed_2"
+
+    def test_1_failed_2(self):
+        state = TimeframeState(c1_num="1", c1_was_f2=False)
+        assert _pattern_tag("failing_2", state) == "1_failed_2"
+
+    def test_3_failed_2(self):
+        state = TimeframeState(c1_num="3", c1_was_f2=False)
+        assert _pattern_tag("failing_2", state) == "3_failed_2"
+
+    def test_double_failed_2(self):
+        """C1 was itself a failed 2, and now CC fails again."""
+        state = TimeframeState(c1_num="2", c1_was_f2=True)
+        assert _pattern_tag("failing_2", state) == "double_failed_2"
+
+    def test_1_3(self):
+        """Outside bar preceded by an inside C1."""
+        state = TimeframeState(c1_num="1")
+        assert _pattern_tag("outside_bar", state) == "1_3"
+
+    def test_outside_bar_generic_when_c1_not_inside(self):
+        """A bare/2-3/3-3 outside bar keeps the generic label."""
+        state = TimeframeState(c1_num="2")
+        assert _pattern_tag("outside_bar", state) == "outside_bar"
+
+    def test_3_1(self):
+        state = TimeframeState()
+        assert _pattern_tag("outside_then_inside", state) == "3_1"
+
+    def test_passthrough_for_other_signal_types(self):
+        state = TimeframeState()
+        assert _pattern_tag("inside_reversal", state) == "inside_reversal"
+        assert _pattern_tag("22_reversal", state) == "22_reversal"
+        assert _pattern_tag("inside_bar", state) == "inside_bar"
+        assert _pattern_tag("double_inside_bar", state) == "double_inside_bar"
 
 
 # =========================================================================
@@ -197,7 +272,8 @@ class TestFormatting:
     def test_signal_line(self):
         sig = Signal(
             ticker="AAPL", tf="D", direction="bullish",
-            signal_type="inside_reversal", combo="2d-1-2u",
+            signal_type="inside_reversal", pattern_tag="inside_reversal",
+            combo="2d-1-2u",
             trigger_level=178.50, stop_level=175.20,
             mag_level=182.00, exh_level=None,
             ftfc_aligned=True, in_force=True,
