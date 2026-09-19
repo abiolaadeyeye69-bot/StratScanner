@@ -1,2 +1,7 @@
 requests>=2.31.0
 pytest>=7.0.0
+
+# GEX (Gamma Exposure) — free options chain source. Unofficial Yahoo Finance
+# endpoints, not a published/contracted API. See gex.py module docstring for
+# the reliability and terms-of-service caveats before relying on this.
+yfinance>=0.2.40
