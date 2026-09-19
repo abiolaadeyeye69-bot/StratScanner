@@ -55,6 +55,7 @@ from sector_rotation import (
     format_period_label,
 )
 from alerts import send_alert_email
+from gex import GexSummary, compute_gex_summary
 
 # =========================================================================
 # LOGGING SETUP
@@ -123,6 +124,7 @@ def serialize_results(
     sfp_results: Optional[list[TickerSFPResult]] = None,
     bf_results: Optional[list[TickerMagnitudeResult]] = None,
     rotation_result: Optional[RotationResult] = None,
+    gex_summary: Optional[GexSummary] = None,
 ) -> dict:
     """Serialize scan results to a JSON-compatible dict."""
     sfp_results = sfp_results or []
@@ -153,6 +155,65 @@ def serialize_results(
                     "last_close": e.last_close,
                 }
                 for e in rotation_result.entries
+            ],
+        }
+
+    gex_json = None
+    if gex_summary is not None:
+        gex_json = {
+            "as_of_date": gex_summary.as_of_date.isoformat(),
+            "skipped_tickers": gex_summary.skipped_tickers,
+            "results": [
+                {
+                    "ticker": r.ticker,
+                    "spot": r.spot,
+                    "error": r.error,
+                    "net_gex": r.net_gex,
+                    "call_gex": r.call_gex,
+                    "put_gex": r.put_gex,
+                    "call_oi_total": r.call_oi_total,
+                    "put_oi_total": r.put_oi_total,
+                    "zero_gamma": r.zero_gamma,
+                    "call_wall": r.call_wall,
+                    "put_wall": r.put_wall,
+                    "contracts_used": r.contracts_used,
+                    "by_strike": [
+                        {
+                            "strike": s.strike,
+                            "call_gex": s.call_gex,
+                            "put_gex": s.put_gex,
+                            "net_gex": s.net_gex,
+                            "call_oi": s.call_oi,
+                            "put_oi": s.put_oi,
+                        }
+                        for s in r.by_strike
+                    ],
+                    "by_expiry": [
+                        {
+                            "expiry": e.expiry.isoformat(),
+                            "dte": e.dte,
+                            "bucket": e.bucket,
+                            "net_gex": e.net_gex,
+                            "gross_gex": e.gross_gex,
+                            "pct_of_total": e.pct_of_total,
+                        }
+                        for e in r.by_expiry
+                    ],
+                    "heatmap": [
+                        {
+                            "strike": h.strike,
+                            "expiry": h.expiry.isoformat(),
+                            "dte": h.dte,
+                            "net_gex": h.net_gex,
+                        }
+                        for h in r.heatmap
+                    ],
+                    "price_profile": [
+                        {"spot": p.spot, "net_gex": p.net_gex}
+                        for p in r.price_profile
+                    ],
+                }
+                for r in gex_summary.results
             ],
         }
 
@@ -190,6 +251,14 @@ def serialize_results(
             ),
             "sector_rotation_skipped": (
                 len(rotation_result.skipped_tickers) if rotation_result else 0
+            ),
+            "gex_tracked": (
+                sum(1 for r in gex_summary.results if r.error is None)
+                if gex_summary else 0
+            ),
+            "gex_failed": (
+                sum(1 for r in gex_summary.results if r.error is not None)
+                if gex_summary else 0
             ),
         },
         "market": [
@@ -303,6 +372,7 @@ def serialize_results(
             ],
         },
         "sector_rotation": rotation_json,
+        "gex": gex_json,
     }
 
 
@@ -464,6 +534,29 @@ def run_scan(
         logger.info("Phase 5: Sector rotation disabled, skipping")
 
     # -----------------------------------------------------------------
+    # Phase 5.5: Gamma Exposure (GEX) — separate options-data source
+    # (Yahoo Finance, unofficial), scoped to config.gex_tickers only.
+    # See gex.py module docstring for reliability/ToS caveats.
+    # -----------------------------------------------------------------
+    gex_summary: Optional[GexSummary] = None
+    if config.gex_enabled:
+        logger.info("Phase 5.5: Computing gamma exposure (GEX)...")
+        spot_by_ticker: dict[str, float] = {}
+        for ticker in config.gex_tickers:
+            bars = dm.get_ticker_bars(ticker)
+            if bars:
+                spot_by_ticker[ticker] = bars[-1].close
+        gex_summary = compute_gex_summary(config, spot_by_ticker, scan_date)
+        ok = [r for r in gex_summary.results if r.error is None]
+        logger.info(
+            f"  GEX computed for {len(ok)}/{len(config.gex_tickers)} tickers"
+            + (f", failed: {', '.join(gex_summary.skipped_tickers)}"
+               if gex_summary.skipped_tickers else "")
+        )
+    else:
+        logger.info("Phase 5.5: GEX disabled, skipping")
+
+    # -----------------------------------------------------------------
     # Phase 6: Print summary
     # -----------------------------------------------------------------
     total_signals = sum(len(r.signals) for r in scan_results)
@@ -542,13 +635,29 @@ def run_scan(
             for entry in bottom:
                 logger.info(f"    {format_rotation_line(entry, period)}")
 
+    # Print GEX (context only — never an email trigger, same rule as
+    # sector rotation and BF's active-setup list)
+    if gex_summary and gex_summary.results:
+        logger.info("-" * 60)
+        logger.info(f"GAMMA EXPOSURE ({len(gex_summary.results)} tickers)")
+        for r in gex_summary.results:
+            if r.error:
+                logger.info(f"  {r.ticker}: error — {r.error}")
+                continue
+            zero_gamma_str = f"{r.zero_gamma:.2f}" if r.zero_gamma is not None else "n/a"
+            logger.info(
+                f"  {r.ticker:6s} spot={r.spot:.2f}  net_gex=${r.net_gex/1e6:,.0f}M  "
+                f"zero_gamma={zero_gamma_str}  "
+                f"call_wall={r.call_wall}  put_wall={r.put_wall}"
+            )
+
     # -----------------------------------------------------------------
     # Phase 7: Save results
     # -----------------------------------------------------------------
     logger.info("Phase 7: Saving results...")
     results_dict = serialize_results(
         scan_results, market_summaries, config, scan_date,
-        sfp_results, bf_results, rotation_result,
+        sfp_results, bf_results, rotation_result, gex_summary,
     )
     results_path = save_results(results_dict, output_dir)
     logger.info(f"Results saved to {results_path}")
