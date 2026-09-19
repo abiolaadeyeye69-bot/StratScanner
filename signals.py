@@ -41,6 +41,7 @@ class Signal:
     tf: str                          # "M", "W", "D", "2D", "3D"
     direction: str                   # "bullish", "bearish"
     signal_type: str                 # "inside_reversal", "22_reversal", etc.
+    pattern_tag: str                 # finer label, e.g. "1_failed_2", "1_3"
     combo: str                       # STRAT notation, e.g. "2d-1-2u"
     trigger_level: Optional[float]   # C1 high or C1 low
     stop_level: Optional[float]      # stop loss level
@@ -95,8 +96,29 @@ def _classify_signal_type(state: TimeframeState) -> list[tuple[str, str]]:
       - "32_expansion":     C1 is 3, CC commits to one direction
       - "outside_bar":      CC is a 3 (outside bar)
       - "failing_2":        Failed 2 detection triggered
+      - "inside_bar":       CC itself is inside, C1 was not (bare "1")
+      - "double_inside_bar": CC is inside AND C1 was also inside ("1-1")
+      - "outside_then_inside": C1 was an outside bar (3), CC is inside ("3-1")
+
+    The last three are NOT directional breakout triggers — an inside bar by
+    itself doesn't break either side, so there's no bullish/bearish call to
+    make. They're returned with direction "neutral" rather than a guessed
+    side; see the module-level note in scan_ticker() about how "neutral"
+    signals are built (no trigger/stop/mag/exh — those concepts don't apply
+    without a direction).
     """
     results: list[tuple[str, str]] = []
+
+    # --- CC itself is inside (no break at all) — checked first since none
+    #     of the directional branches below can ever match a cc_num of "1".
+    if state.cc_num == "1":
+        if state.c1_is_3:
+            results.append(("outside_then_inside", "neutral"))
+        elif state.c1_is_inside:
+            results.append(("double_inside_bar", "neutral"))
+        else:
+            results.append(("inside_bar", "neutral"))
+        return results
 
     # --- Failing 2 (highest priority, checked first) ---
     if state.is_f2u:
@@ -161,6 +183,38 @@ def _classify_signal_type(state: TimeframeState) -> list[tuple[str, str]]:
     return results
 
 
+def _pattern_tag(signal_type: str, state: TimeframeState) -> str:
+    """Finer-grained pattern label than signal_type, for filtering.
+
+    signal_type groups several distinct STRAT combos under one bucket
+    ("outside_bar" covers both a bare 3 and a 1-3; "failing_2" covers a
+    clean Failed 2, a 1-Failed 2, a 3-Failed 2, and a Double Failed 2).
+    This splits those buckets into the exact named patterns traders
+    actually filter for, using the same C1 context strat_engine already
+    computed — no new detection logic, just a more specific label.
+    """
+    if signal_type == "outside_bar":
+        # C1 was inside immediately before the outside bar → "1-3".
+        # Anything else (bare 3, 2-3, 3-3, ...) stays the generic label.
+        return "1_3" if state.c1_num == "1" else "outside_bar"
+
+    if signal_type == "failing_2":
+        if state.c1_num == "1":
+            return "1_failed_2"
+        if state.c1_num == "3":
+            return "3_failed_2"
+        if state.c1_was_f2:
+            # C1 was itself a failed 2, and now CC fails again.
+            return "double_failed_2"
+        return "failed_2"
+
+    if signal_type == "outside_then_inside":
+        # Same "N_M" naming as 1_3 above, for a consistent flat tag space.
+        return "3_1"
+
+    return signal_type
+
+
 def _signal_enabled(signal_type: str, config: ScannerConfig) -> bool:
     """Check if a signal type is enabled in config."""
     return {
@@ -171,6 +225,9 @@ def _signal_enabled(signal_type: str, config: ScannerConfig) -> bool:
         "32_expansion":        config.show_32_expansions,
         "outside_bar":         config.show_outside_bars,
         "failing_2":           config.show_failing_2s,
+        "inside_bar":          config.show_inside_bars,
+        "double_inside_bar":   config.show_double_inside_bars,
+        "outside_then_inside": config.show_outside_then_inside,
     }.get(signal_type, False)
 
 
@@ -393,41 +450,57 @@ def scan_ticker(
             # Build the signal
             combo = format_combo(state)
             is_bullish = direction == "bullish"
+            is_neutral = direction == "neutral"
 
+            # A neutral pattern (bare inside bar, double inside, 3-1) has no
+            # directional break, so trigger/stop/mag/exh/FTFC-alignment/
+            # in-force don't apply — those are all "which side did price
+            # commit to" concepts. Leave them None/False rather than
+            # defaulting to the bearish-side values, which would be a wrong
+            # answer dressed up as data.
             signal = Signal(
                 ticker=ticker,
                 tf=tf,
                 direction=direction,
                 signal_type=signal_type,
+                pattern_tag=_pattern_tag(signal_type, state),
                 combo=combo,
                 trigger_level=(
-                    state.prev_high if is_bullish else state.prev_low
+                    None if is_neutral
+                    else state.prev_high if is_bullish else state.prev_low
                 ),
                 stop_level=(
-                    state.stop_low if is_bullish else state.stop_high
+                    None if is_neutral
+                    else state.stop_low if is_bullish else state.stop_high
                 ),
                 mag_level=(
-                    state.mag_high if is_bullish else state.mag_low
+                    None if is_neutral
+                    else state.mag_high if is_bullish else state.mag_low
                 ),
                 exh_level=(
-                    state.exh_high if is_bullish else state.exh_low
+                    None if is_neutral
+                    else state.exh_high if is_bullish else state.exh_low
                 ),
                 is_hammer=state.is_hammer,
                 is_shooter=state.is_shooter,
                 ftfc_aligned=(
+                    False if is_neutral else
                     (is_bullish and ftfc_up)
                     or (not is_bullish and ftfc_down)
                 ),
                 in_force=(
+                    False if is_neutral else
                     state.signal_in_force_high if is_bullish
                     else state.signal_in_force_low
                 ),
                 c1_was_f2=state.c1_was_f2,
                 mag_hit=(
+                    False if is_neutral else
                     state.mag_high_crossed if is_bullish
                     else state.mag_low_crossed
                 ),
                 exh_hit=(
+                    False if is_neutral else
                     state.exh_high_crossed if is_bullish
                     else state.exh_low_crossed
                 ),
@@ -530,7 +603,11 @@ def format_signal_line(signal: Signal) -> str:
 
     Example: "AAPL D ▲ 2d-1-2u (Inside Rev) | Trigger: 178.50 Stop: 175.20 Mag: 182.00"
     """
-    arrow = "▲" if signal.direction == "bullish" else "▼"
+    arrow = (
+        "▲" if signal.direction == "bullish"
+        else "▼" if signal.direction == "bearish"
+        else "◆"
+    )
     label = _signal_type_label(signal.signal_type)
 
     parts = [f"{signal.ticker} {signal.tf} {arrow} {signal.combo} ({label})"]
@@ -596,4 +673,7 @@ def _signal_type_label(signal_type: str) -> str:
         "32_expansion":        "3-2 Exp",
         "outside_bar":         "Outside Bar",
         "failing_2":           "Failing 2",
+        "inside_bar":          "Inside Bar",
+        "double_inside_bar":   "Double Inside Bar",
+        "outside_then_inside": "Outside->Inside (3-1)",
     }.get(signal_type, signal_type)
