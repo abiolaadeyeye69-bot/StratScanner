@@ -238,6 +238,10 @@ def serialize_results(
                 1 for r in scan_results
                 for s in r.signals if s.direction == "bearish"
             ),
+            "neutral_signals": sum(
+                1 for r in scan_results
+                for s in r.signals if s.direction == "neutral"
+            ),
             "total_sfp_signals": len(all_sfp_signals),
             "sfp_formed": sum(1 for s in all_sfp_signals if s.stage == "formed"),
             "sfp_confirmed": sum(1 for s in all_sfp_signals if s.stage == "confirmed"),
@@ -284,6 +288,7 @@ def serialize_results(
                 "tf": s.tf,
                 "direction": s.direction,
                 "signal_type": s.signal_type,
+                "pattern_tag": s.pattern_tag,
                 "combo": s.combo,
                 "trigger": s.trigger_level,
                 "stop": s.stop_level,
