@@ -224,6 +224,37 @@ class ScannerConfig:
     sector_rotation_laggards_count: int = 5
 
     # =================================================================
+    # GAMMA EXPOSURE (GEX) — scanner-native, not from any Pine Script.
+    # Estimated dealer gamma positioning per ticker, styled after
+    # InsiderFinance's GEX page layout. NOT sourced from InsiderFinance —
+    # their terms restrict access to "through the platform" only and they
+    # publish no API. Data comes from Yahoo Finance's unofficial options-
+    # chain endpoint (via the yfinance library): free, no API key, but not
+    # a contracted API — Yahoo's general terms restrict automated access,
+    # and yfinance has had unresolved rate-limiting issues reported against
+    # it (see gex.py docstring). Yahoo supplies open interest + implied
+    # volatility per contract; gamma itself is computed here with a
+    # standard Black-Scholes formula (no dividend yield, flat risk-free
+    # rate) — this is the same approximation most public/open-source GEX
+    # calculators use, not a proprietary or vendor-supplied greek.
+    # =================================================================
+    gex_enabled: bool = True
+    # Full 701-ticker universe isn't meaningful here — options liquidity
+    # (and open interest) is concentrated in a handful of names. Default
+    # to the market ETFs already tracked elsewhere in this config.
+    gex_tickers: list[str] = field(
+        default_factory=lambda: ["SPY", "QQQ", "DIA", "IWM"]
+    )
+    gex_risk_free_rate: float = 0.045     # flat annualized rate for Black-Scholes
+    gex_max_expiry_days: int = 60         # ignore expirations further out —
+                                           # keeps payload size sane and
+                                           # matches where gamma concentration
+                                           # actually matters for hedging flow
+    gex_price_profile_pct: float = 0.15   # +/- range (as a fraction of spot)
+                                           # scanned for the zero-gamma /
+                                           # price-profile curve
+
+    # =================================================================
     # SCANNER-SPECIFIC (not in Pine Script)
     # =================================================================
 
