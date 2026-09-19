@@ -1,0 +1,46 @@
+name: Daily STRAT Scan
+
+on:
+  schedule:
+    - cron: "30 21 * * 1-5"   # 21:30 UTC, Mon-Fri — after US market close
+  workflow_dispatch: {}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore Polygon data cache
+        uses: actions/cache@v4
+        with:
+          path: cache/daily
+          key: polygon-cache-${{ github.run_id }}
+          restore-keys: |
+            polygon-cache-
+
+      - name: Run scanner
+        env:
+          POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENTS: ${{ secrets.ALERT_RECIPIENTS }}
+        run: python scanner.py --verbose
+
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scan-results-${{ github.run_id }}
+          path: output/
+          retention-days: 30
