@@ -193,7 +193,7 @@ class ScannerConfig:
     bf_long_only: bool = False               # 'Long Side Only' — when True,
                                               # swing-high/short tracking is
                                               # skipped entirely (matches source)
-    bf_max_swings: int = 50                  # 'Max Swings to Track' — oldest
+    bf_max_swings: int = 20                  # 'Max Swings to Track' — oldest
                                               # tracked swing is dropped once
                                               # this cap is exceeded
 
