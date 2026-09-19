@@ -1,6 +1,6 @@
 {
   "scan_date": "2026-09-19",
-  "timestamp": "2026-09-19T07:34:53.449122",
+  "timestamp": "2026-09-19T08:33:28.477945",
   "config": {
     "timeframes": [
       "M",
@@ -33,7 +33,9 @@
     "bf_active_long": 1521,
     "bf_active_short": 1835,
     "sector_rotation_tracked": 61,
-    "sector_rotation_skipped": 0
+    "sector_rotation_skipped": 0,
+    "gex_tracked": 0,
+    "gex_failed": 4
   },
   "market": [
     {
@@ -70031,6 +70033,89 @@
         },
         "composite_rank": 26.0,
         "last_close": 40.24
+      }
+    ]
+  },
+  "gex": {
+    "as_of_date": "2026-09-19",
+    "skipped_tickers": [
+      "SPY",
+      "QQQ",
+      "DIA",
+      "IWM"
+    ],
+    "results": [
+      {
+        "ticker": "SPY",
+        "spot": 761.69,
+        "error": "cannot convert float NaN to integer",
+        "net_gex": 0.0,
+        "call_gex": 0.0,
+        "put_gex": 0.0,
+        "call_oi_total": 0,
+        "put_oi_total": 0,
+        "zero_gamma": null,
+        "call_wall": null,
+        "put_wall": null,
+        "contracts_used": 0,
+        "by_strike": [],
+        "by_expiry": [],
+        "heatmap": [],
+        "price_profile": []
+      },
+      {
+        "ticker": "QQQ",
+        "spot": 721.45,
+        "error": "cannot convert float NaN to integer",
+        "net_gex": 0.0,
+        "call_gex": 0.0,
+        "put_gex": 0.0,
+        "call_oi_total": 0,
+        "put_oi_total": 0,
+        "zero_gamma": null,
+        "call_wall": null,
+        "put_wall": null,
+        "contracts_used": 0,
+        "by_strike": [],
+        "by_expiry": [],
+        "heatmap": [],
+        "price_profile": []
+      },
+      {
+        "ticker": "DIA",
+        "spot": 515.88,
+        "error": "cannot convert float NaN to integer",
+        "net_gex": 0.0,
+        "call_gex": 0.0,
+        "put_gex": 0.0,
+        "call_oi_total": 0,
+        "put_oi_total": 0,
+        "zero_gamma": null,
+        "call_wall": null,
+        "put_wall": null,
+        "contracts_used": 0,
+        "by_strike": [],
+        "by_expiry": [],
+        "heatmap": [],
+        "price_profile": []
+      },
+      {
+        "ticker": "IWM",
+        "spot": 284.1,
+        "error": "cannot convert float NaN to integer",
+        "net_gex": 0.0,
+        "call_gex": 0.0,
+        "put_gex": 0.0,
+        "call_oi_total": 0,
+        "put_oi_total": 0,
+        "zero_gamma": null,
+        "call_wall": null,
+        "put_wall": null,
+        "contracts_used": 0,
+        "by_strike": [],
+        "by_expiry": [],
+        "heatmap": [],
+        "price_profile": []
       }
     ]
   }
