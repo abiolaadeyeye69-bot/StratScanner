@@ -97,14 +97,16 @@ class ScannerConfig:
     # structurally different from every other signal type above: those
     # fire only on a genuine break, so quiet periods produce nothing;
     # these fire on EVERY bar that's plainly inside, which is a routine,
-    # frequent bar type. Turning all three on is very likely a large jump
-    # in total signal-row count - I have not measured how large across
-    # your actual universe, so treat that as a flagged assumption, not a
-    # verified number. Left off by default for that reason; each is a
-    # one-line flip.
-    show_inside_bars: bool = False           # bare "1" (CC itself inside)
-    show_double_inside_bars: bool = False    # "1-1" (C1 and CC both inside)
-    show_outside_then_inside: bool = False   # "3-1" (C1 outside, CC inside)
+    # frequent bar type. I still haven't measured the resulting row-count
+    # increase across your actual universe - flag that as an unverified
+    # assumption, not a number I can back up. Turned on anyway: you
+    # explicitly asked to scan for bars that "closed as a 1", and all
+    # three are the only three ways a bar can close as a 1 (bare inside,
+    # inside-after-inside, and inside-after-outside) - leaving any one
+    # off would silently under-cover that ask.
+    show_inside_bars: bool = True            # bare "1" (CC itself inside)
+    show_double_inside_bars: bool = True     # "1-1" (C1 and CC both inside)
+    show_outside_then_inside: bool = True    # "3-1" (C1 outside, CC inside)
 
     # =================================================================
     # HAMMER / SHOOTER
@@ -271,9 +273,10 @@ class ScannerConfig:
     # calculators use, not a proprietary or vendor-supplied greek.
     # =================================================================
     gex_enabled: bool = True
-    # Full 701-ticker universe isn't meaningful here — options liquidity
-    # (and open interest) is concentrated in a handful of names. Default
-    # to the market ETFs already tracked elsewhere in this config.
+    # The full equity universe below isn't meaningful here regardless of
+    # its size — options liquidity (and open interest) is concentrated in
+    # a handful of names. Default to the market ETFs already tracked
+    # elsewhere in this config.
     gex_tickers: list[str] = field(
         default_factory=lambda: ["SPY", "QQQ", "DIA", "IWM"]
     )
@@ -291,7 +294,14 @@ class ScannerConfig:
     # =================================================================
 
     # --- Universe ---
-    universe_size: int = 900
+    # Top 1,000 most liquid US tickers by average dollar volume, ranked
+    # over liquidity_lookback_days and floored by min_dollar_volume below.
+    # Was 900; raised to 1,000 as instructed. derive_universe() (data.py)
+    # applies the dollar-volume floor before truncating to this number,
+    # and get_ticker_bars() reads from data already fetched in one
+    # grouped-daily call per date, so this adds zero Polygon API calls,
+    # just more local computation per scan.
+    universe_size: int = 1_000
     min_dollar_volume: float = 5_000_000.0
     liquidity_lookback_days: int = 20
 
