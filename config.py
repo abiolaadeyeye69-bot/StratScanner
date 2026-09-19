@@ -63,7 +63,12 @@ class ScannerConfig:
     # =================================================================
     # SIGNALS — Failing 2s / Range Reclaims
     # =================================================================
-    show_failing_2s: bool = False            # "Failing 2s (Range Reclaims)"
+    # Was False (v3.1.1 default). Flipped to True: this is the master
+    # toggle for the whole "Failed 2" family the dashboard now filters on
+    # (Failed 2 / 1-Failed 2 / 3-Failed 2 / Double Failed 2, split out by
+    # signals._pattern_tag). Off, "failing_2" is never classified at all
+    # and every one of those four filters returns nothing.
+    show_failing_2s: bool = True             # "Failing 2s (Range Reclaims)"
     f2_require_ftfc: bool = False
 
     # =================================================================
@@ -75,8 +80,31 @@ class ScannerConfig:
     exp_32_require_ftfc: bool = False
 
     # Outside Bars (3 Exp): CC itself is a 3-bar engulfing C1
-    show_outside_bars: bool = False
+    # Was False. Flipped to True: this is the master toggle for the "1-3"
+    # filter (an inside bar immediately followed by an outside bar is
+    # classified as "outside_bar" with C1 marked inside; off, it's never
+    # classified and "1-3" always returns nothing).
+    show_outside_bars: bool = True
     outside_require_ftfc: bool = False
+
+    # =================================================================
+    # SIGNALS — Bare bar patterns (no inherent direction)
+    # =================================================================
+    # These three are NOT directional breakout triggers - an inside bar,
+    # by definition, hasn't broken either side yet, so there's no
+    # bullish/bearish call to make (signals.py records them with
+    # direction="neutral" and no trigger/stop/mag/exh). They're also
+    # structurally different from every other signal type above: those
+    # fire only on a genuine break, so quiet periods produce nothing;
+    # these fire on EVERY bar that's plainly inside, which is a routine,
+    # frequent bar type. Turning all three on is very likely a large jump
+    # in total signal-row count - I have not measured how large across
+    # your actual universe, so treat that as a flagged assumption, not a
+    # verified number. Left off by default for that reason; each is a
+    # one-line flip.
+    show_inside_bars: bool = False           # bare "1" (CC itself inside)
+    show_double_inside_bars: bool = False    # "1-1" (C1 and CC both inside)
+    show_outside_then_inside: bool = False   # "3-1" (C1 outside, CC inside)
 
     # =================================================================
     # HAMMER / SHOOTER
@@ -118,7 +146,11 @@ class ScannerConfig:
     # =================================================================
     # STOP LEVELS
     # =================================================================
-    show_stop_levels: bool = False
+    # Was False (v3.1.1 default). Flipped to True because the dashboard's
+    # STRAT Signals Risk:Reward filter/column needs a real stop level to
+    # compute anything — with this off, stop_level is always None and R:R
+    # is always "—" for every signal. No other behavior changes.
+    show_stop_levels: bool = True
     stop_reference: StopReference = "CC"
     stop_smallest_only: bool = False
     stop_be_at_mag: bool = False             # break-even at magnitude
