@@ -127,6 +127,7 @@ def serialize_results(
     gex_summary: Optional[GexSummary] = None,
     all_panels: Optional[dict[str, dict]] = None,
     market_breadth: Optional[dict] = None,
+    etf_holdings: Optional[dict] = None,
 ) -> dict:
     """Serialize scan results to a JSON-compatible dict."""
     sfp_results = sfp_results or []
@@ -381,6 +382,7 @@ def serialize_results(
         },
         "sector_rotation": rotation_json,
         "gex": gex_json,
+        "etf_holdings": etf_holdings,
     }
 
 
@@ -579,6 +581,25 @@ def run_scan(
     }
 
     # -----------------------------------------------------------------
+    # Phase 4c: ETF holdings (auto-updated weekly via yfinance)
+    # -----------------------------------------------------------------
+    etf_holdings_dict: Optional[dict] = None
+    try:
+        from holdings import HoldingsManager
+        from sector_universe import SECTORS, SUBSECTORS, THEMATIC
+
+        holdings_etfs = [sg.ticker for sg in SECTORS + SUBSECTORS + THEMATIC]
+        cache_root = Path(os.environ.get("SCANNER_CACHE_DIR", "./cache"))
+        holdings_mgr = HoldingsManager(cache_root)
+        etf_holdings_dict = holdings_mgr.get_holdings(holdings_etfs)
+        logger.info(
+            f"Phase 4c: ETF holdings loaded for "
+            f"{len(etf_holdings_dict)} ETFs"
+        )
+    except Exception as e:
+        logger.warning(f"Phase 4c: ETF holdings fetch failed: {e}")
+
+    # -----------------------------------------------------------------
     # Phase 5: Sector / subsector / thematic rotation ranking
     # -----------------------------------------------------------------
     rotation_result: Optional[RotationResult] = None
@@ -731,6 +752,7 @@ def run_scan(
         sfp_results, bf_results, rotation_result, gex_summary,
         all_panels=all_panels,
         market_breadth=market_breadth,
+        etf_holdings=etf_holdings_dict,
     )
     results_path = save_results(results_dict, output_dir)
     logger.info(f"Results saved to {results_path}")
