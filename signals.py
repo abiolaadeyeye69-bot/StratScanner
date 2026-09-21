@@ -311,14 +311,20 @@ def compute_panel_state(
     panel: dict[str, str] = {}
     for tf, state in tf_states.items():
         cc_type = state.cc_type
-        if cc_type.startswith("1"):
+        if state.is_f2u:
+            panel[tf] = "F2U"
+        elif state.is_f2d:
+            panel[tf] = "F2D"
+        elif cc_type.startswith("1"):
             panel[tf] = "1"
         elif cc_type == "2u":
             panel[tf] = "2U"
         elif cc_type == "2d":
             panel[tf] = "2D"
-        elif cc_type.startswith("3"):
-            panel[tf] = "3"
+        elif cc_type == "3u":
+            panel[tf] = "3U"
+        elif cc_type == "3d":
+            panel[tf] = "3D"
         else:
             panel[tf] = "?"
     return panel
