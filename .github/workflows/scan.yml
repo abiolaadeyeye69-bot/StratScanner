@@ -61,3 +61,5 @@ jobs:
             git commit -m "Update latest scan results [skip ci]"
             git push
           fi
+
+# Wake scheduler — ensure cron fires on schedule
