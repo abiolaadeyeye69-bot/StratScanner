@@ -191,25 +191,42 @@ class HoldingsManager:
 
         for i, ticker in enumerate(etf_tickers):
             result = fetch_single_etf(ticker)
+            fallback = DEFAULT_HOLDINGS.get(ticker)
 
-            if result:
+            if result and fallback:
+                # yfinance top_holdings returns only ~10 largest positions.
+                # Merge: start with the comprehensive fallback, then overlay
+                # any fresh tickers from yfinance so we don't lose coverage.
+                fallback_syms = {pair[0] for pair in fallback}
+                merged = list(fallback)  # copy the full fallback list
+                new_from_yf = 0
+                for pair in result:
+                    if pair[0] not in fallback_syms:
+                        merged.append(pair)
+                        new_from_yf += 1
+                holdings[ticker] = merged
+                fetched += 1
+                logger.debug(
+                    f"  {ticker}: {len(merged)} holdings "
+                    f"(merged: {len(fallback)} fallback + "
+                    f"{new_from_yf} new from yfinance)"
+                )
+            elif result:
+                # No fallback exists — use whatever yfinance returned
                 holdings[ticker] = result
                 fetched += 1
                 logger.debug(
                     f"  {ticker}: {len(result)} holdings (yfinance)"
                 )
+            elif fallback:
+                holdings[ticker] = fallback
+                fallback_used += 1
+                logger.debug(
+                    f"  {ticker}: {len(fallback)} holdings (fallback)"
+                )
             else:
-                # Fall back to hardcoded defaults
-                if ticker in DEFAULT_HOLDINGS:
-                    holdings[ticker] = DEFAULT_HOLDINGS[ticker]
-                    fallback_used += 1
-                    logger.debug(
-                        f"  {ticker}: {len(DEFAULT_HOLDINGS[ticker])} "
-                        f"holdings (fallback)"
-                    )
-                else:
-                    failed += 1
-                    logger.debug(f"  {ticker}: no data available")
+                failed += 1
+                logger.debug(f"  {ticker}: no data available")
 
             # Rate-limit yfinance calls
             if i < len(etf_tickers) - 1:
@@ -250,6 +267,23 @@ class HoldingsManager:
 
             if age_days < self.refresh_days:
                 holdings = data.get("holdings", {})
+
+                # Validate cache: if any cached ETF has fewer holdings
+                # than its hardcoded fallback, the cache was built from
+                # truncated yfinance data — force a refresh.
+                truncated = [
+                    t for t, h in holdings.items()
+                    if t in DEFAULT_HOLDINGS
+                    and len(h) < len(DEFAULT_HOLDINGS[t])
+                ]
+                if truncated:
+                    logger.info(
+                        f"ETF holdings cache has truncated data for "
+                        f"{len(truncated)} ETFs ({', '.join(truncated[:5])}"
+                        f"{'…' if len(truncated) > 5 else ''}), refreshing"
+                    )
+                    return None
+
                 logger.info(
                     f"ETF holdings from cache: {len(holdings)} ETFs "
                     f"(cached {cached_date}, {age_days}d old)"
