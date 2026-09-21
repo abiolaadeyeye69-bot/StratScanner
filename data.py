@@ -126,6 +126,16 @@ class PolygonClient:
 
         logger.info(f"Fetching grouped daily: {dt}")
         resp = self.session.get(url, params=params, timeout=30)
+
+        # Polygon returns 403 for future dates or dates with no data yet
+        # (e.g. scan runs before market opens). Return empty instead of crashing.
+        if resp.status_code in (403, 404):
+            logger.warning(
+                f"Polygon returned {resp.status_code} for {dt} — "
+                f"no data available (market may not have opened yet)"
+            )
+            return {"resultsCount": 0, "results": []}
+
         resp.raise_for_status()
         data = resp.json()
 
