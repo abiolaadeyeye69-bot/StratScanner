@@ -296,12 +296,12 @@ class ScannerConfig:
     # --- Universe ---
     # Top 1,000 most liquid US tickers by average dollar volume, ranked
     # over liquidity_lookback_days and floored by min_dollar_volume below.
-    # Was 900; raised to 1,000 as instructed. derive_universe() (data.py)
-    # applies the dollar-volume floor before truncating to this number,
-    # and get_ticker_bars() reads from data already fetched in one
+    # Was 900 → 1,000 → 1,200. derive_universe() (data.py) applies the
+    # dollar-volume floor before truncating to this number, and
+    # get_ticker_bars() reads from data already fetched in one
     # grouped-daily call per date, so this adds zero Polygon API calls,
     # just more local computation per scan.
-    universe_size: int = 1_000
+    universe_size: int = 1_200
     min_dollar_volume: float = 5_000_000.0
     liquidity_lookback_days: int = 20
 
