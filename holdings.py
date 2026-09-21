@@ -294,7 +294,7 @@ class HoldingsManager:
 # These are approximations — the auto-update via yfinance overrides them.
 
 _RAW: dict[str, str] = {
-    # ── SECTORS ──────────────────────────────────────────────────
+    # ── SECTORS (verified Sep 2026) ──────────────────────────────
     "XLK": (
         "NVDA:NVIDIA|AAPL:Apple|MSFT:Microsoft|AMD:AMD|AVGO:Broadcom|"
         "MU:Micron|INTC:Intel|CSCO:Cisco|PLTR:Palantir|LRCX:Lam Research|"
@@ -351,7 +351,7 @@ _RAW: dict[str, str] = {
         "META:Meta|GOOGL:Alphabet A|T:AT&T|VZ:Verizon|DIS:Disney|"
         "NFLX:Netflix|TMUS:T-Mobile|CMCSA:Comcast|LYV:Live Nation|"
         "OMC:Omnicom|TTWO:Take-Two|CHTR:Charter|APP:AppLovin|"
-        "TTD:Trade Desk|RDDT:Reddit"
+        "TTD:Trade Desk|RDDT:Reddit|WBD:Warner Bros Discovery"
     ),
     "XLP": (
         "PG:Procter & Gamble|KO:Coca-Cola|PEP:PepsiCo|COST:Costco|"
@@ -378,171 +378,235 @@ _RAW: dict[str, str] = {
         "CF:CF Industries|IP:Intl Paper|AMCR:Amcor|MOS:Mosaic"
     ),
     "XLRE": (
-        "PLD:Prologis|AMT:American Tower|EQIX:Equinix|WELL:Welltower|"
+        "WELL:Welltower|PLD:Prologis|AMT:American Tower|EQIX:Equinix|"
         "SPG:Simon Property|DLR:Digital Realty|PSA:Public Storage|"
         "O:Realty Income|CCI:Crown Castle|CBRE:CBRE Group|"
         "IRM:Iron Mountain|EXR:Extra Space|VTR:Ventas|"
         "ESS:Essex Property|HST:Host Hotels"
     ),
 
-    # ── SUBSECTORS ───────────────────────────────────────────────
+    # ── SUBSECTORS (verified Sep 2026) ───────────────────────────
     "SMH": (
-        "NVDA:NVIDIA|AMD:AMD|AVGO:Broadcom|MU:Micron|INTC:Intel|"
-        "QCOM:Qualcomm|MRVL:Marvell|ADI:Analog Devices|"
-        "TXN:Texas Instruments|AMAT:Applied Materials|LRCX:Lam Research|"
-        "KLAC:KLA Corp|CDNS:Cadence|SNPS:Synopsys|TER:Teradyne|"
-        "MPWR:Monolithic Power|NXPI:NXP Semi|ARM:ARM Holdings|"
-        "ALAB:Astera Labs|MCHP:Microchip|ON:ON Semi|SWKS:Skyworks"
+        "NVDA:NVIDIA|TSM:Taiwan Semi|AMD:AMD|AVGO:Broadcom|MU:Micron|"
+        "ASML:ASML|INTC:Intel|QCOM:Qualcomm|MRVL:Marvell|"
+        "ADI:Analog Devices|TXN:Texas Instruments|AMAT:Applied Materials|"
+        "LRCX:Lam Research|KLAC:KLA Corp|CDNS:Cadence|SNPS:Synopsys|"
+        "TER:Teradyne|MPWR:Monolithic Power|NXPI:NXP Semi|"
+        "ARM:ARM Holdings|ALAB:Astera Labs|MCHP:Microchip|"
+        "ON:ON Semi|SWKS:Skyworks"
     ),
     "SOXX": (
-        "NVDA:NVIDIA|AMD:AMD|AVGO:Broadcom|MU:Micron|INTC:Intel|"
-        "QCOM:Qualcomm|MRVL:Marvell|ADI:Analog Devices|"
-        "TXN:Texas Instruments|AMAT:Applied Materials|LRCX:Lam Research|"
-        "KLAC:KLA Corp|CDNS:Cadence|SNPS:Synopsys|TER:Teradyne|"
-        "MPWR:Monolithic Power|NXPI:NXP Semi|ARM:ARM Holdings|"
-        "MCHP:Microchip|ON:ON Semi|SWKS:Skyworks"
+        "NVDA:NVIDIA|AMD:AMD|MU:Micron|AVGO:Broadcom|INTC:Intel|"
+        "MRVL:Marvell|TSM:Taiwan Semi|AMAT:Applied Materials|"
+        "KLAC:KLA Corp|ADI:Analog Devices|TXN:Texas Instruments|"
+        "QCOM:Qualcomm|LRCX:Lam Research|CDNS:Cadence|SNPS:Synopsys|"
+        "TER:Teradyne|MPWR:Monolithic Power|NXPI:NXP Semi|"
+        "ARM:ARM Holdings|MCHP:Microchip|ON:ON Semi|SWKS:Skyworks"
     ),
     "IGV": (
-        "MSFT:Microsoft|CRM:Salesforce|ORCL:Oracle|ADBE:Adobe|"
-        "NOW:ServiceNow|INTU:Intuit|SNPS:Synopsys|CDNS:Cadence|"
-        "PANW:Palo Alto|CRWD:CrowdStrike|WDAY:Workday|HUBS:HubSpot|"
-        "ZS:Zscaler|DDOG:Datadog|FTNT:Fortinet|TTD:Trade Desk"
+        "PLTR:Palantir|MSFT:Microsoft|PANW:Palo Alto Networks|"
+        "CRWD:CrowdStrike|CRM:Salesforce|ORCL:Oracle|NOW:ServiceNow|"
+        "ADBE:Adobe|FTNT:Fortinet|INTU:Intuit|SNPS:Synopsys|"
+        "CDNS:Cadence|WDAY:Workday|HUBS:HubSpot|ZS:Zscaler|"
+        "DDOG:Datadog|TTD:Trade Desk"
     ),
     "SKYY": (
-        "AMZN:Amazon|MSFT:Microsoft|GOOGL:Alphabet|ORCL:Oracle|"
-        "CRM:Salesforce|SNOW:Snowflake|NET:Cloudflare|DDOG:Datadog|"
-        "MDB:MongoDB|ZS:Zscaler"
+        "NTNX:Nutanix|ANET:Arista Networks|MSFT:Microsoft|"
+        "AMZN:Amazon|GOOGL:Alphabet|MDB:MongoDB|NET:Cloudflare|"
+        "DOCN:DigitalOcean|TEAM:Atlassian|CRM:Salesforce|"
+        "SNOW:Snowflake|DDOG:Datadog|ORCL:Oracle|ZS:Zscaler"
     ),
     "HACK": (
         "PANW:Palo Alto|CRWD:CrowdStrike|FTNT:Fortinet|ZS:Zscaler|"
-        "CSCO:Cisco|OKTA:Okta|GEN:Gen Digital"
+        "CSCO:Cisco|OKTA:Okta|NET:Cloudflare|AVGO:Broadcom|"
+        "GD:General Dynamics|QLYS:Qualys|GEN:Gen Digital"
     ),
     "CIBR": (
-        "PANW:Palo Alto|CRWD:CrowdStrike|FTNT:Fortinet|ZS:Zscaler|"
-        "CSCO:Cisco|AVGO:Broadcom|PLTR:Palantir"
+        "CRWD:CrowdStrike|PANW:Palo Alto|FTNT:Fortinet|CSCO:Cisco|"
+        "AVGO:Broadcom|NET:Cloudflare|OKTA:Okta|ZS:Zscaler|"
+        "RBRK:Rubrik|FFIV:F5|PLTR:Palantir"
     ),
     "FINX": (
-        "V:Visa|MA:Mastercard|PYPL:PayPal|SQ:Block|COIN:Coinbase|"
-        "AFRM:Affirm|HOOD:Robinhood|GPN:Global Payments|"
-        "FIS:Fidelity Natl|FI:Fiserv"
+        "HOOD:Robinhood|XYZ:Block|PYPL:PayPal|COIN:Coinbase|"
+        "FI:Fiserv|GPN:Global Payments|INTU:Intuit|SOFI:SoFi|"
+        "AFRM:Affirm|V:Visa|MA:Mastercard"
     ),
     "KRE": (
-        "FITB:Fifth Third|KEY:KeyCorp|RF:Regions Financial|"
-        "HBAN:Huntington|CFG:Citizens Financial|MTB:M&T Bank|TFC:Truist"
+        "CFR:Cullen Frost|HOMB:Home BancShares|SSB:SouthState|"
+        "CFG:Citizens Financial|CBSH:Commerce Bancshares|"
+        "HWC:Hancock Whitney|PNFP:Pinnacle Financial|"
+        "UBSI:United Bankshares|ASB:Associated Banc-Corp|"
+        "ONB:Old National|FITB:Fifth Third|KEY:KeyCorp|"
+        "RF:Regions Financial|HBAN:Huntington|MTB:M&T Bank|"
+        "TFC:Truist|WAL:Western Alliance"
     ),
     "KBE": (
         "JPM:JPMorgan|BAC:Bank of America|WFC:Wells Fargo|"
         "GS:Goldman Sachs|MS:Morgan Stanley|C:Citigroup|SCHW:Schwab|"
         "COF:Capital One|USB:US Bancorp|PNC:PNC|BX:Blackstone|"
+        "EQH:Equitable|CRBG:Corebridge|JXN:Jackson Financial|"
+        "VOYA:Voya Financial|ALLY:Ally Financial|"
         "FITB:Fifth Third|KEY:KeyCorp|RF:Regions|HBAN:Huntington|"
-        "CFG:Citizens|MTB:M&T Bank|ALLY:Ally Financial"
+        "CFG:Citizens|MTB:M&T Bank"
     ),
     "KIE": (
         "PGR:Progressive|CB:Chubb|TRV:Travelers|ALL:Allstate|AIG:AIG|"
-        "MET:MetLife|AFL:Aflac|HIG:Hartford|WRB:Berkley"
+        "MET:MetLife|AFL:Aflac|HIG:Hartford|WRB:Berkley|"
+        "WTW:Willis Towers Watson|RGA:Reinsurance Group|"
+        "KNSL:Kinsale Capital|PLMR:Palomar|OSCR:Oscar Health"
     ),
     "IAI": (
-        "GS:Goldman Sachs|MS:Morgan Stanley|SCHW:Schwab|BX:Blackstone|"
-        "IBKR:Interactive Brokers|RJF:Raymond James|LPLA:LPL Financial|"
-        "HOOD:Robinhood"
+        "GS:Goldman Sachs|MS:Morgan Stanley|SCHW:Schwab|HOOD:Robinhood|"
+        "ICE:Intercontinental Exchange|CME:CME Group|MCO:Moody's|"
+        "SPGI:S&P Global|NDAQ:Nasdaq|MSCI:MSCI|"
+        "BX:Blackstone|IBKR:Interactive Brokers|RJF:Raymond James|"
+        "LPLA:LPL Financial"
     ),
     "XBI": (
-        "MRNA:Moderna|VRTX:Vertex|REGN:Regeneron|ALNY:Alnylam|"
-        "INCY:Incyte|HALO:Halozyme|IONS:Ionis|NBIX:Neurocrine|"
-        "CORT:Corcept"
+        "MRNA:Moderna|TWST:Twist Bioscience|NTRA:Natera|HALO:Halozyme|"
+        "KYMR:Kymera|IOVA:Iovance|ROIV:Roivant|TVTX:Travere|"
+        "CORT:Corcept|VRTX:Vertex|REGN:Regeneron|ALNY:Alnylam|"
+        "INCY:Incyte|IONS:Ionis|NBIX:Neurocrine"
     ),
     "IBB": (
-        "AMGN:Amgen|GILD:Gilead|VRTX:Vertex|REGN:Regeneron|"
-        "BIIB:Biogen|MRNA:Moderna|ALNY:Alnylam|ILMN:Illumina|"
-        "IDXX:IDEXX|DXCM:DexCom|ALGN:Align Tech|ZBH:Zimmer Biomet"
+        "VRTX:Vertex|AMGN:Amgen|GILD:Gilead|REGN:Regeneron|"
+        "MRNA:Moderna|ARGX:argenx|NTRA:Natera|RVMD:Revolution Medicines|"
+        "ALNY:Alnylam|BIIB:Biogen|ILMN:Illumina|IDXX:IDEXX|"
+        "DXCM:DexCom"
     ),
     "IHI": (
-        "ISRG:Intuitive Surgical|BSX:Boston Scientific|SYK:Stryker|"
-        "ABT:Abbott|MDT:Medtronic|DHR:Danaher|ZBH:Zimmer Biomet|"
-        "BDX:Becton Dickinson|ALGN:Align Tech|DXCM:DexCom|IDXX:IDEXX|"
-        "EW:Edwards Life"
+        "ABT:Abbott|ISRG:Intuitive Surgical|SYK:Stryker|"
+        "BDX:Becton Dickinson|DXCM:DexCom|MDT:Medtronic|"
+        "RMD:ResMed|EW:Edwards Life|GEHC:GE HealthCare|IDXX:IDEXX"
     ),
     "XPH": (
         "LLY:Eli Lilly|JNJ:Johnson & Johnson|MRK:Merck|PFE:Pfizer|"
-        "BMY:Bristol Myers|ABBV:AbbVie|VRTX:Vertex"
+        "BMY:Bristol Myers|ABBV:AbbVie|VRTX:Vertex|"
+        "CORT:Corcept|ETON:Eton Pharma|CRNX:Crinetics|"
+        "NUVB:Nuvation Bio|OMER:Omeros"
     ),
     "IHF": (
-        "UNH:UnitedHealth|CI:Cigna|ELV:Elevance|HCA:HCA Healthcare|"
-        "MCK:McKesson|CAH:Cardinal Health"
+        "UNH:UnitedHealth|CVS:CVS Health|ELV:Elevance|VEEV:Veeva|"
+        "HCA:HCA Healthcare|HUM:Humana|CNC:Centene|CI:Cigna|"
+        "DGX:Quest Diagnostics|LH:Labcorp|MCK:McKesson|CAH:Cardinal Health"
     ),
     "XOP": (
-        "COP:ConocoPhillips|EOG:EOG Resources|DVN:Devon Energy|"
-        "FANG:Diamondback|OXY:Occidental|MPC:Marathon Petroleum|"
-        "VLO:Valero|PSX:Phillips 66|EQT:EQT Corp|APA:APA Corp|"
-        "OVV:Ovintiv|SM:SM Energy|PR:Permian Resources"
+        "PBF:PBF Energy|DINO:HF Sinclair|MPC:Marathon Petroleum|"
+        "VLO:Valero|PSX:Phillips 66|COP:ConocoPhillips|"
+        "EOG:EOG Resources|DVN:Devon Energy|FANG:Diamondback|"
+        "OXY:Occidental|EQT:EQT Corp|APA:APA Corp|OVV:Ovintiv|"
+        "SM:SM Energy|PR:Permian Resources|CRGY:Crescent Energy"
     ),
-    "OIH": "SLB:SLB|BKR:Baker Hughes|HAL:Halliburton|FTI:TechnipFMC",
+    "OIH": (
+        "SLB:SLB|BKR:Baker Hughes|FTI:TechnipFMC|HAL:Halliburton|"
+        "RIG:Transocean|WFRD:Weatherford|NE:Noble Corp|"
+        "OII:Oceaneering|NOV:NOV Inc"
+    ),
     "AMLP": (
-        "WMB:Williams|KMI:Kinder Morgan|TRGP:Targa|OKE:ONEOK|"
-        "ET:Energy Transfer"
+        "ET:Energy Transfer|MPLX:MPLX|EPD:Enterprise Products|"
+        "WES:Western Midstream|PAA:Plains All American|SUN:Sunoco|"
+        "HESM:Hess Midstream|CQP:Cheniere Partners"
     ),
     "XRT": (
         "AMZN:Amazon|COST:Costco|WMT:Walmart|TJX:TJX Cos|"
         "ROST:Ross Stores|DG:Dollar General|DLTR:Dollar Tree|"
         "FIVE:Five Below|BBY:Best Buy|M:Macy's|BURL:Burlington|"
-        "WSM:Williams-Sonoma|W:Wayfair|ETSY:Etsy|EBAY:eBay"
+        "WSM:Williams-Sonoma|W:Wayfair|ETSY:Etsy|EBAY:eBay|"
+        "TGT:Target|ANF:Abercrombie|KMX:CarMax"
     ),
     "XHB": (
-        "HD:Home Depot|LOW:Lowe's|DHI:D.R. Horton|LEN:Lennar|NVR:NVR|"
-        "PHM:PulteGroup|BLDR:Builders First|MAS:Masco|"
-        "SWK:Stanley Black|OC:Owens Corning"
+        "DHI:D.R. Horton|LEN:Lennar|NVR:NVR|PHM:PulteGroup|"
+        "BLDR:Builders First|OC:Owens Corning|MAS:Masco|"
+        "ALLE:Allegion|WSM:Williams-Sonoma|IBP:Installed Building|"
+        "JCI:Johnson Controls|HD:Home Depot|LOW:Lowe's|"
+        "WMS:Advanced Drainage|CSL:Carlisle"
     ),
     "ITB": (
-        "DHI:D.R. Horton|LEN:Lennar|NVR:NVR|PHM:PulteGroup|"
-        "BLDR:Builders First"
+        "DHI:D.R. Horton|PHM:PulteGroup|LEN:Lennar|NVR:NVR|"
+        "TOL:Toll Brothers|SHW:Sherwin-Williams|HD:Home Depot|"
+        "LOW:Lowe's|MAS:Masco|LII:Lennox|BLDR:Builders First"
     ),
     "PEJ": (
-        "BKNG:Booking|LYV:Live Nation|DPZ:Domino's|YUM:Yum Brands|"
-        "CMG:Chipotle|DIS:Disney|NCLH:Norwegian Cruise|"
-        "RCL:Royal Caribbean|CCL:Carnival|MAR:Marriott|HLT:Hilton"
+        "SBUX:Starbucks|ABNB:Airbnb|SYY:Sysco|LYV:Live Nation|"
+        "DAL:Delta Air|MAR:Marriott|EXPE:Expedia|"
+        "BKNG:Booking|DPZ:Domino's|YUM:Yum Brands|CMG:Chipotle|"
+        "DIS:Disney|NCLH:Norwegian Cruise|RCL:Royal Caribbean|"
+        "CCL:Carnival|HLT:Hilton"
     ),
     "ITA": (
-        "RTX:RTX Corp|LMT:Lockheed Martin|GD:General Dynamics|"
-        "BA:Boeing|GE:GE Aerospace|NOC:Northrop Grumman|HWM:Howmet|"
-        "LHX:L3Harris|TXT:Textron|HEI:Heico|TDG:TransDigm|"
-        "LDOS:Leidos|KTOS:Kratos"
+        "GE:GE Aerospace|RTX:RTX Corp|BA:Boeing|GD:General Dynamics|"
+        "LMT:Lockheed Martin|NOC:Northrop Grumman|HWM:Howmet|"
+        "TDG:TransDigm|LHX:L3Harris|AXON:Axon Enterprise|"
+        "TXT:Textron|HEI:Heico|LDOS:Leidos|KTOS:Kratos"
     ),
     "PPA": (
-        "RTX:RTX Corp|LMT:Lockheed Martin|GD:General Dynamics|"
-        "BA:Boeing|NOC:Northrop|GE:GE Aerospace|HWM:Howmet|"
-        "LHX:L3Harris|TDG:TransDigm|HEI:Heico"
+        "RTX:RTX Corp|GE:GE Aerospace|BA:Boeing|LMT:Lockheed Martin|"
+        "GD:General Dynamics|NOC:Northrop|HWM:Howmet|PH:Parker-Hannifin|"
+        "AXON:Axon Enterprise|LHX:L3Harris|TDG:TransDigm|HEI:Heico"
     ),
     "IYT": (
-        "UNP:Union Pacific|CSX:CSX Corp|NSC:Norfolk Southern|UPS:UPS|"
-        "FDX:FedEx|JBHT:J.B. Hunt|ODFL:Old Dominion|"
-        "XPO:XPO Logistics|DAL:Delta Air|UAL:United Airlines"
+        "UNP:Union Pacific|UBER:Uber|CSX:CSX Corp|UPS:UPS|"
+        "NSC:Norfolk Southern|FDX:FedEx|DAL:Delta Air|UAL:United Airlines|"
+        "ODFL:Old Dominion|EXPD:Expeditors|JBHT:J.B. Hunt|"
+        "XPO:XPO Logistics"
     ),
-    "JETS": "DAL:Delta Air|UAL:United Airlines|LUV:Southwest",
+    "JETS": (
+        "UAL:United Airlines|DAL:Delta Air|AAL:American Airlines|"
+        "LUV:Southwest|SKYW:SkyWest|JBLU:JetBlue|"
+        "ULCC:Frontier Group|ALK:Alaska Air|ALGT:Allegiant Travel"
+    ),
     "GDX": (
-        "NEM:Newmont|AEM:Agnico Eagle|AGI:Alamos Gold|KGC:Kinross|"
-        "AU:AngloGold|BTG:B2Gold|HL:Hecla Mining|EGO:Eldorado Gold|"
+        "NEM:Newmont|AEM:Agnico Eagle|B:Barrick Mining|"
+        "WPM:Wheaton Precious Metals|AU:AngloGold|FNV:Franco-Nevada|"
+        "KGC:Kinross|GFI:Gold Fields|AGI:Alamos Gold|"
+        "BTG:B2Gold|HL:Hecla Mining|EGO:Eldorado Gold|"
         "PAAS:Pan American Silver"
     ),
     "GDXJ": (
-        "AGI:Alamos Gold|KGC:Kinross|HL:Hecla Mining|"
-        "PAAS:Pan American|BTG:B2Gold|AU:AngloGold|EGO:Eldorado"
+        "EQX:Equinox Gold|AGI:Alamos Gold|CDE:Coeur Mining|"
+        "HL:Hecla Mining|AG:First Majestic|EGO:Eldorado|"
+        "IAG:IAMGOLD|KGC:Kinross|BTG:B2Gold|AU:AngloGold"
     ),
     "SIL": (
-        "PAAS:Pan American Silver|AG:First Majestic|HL:Hecla Mining|"
-        "EGO:Eldorado|CDE:Coeur Mining"
+        "WPM:Wheaton Precious Metals|PAAS:Pan American Silver|"
+        "CDE:Coeur Mining|HL:Hecla Mining|AG:First Majestic|"
+        "SSRM:SSR Mining|BVN:Buenaventura|FSM:Fortuna Mining|"
+        "EXK:Endeavour Silver|SVM:Silvercorp"
     ),
-    "COPX": "FCX:Freeport-McMoRan|SCCO:Southern Copper|TECK:Teck Resources",
-    "SLX": "NUE:Nucor|STLD:Steel Dynamics|CLF:Cleveland-Cliffs",
-    "REMX": "ALB:Albemarle|MP:MP Materials",
-    "REM": "AGNC:AGNC Investment|NLY:Annaly Capital",
-    "MORT": "AGNC:AGNC Investment|NLY:Annaly Capital",
+    "COPX": (
+        "FCX:Freeport-McMoRan|SCCO:Southern Copper|TECK:Teck Resources|"
+        "HBM:Hudbay Minerals|BHP:BHP Group|ERO:Ero Copper|"
+        "TGB:Taseko Mines|IE:Ivanhoe Electric"
+    ),
+    "SLX": (
+        "NUE:Nucor|STLD:Steel Dynamics|BHP:BHP Group|RIO:Rio Tinto|"
+        "VALE:Vale|MT:ArcelorMittal|PKX:POSCO|RS:Reliance Steel|"
+        "GGB:Gerdau|CLF:Cleveland-Cliffs"
+    ),
+    "REMX": (
+        "ALB:Albemarle|MP:MP Materials|SQM:Sociedad Quimica|"
+        "LAC:Lithium Americas|TROX:Tronox"
+    ),
+    "REM": (
+        "NLY:Annaly Capital|AGNC:AGNC Investment|STWD:Starwood Property|"
+        "RITM:Rithm Capital|DX:Dynex Capital|ARR:ARMOUR Residential|"
+        "EFC:Ellington Financial|BXMT:Blackstone Mortgage|"
+        "ORC:Orchid Island|LADR:Ladder Capital"
+    ),
+    "MORT": (
+        "NLY:Annaly Capital|AGNC:AGNC Investment|STWD:Starwood Property|"
+        "RITM:Rithm Capital|DX:Dynex Capital|ARR:ARMOUR Residential|"
+        "EFC:Ellington Financial|ORC:Orchid Island|"
+        "BXMT:Blackstone Mortgage|TWO:Two Harbors"
+    ),
     "REZ": (
-        "EQIX:Equinix|WELL:Welltower|DLR:Digital Realty|"
-        "PSA:Public Storage|EXR:Extra Space|IRM:Iron Mountain|"
-        "O:Realty Income|SPG:Simon Property"
+        "WELL:Welltower|PSA:Public Storage|EQR:Equity Residential|"
+        "VTR:Ventas|EXR:Extra Space|ESS:Essex Property|"
+        "INVH:Invitation Homes|SUI:Sun Communities|"
+        "MAA:Mid-America Apartment|DOC:Healthpeak"
     ),
 
-    # ── THEMATIC ─────────────────────────────────────────────────
+    # ── THEMATIC (verified Sep 2026) ─────────────────────────────
     # ARKK updated from ARK Invest holdings report (Sep 2026)
     "ARKK": (
         "TSLA:Tesla|COIN:Coinbase|HOOD:Robinhood|PLTR:Palantir|"
@@ -556,35 +620,63 @@ _RAW: dict[str, str] = {
         "VCYT:Veracyte|PACB:PacBio"
     ),
     "BOTZ": (
-        "NVDA:NVIDIA|ISRG:Intuitive Surgical|INTC:Intel|TER:Teradyne|"
-        "MRVL:Marvell"
+        "ISRG:Intuitive Surgical|ABB:ABB Ltd|NVDA:NVIDIA|"
+        "AUR:Aurora Innovation|CGNX:Cognex|GOOGL:Alphabet|"
+        "TSLA:Tesla|DE:Deere|SYM:Symbotic|ROK:Rockwell Automation"
     ),
-    "ROBO": "ISRG:Intuitive Surgical|TER:Teradyne|NVDA:NVIDIA|INTC:Intel",
+    "ROBO": (
+        "ILMN:Illumina|ZBRA:Zebra Technologies|ISRG:Intuitive Surgical|"
+        "IOT:Samsara|NDSN:Nordson|EMR:Emerson|AMBA:Ambarella|"
+        "ROK:Rockwell Automation|DE:Deere|TER:Teradyne"
+    ),
     "AIQ": (
-        "NVDA:NVIDIA|MSFT:Microsoft|GOOGL:Alphabet|META:Meta|"
-        "CRM:Salesforce|AMZN:Amazon|PLTR:Palantir|SNOW:Snowflake|"
-        "DDOG:Datadog"
+        "PLTR:Palantir|MSFT:Microsoft|ORCL:Oracle|TSLA:Tesla|"
+        "META:Meta|GOOGL:Alphabet|NFLX:Netflix|INTC:Intel|"
+        "AMZN:Amazon|CRM:Salesforce|SNOW:Snowflake|DDOG:Datadog"
     ),
-    "ICLN": "ENPH:Enphase|FSLR:First Solar|BE:Bloom Energy",
-    "TAN": "ENPH:Enphase|FSLR:First Solar",
-    "PBW": "ENPH:Enphase|FSLR:First Solar|BE:Bloom Energy",
-    "URA": "CCJ:Cameco",
-    "LIT": "ALB:Albemarle",
+    "ICLN": (
+        "FSLR:First Solar|ENPH:Enphase|BE:Bloom Energy|"
+        "PLUG:Plug Power|RUN:Sunrun|HASI:HA Sustainable"
+    ),
+    "TAN": (
+        "FSLR:First Solar|ENPH:Enphase|HASI:HA Sustainable|"
+        "RUN:Sunrun|CSIQ:Canadian Solar|JKS:JinkoSolar|ARRY:Array Tech"
+    ),
+    "PBW": (
+        "ACHR:Archer Aviation|DAR:Darling Ingredients|ITRI:Itron|"
+        "GEVO:Gevo|PLUG:Plug Power|FSLR:First Solar|"
+        "BE:Bloom Energy|ENPH:Enphase"
+    ),
+    "URA": (
+        "CCJ:Cameco|NXE:NexGen Energy|UEC:Uranium Energy|"
+        "OKLO:Oklo|SMR:NuScale Power|EFR:Energy Fuels"
+    ),
+    "LIT": (
+        "ALB:Albemarle|TSLA:Tesla|SQM:Sociedad Quimica|"
+        "ENS:EnerSys|LAC:Lithium Americas|RIO:Rio Tinto"
+    ),
     "BLOK": (
-        "COIN:Coinbase|HOOD:Robinhood|MARA:Marathon Digital|"
-        "RIOT:Riot Platforms|MSTR:MicroStrategy"
+        "HOOD:Robinhood|COIN:Coinbase|CIFR:Cipher Mining|"
+        "HUT:Hut 8|WULF:TeraWulf|AMD:AMD|CLSK:CleanSpark|"
+        "DELL:Dell|MARA:Marathon Digital|RIOT:Riot Platforms"
     ),
     "KWEB": (
         "BABA:Alibaba|PDD:PDD Holdings|JD:JD.com|BIDU:Baidu|"
-        "TCOM:Trip.com"
+        "TCOM:Trip.com|NTES:NetEase|TME:Tencent Music|"
+        "MNSO:MINISO|ZTO:ZTO Express"
     ),
-    "MJ": "TLRY:Tilray|CGC:Canopy Growth|ACB:Aurora Cannabis",
+    "MJ": (
+        "TLRY:Tilray|CRON:Cronos|SNDL:SNDL|VFF:Village Farms|"
+        "ACB:Aurora Cannabis|OGI:Organigram|HITI:High Tide"
+    ),
     "UFO": (
-        "GOOG:Alphabet|LMT:Lockheed Martin|RTX:RTX Corp|"
-        "NOC:Northrop|BA:Boeing|RKLB:Rocket Lab"
+        "RKLB:Rocket Lab|ASTS:AST SpaceMobile|IRDM:Iridium|"
+        "GSAT:Globalstar|GRMN:Garmin|VSAT:Viasat"
     ),
     "WCLD": (
-        "DDOG:Datadog|ZS:Zscaler|CRWD:CrowdStrike|NET:Cloudflare|"
+        "OKTA:Okta|CRWD:CrowdStrike|CRM:Salesforce|GTLB:GitLab|"
+        "PD:PagerDuty|DOCU:DocuSign|DT:Dynatrace|NET:Cloudflare|"
+        "NOW:ServiceNow|DDOG:Datadog|ZS:Zscaler|"
         "SNOW:Snowflake|MDB:MongoDB|HUBS:HubSpot"
     ),
 }
