@@ -1,6 +1,6 @@
 {
   "scan_date": "2026-09-21",
-  "timestamp": "2026-09-21T22:21:21.724108",
+  "timestamp": "2026-09-21T22:41:03.218387",
   "config": {
     "timeframes": [
       "M",
@@ -141757,20 +141757,8 @@
         "Linde"
       ],
       [
-        "NEM",
-        "Newmont"
-      ],
-      [
-        "FCX",
-        "Freeport-McMoRan"
-      ],
-      [
-        "CTVA",
-        "Corteva"
-      ],
-      [
         "APD",
-        "Air Products and Chemicals"
+        "Air Products"
       ],
       [
         "SHW",
@@ -141781,12 +141769,64 @@
         "Ecolab"
       ],
       [
+        "CTVA",
+        "Corteva"
+      ],
+      [
+        "NEM",
+        "Newmont"
+      ],
+      [
+        "FCX",
+        "Freeport-McMoRan"
+      ],
+      [
         "NUE",
         "Nucor"
       ],
       [
         "VMC",
         "Vulcan Materials"
+      ],
+      [
+        "MLM",
+        "Martin Marietta"
+      ],
+      [
+        "IFF",
+        "IFF"
+      ],
+      [
+        "PPG",
+        "PPG Industries"
+      ],
+      [
+        "DD",
+        "DuPont"
+      ],
+      [
+        "DOW",
+        "Dow"
+      ],
+      [
+        "ALB",
+        "Albemarle"
+      ],
+      [
+        "CF",
+        "CF Industries"
+      ],
+      [
+        "IP",
+        "Intl Paper"
+      ],
+      [
+        "AMCR",
+        "Amcor"
+      ],
+      [
+        "MOS",
+        "Mosaic"
       ],
       [
         "CRH",
@@ -141796,15 +141836,11 @@
     "XLC": [
       [
         "META",
-        "Meta Platforms Inc"
+        "Meta"
       ],
       [
         "GOOGL",
-        "Alphabet Inc"
-      ],
-      [
-        "GOOG",
-        "Alphabet Inc"
+        "Alphabet A"
       ],
       [
         "T",
@@ -141812,27 +141848,59 @@
       ],
       [
         "VZ",
-        "Verizon Communications"
+        "Verizon"
       ],
       [
-        "CMCSA",
-        "Comcast Corp"
+        "DIS",
+        "Disney"
       ],
       [
         "NFLX",
         "Netflix"
       ],
       [
-        "DIS",
-        "The Walt Disney"
+        "TMUS",
+        "T-Mobile"
+      ],
+      [
+        "CMCSA",
+        "Comcast"
+      ],
+      [
+        "LYV",
+        "Live Nation"
+      ],
+      [
+        "OMC",
+        "Omnicom"
+      ],
+      [
+        "TTWO",
+        "Take-Two"
+      ],
+      [
+        "CHTR",
+        "Charter"
+      ],
+      [
+        "APP",
+        "AppLovin"
+      ],
+      [
+        "TTD",
+        "Trade Desk"
+      ],
+      [
+        "RDDT",
+        "Reddit"
       ],
       [
         "WBD",
-        "Warner Bros. Discovery Inc Ordinary Shares -"
+        "Warner Bros Discovery"
       ],
       [
-        "TMUS",
-        "T-Mobile US"
+        "GOOG",
+        "Alphabet Inc"
       ]
     ],
     "XLE": [
@@ -141858,7 +141926,7 @@
       ],
       [
         "VLO",
-        "Valero Energy"
+        "Valero"
       ],
       [
         "SLB",
@@ -141870,25 +141938,61 @@
       ],
       [
         "WMB",
-        "Williams Companies"
+        "Williams Cos"
       ],
       [
         "KMI",
-        "Kinder Morgan Inc Class P"
+        "Kinder Morgan"
+      ],
+      [
+        "TRGP",
+        "Targa Resources"
+      ],
+      [
+        "OKE",
+        "ONEOK"
+      ],
+      [
+        "DVN",
+        "Devon Energy"
+      ],
+      [
+        "BKR",
+        "Baker Hughes"
+      ],
+      [
+        "OXY",
+        "Occidental"
+      ],
+      [
+        "FANG",
+        "Diamondback"
+      ],
+      [
+        "EQT",
+        "EQT Corp"
+      ],
+      [
+        "HAL",
+        "Halliburton"
+      ],
+      [
+        "APA",
+        "APA Corp"
       ]
     ],
     "XLF": [
       [
         "JPM",
-        "JPMorgan Chase &"
+        "JPMorgan"
       ],
       [
         "V",
-        "Visa Inc"
+        "Visa"
       ],
       [
         "MA",
-        "Mastercard Inc"
+        "Mastercard"
       ],
       [
         "BAC",
@@ -141896,11 +142000,11 @@
       ],
       [
         "GS",
-        "The Goldman Sachs"
+        "Goldman Sachs"
       ],
       [
         "WFC",
-        "Wells Fargo &"
+        "Wells Fargo"
       ],
       [
         "MS",
@@ -141913,6 +142017,78 @@
       [
         "SCHW",
         "Charles Schwab"
+      ],
+      [
+        "AXP",
+        "American Express"
+      ],
+      [
+        "BLK",
+        "BlackRock"
+      ],
+      [
+        "PGR",
+        "Progressive"
+      ],
+      [
+        "COF",
+        "Capital One"
+      ],
+      [
+        "CB",
+        "Chubb"
+      ],
+      [
+        "SPGI",
+        "S&P Global"
+      ],
+      [
+        "CME",
+        "CME Group"
+      ],
+      [
+        "USB",
+        "US Bancorp"
+      ],
+      [
+        "PNC",
+        "PNC Financial"
+      ],
+      [
+        "BX",
+        "Blackstone"
+      ],
+      [
+        "HOOD",
+        "Robinhood"
+      ],
+      [
+        "ICE",
+        "Intercontinental Exchange"
+      ],
+      [
+        "TRV",
+        "Travelers"
+      ],
+      [
+        "MET",
+        "MetLife"
+      ],
+      [
+        "AIG",
+        "AIG"
+      ],
+      [
+        "AFL",
+        "Aflac"
+      ],
+      [
+        "ALL",
+        "Allstate"
+      ],
+      [
+        "MCO",
+        "Moody's"
       ]
     ],
     "XLI": [
@@ -141926,35 +142102,95 @@
       ],
       [
         "RTX",
-        "RTX"
+        "RTX Corp"
       ],
       [
-        "GEV",
-        "GE Vernova"
+        "DE",
+        "Deere"
       ],
       [
         "UNP",
         "Union Pacific"
       ],
       [
-        "DE",
-        "Deere &"
+        "ETN",
+        "Eaton"
       ],
       [
         "BA",
         "Boeing"
       ],
       [
-        "ETN",
-        "Eaton Corp"
-      ],
-      [
         "UBER",
-        "Uber Technologies"
+        "Uber"
       ],
       [
         "PH",
-        "Parker Hannifin"
+        "Parker-Hannifin"
+      ],
+      [
+        "LMT",
+        "Lockheed Martin"
+      ],
+      [
+        "ADP",
+        "Automatic Data"
+      ],
+      [
+        "TT",
+        "Trane Technologies"
+      ],
+      [
+        "VRT",
+        "Vertiv"
+      ],
+      [
+        "PWR",
+        "Quanta Services"
+      ],
+      [
+        "HWM",
+        "Howmet Aerospace"
+      ],
+      [
+        "GD",
+        "General Dynamics"
+      ],
+      [
+        "CSX",
+        "CSX Corp"
+      ],
+      [
+        "JCI",
+        "Johnson Controls"
+      ],
+      [
+        "MMM",
+        "3M"
+      ],
+      [
+        "EMR",
+        "Emerson"
+      ],
+      [
+        "WM",
+        "Waste Management"
+      ],
+      [
+        "UPS",
+        "UPS"
+      ],
+      [
+        "CMI",
+        "Cummins"
+      ],
+      [
+        "NSC",
+        "Norfolk Southern"
+      ],
+      [
+        "GEV",
+        "GE Vernova"
       ]
     ],
     "XLK": [
@@ -141971,16 +142207,16 @@
         "Microsoft"
       ],
       [
+        "AMD",
+        "AMD"
+      ],
+      [
         "AVGO",
         "Broadcom"
       ],
       [
         "MU",
-        "Micron Technology"
-      ],
-      [
-        "AMD",
-        "Advanced Micro Devices"
+        "Micron"
       ],
       [
         "INTC",
@@ -141988,57 +142224,189 @@
       ],
       [
         "CSCO",
-        "Cisco Systems"
+        "Cisco"
       ],
       [
         "PLTR",
-        "Palantir Technologies Inc Ordinary Shares -"
+        "Palantir"
       ],
       [
         "LRCX",
         "Lam Research"
+      ],
+      [
+        "AMAT",
+        "Applied Materials"
+      ],
+      [
+        "PANW",
+        "Palo Alto Networks"
+      ],
+      [
+        "ORCL",
+        "Oracle"
+      ],
+      [
+        "CRWD",
+        "CrowdStrike"
+      ],
+      [
+        "TXN",
+        "Texas Instruments"
+      ],
+      [
+        "IBM",
+        "IBM"
+      ],
+      [
+        "KLAC",
+        "KLA Corp"
+      ],
+      [
+        "MRVL",
+        "Marvell"
+      ],
+      [
+        "ANET",
+        "Arista Networks"
+      ],
+      [
+        "QCOM",
+        "Qualcomm"
+      ],
+      [
+        "CRM",
+        "Salesforce"
+      ],
+      [
+        "APH",
+        "Amphenol"
+      ],
+      [
+        "STX",
+        "Seagate"
+      ],
+      [
+        "ADI",
+        "Analog Devices"
+      ],
+      [
+        "INTU",
+        "Intuit"
+      ],
+      [
+        "NOW",
+        "ServiceNow"
+      ],
+      [
+        "ADBE",
+        "Adobe"
+      ],
+      [
+        "SNPS",
+        "Synopsys"
+      ],
+      [
+        "CDNS",
+        "Cadence"
+      ],
+      [
+        "ACN",
+        "Accenture"
+      ],
+      [
+        "FTNT",
+        "Fortinet"
       ]
     ],
     "XLP": [
       [
-        "WMT",
-        "Walmart"
-      ],
-      [
-        "COST",
-        "Costco Wholesale"
+        "PG",
+        "Procter & Gamble"
       ],
       [
         "KO",
         "Coca-Cola"
       ],
       [
-        "PG",
-        "Procter & Gamble"
+        "PEP",
+        "PepsiCo"
+      ],
+      [
+        "COST",
+        "Costco"
+      ],
+      [
+        "WMT",
+        "Walmart"
       ],
       [
         "PM",
-        "Philip Morris International"
+        "Philip Morris"
       ],
       [
-        "TGT",
-        "Target"
+        "MO",
+        "Altria"
       ],
       [
         "CL",
         "Colgate-Palmolive"
       ],
       [
-        "PEP",
-        "PepsiCo"
-      ],
-      [
         "MDLZ",
-        "Mondelez International Inc"
+        "Mondelez"
       ],
       [
-        "MO",
-        "Altria"
+        "GIS",
+        "General Mills"
+      ],
+      [
+        "EL",
+        "Estee Lauder"
+      ],
+      [
+        "KHC",
+        "Kraft Heinz"
+      ],
+      [
+        "STZ",
+        "Constellation Brands"
+      ],
+      [
+        "HSY",
+        "Hershey"
+      ],
+      [
+        "MKC",
+        "McCormick"
+      ],
+      [
+        "CHD",
+        "Church & Dwight"
+      ],
+      [
+        "CLX",
+        "Clorox"
+      ],
+      [
+        "KMB",
+        "Kimberly-Clark"
+      ],
+      [
+        "TSN",
+        "Tyson"
+      ],
+      [
+        "SYY",
+        "Sysco"
+      ],
+      [
+        "ADM",
+        "ADM"
+      ],
+      [
+        "TGT",
+        "Target"
       ]
     ],
     "XLRE": [
@@ -142051,28 +142419,20 @@
         "Prologis"
       ],
       [
-        "EQIX",
-        "Equinix"
-      ],
-      [
         "AMT",
         "American Tower"
       ],
       [
-        "VMRK",
-        "Vivmark Residential"
-      ],
-      [
-        "DLR",
-        "Digital Realty Trust"
+        "EQIX",
+        "Equinix"
       ],
       [
         "SPG",
         "Simon Property"
       ],
       [
-        "VTR",
-        "Ventas"
+        "DLR",
+        "Digital Realty"
       ],
       [
         "PSA",
@@ -142081,6 +142441,38 @@
       [
         "O",
         "Realty Income"
+      ],
+      [
+        "CCI",
+        "Crown Castle"
+      ],
+      [
+        "CBRE",
+        "CBRE Group"
+      ],
+      [
+        "IRM",
+        "Iron Mountain"
+      ],
+      [
+        "EXR",
+        "Extra Space"
+      ],
+      [
+        "VTR",
+        "Ventas"
+      ],
+      [
+        "ESS",
+        "Essex Property"
+      ],
+      [
+        "HST",
+        "Host Hotels"
+      ],
+      [
+        "VMRK",
+        "Vivmark Residential"
       ]
     ],
     "XLU": [
@@ -142090,7 +142482,7 @@
       ],
       [
         "SO",
-        "Southern"
+        "Southern Co"
       ],
       [
         "DUK",
@@ -142101,34 +142493,90 @@
         "Constellation Energy"
       ],
       [
-        "AEP",
-        "American Electric Power"
+        "VST",
+        "Vistra"
       ],
       [
-        "D",
-        "Dominion Energy"
+        "AEP",
+        "AEP"
       ],
       [
         "SRE",
         "Sempra"
       ],
       [
-        "ETR",
-        "Entergy"
+        "D",
+        "Dominion"
+      ],
+      [
+        "EXC",
+        "Exelon"
       ],
       [
         "XEL",
         "Xcel Energy"
       ],
       [
-        "EXC",
-        "Exelon"
+        "PEG",
+        "PSEG"
+      ],
+      [
+        "ED",
+        "Consolidated Edison"
+      ],
+      [
+        "WEC",
+        "WEC Energy"
+      ],
+      [
+        "ETR",
+        "Entergy"
+      ],
+      [
+        "AEE",
+        "Ameren"
+      ],
+      [
+        "CMS",
+        "CMS Energy"
+      ],
+      [
+        "AWK",
+        "American Water"
+      ],
+      [
+        "ES",
+        "Eversource"
+      ],
+      [
+        "EIX",
+        "Edison Intl"
+      ],
+      [
+        "DTE",
+        "DTE Energy"
+      ],
+      [
+        "FE",
+        "FirstEnergy"
+      ],
+      [
+        "PPL",
+        "PPL Corp"
+      ],
+      [
+        "NI",
+        "NiSource"
+      ],
+      [
+        "EVRG",
+        "Evergy"
       ]
     ],
     "XLV": [
       [
         "LLY",
-        "Eli Lilly and"
+        "Eli Lilly"
       ],
       [
         "JNJ",
@@ -142139,38 +142587,94 @@
         "AbbVie"
       ],
       [
-        "MRK",
-        "Merck &"
-      ],
-      [
         "UNH",
         "UnitedHealth"
+      ],
+      [
+        "ABT",
+        "Abbott Labs"
+      ],
+      [
+        "MRK",
+        "Merck"
+      ],
+      [
+        "TMO",
+        "Thermo Fisher"
+      ],
+      [
+        "ISRG",
+        "Intuitive Surgical"
+      ],
+      [
+        "BSX",
+        "Boston Scientific"
       ],
       [
         "AMGN",
         "Amgen"
       ],
       [
-        "TMO",
-        "Thermo Fisher Scientific"
-      ],
-      [
-        "ABT",
-        "Abbott Laboratories"
-      ],
-      [
         "GILD",
-        "Gilead Sciences"
+        "Gilead"
       ],
       [
         "PFE",
         "Pfizer"
+      ],
+      [
+        "SYK",
+        "Stryker"
+      ],
+      [
+        "DHR",
+        "Danaher"
+      ],
+      [
+        "MDT",
+        "Medtronic"
+      ],
+      [
+        "VRTX",
+        "Vertex"
+      ],
+      [
+        "BMY",
+        "Bristol Myers"
+      ],
+      [
+        "MCK",
+        "McKesson"
+      ],
+      [
+        "CI",
+        "Cigna"
+      ],
+      [
+        "ELV",
+        "Elevance"
+      ],
+      [
+        "HCA",
+        "HCA Healthcare"
+      ],
+      [
+        "ZTS",
+        "Zoetis"
+      ],
+      [
+        "REGN",
+        "Regeneron"
+      ],
+      [
+        "BDX",
+        "Becton Dickinson"
       ]
     ],
     "XLY": [
       [
         "AMZN",
-        "Amazon.com"
+        "Amazon"
       ],
       [
         "TSLA",
@@ -142178,7 +142682,7 @@
       ],
       [
         "HD",
-        "The Home Depot"
+        "Home Depot"
       ],
       [
         "MCD",
@@ -142186,11 +142690,11 @@
       ],
       [
         "BKNG",
-        "Booking"
+        "Booking Holdings"
       ],
       [
         "TJX",
-        "TJX Companies"
+        "TJX Cos"
       ],
       [
         "SBUX",
@@ -142198,15 +142702,51 @@
       ],
       [
         "LOW",
-        "Lowe's Companies"
+        "Lowe's"
       ],
       [
         "DASH",
-        "DoorDash Inc Ordinary Shares -"
+        "DoorDash"
       ],
       [
         "GM",
         "General Motors"
+      ],
+      [
+        "CMG",
+        "Chipotle"
+      ],
+      [
+        "ROST",
+        "Ross Stores"
+      ],
+      [
+        "ORLY",
+        "O'Reilly Auto"
+      ],
+      [
+        "AZO",
+        "AutoZone"
+      ],
+      [
+        "DHI",
+        "D.R. Horton"
+      ],
+      [
+        "LEN",
+        "Lennar"
+      ],
+      [
+        "YUM",
+        "Yum Brands"
+      ],
+      [
+        "DPZ",
+        "Domino's"
+      ],
+      [
+        "LULU",
+        "Lululemon"
       ]
     ],
     "SMH": [
@@ -142216,7 +142756,11 @@
       ],
       [
         "TSM",
-        "Taiwan Semiconductor Manufacturing Co Ltd ADR"
+        "Taiwan Semi"
+      ],
+      [
+        "AMD",
+        "AMD"
       ],
       [
         "AVGO",
@@ -142224,23 +142768,23 @@
       ],
       [
         "MU",
-        "Micron Technology"
-      ],
-      [
-        "AMD",
-        "Advanced Micro Devices"
+        "Micron"
       ],
       [
         "ASML",
-        "ASML Holding NV ADR"
+        "ASML"
       ],
       [
-        "LRCX",
-        "Lam Research"
+        "INTC",
+        "Intel"
       ],
       [
-        "AMAT",
-        "Applied Materials"
+        "QCOM",
+        "Qualcomm"
+      ],
+      [
+        "MRVL",
+        "Marvell"
       ],
       [
         "ADI",
@@ -142249,36 +142793,6 @@
       [
         "TXN",
         "Texas Instruments"
-      ]
-    ],
-    "SOXX": [
-      [
-        "NVDA",
-        "NVIDIA"
-      ],
-      [
-        "MU",
-        "Micron Technology"
-      ],
-      [
-        "AMD",
-        "Advanced Micro Devices"
-      ],
-      [
-        "AVGO",
-        "Broadcom"
-      ],
-      [
-        "INTC",
-        "Intel"
-      ],
-      [
-        "MRVL",
-        "Marvell Technology"
-      ],
-      [
-        "TSM",
-        "Taiwan Semiconductor Manufacturing Co Ltd ADR"
       ],
       [
         "AMAT",
@@ -142290,25 +142804,155 @@
       ],
       [
         "KLAC",
-        "KLA"
+        "KLA Corp"
+      ],
+      [
+        "CDNS",
+        "Cadence"
+      ],
+      [
+        "SNPS",
+        "Synopsys"
+      ],
+      [
+        "TER",
+        "Teradyne"
+      ],
+      [
+        "MPWR",
+        "Monolithic Power"
+      ],
+      [
+        "NXPI",
+        "NXP Semi"
+      ],
+      [
+        "ARM",
+        "ARM Holdings"
+      ],
+      [
+        "ALAB",
+        "Astera Labs"
+      ],
+      [
+        "MCHP",
+        "Microchip"
+      ],
+      [
+        "ON",
+        "ON Semi"
+      ],
+      [
+        "SWKS",
+        "Skyworks"
+      ]
+    ],
+    "SOXX": [
+      [
+        "NVDA",
+        "NVIDIA"
+      ],
+      [
+        "AMD",
+        "AMD"
+      ],
+      [
+        "MU",
+        "Micron"
+      ],
+      [
+        "AVGO",
+        "Broadcom"
+      ],
+      [
+        "INTC",
+        "Intel"
+      ],
+      [
+        "MRVL",
+        "Marvell"
+      ],
+      [
+        "TSM",
+        "Taiwan Semi"
+      ],
+      [
+        "AMAT",
+        "Applied Materials"
+      ],
+      [
+        "KLAC",
+        "KLA Corp"
+      ],
+      [
+        "ADI",
+        "Analog Devices"
+      ],
+      [
+        "TXN",
+        "Texas Instruments"
+      ],
+      [
+        "QCOM",
+        "Qualcomm"
+      ],
+      [
+        "LRCX",
+        "Lam Research"
+      ],
+      [
+        "CDNS",
+        "Cadence"
+      ],
+      [
+        "SNPS",
+        "Synopsys"
+      ],
+      [
+        "TER",
+        "Teradyne"
+      ],
+      [
+        "MPWR",
+        "Monolithic Power"
+      ],
+      [
+        "NXPI",
+        "NXP Semi"
+      ],
+      [
+        "ARM",
+        "ARM Holdings"
+      ],
+      [
+        "MCHP",
+        "Microchip"
+      ],
+      [
+        "ON",
+        "ON Semi"
+      ],
+      [
+        "SWKS",
+        "Skyworks"
       ]
     ],
     "IGV": [
       [
         "PLTR",
-        "Palantir Technologies Inc Ordinary Shares -"
-      ],
-      [
-        "PANW",
-        "Palo Alto Networks"
+        "Palantir"
       ],
       [
         "MSFT",
         "Microsoft"
       ],
       [
+        "PANW",
+        "Palo Alto Networks"
+      ],
+      [
         "CRWD",
-        "CrowdStrike Holdings Inc"
+        "CrowdStrike"
       ],
       [
         "CRM",
@@ -142333,44 +142977,96 @@
       [
         "INTU",
         "Intuit"
+      ],
+      [
+        "SNPS",
+        "Synopsys"
+      ],
+      [
+        "CDNS",
+        "Cadence"
+      ],
+      [
+        "WDAY",
+        "Workday"
+      ],
+      [
+        "HUBS",
+        "HubSpot"
+      ],
+      [
+        "ZS",
+        "Zscaler"
+      ],
+      [
+        "DDOG",
+        "Datadog"
+      ],
+      [
+        "TTD",
+        "Trade Desk"
       ]
     ],
     "SKYY": [
       [
         "NTNX",
-        "Nutanix Inc"
+        "Nutanix"
       ],
       [
         "ANET",
         "Arista Networks"
       ],
       [
-        "P",
-        "Everpure Inc"
-      ],
-      [
         "MSFT",
         "Microsoft"
       ],
       [
-        "MDB",
-        "MongoDB Inc"
-      ],
-      [
         "AMZN",
-        "Amazon.com"
-      ],
-      [
-        "TEAM",
-        "Atlassian Corp"
+        "Amazon"
       ],
       [
         "GOOGL",
-        "Alphabet Inc"
+        "Alphabet"
+      ],
+      [
+        "MDB",
+        "MongoDB"
       ],
       [
         "NET",
         "Cloudflare"
+      ],
+      [
+        "DOCN",
+        "DigitalOcean"
+      ],
+      [
+        "TEAM",
+        "Atlassian"
+      ],
+      [
+        "CRM",
+        "Salesforce"
+      ],
+      [
+        "SNOW",
+        "Snowflake"
+      ],
+      [
+        "DDOG",
+        "Datadog"
+      ],
+      [
+        "ORCL",
+        "Oracle"
+      ],
+      [
+        "ZS",
+        "Zscaler"
+      ],
+      [
+        "P",
+        "Everpure Inc"
       ],
       [
         "IBM",
@@ -142380,53 +143076,57 @@
     "HACK": [
       [
         "PANW",
-        "Palo Alto Networks"
+        "Palo Alto"
       ],
       [
         "CRWD",
-        "CrowdStrike Holdings Inc"
-      ],
-      [
-        "NET",
-        "Cloudflare"
+        "CrowdStrike"
       ],
       [
         "FTNT",
         "Fortinet"
       ],
       [
+        "ZS",
+        "Zscaler"
+      ],
+      [
+        "CSCO",
+        "Cisco"
+      ],
+      [
+        "OKTA",
+        "Okta"
+      ],
+      [
+        "NET",
+        "Cloudflare"
+      ],
+      [
         "AVGO",
         "Broadcom"
       ],
       [
-        "OKTA",
-        "Okta Inc"
+        "GD",
+        "General Dynamics"
       ],
       [
         "QLYS",
         "Qualys"
       ],
       [
-        "CSCO",
-        "Cisco Systems"
-      ],
-      [
-        "ZS",
-        "Zscaler"
-      ],
-      [
-        "GD",
-        "General Dynamics"
+        "GEN",
+        "Gen Digital"
       ]
     ],
     "CIBR": [
       [
-        "PANW",
-        "Palo Alto Networks"
+        "CRWD",
+        "CrowdStrike"
       ],
       [
-        "CRWD",
-        "CrowdStrike Holdings Inc"
+        "PANW",
+        "Palo Alto"
       ],
       [
         "FTNT",
@@ -142434,7 +143134,7 @@
       ],
       [
         "CSCO",
-        "Cisco Systems"
+        "Cisco"
       ],
       [
         "AVGO",
@@ -142446,29 +143146,33 @@
       ],
       [
         "OKTA",
-        "Okta Inc"
+        "Okta"
       ],
       [
         "ZS",
         "Zscaler"
       ],
       [
+        "RBRK",
+        "Rubrik"
+      ],
+      [
         "FFIV",
         "F5"
       ],
       [
-        "RBRK",
-        "Rubrik Inc Class A Shares"
+        "PLTR",
+        "Palantir"
       ]
     ],
     "FINX": [
       [
         "HOOD",
-        "Robinhood Markets Inc"
+        "Robinhood"
       ],
       [
         "XYZ",
-        "Block Inc"
+        "Block"
       ],
       [
         "PYPL",
@@ -142476,10 +143180,10 @@
       ],
       [
         "COIN",
-        "Coinbase Global Inc Ordinary Shares -"
+        "Coinbase"
       ],
       [
-        "FISV",
+        "FI",
         "Fiserv"
       ],
       [
@@ -142492,41 +143196,37 @@
       ],
       [
         "SOFI",
-        "SoFi Technologies Inc Ordinary Shares"
+        "SoFi"
       ],
       [
         "AFRM",
-        "Affirm Holdings Inc Ordinary Shares -"
+        "Affirm"
+      ],
+      [
+        "V",
+        "Visa"
+      ],
+      [
+        "MA",
+        "Mastercard"
+      ],
+      [
+        "FISV",
+        "Fiserv"
       ]
     ],
     "KRE": [
       [
         "CFR",
-        "Cullen/Frost Bankers"
-      ],
-      [
-        "SSB",
-        "SouthState Bank"
-      ],
-      [
-        "BPOP",
-        "Popular"
-      ],
-      [
-        "PNFP",
-        "Pinnacle Financial Partners"
-      ],
-      [
-        "UMBF",
-        "UMB Financial"
-      ],
-      [
-        "ASB",
-        "Associated Banc-Corp"
+        "Cullen Frost"
       ],
       [
         "HOMB",
         "Home BancShares"
+      ],
+      [
+        "SSB",
+        "SouthState"
       ],
       [
         "CFG",
@@ -142539,24 +143239,152 @@
       [
         "HWC",
         "Hancock Whitney"
+      ],
+      [
+        "PNFP",
+        "Pinnacle Financial"
+      ],
+      [
+        "UBSI",
+        "United Bankshares"
+      ],
+      [
+        "ASB",
+        "Associated Banc-Corp"
+      ],
+      [
+        "ONB",
+        "Old National"
+      ],
+      [
+        "FITB",
+        "Fifth Third"
+      ],
+      [
+        "KEY",
+        "KeyCorp"
+      ],
+      [
+        "RF",
+        "Regions Financial"
+      ],
+      [
+        "HBAN",
+        "Huntington"
+      ],
+      [
+        "MTB",
+        "M&T Bank"
+      ],
+      [
+        "TFC",
+        "Truist"
+      ],
+      [
+        "WAL",
+        "Western Alliance"
+      ],
+      [
+        "BPOP",
+        "Popular"
+      ],
+      [
+        "UMBF",
+        "UMB Financial"
       ]
     ],
     "KBE": [
+      [
+        "JPM",
+        "JPMorgan"
+      ],
+      [
+        "BAC",
+        "Bank of America"
+      ],
+      [
+        "WFC",
+        "Wells Fargo"
+      ],
+      [
+        "GS",
+        "Goldman Sachs"
+      ],
+      [
+        "MS",
+        "Morgan Stanley"
+      ],
+      [
+        "C",
+        "Citigroup"
+      ],
+      [
+        "SCHW",
+        "Schwab"
+      ],
+      [
+        "COF",
+        "Capital One"
+      ],
+      [
+        "USB",
+        "US Bancorp"
+      ],
+      [
+        "PNC",
+        "PNC"
+      ],
+      [
+        "BX",
+        "Blackstone"
+      ],
+      [
+        "EQH",
+        "Equitable"
+      ],
+      [
+        "CRBG",
+        "Corebridge"
+      ],
       [
         "JXN",
         "Jackson Financial"
       ],
       [
+        "VOYA",
+        "Voya Financial"
+      ],
+      [
+        "ALLY",
+        "Ally Financial"
+      ],
+      [
+        "FITB",
+        "Fifth Third"
+      ],
+      [
+        "KEY",
+        "KeyCorp"
+      ],
+      [
+        "RF",
+        "Regions"
+      ],
+      [
+        "HBAN",
+        "Huntington"
+      ],
+      [
+        "CFG",
+        "Citizens"
+      ],
+      [
+        "MTB",
+        "M&T Bank"
+      ],
+      [
         "NMIH",
         "NMI"
-      ],
-      [
-        "CRBG",
-        "Corebridge Financial"
-      ],
-      [
-        "EQH",
-        "Equitable"
       ],
       [
         "MTG",
@@ -142575,42 +143403,78 @@
         "Bank of New York Mellon"
       ],
       [
-        "JPM",
-        "JPMorgan Chase &"
-      ],
-      [
         "ESNT",
         "Essent"
       ]
     ],
     "KIE": [
       [
-        "BWIN",
-        "The Baldwin Insurance Group Inc"
+        "PGR",
+        "Progressive"
+      ],
+      [
+        "CB",
+        "Chubb"
+      ],
+      [
+        "TRV",
+        "Travelers"
+      ],
+      [
+        "ALL",
+        "Allstate"
+      ],
+      [
+        "AIG",
+        "AIG"
+      ],
+      [
+        "MET",
+        "MetLife"
+      ],
+      [
+        "AFL",
+        "Aflac"
+      ],
+      [
+        "HIG",
+        "Hartford"
+      ],
+      [
+        "WRB",
+        "Berkley"
       ],
       [
         "WTW",
         "Willis Towers Watson"
       ],
       [
-        "RYAN",
-        "Ryan Specialty Holdings Inc"
-      ],
-      [
-        "TRV",
-        "The Travelers Companies"
-      ],
-      [
-        "BRO",
-        "Brown & Brown"
-      ],
-      [
         "RGA",
-        "Reinsurance Group of America"
+        "Reinsurance Group"
       ],
       [
         "KNSL",
         "Kinsale Capital"
+      ],
+      [
+        "PLMR",
+        "Palomar"
+      ],
+      [
+        "OSCR",
+        "Oscar Health"
+      ],
+      [
+        "BWIN",
+        "The Baldwin Insurance Group Inc"
+      ],
+      [
+        "RYAN",
+        "Ryan Specialty Holdings Inc"
+      ],
+      [
+        "BRO",
+        "Brown & Brown"
       ],
       [
         "AJG",
@@ -142628,7 +143492,7 @@
     "IAI": [
       [
         "GS",
-        "The Goldman Sachs"
+        "Goldman Sachs"
       ],
       [
         "MS",
@@ -142636,23 +143500,23 @@
       ],
       [
         "SCHW",
-        "Charles Schwab"
+        "Schwab"
       ],
       [
         "HOOD",
-        "Robinhood Markets Inc"
+        "Robinhood"
       ],
       [
         "ICE",
         "Intercontinental Exchange"
       ],
       [
-        "MCO",
-        "Moodys"
+        "CME",
+        "CME Group"
       ],
       [
-        "CME",
-        "CME Group Inc"
+        "MCO",
+        "Moody's"
       ],
       [
         "SPGI",
@@ -142663,8 +143527,24 @@
         "Nasdaq"
       ],
       [
+        "MSCI",
+        "MSCI"
+      ],
+      [
+        "BX",
+        "Blackstone"
+      ],
+      [
         "IBKR",
-        "Interactive Brokers Group Inc"
+        "Interactive Brokers"
+      ],
+      [
+        "RJF",
+        "Raymond James"
+      ],
+      [
+        "LPLA",
+        "LPL Financial"
       ]
     ],
     "XBI": [
@@ -142677,20 +143557,60 @@
         "Twist Bioscience"
       ],
       [
-        "APGE",
-        "Apogee Therapeutics"
-      ],
-      [
-        "KYMR",
-        "Kymera Therapeutics Inc Ordinary Shares"
+        "NTRA",
+        "Natera"
       ],
       [
         "HALO",
-        "Halozyme Therapeutics"
+        "Halozyme"
       ],
       [
-        "NTRA",
-        "Natera"
+        "KYMR",
+        "Kymera"
+      ],
+      [
+        "IOVA",
+        "Iovance"
+      ],
+      [
+        "ROIV",
+        "Roivant"
+      ],
+      [
+        "TVTX",
+        "Travere"
+      ],
+      [
+        "CORT",
+        "Corcept"
+      ],
+      [
+        "VRTX",
+        "Vertex"
+      ],
+      [
+        "REGN",
+        "Regeneron"
+      ],
+      [
+        "ALNY",
+        "Alnylam"
+      ],
+      [
+        "INCY",
+        "Incyte"
+      ],
+      [
+        "IONS",
+        "Ionis"
+      ],
+      [
+        "NBIX",
+        "Neurocrine"
+      ],
+      [
+        "APGE",
+        "Apogee Therapeutics"
       ],
       [
         "PRAX",
@@ -142703,36 +143623,32 @@
       [
         "RVMD",
         "Revolution Medicines Inc Ordinary Shares"
-      ],
-      [
-        "TVTX",
-        "Travere Therapeutics Inc Ordinary Shares"
       ]
     ],
     "IBB": [
+      [
+        "VRTX",
+        "Vertex"
+      ],
       [
         "AMGN",
         "Amgen"
       ],
       [
-        "VRTX",
-        "Vertex Pharmaceuticals"
-      ],
-      [
         "GILD",
-        "Gilead Sciences"
+        "Gilead"
       ],
       [
         "REGN",
-        "Regeneron Pharmaceuticals"
-      ],
-      [
-        "ARGX",
-        "argenx SE ADR"
+        "Regeneron"
       ],
       [
         "MRNA",
         "Moderna"
+      ],
+      [
+        "ARGX",
+        "argenx"
       ],
       [
         "NTRA",
@@ -142740,21 +143656,33 @@
       ],
       [
         "RVMD",
-        "Revolution Medicines Inc Ordinary Shares"
+        "Revolution Medicines"
+      ],
+      [
+        "ALNY",
+        "Alnylam"
+      ],
+      [
+        "BIIB",
+        "Biogen"
       ],
       [
         "ILMN",
         "Illumina"
       ],
       [
-        "ALNY",
-        "Alnylam Pharmaceuticals"
+        "IDXX",
+        "IDEXX"
+      ],
+      [
+        "DXCM",
+        "DexCom"
       ]
     ],
     "IHI": [
       [
         "ABT",
-        "Abbott Laboratories"
+        "Abbott"
       ],
       [
         "ISRG",
@@ -142766,41 +143694,85 @@
       ],
       [
         "BDX",
-        "Becton Dickinson &"
+        "Becton Dickinson"
       ],
       [
         "DXCM",
         "DexCom"
       ],
       [
-        "RMD",
-        "ResMed"
-      ],
-      [
         "MDT",
         "Medtronic"
       ],
       [
-        "GEHC",
-        "GE HealthCare Technologies Inc Common Stock"
+        "RMD",
+        "ResMed"
       ],
       [
         "EW",
-        "Edwards Lifesciences"
+        "Edwards Life"
+      ],
+      [
+        "GEHC",
+        "GE HealthCare"
       ],
       [
         "IDXX",
-        "IDEXX Laboratories"
+        "IDEXX"
       ]
     ],
     "XPH": [
       [
-        "AMLX",
-        "Amylyx Pharmaceuticals"
+        "LLY",
+        "Eli Lilly"
+      ],
+      [
+        "JNJ",
+        "Johnson & Johnson"
+      ],
+      [
+        "MRK",
+        "Merck"
+      ],
+      [
+        "PFE",
+        "Pfizer"
+      ],
+      [
+        "BMY",
+        "Bristol Myers"
+      ],
+      [
+        "ABBV",
+        "AbbVie"
+      ],
+      [
+        "VRTX",
+        "Vertex"
+      ],
+      [
+        "CORT",
+        "Corcept"
+      ],
+      [
+        "ETON",
+        "Eton Pharma"
       ],
       [
         "CRNX",
-        "Crinetics Pharmaceuticals"
+        "Crinetics"
+      ],
+      [
+        "NUVB",
+        "Nuvation Bio"
+      ],
+      [
+        "OMER",
+        "Omeros"
+      ],
+      [
+        "AMLX",
+        "Amylyx Pharmaceuticals"
       ],
       [
         "MBX",
@@ -142811,28 +143783,12 @@
         "AtaiBeckley"
       ],
       [
-        "OMER",
-        "Omeros"
-      ],
-      [
         "DFTX",
         "Definium Therapeutics Inc Ordinary Shares"
       ],
       [
         "ELVN",
         "Enliven Therapeutics"
-      ],
-      [
-        "NUVB",
-        "Nuvation Bio Inc Ordinary Shares -"
-      ],
-      [
-        "CORT",
-        "Corcept Therapeutics"
-      ],
-      [
-        "ETON",
-        "Eton Pharmaceuticals"
       ]
     ],
     "IHF": [
@@ -142846,11 +143802,11 @@
       ],
       [
         "ELV",
-        "Elevance Health"
+        "Elevance"
       ],
       [
         "VEEV",
-        "Veeva Systems Inc"
+        "Veeva"
       ],
       [
         "HCA",
@@ -142865,26 +143821,30 @@
         "Centene"
       ],
       [
-        "LH",
-        "Labcorp"
-      ],
-      [
         "CI",
-        "The Cigna"
+        "Cigna"
       ],
       [
         "DGX",
         "Quest Diagnostics"
+      ],
+      [
+        "LH",
+        "Labcorp"
+      ],
+      [
+        "MCK",
+        "McKesson"
+      ],
+      [
+        "CAH",
+        "Cardinal Health"
       ]
     ],
     "XOP": [
       [
         "PBF",
-        "PBF Energy Inc"
-      ],
-      [
-        "DK",
-        "Delek US Holdings Inc Registered Shs Stock Settlement"
+        "PBF Energy"
       ],
       [
         "DINO",
@@ -142896,23 +143856,63 @@
       ],
       [
         "VLO",
-        "Valero Energy"
-      ],
-      [
-        "PARR",
-        "Par Pacific"
+        "Valero"
       ],
       [
         "PSX",
         "Phillips 66"
       ],
       [
+        "COP",
+        "ConocoPhillips"
+      ],
+      [
+        "EOG",
+        "EOG Resources"
+      ],
+      [
+        "DVN",
+        "Devon Energy"
+      ],
+      [
+        "FANG",
+        "Diamondback"
+      ],
+      [
+        "OXY",
+        "Occidental"
+      ],
+      [
+        "EQT",
+        "EQT Corp"
+      ],
+      [
+        "APA",
+        "APA Corp"
+      ],
+      [
+        "OVV",
+        "Ovintiv"
+      ],
+      [
+        "SM",
+        "SM Energy"
+      ],
+      [
         "PR",
-        "Permian Resources Corp"
+        "Permian Resources"
       ],
       [
         "CRGY",
-        "Crescent Energy Co"
+        "Crescent Energy"
+      ],
+      [
+        "DK",
+        "Delek US Holdings Inc Registered Shs Stock Settlement"
+      ],
+      [
+        "PARR",
+        "Par Pacific"
       ],
       [
         "CLMT",
@@ -142926,7 +143926,7 @@
       ],
       [
         "BKR",
-        "Baker Hughes Co"
+        "Baker Hughes"
       ],
       [
         "FTI",
@@ -142937,62 +143937,62 @@
         "Halliburton"
       ],
       [
-        "TS",
-        "Tenaris SA ADR"
-      ],
-      [
         "RIG",
         "Transocean"
       ],
       [
         "WFRD",
-        "Weatherford International PLC Ordinary Shares - New"
+        "Weatherford"
       ],
       [
         "NE",
-        "Noble Corp PLC"
-      ],
-      [
-        "NOV",
-        "NOV"
+        "Noble Corp"
       ],
       [
         "OII",
-        "Oceaneering International"
+        "Oceaneering"
+      ],
+      [
+        "NOV",
+        "NOV Inc"
+      ],
+      [
+        "TS",
+        "Tenaris SA ADR"
       ]
     ],
     "AMLP": [
       [
-        "SUN",
-        "Sunoco LP"
-      ],
-      [
         "ET",
-        "Energy Transfer LP"
-      ],
-      [
-        "PAA",
-        "Plains All American Pipeline LP"
-      ],
-      [
-        "WES",
-        "Western Midstream Partners LP"
+        "Energy Transfer"
       ],
       [
         "MPLX",
-        "MPLX LP Partnership Units"
+        "MPLX"
       ],
       [
         "EPD",
-        "Enterprise Products Partners LP"
+        "Enterprise Products"
+      ],
+      [
+        "WES",
+        "Western Midstream"
+      ],
+      [
+        "PAA",
+        "Plains All American"
+      ],
+      [
+        "SUN",
+        "Sunoco"
       ],
       [
         "HESM",
-        "Hess Midstream LP"
+        "Hess Midstream"
       ],
       [
         "CQP",
-        "Cheniere Energy Partners LP"
+        "Cheniere Partners"
       ],
       [
         "USAC",
@@ -143005,8 +144005,76 @@
     ],
     "XRT": [
       [
+        "AMZN",
+        "Amazon"
+      ],
+      [
+        "COST",
+        "Costco"
+      ],
+      [
+        "WMT",
+        "Walmart"
+      ],
+      [
+        "TJX",
+        "TJX Cos"
+      ],
+      [
+        "ROST",
+        "Ross Stores"
+      ],
+      [
+        "DG",
+        "Dollar General"
+      ],
+      [
+        "DLTR",
+        "Dollar Tree"
+      ],
+      [
+        "FIVE",
+        "Five Below"
+      ],
+      [
+        "BBY",
+        "Best Buy"
+      ],
+      [
+        "M",
+        "Macy's"
+      ],
+      [
+        "BURL",
+        "Burlington"
+      ],
+      [
+        "WSM",
+        "Williams-Sonoma"
+      ],
+      [
+        "W",
+        "Wayfair"
+      ],
+      [
+        "ETSY",
+        "Etsy"
+      ],
+      [
+        "EBAY",
+        "eBay"
+      ],
+      [
+        "TGT",
+        "Target"
+      ],
+      [
         "ANF",
-        "Abercrombie & Fitch Co"
+        "Abercrombie"
+      ],
+      [
+        "KMX",
+        "CarMax"
       ],
       [
         "HZO",
@@ -143015,18 +144083,6 @@
       [
         "GO",
         "Grocery Outlet"
-      ],
-      [
-        "KMX",
-        "CarMax"
-      ],
-      [
-        "FIVE",
-        "Five Below"
-      ],
-      [
-        "TGT",
-        "Target"
       ],
       [
         "SBH",
@@ -143047,44 +144103,72 @@
     ],
     "XHB": [
       [
-        "IBP",
-        "Installed Building Products"
+        "DHI",
+        "D.R. Horton"
       ],
       [
-        "OC",
-        "Owens-Corning"
+        "LEN",
+        "Lennar"
       ],
       [
-        "ALLE",
-        "Allegion"
-      ],
-      [
-        "SKY",
-        "Champion Homes"
-      ],
-      [
-        "WSM",
-        "Williams-Sonoma"
+        "NVR",
+        "NVR"
       ],
       [
         "PHM",
         "PulteGroup"
       ],
       [
-        "CSL",
-        "Carlisle Companies"
+        "BLDR",
+        "Builders First"
+      ],
+      [
+        "OC",
+        "Owens Corning"
+      ],
+      [
+        "MAS",
+        "Masco"
+      ],
+      [
+        "ALLE",
+        "Allegion"
+      ],
+      [
+        "WSM",
+        "Williams-Sonoma"
+      ],
+      [
+        "IBP",
+        "Installed Building"
+      ],
+      [
+        "JCI",
+        "Johnson Controls"
+      ],
+      [
+        "HD",
+        "Home Depot"
+      ],
+      [
+        "LOW",
+        "Lowe's"
       ],
       [
         "WMS",
-        "Advanced Drainage Systems"
+        "Advanced Drainage"
+      ],
+      [
+        "CSL",
+        "Carlisle"
+      ],
+      [
+        "SKY",
+        "Champion Homes"
       ],
       [
         "TOL",
         "Toll Brothers"
-      ],
-      [
-        "HD",
-        "The Home Depot"
       ]
     ],
     "ITB": [
@@ -143098,27 +144182,27 @@
       ],
       [
         "LEN",
-        "Lennar Corp"
+        "Lennar"
       ],
       [
         "NVR",
         "NVR"
       ],
       [
-        "SHW",
-        "Sherwin-Williams"
-      ],
-      [
         "TOL",
         "Toll Brothers"
       ],
       [
+        "SHW",
+        "Sherwin-Williams"
+      ],
+      [
         "HD",
-        "The Home Depot"
+        "Home Depot"
       ],
       [
         "LOW",
-        "Lowe's Companies"
+        "Lowe's"
       ],
       [
         "MAS",
@@ -143126,37 +144210,81 @@
       ],
       [
         "LII",
-        "Lennox International"
+        "Lennox"
+      ],
+      [
+        "BLDR",
+        "Builders First"
       ]
     ],
     "PEJ": [
       [
-        "EXPE",
-        "Expedia"
+        "SBUX",
+        "Starbucks"
       ],
       [
         "ABNB",
-        "Airbnb Inc Ordinary Shares -"
+        "Airbnb"
       ],
       [
         "SYY",
         "Sysco"
       ],
       [
-        "SBUX",
-        "Starbucks"
+        "LYV",
+        "Live Nation"
+      ],
+      [
+        "DAL",
+        "Delta Air"
+      ],
+      [
+        "MAR",
+        "Marriott"
+      ],
+      [
+        "EXPE",
+        "Expedia"
+      ],
+      [
+        "BKNG",
+        "Booking"
+      ],
+      [
+        "DPZ",
+        "Domino's"
+      ],
+      [
+        "YUM",
+        "Yum Brands"
+      ],
+      [
+        "CMG",
+        "Chipotle"
+      ],
+      [
+        "DIS",
+        "Disney"
+      ],
+      [
+        "NCLH",
+        "Norwegian Cruise"
+      ],
+      [
+        "RCL",
+        "Royal Caribbean"
+      ],
+      [
+        "CCL",
+        "Carnival"
+      ],
+      [
+        "HLT",
+        "Hilton"
       ],
       [
         "VIK",
         "Viking"
-      ],
-      [
-        "HLT",
-        "Hilton Worldwide"
-      ],
-      [
-        "MAR",
-        "Marriott International Inc"
       ],
       [
         "LVS",
@@ -143178,7 +144306,7 @@
       ],
       [
         "RTX",
-        "RTX"
+        "RTX Corp"
       ],
       [
         "BA",
@@ -143198,7 +144326,7 @@
       ],
       [
         "HWM",
-        "Howmet Aerospace"
+        "Howmet"
       ],
       [
         "TDG",
@@ -143206,17 +144334,33 @@
       ],
       [
         "LHX",
-        "L3Harris Technologies"
+        "L3Harris"
       ],
       [
         "AXON",
         "Axon Enterprise"
+      ],
+      [
+        "TXT",
+        "Textron"
+      ],
+      [
+        "HEI",
+        "Heico"
+      ],
+      [
+        "LDOS",
+        "Leidos"
+      ],
+      [
+        "KTOS",
+        "Kratos"
       ]
     ],
     "PPA": [
       [
         "RTX",
-        "RTX"
+        "RTX Corp"
       ],
       [
         "GE",
@@ -143236,15 +144380,15 @@
       ],
       [
         "NOC",
-        "Northrop Grumman"
+        "Northrop"
       ],
       [
         "HWM",
-        "Howmet Aerospace"
+        "Howmet"
       ],
       [
         "PH",
-        "Parker Hannifin"
+        "Parker-Hannifin"
       ],
       [
         "AXON",
@@ -143252,7 +144396,15 @@
       ],
       [
         "LHX",
-        "L3Harris Technologies"
+        "L3Harris"
+      ],
+      [
+        "TDG",
+        "TransDigm"
+      ],
+      [
+        "HEI",
+        "Heico"
       ]
     ],
     "IYT": [
@@ -143262,15 +144414,15 @@
       ],
       [
         "UBER",
-        "Uber Technologies"
+        "Uber"
       ],
       [
         "CSX",
-        "CSX"
+        "CSX Corp"
       ],
       [
         "UPS",
-        "United Parcel Service Inc"
+        "UPS"
       ],
       [
         "NSC",
@@ -143282,7 +144434,7 @@
       ],
       [
         "DAL",
-        "Delta Air Lines"
+        "Delta Air"
       ],
       [
         "UAL",
@@ -143290,11 +144442,19 @@
       ],
       [
         "ODFL",
-        "Old Dominion Freight Line Inc Ordinary Shares"
+        "Old Dominion"
       ],
       [
         "EXPD",
-        "Expeditors International of Washington"
+        "Expeditors"
+      ],
+      [
+        "JBHT",
+        "J.B. Hunt"
+      ],
+      [
+        "XPO",
+        "XPO Logistics"
       ]
     ],
     "JETS": [
@@ -143304,7 +144464,7 @@
       ],
       [
         "DAL",
-        "Delta Air Lines"
+        "Delta Air"
       ],
       [
         "AAL",
@@ -143312,11 +144472,7 @@
       ],
       [
         "LUV",
-        "Southwest Airlines"
-      ],
-      [
-        "AC.TO",
-        "Air Canada Ordinary Shares (Voting and Variable Voting)"
+        "Southwest"
       ],
       [
         "SKYW",
@@ -143324,7 +144480,11 @@
       ],
       [
         "JBLU",
-        "JetBlue Airways"
+        "JetBlue"
+      ],
+      [
+        "ULCC",
+        "Frontier Group"
       ],
       [
         "ALK",
@@ -143335,14 +144495,62 @@
         "Allegiant Travel"
       ],
       [
-        "ULCC",
-        "Frontier Group"
+        "AC.TO",
+        "Air Canada Ordinary Shares (Voting and Variable Voting)"
       ]
     ],
     "GDX": [
       [
         "NEM",
         "Newmont"
+      ],
+      [
+        "AEM",
+        "Agnico Eagle"
+      ],
+      [
+        "B",
+        "Barrick Mining"
+      ],
+      [
+        "WPM",
+        "Wheaton Precious Metals"
+      ],
+      [
+        "AU",
+        "AngloGold"
+      ],
+      [
+        "FNV",
+        "Franco-Nevada"
+      ],
+      [
+        "KGC",
+        "Kinross"
+      ],
+      [
+        "GFI",
+        "Gold Fields"
+      ],
+      [
+        "AGI",
+        "Alamos Gold"
+      ],
+      [
+        "BTG",
+        "B2Gold"
+      ],
+      [
+        "HL",
+        "Hecla Mining"
+      ],
+      [
+        "EGO",
+        "Eldorado Gold"
+      ],
+      [
+        "PAAS",
+        "Pan American Silver"
       ],
       [
         "AEM.TO",
@@ -143357,10 +144565,6 @@
         "Wheaton Precious Metals"
       ],
       [
-        "AU",
-        "Anglogold Ashanti"
-      ],
-      [
         "FNV.TO",
         "Franco-Nevada"
       ],
@@ -143369,15 +144573,51 @@
         "Kinross Gold"
       ],
       [
-        "GFI",
-        "Gold Fields Ltd ADR"
-      ],
-      [
         "NST.AX",
         "Northern Star Resources"
       ]
     ],
     "GDXJ": [
+      [
+        "EQX",
+        "Equinox Gold"
+      ],
+      [
+        "AGI",
+        "Alamos Gold"
+      ],
+      [
+        "CDE",
+        "Coeur Mining"
+      ],
+      [
+        "HL",
+        "Hecla Mining"
+      ],
+      [
+        "AG",
+        "First Majestic"
+      ],
+      [
+        "EGO",
+        "Eldorado"
+      ],
+      [
+        "IAG",
+        "IAMGOLD"
+      ],
+      [
+        "KGC",
+        "Kinross"
+      ],
+      [
+        "BTG",
+        "B2Gold"
+      ],
+      [
+        "AU",
+        "AngloGold"
+      ],
       [
         "EQX.TO",
         "Equinox Gold Corp Ordinary Shares"
@@ -143395,16 +144635,8 @@
         "Endeavour Mining"
       ],
       [
-        "CDE",
-        "Coeur Mining"
-      ],
-      [
         "ELD.TO",
         "Eldorado Gold"
-      ],
-      [
-        "HL",
-        "Hecla Mining"
       ],
       [
         "IMG.TO",
@@ -143417,8 +144649,12 @@
     ],
     "SIL": [
       [
-        "WPM.TO",
+        "WPM",
         "Wheaton Precious Metals"
+      ],
+      [
+        "PAAS",
+        "Pan American Silver"
       ],
       [
         "CDE",
@@ -143429,19 +144665,75 @@
         "Hecla Mining"
       ],
       [
+        "AG",
+        "First Majestic"
+      ],
+      [
+        "SSRM",
+        "SSR Mining"
+      ],
+      [
+        "BVN",
+        "Buenaventura"
+      ],
+      [
+        "FSM",
+        "Fortuna Mining"
+      ],
+      [
+        "EXK",
+        "Endeavour Silver"
+      ],
+      [
+        "SVM",
+        "Silvercorp"
+      ],
+      [
+        "WPM.TO",
+        "Wheaton Precious Metals"
+      ],
+      [
         "FRES.L",
         "Fresnillo"
       ],
       [
         "OR.TO",
         "OR Royalties"
-      ],
-      [
-        "BVN",
-        "Compania De Minas Buenaventura SAA ADR"
       ]
     ],
     "COPX": [
+      [
+        "FCX",
+        "Freeport-McMoRan"
+      ],
+      [
+        "SCCO",
+        "Southern Copper"
+      ],
+      [
+        "TECK",
+        "Teck Resources"
+      ],
+      [
+        "HBM",
+        "Hudbay Minerals"
+      ],
+      [
+        "BHP",
+        "BHP Group"
+      ],
+      [
+        "ERO",
+        "Ero Copper"
+      ],
+      [
+        "TGB",
+        "Taseko Mines"
+      ],
+      [
+        "IE",
+        "Ivanhoe Electric"
+      ],
       [
         "HBM.TO",
         "Hudbay Minerals"
@@ -143453,14 +144745,6 @@
       [
         "FM.TO",
         "First Quantum Minerals"
-      ],
-      [
-        "SCCO",
-        "Southern Copper"
-      ],
-      [
-        "FCX",
-        "Freeport-McMoRan"
       ],
       [
         "ANTO.L",
@@ -143477,54 +144761,74 @@
     ],
     "SLX": [
       [
-        "BHP",
-        "BHP Group Ltd ADR"
-      ],
-      [
-        "RIO",
-        "Rio Tinto PLC ADR"
-      ],
-      [
-        "VALE",
-        "Vale SA ADR"
-      ],
-      [
         "NUE",
         "Nucor"
-      ],
-      [
-        "MT",
-        "ArcelorMittal SA Depository Receipt"
       ],
       [
         "STLD",
         "Steel Dynamics"
       ],
       [
-        "RIO.AX",
+        "BHP",
+        "BHP Group"
+      ],
+      [
+        "RIO",
         "Rio Tinto"
       ],
       [
+        "VALE",
+        "Vale"
+      ],
+      [
+        "MT",
+        "ArcelorMittal"
+      ],
+      [
         "PKX",
-        "POSCO Holdings Inc ADR"
+        "POSCO"
       ],
       [
         "RS",
-        "Reliance"
+        "Reliance Steel"
+      ],
+      [
+        "GGB",
+        "Gerdau"
+      ],
+      [
+        "CLF",
+        "Cleveland-Cliffs"
+      ],
+      [
+        "RIO.AX",
+        "Rio Tinto"
       ]
     ],
     "REMX": [
-      [
-        "PLS.AX",
-        "PLS"
-      ],
       [
         "ALB",
         "Albemarle"
       ],
       [
         "MP",
-        "MP Materials Corp Ordinary Shares -"
+        "MP Materials"
+      ],
+      [
+        "SQM",
+        "Sociedad Quimica"
+      ],
+      [
+        "LAC",
+        "Lithium Americas"
+      ],
+      [
+        "TROX",
+        "Tronox"
+      ],
+      [
+        "PLS.AX",
+        "PLS"
       ],
       [
         "LYC.AX",
@@ -143533,16 +144837,12 @@
       [
         "ALM",
         "Almonty Industries"
-      ],
-      [
-        "SQM",
-        "Sociedad Quimica Y Minera De Chile SA ADR"
       ]
     ],
     "REM": [
       [
         "NLY",
-        "Annaly Capital Management"
+        "Annaly Capital"
       ],
       [
         "AGNC",
@@ -143550,7 +144850,7 @@
       ],
       [
         "STWD",
-        "Starwood Property Trust"
+        "Starwood Property"
       ],
       [
         "RITM",
@@ -143562,7 +144862,7 @@
       ],
       [
         "ARR",
-        "ARMOUR Residential REIT"
+        "ARMOUR Residential"
       ],
       [
         "EFC",
@@ -143570,53 +144870,57 @@
       ],
       [
         "BXMT",
-        "Blackstone Mortgage Trust Inc"
+        "Blackstone Mortgage"
       ],
       [
         "ORC",
-        "Orchid Island Capital"
+        "Orchid Island"
       ],
       [
         "LADR",
-        "Ladder Capital Corp"
+        "Ladder Capital"
       ]
     ],
     "MORT": [
       [
         "NLY",
-        "Annaly Capital Management"
+        "Annaly Capital"
       ],
       [
         "AGNC",
         "AGNC Investment"
       ],
       [
-        "RITM",
-        "Rithm Capital"
+        "STWD",
+        "Starwood Property"
       ],
       [
-        "STWD",
-        "Starwood Property Trust"
+        "RITM",
+        "Rithm Capital"
       ],
       [
         "DX",
         "Dynex Capital"
       ],
       [
+        "ARR",
+        "ARMOUR Residential"
+      ],
+      [
         "EFC",
         "Ellington Financial"
       ],
       [
-        "ARR",
-        "ARMOUR Residential REIT"
-      ],
-      [
         "ORC",
-        "Orchid Island Capital"
+        "Orchid Island"
       ],
       [
         "BXMT",
-        "Blackstone Mortgage Trust Inc"
+        "Blackstone Mortgage"
+      ],
+      [
+        "TWO",
+        "Two Harbors"
       ],
       [
         "LADR",
@@ -143633,8 +144937,8 @@
         "Public Storage"
       ],
       [
-        "VMRK",
-        "AvalonBay Communities"
+        "EQR",
+        "Equity Residential"
       ],
       [
         "VTR",
@@ -143642,27 +144946,31 @@
       ],
       [
         "EXR",
-        "Extra Space Storage"
+        "Extra Space"
       ],
       [
         "ESS",
-        "Essex Property Trust"
+        "Essex Property"
       ],
       [
         "INVH",
         "Invitation Homes"
       ],
       [
-        "MAA",
-        "Mid-America Apartment Communities"
-      ],
-      [
         "SUI",
         "Sun Communities"
       ],
       [
+        "MAA",
+        "Mid-America Apartment"
+      ],
+      [
         "DOC",
-        "Healthpeak Properties"
+        "Healthpeak"
+      ],
+      [
+        "VMRK",
+        "AvalonBay Communities"
       ]
     ],
     "ARKK": [
@@ -143671,54 +144979,174 @@
         "Tesla"
       ],
       [
-        "SPCX",
-        "Space Exploration Technologies Corp"
-      ],
-      [
-        "CRCL",
-        "Circle Internet Group Inc Ordinary Shares -"
-      ],
-      [
-        "TEM",
-        "Tempus AI Inc Class A common stock"
-      ],
-      [
         "COIN",
-        "Coinbase Global Inc Ordinary Shares -"
+        "Coinbase"
+      ],
+      [
+        "HOOD",
+        "Robinhood"
+      ],
+      [
+        "PLTR",
+        "Palantir"
+      ],
+      [
+        "SHOP",
+        "Shopify"
+      ],
+      [
+        "AMD",
+        "AMD"
+      ],
+      [
+        "NVDA",
+        "NVIDIA"
+      ],
+      [
+        "AMZN",
+        "Amazon"
+      ],
+      [
+        "META",
+        "Meta"
+      ],
+      [
+        "AVGO",
+        "Broadcom"
+      ],
+      [
+        "GOOG",
+        "Alphabet"
+      ],
+      [
+        "NET",
+        "Cloudflare"
+      ],
+      [
+        "ILMN",
+        "Illumina"
+      ],
+      [
+        "RKLB",
+        "Rocket Lab"
+      ],
+      [
+        "TSM",
+        "Taiwan Semi"
+      ],
+      [
+        "KTOS",
+        "Kratos"
+      ],
+      [
+        "TER",
+        "Teradyne"
+      ],
+      [
+        "SOFI",
+        "SoFi"
+      ],
+      [
+        "LLY",
+        "Eli Lilly"
       ],
       [
         "CRSP",
-        "CRISPR Therapeutics AG"
+        "CRISPR Therapeutics"
+      ],
+      [
+        "BEAM",
+        "Beam Therapeutics"
       ],
       [
         "TWST",
         "Twist Bioscience"
       ],
       [
-        "HOOD",
-        "Robinhood Markets Inc"
+        "TXG",
+        "10x Genomics"
       ],
       [
-        "SHOP",
-        "Shopify Inc Registered Shs -A- Subord Vtg"
+        "NTLA",
+        "Intellia"
       ],
       [
-        "PLTR",
-        "Palantir Technologies Inc Ordinary Shares -"
+        "NTRA",
+        "Natera"
+      ],
+      [
+        "ACHR",
+        "Archer Aviation"
+      ],
+      [
+        "RXRX",
+        "Recursion"
+      ],
+      [
+        "BWXT",
+        "BWX Technologies"
+      ],
+      [
+        "TEM",
+        "Tempus AI"
+      ],
+      [
+        "VCYT",
+        "Veracyte"
+      ],
+      [
+        "PACB",
+        "PacBio"
+      ],
+      [
+        "SPCX",
+        "Space Exploration Technologies Corp"
+      ],
+      [
+        "CRCL",
+        "Circle Internet Group Inc Ordinary Shares -"
       ]
     ],
     "BOTZ": [
-      [
-        "NVDA",
-        "NVIDIA"
-      ],
       [
         "ISRG",
         "Intuitive Surgical"
       ],
       [
+        "ABB",
+        "ABB Ltd"
+      ],
+      [
+        "NVDA",
+        "NVIDIA"
+      ],
+      [
+        "AUR",
+        "Aurora Innovation"
+      ],
+      [
         "CGNX",
         "Cognex"
+      ],
+      [
+        "GOOGL",
+        "Alphabet"
+      ],
+      [
+        "TSLA",
+        "Tesla"
+      ],
+      [
+        "DE",
+        "Deere"
+      ],
+      [
+        "SYM",
+        "Symbotic"
+      ],
+      [
+        "ROK",
+        "Rockwell Automation"
       ]
     ],
     "ROBO": [
@@ -143728,11 +145156,15 @@
       ],
       [
         "ZBRA",
-        "Zebra Technologies Corp Ordinary Shares -"
+        "Zebra Technologies"
+      ],
+      [
+        "ISRG",
+        "Intuitive Surgical"
       ],
       [
         "IOT",
-        "Samsara Inc Ordinary Shares -"
+        "Samsara"
       ],
       [
         "NDSN",
@@ -143740,17 +145172,29 @@
       ],
       [
         "EMR",
-        "Emerson Electric"
+        "Emerson"
       ],
       [
         "AMBA",
         "Ambarella"
+      ],
+      [
+        "ROK",
+        "Rockwell Automation"
+      ],
+      [
+        "DE",
+        "Deere"
+      ],
+      [
+        "TER",
+        "Teradyne"
       ]
     ],
     "AIQ": [
       [
         "PLTR",
-        "Palantir Technologies Inc Ordinary Shares -"
+        "Palantir"
       ],
       [
         "MSFT",
@@ -143761,24 +145205,44 @@
         "Oracle"
       ],
       [
-        "SPCX",
-        "Space Exploration Technologies Corp"
+        "TSLA",
+        "Tesla"
+      ],
+      [
+        "META",
+        "Meta"
+      ],
+      [
+        "GOOGL",
+        "Alphabet"
       ],
       [
         "NFLX",
         "Netflix"
       ],
       [
-        "TSLA",
-        "Tesla"
+        "INTC",
+        "Intel"
       ],
       [
         "AMZN",
-        "Amazon.com"
+        "Amazon"
       ],
       [
-        "GOOGL",
-        "Alphabet Inc"
+        "CRM",
+        "Salesforce"
+      ],
+      [
+        "SNOW",
+        "Snowflake"
+      ],
+      [
+        "DDOG",
+        "Datadog"
+      ],
+      [
+        "SPCX",
+        "Space Exploration Technologies Corp"
       ],
       [
         "NVDA",
@@ -143791,8 +145255,24 @@
         "First Solar"
       ],
       [
+        "ENPH",
+        "Enphase"
+      ],
+      [
         "BE",
-        "Bloom Energy Corp"
+        "Bloom Energy"
+      ],
+      [
+        "PLUG",
+        "Plug Power"
+      ],
+      [
+        "RUN",
+        "Sunrun"
+      ],
+      [
+        "HASI",
+        "HA Sustainable"
       ],
       [
         "NXT",
@@ -143803,16 +145283,8 @@
         "Vestas Wind Systems AS"
       ],
       [
-        "ENPH",
-        "Enphase Energy"
-      ],
-      [
         "EDP.LS",
         "EDP-Energias De Portugal SA"
-      ],
-      [
-        "PLUG",
-        "Plug Power"
       ]
     ],
     "TAN": [
@@ -143821,20 +145293,32 @@
         "First Solar"
       ],
       [
-        "NXT",
-        "Nextpower"
-      ],
-      [
         "ENPH",
-        "Enphase Energy"
+        "Enphase"
       ],
       [
         "HASI",
-        "HA Sustainable Infrastructure Capital"
+        "HA Sustainable"
       ],
       [
         "RUN",
         "Sunrun"
+      ],
+      [
+        "CSIQ",
+        "Canadian Solar"
+      ],
+      [
+        "JKS",
+        "JinkoSolar"
+      ],
+      [
+        "ARRY",
+        "Array Tech"
+      ],
+      [
+        "NXT",
+        "Nextpower"
       ],
       [
         "CWEN",
@@ -143847,20 +145331,40 @@
     ],
     "PBW": [
       [
-        "BETA",
-        "BETA Technologies Inc Ordinary Shares-"
+        "ACHR",
+        "Archer Aviation"
       ],
       [
         "DAR",
         "Darling Ingredients"
       ],
       [
+        "ITRI",
+        "Itron"
+      ],
+      [
         "GEVO",
         "Gevo"
       ],
       [
-        "ITRI",
-        "Itron"
+        "PLUG",
+        "Plug Power"
+      ],
+      [
+        "FSLR",
+        "First Solar"
+      ],
+      [
+        "BE",
+        "Bloom Energy"
+      ],
+      [
+        "ENPH",
+        "Enphase"
+      ],
+      [
+        "BETA",
+        "BETA Technologies Inc Ordinary Shares-"
       ],
       [
         "CDLR",
@@ -143879,15 +145383,35 @@
         "Lifezone Metals"
       ],
       [
-        "ACHR",
-        "Archer Aviation Inc"
-      ],
-      [
         "RIVN",
         "Rivian Automotive Inc"
       ]
     ],
     "URA": [
+      [
+        "CCJ",
+        "Cameco"
+      ],
+      [
+        "NXE",
+        "NexGen Energy"
+      ],
+      [
+        "UEC",
+        "Uranium Energy"
+      ],
+      [
+        "OKLO",
+        "Oklo"
+      ],
+      [
+        "SMR",
+        "NuScale Power"
+      ],
+      [
+        "EFR",
+        "Energy Fuels"
+      ],
       [
         "CCO.TO",
         "Cameco"
@@ -143895,14 +145419,6 @@
       [
         "NXE.TO",
         "NexGen Energy"
-      ],
-      [
-        "OKLO",
-        "Oklo Inc Class A Shares"
-      ],
-      [
-        "UEC",
-        "Uranium Energy"
       ],
       [
         "KAP",
@@ -143927,10 +145443,6 @@
     ],
     "LIT": [
       [
-        "RIO",
-        "Rio Tinto PLC ADR"
-      ],
-      [
         "ALB",
         "Albemarle"
       ],
@@ -143939,42 +145451,78 @@
         "Tesla"
       ],
       [
+        "SQM",
+        "Sociedad Quimica"
+      ],
+      [
+        "ENS",
+        "EnerSys"
+      ],
+      [
+        "LAC",
+        "Lithium Americas"
+      ],
+      [
+        "RIO",
+        "Rio Tinto"
+      ],
+      [
         "PLS.AX",
         "PLS"
       ]
     ],
     "BLOK": [
       [
-        "FIGR",
-        "Figure Technology Solutions Inc Ordinary Shares-Class A"
-      ],
-      [
         "HOOD",
-        "Robinhood Markets Inc"
+        "Robinhood"
       ],
       [
-        "GLXY",
-        "Galaxy Digital Inc Ordinary Shares -"
+        "COIN",
+        "Coinbase"
       ],
       [
         "CIFR",
-        "Cipher Digital"
-      ],
-      [
-        "OPRA",
-        "Opera Ltd ADR"
-      ],
-      [
-        "WULF",
-        "TeraWulf"
+        "Cipher Mining"
       ],
       [
         "HUT",
         "Hut 8"
       ],
       [
-        "COIN",
-        "Coinbase Global Inc Ordinary Shares -"
+        "WULF",
+        "TeraWulf"
+      ],
+      [
+        "AMD",
+        "AMD"
+      ],
+      [
+        "CLSK",
+        "CleanSpark"
+      ],
+      [
+        "DELL",
+        "Dell"
+      ],
+      [
+        "MARA",
+        "Marathon Digital"
+      ],
+      [
+        "RIOT",
+        "Riot Platforms"
+      ],
+      [
+        "FIGR",
+        "Figure Technology Solutions Inc Ordinary Shares-Class A"
+      ],
+      [
+        "GLXY",
+        "Galaxy Digital Inc Ordinary Shares -"
+      ],
+      [
+        "OPRA",
+        "Opera Ltd ADR"
       ],
       [
         "NU",
@@ -143983,26 +145531,74 @@
     ],
     "KWEB": [
       [
+        "BABA",
+        "Alibaba"
+      ],
+      [
         "PDD",
-        "PDD Holdings Inc ADR"
+        "PDD Holdings"
+      ],
+      [
+        "JD",
+        "JD.com"
+      ],
+      [
+        "BIDU",
+        "Baidu"
+      ],
+      [
+        "TCOM",
+        "Trip.com"
+      ],
+      [
+        "NTES",
+        "NetEase"
+      ],
+      [
+        "TME",
+        "Tencent Music"
+      ],
+      [
+        "MNSO",
+        "MINISO"
+      ],
+      [
+        "ZTO",
+        "ZTO Express"
       ]
     ],
     "MJ": [
       [
-        "CNBS",
-        "Amplify Seymour Cannabis ETF"
+        "TLRY",
+        "Tilray"
       ],
       [
-        "TLRY",
-        "Tilray Brands"
+        "CRON",
+        "Cronos"
       ],
       [
         "SNDL",
-        "SNDL Inc Ordinary Shares"
+        "SNDL"
       ],
       [
         "VFF",
-        "Village Farms International"
+        "Village Farms"
+      ],
+      [
+        "ACB",
+        "Aurora Cannabis"
+      ],
+      [
+        "OGI",
+        "Organigram"
+      ],
+      [
+        "HITI",
+        "High Tide"
+      ],
+      [
+        "CNBS",
+        "Amplify Seymour Cannabis ETF"
       ],
       [
         "ACB.TO",
@@ -144023,8 +145619,28 @@
     ],
     "UFO": [
       [
+        "RKLB",
+        "Rocket Lab"
+      ],
+      [
+        "ASTS",
+        "AST SpaceMobile"
+      ],
+      [
+        "IRDM",
+        "Iridium"
+      ],
+      [
+        "GSAT",
+        "Globalstar"
+      ],
+      [
         "GRMN",
         "Garmin"
+      ],
+      [
+        "VSAT",
+        "Viasat"
       ],
       [
         "TRMB",
@@ -144035,10 +145651,6 @@
         "Sirius XM"
       ],
       [
-        "VSAT",
-        "Viasat"
-      ],
-      [
         "SPCX",
         "Space Exploration Technologies Corp"
       ],
@@ -144047,46 +145659,70 @@
         "EchoStar Corp"
       ],
       [
-        "ASTS",
-        "AST SpaceMobile Inc Ordinary Shares -"
-      ],
-      [
-        "IRDM",
-        "Iridium Communications"
-      ],
-      [
         "PL",
         "Planet Labs PBC"
-      ],
-      [
-        "GSAT",
-        "Globalstar"
       ]
     ],
     "WCLD": [
       [
         "OKTA",
-        "Okta Inc"
+        "Okta"
+      ],
+      [
+        "CRWD",
+        "CrowdStrike"
       ],
       [
         "CRM",
         "Salesforce"
       ],
       [
-        "CRWD",
-        "CrowdStrike Holdings Inc"
+        "GTLB",
+        "GitLab"
+      ],
+      [
+        "PD",
+        "PagerDuty"
+      ],
+      [
+        "DOCU",
+        "DocuSign"
+      ],
+      [
+        "DT",
+        "Dynatrace"
+      ],
+      [
+        "NET",
+        "Cloudflare"
       ],
       [
         "NOW",
         "ServiceNow"
       ],
       [
-        "VEEV",
-        "Veeva Systems Inc"
+        "DDOG",
+        "Datadog"
       ],
       [
-        "PD",
-        "PagerDuty"
+        "ZS",
+        "Zscaler"
+      ],
+      [
+        "SNOW",
+        "Snowflake"
+      ],
+      [
+        "MDB",
+        "MongoDB"
+      ],
+      [
+        "HUBS",
+        "HubSpot"
+      ],
+      [
+        "VEEV",
+        "Veeva Systems Inc"
       ],
       [
         "ESTC",
