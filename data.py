@@ -35,6 +35,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Optional
 
+import math
+
 import requests
 
 from config import ScannerConfig
@@ -422,6 +424,167 @@ class DataManager:
         for day_bars in self.daily_data.values():
             tickers.update(day_bars.keys())
         return tickers
+
+    # -----------------------------------------------------------------
+    # yfinance backfill — fill Polygon free-tier 1-day delay
+    # -----------------------------------------------------------------
+
+    def backfill_recent_yfinance(
+        self, tickers: list[str], lookback_days: int = 5
+    ) -> int:
+        """Fill recent date gaps using yfinance.
+
+        Polygon free tier has a 1-business-day data delay: when the scan
+        runs at 5:30 PM ET on Monday, Polygon returns 403 for Monday's
+        bars.  This method identifies those gap dates and bulk-fetches
+        them from Yahoo Finance (via yfinance), which has no delay.
+
+        Call AFTER fetch_history() and get_universe() — needs the universe
+        to know which tickers to fetch (yfinance requires a ticker list,
+        unlike Polygon's grouped-daily which returns everything).
+
+        Caches results in the same format as Polygon so subsequent runs
+        see a cache hit and don't re-fetch.
+
+        Args:
+            tickers: ticker symbols to fetch (the derived universe).
+            lookback_days: how many recent calendar days to check for gaps.
+
+        Returns:
+            Number of date-gaps filled.
+        """
+        try:
+            import yfinance as yf
+        except ImportError:
+            logger.warning(
+                "yfinance not installed — cannot backfill recent data. "
+                "pip install yfinance"
+            )
+            return 0
+
+        today = date.today()
+        recent_dates = trading_days_back(today, lookback_days)
+
+        # Identify dates Polygon missed (returned 403 / empty)
+        missing = [
+            dt for dt in recent_dates
+            if dt not in self.daily_data and dt <= today
+        ]
+
+        if not missing:
+            logger.info("No recent date gaps — Polygon data is current")
+            return 0
+
+        logger.info(
+            f"Polygon gap detected for {len(missing)} recent date(s): "
+            f"{[d.isoformat() for d in missing]}. "
+            f"Backfilling via yfinance ({len(tickers)} tickers)..."
+        )
+
+        # yf.download end date is exclusive
+        start = min(missing)
+        end = max(missing) + timedelta(days=1)
+
+        try:
+            df = yf.download(
+                tickers,
+                start=start.isoformat(),
+                end=end.isoformat(),
+                auto_adjust=True,
+                progress=False,
+                threads=True,
+            )
+        except Exception as e:
+            logger.warning(f"yfinance bulk download failed: {e}")
+            return 0
+
+        if df is None or df.empty:
+            logger.warning("yfinance returned no data for the gap dates")
+            return 0
+
+        import pandas as pd
+
+        multi = len(tickers) > 1
+        filled = 0
+
+        for dt in missing:
+            ts = pd.Timestamp(dt)
+            if ts not in df.index:
+                logger.debug(f"yfinance has no data for {dt}")
+                continue
+
+            row = df.loc[ts]
+            bars: dict[str, DailyBar] = {}
+
+            for ticker in tickers:
+                try:
+                    if multi:
+                        o = float(row[("Open", ticker)])
+                        h = float(row[("High", ticker)])
+                        l = float(row[("Low", ticker)])
+                        c = float(row[("Close", ticker)])
+                        v = float(row[("Volume", ticker)])
+                    else:
+                        o = float(row["Open"])
+                        h = float(row["High"])
+                        l = float(row["Low"])
+                        c = float(row["Close"])
+                        v = float(row["Volume"])
+
+                    # Skip if any OHLC is NaN (ticker didn't trade)
+                    if any(math.isnan(x) for x in (o, h, l, c)):
+                        continue
+
+                    bars[ticker] = DailyBar(
+                        dt=dt,
+                        open=o,
+                        high=h,
+                        low=l,
+                        close=c,
+                        volume=v if not math.isnan(v) else 0.0,
+                    )
+                except (KeyError, ValueError, TypeError):
+                    continue
+
+            if bars:
+                self.daily_data[dt] = bars
+
+                # Cache in Polygon-compatible format so future runs see
+                # a cache hit and skip both Polygon and yfinance.
+                cache_data = {
+                    "resultsCount": len(bars),
+                    "results": [
+                        {
+                            "T": t,
+                            "o": b.open,
+                            "h": b.high,
+                            "l": b.low,
+                            "c": b.close,
+                            "v": b.volume,
+                        }
+                        for t, b in bars.items()
+                    ],
+                    "_source": "yfinance",
+                }
+                cache_file = self.client._cache_path(dt)
+                with open(cache_file, "w") as f:
+                    json.dump(cache_data, f)
+
+                filled += 1
+                logger.info(
+                    f"  {dt}: {len(bars)} tickers filled via yfinance"
+                )
+
+        if filled:
+            logger.info(
+                f"Backfill complete: {filled} date(s) filled via yfinance"
+            )
+        else:
+            logger.warning(
+                "yfinance backfill produced no usable data for the gap dates"
+            )
+
+        return filled
 
     def clear_old_cache(self, keep_days: int = 150) -> int:
         """Remove cache files older than `keep_days` to save disk space.
