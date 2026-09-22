@@ -311,6 +311,7 @@ def serialize_results(
                 "ticker": r.domino.ticker,
                 "count": r.domino.count,
                 "tfs": r.domino.inside_tfs,
+                "patterns": r.domino.tf_patterns,
             }
             for r in scan_results
             if r.domino
