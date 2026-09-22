@@ -40,6 +40,7 @@ import math
 import requests
 
 from config import ScannerConfig
+from sector_universe import get_etf_holding_tickers
 from timeframes import DailyBar
 
 logger = logging.getLogger(__name__)
@@ -231,11 +232,20 @@ def derive_universe(
 ) -> list[str]:
     """Derive the stock universe: top N tickers by average dollar volume.
 
+    Liquid-universe selection (top N by avg dollar volume) plus force-includes:
+      - Market & sector ETFs (SPY, QQQ, XLF, etc.)
+      - All ETF constituent holdings from sector_universe.ETF_HOLDINGS
+
+    The force-includes ensure every ticker tracked by our sector/theme ETFs
+    is present in the universe, even if its dollar volume is below the cutoff.
+    This gives the Sim Breaks feature full coverage across all ETFs.
+
     Args:
         daily_data: date → {ticker → DailyBar} for the lookback period
         config: scanner config (universe_size, min_dollar_volume,
                 liquidity_lookback_days, market_etfs, sector_etfs)
         include_etfs: if True, always include market & sector ETFs
+                      AND their constituent holdings
 
     Returns:
         Sorted list of tickers in the universe.
@@ -267,10 +277,23 @@ def derive_universe(
     ranked = sorted(avg_dvol.keys(), key=lambda t: avg_dvol[t], reverse=True)
     universe = set(ranked[: config.universe_size])
 
-    # Always include market and sector ETFs
+    # Always include market and sector ETFs + all ETF constituent holdings
     if include_etfs:
         for etf in config.market_etfs + config.sector_etfs:
             universe.add(etf)
+
+        # Force-include every ticker in ETF_HOLDINGS so Sim Breaks
+        # has full coverage across all sector/theme ETFs
+        holding_tickers = get_etf_holding_tickers()
+        pre_count = len(universe)
+        universe.update(holding_tickers)
+        added = len(universe) - pre_count
+        if added:
+            logger.info(
+                "Force-included %d ETF holding tickers (total holdings: %d, "
+                "already in universe: %d)",
+                added, len(holding_tickers), len(holding_tickers) - added,
+            )
 
     return sorted(universe)
 
