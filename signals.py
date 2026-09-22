@@ -60,10 +60,17 @@ class Signal:
 
 @dataclass
 class DominoSetup:
-    """A domino setup — consecutive inside bars across timeframes."""
+    """A domino setup — consecutive inside bars across timeframes.
+
+    Only fires when CC (the current/latest candle) is STILL inside on
+    those timeframes — i.e. the setup hasn't broken out yet.  This is a
+    live "coiled spring," not a played-out one.
+    """
     ticker: str
     inside_tfs: list[str]            # which TFs are inside (e.g. ["D", "W"])
     count: int = 0                   # number of consecutive inside TFs
+    tf_patterns: dict[str, str] = field(default_factory=dict)
+    # ^ per-TF STRAT combo for display, e.g. {"D": "2-1", "W": "2-1"}
 
 
 @dataclass
@@ -246,8 +253,12 @@ def detect_domino(
 ) -> Optional[DominoSetup]:
     """Detect domino setup: consecutive inside bars across timeframes.
 
-    A domino occurs when multiple timeframes are all inside bars
-    simultaneously, creating "coiled spring" energy.
+    A domino occurs when multiple timeframes currently have CC (the
+    latest candle) as an inside bar — the setup is LIVE and hasn't
+    broken out yet.  This is the "coiled spring" that's still coiling.
+
+    Previous logic checked c1_is_inside (C1 was inside), which meant
+    CC had already broken the range and the domino had played out.
 
     Args:
         tf_states: computed TimeframeState per TF
@@ -258,11 +269,11 @@ def detect_domino(
     """
     inside_tfs: list[str] = []
 
-    # Check enabled TFs in order
+    # Check enabled TFs in order — CC must be a 1-bar (still inside)
     for tf in TF_ORDER:
         if tf in tf_states:
             state = tf_states[tf]
-            if state.c1_is_inside:
+            if state.cc_num == "1":
                 inside_tfs.append(tf)
 
     # A domino requires at least min_domino_tfs consecutive inside-bar TFs
@@ -287,10 +298,18 @@ def detect_domino(
             consecutive_tfs = inside_tfs[
                 consecutive_start : consecutive_start + max_consecutive
             ]
+            # Build per-TF pattern string (e.g. "2-1", "3-1", "1-1")
+            tf_patterns: dict[str, str] = {}
+            for tf in consecutive_tfs:
+                state = tf_states[tf]
+                c1_label = state.c1_num or "?"
+                tf_patterns[tf] = f"{c1_label}-1"
+
             return DominoSetup(
                 ticker="",  # filled by caller
                 inside_tfs=consecutive_tfs,
                 count=max_consecutive,
+                tf_patterns=tf_patterns,
             )
 
     return None
