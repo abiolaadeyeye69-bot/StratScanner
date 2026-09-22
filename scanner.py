@@ -452,6 +452,16 @@ def run_scan(
     logger.info(f"Universe: {len(universe)} tickers")
 
     # -----------------------------------------------------------------
+    # Phase 2b: Backfill recent gaps via yfinance
+    # -----------------------------------------------------------------
+    # Polygon free tier has a 1-business-day delay — today's bars return
+    # 403. Use yfinance (no delay, already a dependency) to fill the gap
+    # for just the universe tickers.
+    yf_filled = dm.backfill_recent_yfinance(universe)
+    if yf_filled:
+        logger.info(f"Backfilled {yf_filled} recent date(s) via yfinance")
+
+    # -----------------------------------------------------------------
     # Phase 3: Scan all tickers
     # -----------------------------------------------------------------
     logger.info("Phase 3: Scanning tickers...")
