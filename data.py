@@ -79,6 +79,41 @@ class RateLimiter:
 
 
 # =========================================================================
+# MARKET CLOCK (US/Eastern) — the runner's clock is UTC, the market's isn't
+# =========================================================================
+
+from zoneinfo import ZoneInfo
+
+_ET = ZoneInfo("America/New_York")
+# Regular session closes 16:00 ET. Wait a little for the consolidated
+# closing prints before treating a same-day bar as final.
+_SESSION_FINAL_HOUR_ET = 16
+_SESSION_FINAL_MINUTE_ET = 20
+
+
+def now_et() -> datetime:
+    return datetime.now(_ET)
+
+
+def market_today() -> date:
+    """Today's date on the US market's calendar (not the UTC runner's)."""
+    return now_et().date()
+
+
+def session_is_final(dt: date, now: Optional[datetime] = None) -> bool:
+    """True if the regular session for `dt` has closed, so its daily bar
+    will not change any more. A bar for a session still in progress is a
+    partial bar and must never be cached as if it were final."""
+    now = now or now_et()
+    today = now.date()
+    if dt < today:
+        return True
+    if dt > today:
+        return False
+    return (now.hour, now.minute) >= (_SESSION_FINAL_HOUR_ET, _SESSION_FINAL_MINUTE_ET)
+
+
+# =========================================================================
 # POLYGON CLIENT
 # =========================================================================
 
@@ -110,11 +145,26 @@ class PolygonClient:
         """
         cache_file = self._cache_path(dt)
 
-        # Check cache first
+        # Check cache first. Polygon-sourced files are authoritative and
+        # permanent. yfinance-sourced files are a stop-gap for Polygon's
+        # free-tier delay: once Polygon has the date, replace them. A
+        # yfinance file not flagged `_final` may hold a partial intraday
+        # bar (written while the session was still open) and is discarded.
+        provisional: Optional[dict] = None
         if cache_file.exists():
-            logger.debug(f"Cache hit: {dt}")
             with open(cache_file) as f:
-                return json.load(f)
+                cached = json.load(f)
+            if cached.get("_source") != "yfinance":
+                logger.debug(f"Cache hit: {dt}")
+                return cached
+            if cached.get("_final"):
+                provisional = cached
+            else:
+                logger.warning(
+                    f"Discarding non-final yfinance cache for {dt} "
+                    f"(may be a partial intraday bar)"
+                )
+                cache_file.unlink()
 
         # Fetch from API
         self.limiter.wait()
@@ -133,6 +183,9 @@ class PolygonClient:
         # Polygon returns 403 for future dates or dates with no data yet
         # (e.g. scan runs before market opens). Return empty instead of crashing.
         if resp.status_code in (403, 404):
+            if provisional is not None:
+                logger.info(f"Polygon not ready for {dt}; using final yfinance bars")
+                return provisional
             logger.warning(
                 f"Polygon returned {resp.status_code} for {dt} — "
                 f"no data available (market may not have opened yet)"
@@ -141,6 +194,13 @@ class PolygonClient:
 
         resp.raise_for_status()
         data = resp.json()
+
+        if data.get("resultsCount", 0) == 0:
+            # Don't cache an empty answer, and don't throw away a good
+            # provisional copy for one.
+            return provisional or data
+        if provisional is not None:
+            logger.info(f"Replacing yfinance bars for {dt} with Polygon data")
 
         # Cache the response
         with open(cache_file, "w") as f:
@@ -343,7 +403,7 @@ class DataManager:
                    Useful for backtesting.
         """
         if as_of is None:
-            as_of = date.today()
+            as_of = market_today()
 
         dates = trading_days_back(as_of, self.config.history_calendar_days)
         total = len(dates)
@@ -485,14 +545,23 @@ class DataManager:
             )
             return 0
 
-        today = date.today()
+        now = now_et()
+        today = now.date()
         recent_dates = trading_days_back(today, lookback_days)
 
-        # Identify dates Polygon missed (returned 403 / empty)
+        # Identify dates Polygon missed (returned 403 / empty). Only
+        # sessions that have closed: a bar pulled mid-session is partial,
+        # and caching it froze the day's bar at its opening minutes.
         missing = [
             dt for dt in recent_dates
-            if dt not in self.daily_data and dt <= today
+            if dt not in self.daily_data and session_is_final(dt, now)
         ]
+        if today in recent_dates and today not in self.daily_data \
+                and not session_is_final(today, now):
+            logger.info(
+                f"Session {today} still open ({now:%H:%M} ET) — not "
+                f"backfilling a partial bar"
+            )
 
         if not missing:
             logger.info("No recent date gaps — Polygon data is current")
@@ -513,7 +582,10 @@ class DataManager:
                 tickers,
                 start=start.isoformat(),
                 end=end.isoformat(),
-                auto_adjust=True,
+                # Split-adjusted only, like Polygon's adjusted=true and
+                # TradingView's default chart. auto_adjust=True would also
+                # back out dividends and shift every price.
+                auto_adjust=False,
                 progress=False,
                 threads=True,
             )
@@ -588,6 +660,8 @@ class DataManager:
                         for t, b in bars.items()
                     ],
                     "_source": "yfinance",
+                    "_final": True,
+                    "_fetched_at": now.isoformat(),
                 }
                 cache_file = self.client._cache_path(dt)
                 with open(cache_file, "w") as f:
