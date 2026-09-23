@@ -56,6 +56,7 @@ from sector_rotation import (
 )
 from alerts import send_alert_email
 from gex import GexSummary, compute_gex_summary
+from strat_engine import format_combo
 
 # =========================================================================
 # LOGGING SETUP
@@ -491,6 +492,14 @@ def run_scan(
             # Collect panel + price for ALL tickers (drill-down coverage)
             if result.panel_state:
                 panel_entry = dict(result.panel_state)
+                # Full candle combo per TF (e.g. "2d-1-2u") for every ticker,
+                # not just the ones where a signal fired — the dashboard's
+                # Sim Breaks drill-down shows it for each holding.
+                panel_entry["cb"] = {
+                    tf: format_combo(st)
+                    for tf, st in result.tf_states.items()
+                    if tf in result.panel_state
+                }
                 if len(daily_bars) >= 2:
                     panel_entry["lc"] = round(daily_bars[-1].close, 2)
                     prev_close = daily_bars[-2].close
