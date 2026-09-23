@@ -495,6 +495,11 @@ def run_scan(
                 # Full candle combo per TF (e.g. "2d-1-2u") for every ticker,
                 # not just the ones where a signal fired — the dashboard's
                 # Sim Breaks drill-down shows it for each holding.
+                # Full timeframe continuity (close vs open on every TF):
+                # "u" = all up, "d" = all down, "" = mixed.
+                panel_entry["ft"] = (
+                    "u" if result.ftfc_up else "d" if result.ftfc_down else ""
+                )
                 panel_entry["cb"] = {
                     tf: format_combo(st)
                     for tf, st in result.tf_states.items()
