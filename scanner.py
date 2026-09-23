@@ -426,7 +426,10 @@ def run_scan(
     if config is None:
         config = load_config()
     if scan_date is None:
-        scan_date = date.today()
+        # Market calendar date, not the UTC runner's — an evening ET run
+        # is already "tomorrow" in UTC.
+        from data import market_today
+        scan_date = market_today()
     if output_dir is None:
         output_dir = Path("./output")
 
