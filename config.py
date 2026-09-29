@@ -12,7 +12,9 @@ from typing import Literal
 # Type aliases matching v3.1.1 input option strings
 # ---------------------------------------------------------------------------
 FailedMethod = Literal["Reclaim", "Open", "Reclaim + Open", "Reclaim OR Open"]
-HammerShooterLogic = Literal["Broad (Loose)", "Classic", "Pin Bar (Strict)"]
+HammerShooterLogic = Literal[
+    "Broad (Loose)", "Classic", "Pin Bar (Strict)", "Wick Ratio"
+]
 StopReference = Literal["CC", "C1"]
 
 
@@ -111,8 +113,24 @@ class ScannerConfig:
     # =================================================================
     # HAMMER / SHOOTER
     # =================================================================
-    hammer_shooter_logic: HammerShooterLogic = "Broad (Loose)"
+    # "Broad (Loose)" only checks which side of the bar's midpoint the body
+    # sits on and which wick is longer -- it never compares wick to body, so
+    # on live data ~99% of signals carried a hammer or shooter flag. It is
+    # kept as an option for parity with TheStrat Suite v3.1.1 but is no
+    # longer the default.
+    #
+    # "Wick Ratio" is the strict, tunable mode (the three knobs below):
+    #   shooter = upper wick >= min_wick_body_ratio x body
+    #             AND upper wick >= min_wick_pct of the full bar range
+    #             AND lower wick <= max_opp_wick_pct of the full bar range
+    #   hammer  = the mirror image (lower wick dominant)
+    # A zero-body doji passes the ratio test trivially, so the range-%
+    # tests are what keep it honest.
+    hammer_shooter_logic: HammerShooterLogic = "Wick Ratio"
     hammer_shooter_match_color: bool = False  # hammer=green, shooter=red
+    hammer_shooter_min_wick_body_ratio: float = 2.0   # dominant wick / body
+    hammer_shooter_min_wick_pct: float = 0.50         # dominant wick / range
+    hammer_shooter_max_opp_wick_pct: float = 0.25     # opposite wick / range
 
     # =================================================================
     # DOMINO

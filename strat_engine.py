@@ -275,8 +275,14 @@ def detect_hammer_shooter(
     bar: BarData,
     logic: HammerShooterLogic = "Broad (Loose)",
     match_color: bool = False,
+    min_wick_body_ratio: float = 2.0,
+    min_wick_pct: float = 0.50,
+    max_opp_wick_pct: float = 0.25,
 ) -> HammerShooterResult:
-    """Detect if a bar is a hammer and/or shooter."""
+    """Detect if a bar is a hammer and/or shooter.
+
+    The last three parameters only apply to logic="Wick Ratio".
+    """
     body_high = max(bar.open, bar.close)
     body_low = min(bar.open, bar.close)
     body_size = body_high - body_low
@@ -322,6 +328,22 @@ def detect_hammer_shooter(
             tiny_body
             and upper_wick >= bar_range * 2 / 3
             and lower_wick <= bar_range / 4
+        )
+
+    elif logic == "Wick Ratio":
+        # Strict + tunable. Dominant wick must beat the body by a set
+        # multiple AND take up a real share of the bar AND the opposite
+        # wick must be small. Direction of the close does not matter here
+        # (use match_color for that).
+        is_shooter = (
+            upper_wick >= body_size * min_wick_body_ratio
+            and upper_wick >= bar_range * min_wick_pct
+            and lower_wick <= bar_range * max_opp_wick_pct
+        )
+        is_hammer = (
+            lower_wick >= body_size * min_wick_body_ratio
+            and lower_wick >= bar_range * min_wick_pct
+            and upper_wick <= bar_range * max_opp_wick_pct
         )
 
     if match_color:
@@ -688,6 +710,9 @@ def compute_signal_state(
     # --- Hammer / Shooter on C1 ---
     ham_sho = detect_hammer_shooter(
         c1, config.hammer_shooter_logic, config.hammer_shooter_match_color,
+        min_wick_body_ratio=config.hammer_shooter_min_wick_body_ratio,
+        min_wick_pct=config.hammer_shooter_min_wick_pct,
+        max_opp_wick_pct=config.hammer_shooter_max_opp_wick_pct,
     )
     is_hammer = ham_sho.is_hammer
     is_shooter = ham_sho.is_shooter

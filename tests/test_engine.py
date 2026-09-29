@@ -354,6 +354,55 @@ class TestHammerShooter:
         result = detect_hammer_shooter(bar, logic="Broad (Loose)", match_color=True)
         assert result.is_hammer is True
 
+    # ---- Wick Ratio (strict, tunable) ----
+
+    def test_wick_ratio_shooter_passes(self):
+        """Upper wick 8 = 4x body (2), 80% of range, opposite wick 0."""
+        bar = BarData(open=100, high=110, low=100, close=102)
+        r = detect_hammer_shooter(bar, logic="Wick Ratio")
+        assert r.is_shooter is True and r.is_hammer is False
+
+    def test_wick_ratio_hammer_passes(self):
+        bar = BarData(open=108, high=110, low=100, close=110)
+        r = detect_hammer_shooter(bar, logic="Wick Ratio")
+        assert r.is_hammer is True and r.is_shooter is False
+
+    def test_wick_ratio_rejects_what_loose_accepts(self):
+        """Body 4, upper wick 6 (1.5x body), lower wick 5: loose calls it a
+        shooter (body below midpoint, upper > lower); strict does not."""
+        bar = BarData(open=102, high=112, low=97, close=106)
+        assert detect_hammer_shooter(bar, logic="Broad (Loose)").is_shooter is True
+        strict = detect_hammer_shooter(bar, logic="Wick Ratio")
+        assert strict.is_shooter is False and strict.is_hammer is False
+
+    def test_wick_ratio_rejects_long_opposite_wick(self):
+        """Both wicks long (spinning-top shape) is neither."""
+        bar = BarData(open=104, high=112, low=94, close=105)
+        r = detect_hammer_shooter(bar, logic="Wick Ratio")
+        assert r.is_shooter is False and r.is_hammer is False
+
+    def test_wick_ratio_knob_tightens(self):
+        bar = BarData(open=100, high=110, low=100, close=104)  # wick 6, body 4 = 1.5x
+        assert detect_hammer_shooter(
+            bar, logic="Wick Ratio", min_wick_body_ratio=1.5
+        ).is_shooter is True
+        assert detect_hammer_shooter(
+            bar, logic="Wick Ratio", min_wick_body_ratio=2.0
+        ).is_shooter is False
+
+    def test_wick_ratio_doji_zero_range(self):
+        bar = BarData(open=100, high=100, low=100, close=100)
+        r = detect_hammer_shooter(bar, logic="Wick Ratio")
+        assert r.is_hammer is False and r.is_shooter is False
+
+    def test_wick_ratio_match_color(self):
+        green_shooter_shape = BarData(open=100, high=110, low=100, close=102)
+        r = detect_hammer_shooter(green_shooter_shape, logic="Wick Ratio", match_color=True)
+        assert r.is_shooter is False  # shooter must be red
+        red = BarData(open=102, high=110, low=100, close=100)
+        # upper wick 8, body 2, lower wick 0 -> valid red shooter
+        assert detect_hammer_shooter(red, logic="Wick Ratio", match_color=True).is_shooter is True
+
 
 # =========================================================================
 # FTFC
