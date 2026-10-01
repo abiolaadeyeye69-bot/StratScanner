@@ -22,6 +22,10 @@ from broadening_formation import (
     scan_ticker_bf,
     format_bf_signal_line,
     format_bf_active_line,
+    BFReversal,
+    detect_reversal_patterns,
+    find_bf_reversals,
+    format_bf_reversal_line,
 )
 
 
@@ -437,6 +441,160 @@ class TestFormatting:
         assert "300.00" in line
         assert "320.00" in line
         assert "20.00" in line
+
+
+# =========================================================================
+# REVERSAL INTO THE BF RANGE
+# =========================================================================
+
+# Long setup traced by hand: pivot low 90 (bar 2), broken bar 5, reclaimed
+# bar 6 (close 91 > 90) with target locked at 98. Bar 6 is a Failed 2D
+# (2D that closed back inside bar 5's range).
+_BASE = [
+    (100, 105, 98, 102),
+    (97, 99, 95, 96),
+    (94, 96, 90, 93),      # pivot low (90)
+    (93, 97, 93, 95),
+    (95, 98, 94, 96),      # extreme -> 98
+    (96, 97, 88, 89),      # broken (2D)
+    (89, 92, 87, 91),      # reclaim, target=98; Failed 2D
+]
+# Hammer back at the level: 2U after the bar-6 2D (=> 2-2 Rev), lower wick
+# 3.5 vs body 1, tiny body (=> Pin Bar shape too). Low 90.5 is inside the
+# 1% zone around 90 (<= 90.9) without piercing.
+_HAMMER_AT_LEVEL = (94, 95, 90.5, 95)
+# Same shapes (2U after the 2D => 2-2 Rev, hammer) but nowhere near the
+# level: low 94 is 4.4% above 90. Stays under the 98 target (high 97.9).
+_HAMMER_FAR = (97.4, 97.9, 94, 97.8)
+
+
+def _mirror(ohlc):
+    """Flip a series through 200 so a long scenario becomes a short one."""
+    return [(200 - o, 200 - l, 200 - h, 200 - c) for o, h, l, c in ohlc]
+
+
+def _cfg(**kw):
+    base = dict(bf_max_swings=50)
+    base.update(kw)
+    return ScannerConfig(**base)
+
+
+def _revs(ohlc, cfg):
+    bars = _agg_bars(ohlc)
+    res = detect_magnitude_reclaim(bars, cfg, tf="D")
+    return find_bf_reversals("TST", "D", bars, res, cfg)
+
+
+class TestReversalIntoRange:
+    def test_reclaim_bar_failed_2(self):
+        revs = _revs(_BASE, _cfg(bf_long_only=True))
+        assert len(revs) == 1
+        r = revs[0]
+        assert r.direction == "long"
+        assert r.entry == "reclaim"
+        assert r.bars_ago == 0
+        assert r.patterns == ["Failed 2"]
+        assert (r.level, r.target) == (90, 98)
+        assert r.expected_move == 98 - 91
+        assert r.risk == 91 - 90
+
+    def test_retest_hammer_22rev_and_pin(self):
+        revs = _revs(_BASE + [_HAMMER_AT_LEVEL], _cfg(bf_long_only=True))
+        assert len(revs) == 1
+        r = revs[0]
+        assert r.entry == "retest"
+        assert r.patterns == ["2-2 Rev", "Hammer", "Pin Bar"]
+        assert r.bar_extreme == 90.5
+        assert r.close == 95
+
+    def test_bar_far_from_level_is_ignored(self):
+        # Same hammer/2-2 shape but its low (94) is nowhere near the level.
+        assert _revs(_BASE + [_HAMMER_FAR], _cfg(bf_long_only=True)) == []
+
+    def test_zone_knob_widens_reach(self):
+        # low 94 <= 90*1.05 -> inside a 5% zone, outside the default 1%
+        revs = _revs(_BASE + [_HAMMER_FAR], _cfg(bf_long_only=True, bf_reversal_zone_pct=5.0))
+        assert len(revs) == 1 and revs[0].entry == "retest"
+
+    def test_lookback(self):
+        inside = (94.5, 94.9, 94.2, 94.6)     # quiet inside bar, no pattern
+        ohlc = _BASE + [_HAMMER_AT_LEVEL, inside]
+        assert _revs(ohlc, _cfg(bf_long_only=True, bf_reversal_lookback_bars=1)) == []
+        revs = _revs(ohlc, _cfg(bf_long_only=True, bf_reversal_lookback_bars=2))
+        assert len(revs) == 1 and revs[0].bars_ago == 1
+
+    def test_setup_that_failed_since_is_dropped(self):
+        broke_back = (94, 94.5, 88, 89)       # closes back under the level
+        ohlc = _BASE + [_HAMMER_AT_LEVEL, broke_back]
+        assert _revs(ohlc, _cfg(bf_long_only=True, bf_reversal_lookback_bars=2)) == []
+
+    def test_target_hit_setup_is_dropped(self):
+        hit = (95, 99, 94, 98)                # high 99 >= target 98
+        ohlc = _BASE + [_HAMMER_AT_LEVEL, hit]
+        assert _revs(ohlc, _cfg(bf_long_only=True, bf_reversal_lookback_bars=2)) == []
+
+    def test_close_beyond_target_not_a_reversal_into_range(self):
+        # Reversal-shaped bar whose close is at/over the target is not "in" it.
+        ohlc = _BASE + [(94, 97.9, 90.5, 97.9)]
+        revs = _revs(ohlc, _cfg(bf_long_only=True))
+        assert all(r.close < r.target for r in revs)
+
+    def test_pattern_toggles(self):
+        cfg = _cfg(bf_long_only=True, bf_reversal_patterns=["pin"])
+        revs = _revs(_BASE + [_HAMMER_AT_LEVEL], cfg)
+        assert [r.patterns for r in revs] == [["Pin Bar"]]
+        cfg = _cfg(bf_long_only=True, bf_reversal_patterns=[])
+        assert _revs(_BASE + [_HAMMER_AT_LEVEL], cfg) == []
+
+    def test_disabled(self):
+        cfg = _cfg(bf_long_only=True, bf_reversal_enabled=False)
+        assert _revs(_BASE + [_HAMMER_AT_LEVEL], cfg) == []
+
+    def test_short_side_mirror(self):
+        revs = _revs(_mirror(_BASE + [_HAMMER_AT_LEVEL]), _cfg())
+        shorts = [r for r in revs if r.direction == "short"]
+        assert len(shorts) == 1
+        r = shorts[0]
+        assert r.entry == "retest"
+        assert r.patterns == ["2-2 Rev", "Shooter", "Pin Bar"]
+        assert (r.level, r.target) == (110, 102)
+        assert r.bar_extreme == 109.5          # the bar's HIGH for a short
+        # The mirrored series must not spawn any long-side reversals.
+        assert not [x for x in revs if x.direction == "long"]
+
+    def test_long_only_skips_shorts(self):
+        revs = _revs(_mirror(_BASE + [_HAMMER_AT_LEVEL]), _cfg(bf_long_only=True))
+        assert revs == []
+
+    def test_wrong_way_pattern_not_counted(self):
+        # A shooter-shaped bar at a LONG setup's level is not a bullish
+        # reversal: patterns must point toward the target.
+        bars = _agg_bars(_BASE + [(90.6, 94.5, 90.5, 90.7)])
+        pats = detect_reversal_patterns(bars, len(bars) - 1, "long", _cfg())
+        assert "Shooter" not in pats and "Hammer" not in pats
+
+    def test_scan_ticker_bf_populates_reversals(self):
+        daily = _daily_bars(_BASE + [_HAMMER_AT_LEVEL])
+        cfg = _cfg(bf_long_only=True, bf_timeframes=["D"])
+        res = scan_ticker_bf("TST", daily, cfg)
+        assert len(res.reversals) == 1
+        assert res.reversals[0].ticker == "TST"
+        assert res.reversals[0].dt == daily[-1].dt
+
+    def test_format_reversal_line(self):
+        r = BFReversal(
+            ticker="AAPL", tf="D", direction="long",
+            patterns=["Hammer", "Failed 2"], entry="retest",
+            dt=date(2026, 9, 28), bars_ago=1, level=178.5,
+            swing_date=date(2026, 9, 1), target=192.0,
+            target_date=date(2026, 9, 10), close=181.0, bar_extreme=177.9,
+            magnitude=13.5, expected_move=11.0, risk=2.5,
+        )
+        line = format_bf_reversal_line(r)
+        assert "AAPL D BF▲ REVERSAL" in line
+        assert "Hammer + Failed 2" in line
+        assert "retest, 1 bar ago" in line
+        assert "178.50" in line and "192.00" in line
 
 
 if __name__ == "__main__":

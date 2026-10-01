@@ -79,6 +79,7 @@ from typing import Optional
 
 from config import ScannerConfig
 from sfp import find_pivot_highs, find_pivot_lows
+from strat_engine import BarData, classify_bar, detect_failed_2, detect_hammer_shooter
 from timeframes import AggBar, DailyBar, aggregate
 
 
@@ -350,6 +351,28 @@ class ActiveSetup:
 
 
 @dataclass
+class BFReversal:
+    """A reversal pattern that printed as price came back into (or tested
+    the edge of) an active setup's level -> target range."""
+    ticker: str
+    tf: str
+    direction: str          # "long" (bullish reversal) or "short"
+    patterns: list[str]     # e.g. ["2-2 Rev", "Hammer"]
+    entry: str              # "reclaim" (the reclaim bar itself) or "retest"
+    dt: date                # reversal bar's period end
+    bars_ago: int           # 0 = latest bar
+    level: float
+    swing_date: date
+    target: float
+    target_date: date
+    close: float            # reversal bar's close
+    bar_extreme: float      # reversal bar's low (long) / high (short)
+    magnitude: float        # |target - level|
+    expected_move: float    # reversal-bar close -> target
+    risk: float             # reversal-bar close -> level
+
+
+@dataclass
 class TickerMagnitudeResult:
     """Complete broadening-formation-reclaim scan result for one ticker
     across all configured timeframes."""
@@ -357,7 +380,154 @@ class TickerMagnitudeResult:
     signals: list[MagnitudeSignal] = field(default_factory=list)     # fresh events
     active_long: list[ActiveSetup] = field(default_factory=list)     # magnitude desc
     active_short: list[ActiveSetup] = field(default_factory=list)    # magnitude desc
+    reversals: list[BFReversal] = field(default_factory=list)        # reversal into range
     tf_results: dict[str, MagnitudeResult] = field(default_factory=dict)
+
+
+# =========================================================================
+# REVERSAL INTO THE BF RANGE
+# =========================================================================
+
+_PATTERN_LABELS = {
+    "22rev": "2-2 Rev",
+    "f2": "Failed 2",
+    "pin": "Pin Bar",
+}
+
+
+def detect_reversal_patterns(
+    bars: list[AggBar], j: int, direction: str, config: ScannerConfig,
+) -> list[str]:
+    """Which enabled reversal patterns bar `j` prints, pointing toward the
+    target of a `direction` setup ("long" = bullish reversal).
+
+    Every pattern is judged on bar j against the bars before it:
+      2-2 Rev  long: bar j-1 was a 2D and bar j is a 2U.  Short: 2U then 2D.
+      Failed 2 long: bar j is a 2D that closed back inside bar j-1's range
+               (Failed 2D).  Short: Failed 2U.  Uses config.failed_2_method.
+      Hammer / Shooter: long wants a hammer, short a shooter, under
+               config.hammer_shooter_logic.
+      Pin Bar: same direction test but always the "Pin Bar (Strict)" shape.
+    """
+    enabled = set(config.bf_reversal_patterns)
+    found: list[str] = []
+    bar = bars[j].bar
+    is_long = direction == "long"
+
+    if j >= 1:
+        prev = bars[j - 1].bar
+
+        if "22rev" in enabled and j >= 2:
+            pp = bars[j - 2].bar
+            prev_cls = classify_bar(
+                pp.high, pp.low, prev.high, prev.low, prev.open, prev.close)
+            cur_cls = classify_bar(
+                prev.high, prev.low, bar.high, bar.low, bar.open, bar.close)
+            if is_long and prev_cls.is_2d and cur_cls.is_2u:
+                found.append(_PATTERN_LABELS["22rev"])
+            elif not is_long and prev_cls.is_2u and cur_cls.is_2d:
+                found.append(_PATTERN_LABELS["22rev"])
+
+        if "f2" in enabled:
+            f2 = detect_failed_2(
+                prev.high, prev.low, bar.open, bar.close, bar.high, bar.low,
+                method=config.failed_2_method,
+                enable_detection=True,
+            )
+            if (is_long and f2.is_f2d) or (not is_long and f2.is_f2u):
+                found.append(_PATTERN_LABELS["f2"])
+
+    if "hammer_shooter" in enabled:
+        hs = detect_hammer_shooter(
+            bar, config.hammer_shooter_logic, config.hammer_shooter_match_color,
+            min_wick_body_ratio=config.hammer_shooter_min_wick_body_ratio,
+            min_wick_pct=config.hammer_shooter_min_wick_pct,
+            max_opp_wick_pct=config.hammer_shooter_max_opp_wick_pct,
+        )
+        if is_long and hs.is_hammer:
+            found.append("Hammer")
+        elif not is_long and hs.is_shooter:
+            found.append("Shooter")
+
+    if "pin" in enabled:
+        pin = detect_hammer_shooter(bar, "Pin Bar (Strict)")
+        if (is_long and pin.is_hammer) or (not is_long and pin.is_shooter):
+            found.append(_PATTERN_LABELS["pin"])
+
+    return found
+
+
+def find_bf_reversals(
+    ticker: str,
+    tf: str,
+    bars: list[AggBar],
+    tf_result: MagnitudeResult,
+    config: ScannerConfig,
+) -> list[BFReversal]:
+    """Reversal patterns printed at an ACTIVE setup's level within the
+    last `bf_reversal_lookback_bars` bars.
+
+    A bar j qualifies for a setup when ALL hold:
+      * the setup's target was already locked by bar j (range exists)
+      * bar j reached the level: long low <= level*(1+zone%), short
+        high >= level*(1-zone%)  (a pierce always passes this)
+      * bar j closed on the inside of the level (long > level, short <
+        level) -- price is back in the range
+      * bar j's close is short of the target
+      * the setup is still active on the latest bar (not failed since,
+        target not hit)
+      * at least one enabled reversal pattern points toward the target
+    """
+    out: list[BFReversal] = []
+    n = len(bars)
+    if n == 0 or not config.bf_reversal_enabled:
+        return out
+
+    last_close = bars[-1].bar.close
+    first_j = max(0, n - max(1, config.bf_reversal_lookback_bars))
+    zone = config.bf_reversal_zone_pct / 100.0
+
+    for direction, swings in (
+        ("long", tf_result.swings_long), ("short", tf_result.swings_short)
+    ):
+        for swing in swings:
+            if not swing.is_active(last_close):
+                continue
+            for j in range(first_j, n):
+                if swing.target_bar_index is None or swing.target_bar_index > j:
+                    continue
+                bar = bars[j].bar
+                if direction == "long":
+                    reached = bar.low <= swing.level * (1 + zone)
+                    inside = bar.close > swing.level and bar.close < swing.target
+                    extreme = bar.low
+                else:
+                    reached = bar.high >= swing.level * (1 - zone)
+                    inside = bar.close < swing.level and bar.close > swing.target
+                    extreme = bar.high
+                if not (reached and inside):
+                    continue
+
+                patterns = detect_reversal_patterns(bars, j, direction, config)
+                if not patterns:
+                    continue
+
+                move = (swing.target - bar.close if direction == "long"
+                        else bar.close - swing.target)
+                risk = (bar.close - swing.level if direction == "long"
+                        else swing.level - bar.close)
+                out.append(BFReversal(
+                    ticker=ticker, tf=tf, direction=direction,
+                    patterns=patterns,
+                    entry="reclaim" if j == swing.target_bar_index else "retest",
+                    dt=bars[j].period_end, bars_ago=n - 1 - j,
+                    level=swing.level, swing_date=swing.swing_date,
+                    target=swing.target, target_date=swing.target_date,
+                    close=bar.close, bar_extreme=extreme,
+                    magnitude=swing.magnitude,
+                    expected_move=move, risk=risk,
+                ))
+    return out
 
 
 def scan_ticker_bf(
@@ -417,6 +587,11 @@ def scan_ticker_bf(
                 target=event.target, target_date=event.target_date,
             ))
 
+        # --- Reversal patterns at the level of an active setup ---
+        result.reversals.extend(
+            find_bf_reversals(ticker, tf, agg, tf_result, config)
+        )
+
         # --- Active setups: every live swing as of the last bar ---
         for swing in tf_result.swings_long:
             if swing.is_active(last_close):
@@ -442,6 +617,7 @@ def scan_ticker_bf(
 
     result.active_long.sort(key=lambda s: s.magnitude, reverse=True)
     result.active_short.sort(key=lambda s: s.magnitude, reverse=True)
+    result.reversals.sort(key=lambda r: (r.bars_ago, -r.magnitude))
 
     return result
 
@@ -484,4 +660,20 @@ def format_bf_active_line(setup: ActiveSetup) -> str:
         f"Level {setup.level:.2f} -> Target {setup.target:.2f} "
         f"(mag {setup.magnitude:.2f}) | "
         f"Move {setup.expected_move:.2f} Risk {setup.risk:.2f}"
+    )
+
+
+def format_bf_reversal_line(r: BFReversal) -> str:
+    """Format a reversal-into-range as a compact alert line.
+
+    Example:
+      "AAPL D BF▲ REVERSAL (Hammer + Failed 2, retest) | Level 178.50 -> Target 192.00 | Move 8.20 Risk 3.10"
+    """
+    arrow = "▲" if r.direction == "long" else "▼"
+    age = "" if r.bars_ago == 0 else f", {r.bars_ago} bar{'s' if r.bars_ago != 1 else ''} ago"
+    return (
+        f"{r.ticker} {r.tf} BF{arrow} REVERSAL "
+        f"({' + '.join(r.patterns)}, {r.entry}{age}) | "
+        f"Level {r.level:.2f} -> Target {r.target:.2f} | "
+        f"Move {r.expected_move:.2f} Risk {r.risk:.2f}"
     )

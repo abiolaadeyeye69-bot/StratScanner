@@ -44,6 +44,7 @@ from broadening_formation import (
     scan_ticker_bf,
     format_bf_signal_line,
     format_bf_active_line,
+    format_bf_reversal_line,
 )
 from sector_universe import get_sector_universe
 from sector_rotation import (
@@ -137,6 +138,7 @@ def serialize_results(
     all_bf_signals = [s for r in bf_results for s in r.signals]
     all_bf_active_long = [s for r in bf_results for s in r.active_long]
     all_bf_active_short = [s for r in bf_results for s in r.active_short]
+    all_bf_reversals = [s for r in bf_results for s in r.reversals]
 
     rotation_json = None
     if rotation_result is not None:
@@ -254,6 +256,7 @@ def serialize_results(
             "bf_target_hit": sum(1 for s in all_bf_signals if s.stage == "target_hit"),
             "bf_active_long": len(all_bf_active_long),
             "bf_active_short": len(all_bf_active_short),
+            "bf_reversals": len(all_bf_reversals),
             "sector_rotation_tracked": (
                 len(rotation_result.entries) if rotation_result else 0
             ),
@@ -382,6 +385,27 @@ def serialize_results(
                 for s in all_bf_active_short
             ],
         },
+        "bf_reversals": [
+            {
+                "ticker": r.ticker,
+                "tf": r.tf,
+                "direction": r.direction,
+                "patterns": r.patterns,
+                "entry": r.entry,
+                "date": r.dt.isoformat(),
+                "bars_ago": r.bars_ago,
+                "level": r.level,
+                "swing_date": r.swing_date.isoformat(),
+                "target": r.target,
+                "target_date": r.target_date.isoformat(),
+                "close": r.close,
+                "bar_extreme": r.bar_extreme,
+                "magnitude": r.magnitude,
+                "expected_move": r.expected_move,
+                "risk": r.risk,
+            }
+            for r in all_bf_reversals
+        ],
         "sector_rotation": rotation_json,
         "gex": gex_json,
         "etf_holdings": etf_holdings,
@@ -733,6 +757,14 @@ def run_scan(
             logger.info(f"  {format_bf_signal_line(sig)}")
         if len(all_bf_signals) > 20:
             logger.info(f"  ... and {len(all_bf_signals) - 20} more BF signals")
+    all_bf_reversals = [s for r in bf_results for s in r.reversals]
+    if all_bf_reversals:
+        logger.info("")
+        logger.info(f"BF REVERSALS INTO RANGE: {len(all_bf_reversals)}")
+        for rev in all_bf_reversals[:20]:
+            logger.info(f"  {format_bf_reversal_line(rev)}")
+        if len(all_bf_reversals) > 20:
+            logger.info(f"  ... and {len(all_bf_reversals) - 20} more BF reversals")
     if all_bf_active_long or all_bf_active_short:
         all_bf_active_long.sort(key=lambda s: s.magnitude, reverse=True)
         all_bf_active_short.sort(key=lambda s: s.magnitude, reverse=True)

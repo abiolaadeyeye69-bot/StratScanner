@@ -256,6 +256,31 @@ class ScannerConfig:
     # active setup by magnitude" ranking to mean much.
     bf_timeframes: list[str] = field(default_factory=lambda: ["D", "W"])
 
+    # -----------------------------------------------------------------
+    # Reversal INTO the BF range
+    # -----------------------------------------------------------------
+    # "BF range" = the span from an active setup's reclaim LEVEL to its
+    # locked TARGET. A reversal into the range is a bar that (a) reached
+    # the level -- pierced it, or came within `bf_reversal_zone_pct` of it
+    # -- (b) closed on the inside of the level (long: above, short: below),
+    # and (c) printed at least one enabled reversal pattern pointing
+    # toward the target. If the bar is the reclaim bar itself the entry is
+    # tagged "reclaim"; a later bar back at the level is a "retest".
+    bf_reversal_enabled: bool = True
+    # Reversal bar must be within the last N bars of the timeframe
+    # (1 = only the latest bar, like the other alertable signals).
+    bf_reversal_lookback_bars: int = 1
+    # How close (as % of the level) the bar's extreme must get to the
+    # level to count as "at the level" when it did NOT pierce it.
+    # A pierce always counts. 0 = must pierce or touch exactly.
+    bf_reversal_zone_pct: float = 1.0
+    # Enabled patterns. Names: "22rev" (2D->2U for longs, 2U->2D for
+    # shorts), "f2" (Failed 2, uses failed_2_method), "hammer_shooter"
+    # (uses hammer_shooter_logic), "pin" (Pin Bar (Strict) shape).
+    bf_reversal_patterns: list[str] = field(
+        default_factory=lambda: ["22rev", "f2", "hammer_shooter", "pin"]
+    )
+
     # =================================================================
     # SECTOR / SUBSECTOR / THEMATIC ROTATION — scanner-native, not from
     # any Pine Script. Cross-sectional relative-strength ranking of the
