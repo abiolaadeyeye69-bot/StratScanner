@@ -14,14 +14,16 @@ Can be run as a one-shot (python scanner.py) or on a cron/Railway schedule.
 """
 from __future__ import annotations
 
+import dataclasses
 import json
 import logging
 import os
 import sys
 import time
+from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 from config import ScannerConfig
 from data import DataManager
@@ -111,6 +113,19 @@ def load_config() -> ScannerConfig:
         except ValueError:
             pass
 
+    # Crypto scan
+    crypto_size = os.environ.get("CRYPTO_UNIVERSE_SIZE", "")
+    if crypto_size:
+        try:
+            config.crypto_universe_size = int(crypto_size)
+        except ValueError:
+            pass
+    extra = os.environ.get("CRYPTO_EXTRA_SYMBOLS", "")
+    if extra:
+        config.crypto_extra_symbols = [
+            x.strip().upper() for x in extra.split(",") if x.strip()
+        ]
+
     return config
 
 
@@ -130,8 +145,13 @@ def serialize_results(
     all_panels: Optional[dict[str, dict]] = None,
     market_breadth: Optional[dict] = None,
     etf_holdings: Optional[dict] = None,
+    extra: Optional[dict] = None,
 ) -> dict:
-    """Serialize scan results to a JSON-compatible dict."""
+    """Serialize scan results to a JSON-compatible dict.
+
+    `extra` adds top-level keys (used by the crypto scan for asset_class
+    and per-coin metadata); stock output is unchanged when it is None.
+    """
     sfp_results = sfp_results or []
     bf_results = bf_results or []
     all_sfp_signals = [s for r in sfp_results for s in r.signals]
@@ -223,7 +243,7 @@ def serialize_results(
             ],
         }
 
-    return {
+    out = {
         "scan_date": scan_date.isoformat(),
         "timestamp": datetime.now().isoformat(),
         "config": {
@@ -410,6 +430,9 @@ def serialize_results(
         "gex": gex_json,
         "etf_holdings": etf_holdings,
     }
+    if extra:
+        out.update(extra)
+    return out
 
 
 def save_results(results_dict: dict, output_dir: Path) -> Path:
@@ -420,6 +443,145 @@ def save_results(results_dict: dict, output_dir: Path) -> Path:
     with open(path, "w") as f:
         json.dump(results_dict, f, indent=2, default=str)
     return path
+
+
+# =========================================================================
+# PER-TICKER SCAN LOOP (shared by the stock and crypto pipelines)
+# =========================================================================
+
+@dataclass
+class UniverseScan:
+    """Everything the per-ticker loop produces."""
+    scan_results: list
+    sfp_results: list
+    bf_results: list
+    etf_results: dict
+    all_panels: dict
+    above_open: int
+    below_open: int
+    errors: int
+
+
+def _round_stock_price(x: float) -> float:
+    return round(x, 2)
+
+
+def round_crypto_price(x: float) -> float:
+    """Keep 6 significant digits. round(x, 2) turns SHIB / PEPE / BONK
+    (fractions of a cent) into 0.0, which would break the dashboard."""
+    return float(f"{x:.6g}")
+
+
+def scan_universe(
+    universe: list[str],
+    get_bars: Callable[[str], list],
+    config: ScannerConfig,
+    market_tickers: set[str],
+    price_fn: Callable[[float], float] = _round_stock_price,
+) -> UniverseScan:
+    """Run STRAT + SFP + BF over every ticker in `universe`.
+
+    This is the loop that used to live inline in run_scan(), moved here so
+    the crypto pipeline runs the identical detector code.  `get_bars`
+    returns a ticker's daily bars (oldest first); `market_tickers` are the
+    tickers whose results feed the market summary (SPY/QQQ/... for stocks,
+    BTC/ETH for crypto); `price_fn` rounds the panel's last-close value.
+    """
+    logger = logging.getLogger("scanner")
+    scan_results: list[TickerScanResult] = []
+    sfp_results: list[TickerSFPResult] = []
+    bf_results: list[TickerMagnitudeResult] = []
+    etf_results: dict[str, TickerScanResult] = {}
+    all_panels: dict[str, dict] = {}
+    above_open = 0
+    below_open = 0
+    errors = 0
+
+    all_etfs = market_tickers
+
+    for i, ticker in enumerate(universe):
+        try:
+            daily_bars = get_bars(ticker)
+            if len(daily_bars) < 4:
+                continue
+
+            result = scan_ticker(ticker, daily_bars, config)
+
+            # Collect panel + price for ALL tickers (drill-down coverage)
+            if result.panel_state:
+                panel_entry = dict(result.panel_state)
+                # Full candle combo per TF (e.g. "2d-1-2u") for every ticker,
+                # not just the ones where a signal fired — the dashboard's
+                # Sim Breaks drill-down shows it for each holding.
+                # Full timeframe continuity (close vs open on every TF):
+                # "u" = all up, "d" = all down, "" = mixed.
+                panel_entry["ft"] = (
+                    "u" if result.ftfc_up else "d" if result.ftfc_down else ""
+                )
+                # Per-TF close-vs-open (u/d) so the dashboard can gate FTFC
+                # on a subset of timeframes (e.g. M+W, ignoring D).
+                panel_entry["fd"] = dict(result.tf_dirs)
+                panel_entry["cb"] = {
+                    tf: format_combo(st)
+                    for tf, st in result.tf_states.items()
+                    if tf in result.panel_state
+                }
+                if len(daily_bars) >= 2:
+                    panel_entry["lc"] = price_fn(daily_bars[-1].close)
+                    prev_close = daily_bars[-2].close
+                    if prev_close > 0:
+                        panel_entry["chg"] = round(
+                            (daily_bars[-1].close - prev_close)
+                            / prev_close * 100, 2
+                        )
+                elif daily_bars:
+                    panel_entry["lc"] = price_fn(daily_bars[-1].close)
+                all_panels[ticker] = panel_entry
+
+            # Breadth: above/below today's open
+            if daily_bars:
+                if daily_bars[-1].close >= daily_bars[-1].open:
+                    above_open += 1
+                else:
+                    below_open += 1
+
+            # Separate ETFs from stocks for market summary
+            if ticker in all_etfs:
+                etf_results[ticker] = result
+
+            # Only include results with signals or dominos
+            if result.signals or result.domino:
+                scan_results.append(result)
+
+            # Swing Failure Pattern (separate detector, same bar data)
+            if config.sfp_enabled:
+                sfp_result = scan_ticker_sfp(ticker, daily_bars, config)
+                if sfp_result.signals:
+                    sfp_results.append(sfp_result)
+
+            # Broadening Formation Reclaim (separate detector, same bar data)
+            if config.bf_enabled:
+                bf_result = scan_ticker_bf(ticker, daily_bars, config)
+                if bf_result.signals or bf_result.active_long or bf_result.active_short:
+                    bf_results.append(bf_result)
+
+        except Exception as e:
+            logger.warning(f"Error scanning {ticker}: {e}")
+            errors += 1
+
+        if (i + 1) % 100 == 0:
+            logger.info(f"  Scanned {i + 1}/{len(universe)} tickers")
+
+    return UniverseScan(
+        scan_results=scan_results,
+        sfp_results=sfp_results,
+        bf_results=bf_results,
+        etf_results=etf_results,
+        all_panels=all_panels,
+        above_open=above_open,
+        below_open=below_open,
+        errors=errors,
+    )
 
 
 # =========================================================================
@@ -494,89 +656,18 @@ def run_scan(
     # Phase 3: Scan all tickers
     # -----------------------------------------------------------------
     logger.info("Phase 3: Scanning tickers...")
-    scan_results: list[TickerScanResult] = []
-    sfp_results: list[TickerSFPResult] = []
-    bf_results: list[TickerMagnitudeResult] = []
-    etf_results: dict[str, TickerScanResult] = {}
-    all_panels: dict[str, dict] = {}
-    above_open = 0
-    below_open = 0
-    errors = 0
-
-    all_etfs = set(config.market_etfs + config.sector_etfs)
-
-    for i, ticker in enumerate(universe):
-        try:
-            daily_bars = dm.get_ticker_bars(ticker)
-            if len(daily_bars) < 4:
-                continue
-
-            result = scan_ticker(ticker, daily_bars, config)
-
-            # Collect panel + price for ALL tickers (drill-down coverage)
-            if result.panel_state:
-                panel_entry = dict(result.panel_state)
-                # Full candle combo per TF (e.g. "2d-1-2u") for every ticker,
-                # not just the ones where a signal fired — the dashboard's
-                # Sim Breaks drill-down shows it for each holding.
-                # Full timeframe continuity (close vs open on every TF):
-                # "u" = all up, "d" = all down, "" = mixed.
-                panel_entry["ft"] = (
-                    "u" if result.ftfc_up else "d" if result.ftfc_down else ""
-                )
-                # Per-TF close-vs-open (u/d) so the dashboard can gate FTFC
-                # on a subset of timeframes (e.g. M+W, ignoring D).
-                panel_entry["fd"] = dict(result.tf_dirs)
-                panel_entry["cb"] = {
-                    tf: format_combo(st)
-                    for tf, st in result.tf_states.items()
-                    if tf in result.panel_state
-                }
-                if len(daily_bars) >= 2:
-                    panel_entry["lc"] = round(daily_bars[-1].close, 2)
-                    prev_close = daily_bars[-2].close
-                    if prev_close > 0:
-                        panel_entry["chg"] = round(
-                            (daily_bars[-1].close - prev_close)
-                            / prev_close * 100, 2
-                        )
-                elif daily_bars:
-                    panel_entry["lc"] = round(daily_bars[-1].close, 2)
-                all_panels[ticker] = panel_entry
-
-            # Breadth: above/below today's open
-            if daily_bars:
-                if daily_bars[-1].close >= daily_bars[-1].open:
-                    above_open += 1
-                else:
-                    below_open += 1
-
-            # Separate ETFs from stocks for market summary
-            if ticker in all_etfs:
-                etf_results[ticker] = result
-
-            # Only include results with signals or dominos
-            if result.signals or result.domino:
-                scan_results.append(result)
-
-            # Swing Failure Pattern (separate detector, same bar data)
-            if config.sfp_enabled:
-                sfp_result = scan_ticker_sfp(ticker, daily_bars, config)
-                if sfp_result.signals:
-                    sfp_results.append(sfp_result)
-
-            # Broadening Formation Reclaim (separate detector, same bar data)
-            if config.bf_enabled:
-                bf_result = scan_ticker_bf(ticker, daily_bars, config)
-                if bf_result.signals or bf_result.active_long or bf_result.active_short:
-                    bf_results.append(bf_result)
-
-        except Exception as e:
-            logger.warning(f"Error scanning {ticker}: {e}")
-            errors += 1
-
-        if (i + 1) % 100 == 0:
-            logger.info(f"  Scanned {i + 1}/{len(universe)} tickers")
+    scanned = scan_universe(
+        universe, dm.get_ticker_bars, config,
+        market_tickers=set(config.market_etfs + config.sector_etfs),
+    )
+    scan_results = scanned.scan_results
+    sfp_results = scanned.sfp_results
+    bf_results = scanned.bf_results
+    etf_results = scanned.etf_results
+    all_panels = scanned.all_panels
+    above_open = scanned.above_open
+    below_open = scanned.below_open
+    errors = scanned.errors
 
     total_sfp_signals = sum(len(r.signals) for r in sfp_results)
     total_bf_signals = sum(len(r.signals) for r in bf_results)
@@ -853,6 +944,133 @@ def run_scan(
     return results_dict
 
 
+def run_crypto_scan(
+    config: Optional[ScannerConfig] = None,
+    scan_date: Optional[date] = None,
+    output_dir: Optional[Path] = None,
+    send_email: bool = False,
+    verbose: bool = False,
+    include_partial: bool = False,
+    downloader=None,
+) -> dict:
+    """Run the crypto scan: same STRAT / SFP / BF detectors and the same JSON
+    schema as the stock scan, fed by Yahoo daily bars (crypto_data.py).
+
+    Differences from run_scan(), all deliberate:
+      * Data: Yahoo Finance, not Polygon; no API key needed.
+      * Calendar: UTC days, 7 days a week; only fully closed days are
+        scanned unless include_partial is set.
+      * No sector rotation, GEX, ETF holdings or VIX (not applicable).
+      * Market summary uses BTC / ETH where stocks use SPY / QQQ / ...
+      * Email is OFF by default (it runs daily, weekends included).
+      * Output goes to <output_dir> (default ./output/crypto) so it can
+        never be mistaken for the stock file.
+
+    `downloader` swaps the data provider (tests inject synthetic data).
+    """
+    from crypto_data import CryptoDataManager
+
+    setup_logging(verbose)
+    logger = logging.getLogger("scanner")
+
+    if config is None:
+        config = load_config()
+    if output_dir is None:
+        output_dir = Path("./output/crypto")
+
+    # Crypto-scoped copy: the shared serializer / helpers read these three
+    # generic fields, so point them at the crypto values.
+    cfg = dataclasses.replace(
+        config,
+        universe_size=config.crypto_universe_size,
+        min_dollar_volume=config.crypto_min_dollar_volume,
+        history_calendar_days=config.crypto_history_calendar_days,
+    )
+
+    start_time = time.time()
+    logger.info("=" * 60)
+    logger.info("STRAT Scanner (CRYPTO) starting")
+    logger.info(f"Timeframes: {cfg.enabled_timeframes}")
+    logger.info("=" * 60)
+
+    # Phase 1: data
+    logger.info("Phase 1: Fetching crypto data (Yahoo Finance)...")
+    dm = CryptoDataManager(cfg, downloader=downloader)
+    dm.fetch_history(as_of=scan_date, include_partial=include_partial)
+    scan_date = dm.as_of
+
+    # Phase 2: universe
+    universe = dm.get_universe()
+    logger.info(f"Phase 2: Universe: {len(universe)} coins")
+
+    # Phase 3: scan (identical detector code to the stock scan)
+    logger.info("Phase 3: Scanning coins...")
+    scanned = scan_universe(
+        universe, dm.get_ticker_bars, cfg,
+        market_tickers=set(cfg.crypto_market_tickers),
+        price_fn=round_crypto_price,
+    )
+    scan_results = scanned.scan_results
+    sfp_results = scanned.sfp_results
+    bf_results = scanned.bf_results
+    logger.info(
+        f"Scan complete: {len(scan_results)} coins with STRAT signals, "
+        f"{len(sfp_results)} with SFP, {len(bf_results)} with BF activity, "
+        f"{scanned.errors} errors"
+    )
+
+    # Phase 4: market summary + breadth (no VIX for crypto)
+    market_summaries = compute_market_summary(scanned.etf_results)
+    breadth_total = scanned.above_open + scanned.below_open
+    market_breadth = {
+        "above_open": scanned.above_open,
+        "below_open": scanned.below_open,
+        "total": breadth_total,
+        "pct_above": (
+            round(scanned.above_open / breadth_total * 100, 1)
+            if breadth_total > 0 else 50.0
+        ),
+        "vix": None,
+    }
+    for ms in market_summaries:
+        panel = format_panel(ms.panel_state, cfg.enabled_timeframes)
+        ftfc = "FTFC ▲" if ms.ftfc_up else "FTFC ▼" if ms.ftfc_down else ""
+        logger.info(f"  {ms.ticker:9s} {panel}  {ftfc}")
+
+    # Phase 5: save
+    results_dict = serialize_results(
+        scan_results, market_summaries, cfg, scan_date,
+        sfp_results, bf_results, None, None,
+        all_panels=scanned.all_panels,
+        market_breadth=market_breadth,
+        etf_holdings=None,
+        extra={
+            "asset_class": "crypto",
+            "crypto_meta": dm.meta(universe),
+            "skipped_tickers": dm.skipped,
+        },
+    )
+    results_path = save_results(results_dict, output_dir)
+    logger.info(f"Results saved to {results_path}")
+
+    # Phase 6: optional email
+    all_sfp = [sig for r in sfp_results for sig in r.signals]
+    all_bf = [sig for r in bf_results for sig in r.signals]
+    total_signals = sum(len(r.signals) for r in scan_results)
+    total_dominos = sum(1 for r in scan_results if r.domino)
+    if send_email and (total_signals or total_dominos or all_sfp or all_bf):
+        ok = send_alert_email(
+            cfg, scan_results, market_summaries, scan_date,
+            sfp_results, bf_results, None, subject_label="STRAT Scanner (Crypto)",
+        )
+        logger.info("Email alert sent" if ok else "Email alert failed/not configured")
+    else:
+        logger.info("Email skipped (off by default for crypto; use --email)")
+
+    logger.info(f"Crypto scanner finished in {time.time() - start_time:.1f}s")
+    return results_dict
+
+
 # =========================================================================
 # CLI ENTRY POINT
 # =========================================================================
@@ -887,6 +1105,22 @@ def main():
         help="Enable debug logging",
     )
     parser.add_argument(
+        "--asset",
+        choices=["stocks", "crypto"],
+        default="stocks",
+        help="Which market to scan (default: stocks)",
+    )
+    parser.add_argument(
+        "--email",
+        action="store_true",
+        help="Send email alerts for a crypto scan (stocks email by default)",
+    )
+    parser.add_argument(
+        "--include-partial",
+        action="store_true",
+        help="Crypto only: include today's in-progress UTC bar (ad-hoc runs)",
+    )
+    parser.add_argument(
         "--timeframes",
         type=str,
         default=None,
@@ -905,6 +1139,23 @@ def main():
         config.enabled_timeframes = [
             t.strip() for t in args.timeframes.split(",")
         ]
+
+    if args.asset == "crypto":
+        # --output-dir keeps its stock default; crypto gets its own folder
+        # unless the caller overrode it.
+        out = (
+            Path("./output/crypto")
+            if args.output_dir == "./output" else Path(args.output_dir)
+        )
+        run_crypto_scan(
+            config=config,
+            scan_date=scan_date,
+            output_dir=out,
+            send_email=args.email and not args.skip_email,
+            verbose=args.verbose,
+            include_partial=args.include_partial,
+        )
+        return
 
     run_scan(
         config=config,

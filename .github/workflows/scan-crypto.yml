@@ -1,0 +1,76 @@
+name: Daily Crypto STRAT Scan
+
+# Crypto trades 7 days a week and its daily bar closes at 00:00 UTC, so this
+# runs every day (weekends included), shortly after that close. 01:15 leaves
+# an hour of margin for Yahoo to finalise the just-closed candle and for
+# GitHub's scheduler delay. The scan itself only ever reads fully closed UTC
+# days and waits/aborts if the newest BTC/ETH bar is missing.
+
+on:
+  schedule:
+    - cron: "15 1 * * *"   # 01:15 UTC, every day
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Never let two runs push to results/ at the same time.
+concurrency:
+  group: crypto-publish
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run crypto scanner
+        # Email is off by default for crypto (daily, weekends included).
+        # Add "--email" and the SMTP_* / ALERT_RECIPIENTS secrets to turn on.
+        run: python scanner.py --asset crypto --skip-email --verbose
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypto-scan-results-${{ github.run_id }}
+          path: output/crypto/
+          retention-days: 30
+          if-no-files-found: ignore
+      - name: Publish latest crypto result for the dashboard
+        # success() on purpose: if the scan aborted (Yahoo outage, stale or
+        # too-thin data) the previous good file stays live instead of being
+        # overwritten with something partial.
+        if: success()
+        run: |
+          LATEST=$(ls -t output/crypto/*.json 2>/dev/null | head -n1)
+          if [ -z "$LATEST" ]; then
+            echo "No crypto output JSON found, skipping publish step."
+            exit 1
+          fi
+          mkdir -p results
+          cp "$LATEST" results/latest_crypto.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/latest_crypto.json
+          if git diff --cached --quiet; then
+            echo "No change in results, nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update latest crypto scan results [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push; then
+              exit 0
+            fi
+            echo "push attempt ${attempt} failed, retrying..."
+            sleep 5
+          done
+          echo "Could not push results after 3 attempts" >&2
+          exit 1

@@ -370,3 +370,28 @@ class ScannerConfig:
 
     # --- Output ---
     include_panel_state: bool = True
+
+    # =================================================================
+    # CRYPTO — scanner-native. Same STRAT / SFP / BF detectors as stocks,
+    # fed by Yahoo Finance daily bars (BTC-USD style symbols) instead of
+    # Polygon's stock-only grouped endpoint. Crypto trades 7 days a week,
+    # so a daily bar is a UTC calendar day and a weekly bar has 7 days.
+    # Only fully closed UTC days are scanned (see crypto_data.py).
+    # =================================================================
+    # Top N coins by 20-day average dollar volume, after the floor below.
+    # Candidates come from crypto_universe.py (stablecoins, wrapped and
+    # staked tokens are deliberately not candidates).
+    crypto_universe_size: int = 100
+    crypto_min_dollar_volume: float = 10_000_000.0
+    # Crypto bars include weekends, so 180 calendar days is ~180 daily bars
+    # (stocks get ~85 from 120). Extra monthly bars help M-timeframe STRAT
+    # and SFP, which are starved at 120 days.
+    crypto_history_calendar_days: int = 180
+    # Play the role SPY/QQQ play in the stock scan: shown in the market
+    # summary and always kept in the universe.
+    crypto_market_tickers: list[str] = field(
+        default_factory=lambda: ["BTC-USD", "ETH-USD"]
+    )
+    # Extra Yahoo symbols to scan on top of the built-in candidates, e.g.
+    # ["WIF-USD"]. Env var CRYPTO_EXTRA_SYMBOLS (comma-separated).
+    crypto_extra_symbols: list[str] = field(default_factory=list)
