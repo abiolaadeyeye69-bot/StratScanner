@@ -62,6 +62,7 @@ def build_alert_subject(
     scan_date: Optional[date] = None,
     sfp_count: int = 0,
     bf_count: int = 0,
+    label: str = "STRAT Scanner",
 ) -> str:
     """Build the email subject line."""
     if scan_date is None:
@@ -78,7 +79,7 @@ def build_alert_subject(
         parts.append(f"{bf_count} BF{'s' if bf_count != 1 else ''}")
 
     summary = " + ".join(parts) if parts else "No Signals"
-    return f"STRAT Scanner — {summary} — {scan_date.strftime('%b %d, %Y')}"
+    return f"{label} — {summary} — {scan_date.strftime('%b %d, %Y')}"
 
 
 def build_alert_body_text(
@@ -568,6 +569,7 @@ def send_alert_email(
     sfp_results: Optional[list[TickerSFPResult]] = None,
     bf_results: Optional[list[TickerMagnitudeResult]] = None,
     rotation_result: Optional[RotationResult] = None,
+    subject_label: str = "STRAT Scanner",
 ) -> bool:
     """Send the scan alert via Gmail SMTP.
 
@@ -608,7 +610,10 @@ def send_alert_email(
     total_bf = sum(len(r.signals) for r in bf_results)
 
     # Build email
-    subject = build_alert_subject(total_signals, total_dominos, scan_date, total_sfp, total_bf)
+    subject = build_alert_subject(
+        total_signals, total_dominos, scan_date, total_sfp, total_bf,
+        label=subject_label,
+    )
     text_body = build_alert_body_text(
         scan_results, market_summaries, config, sfp_results, bf_results, rotation_result
     )
