@@ -524,6 +524,9 @@ def run_scan(
                 panel_entry["ft"] = (
                     "u" if result.ftfc_up else "d" if result.ftfc_down else ""
                 )
+                # Per-TF close-vs-open (u/d) so the dashboard can gate FTFC
+                # on a subset of timeframes (e.g. M+W, ignoring D).
+                panel_entry["fd"] = dict(result.tf_dirs)
                 panel_entry["cb"] = {
                     tf: format_combo(st)
                     for tf, st in result.tf_states.items()

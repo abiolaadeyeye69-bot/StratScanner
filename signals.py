@@ -82,6 +82,9 @@ class TickerScanResult:
     domino: Optional[DominoSetup] = None
     ftfc_up: bool = False
     ftfc_down: bool = False
+    # Per-TF continuity: TF -> "u" (close > open) or "d" (close <= open),
+    # same rule calculate_ftfc applies. Lets consumers gate on a subset of TFs.
+    tf_dirs: dict[str, str] = field(default_factory=dict)
     panel_state: dict[str, str] = field(default_factory=dict)
 
 
@@ -419,6 +422,7 @@ def scan_ticker(
     ftfc_inputs: list[dict] = []
     for tf, window in tf_windows.items():
         cc = window[0]  # current candle
+        result.tf_dirs[tf] = "u" if cc.close > cc.open else "d"
         ftfc_inputs.append({
             "enabled": True,
             "cc_open": cc.open,

@@ -330,6 +330,29 @@ class TestScanTicker:
         assert result.ticker == "TEST"
         assert "D" in result.tf_states
 
+    def test_tf_dirs_per_timeframe(self):
+        """tf_dirs records close-vs-open per TF, and agrees with ftfc_up/down."""
+        # Steady uptrend, then a red final day: D down, W and M still up.
+        prices = [(100 + i * 0.5, 102 + i * 0.5, 99 + i * 0.5, 101.5 + i * 0.5)
+                  for i in range(90)]
+        o, h, l, c = prices[-1]
+        prices[-1] = (c + 1, c + 2, c - 2, c - 1)
+        config = ScannerConfig(enabled_timeframes=["D", "W", "M"])
+        result = scan_ticker("TEST", _build_daily(prices), config)
+        assert set(result.tf_dirs) == {"D", "W", "M"}
+        assert result.tf_dirs["D"] == "d"
+        assert result.tf_dirs["W"] == "u" and result.tf_dirs["M"] == "u"
+        # Mixed, so full FTFC must be off in both directions.
+        assert not result.ftfc_up and not result.ftfc_down
+
+    def test_tf_dirs_all_up_matches_ftfc(self):
+        prices = [(100 + i * 0.5, 102 + i * 0.5, 99 + i * 0.5, 101.5 + i * 0.5)
+                  for i in range(90)]
+        config = ScannerConfig(enabled_timeframes=["D", "W", "M"])
+        result = scan_ticker("TEST", _build_daily(prices), config)
+        assert all(v == "u" for v in result.tf_dirs.values())
+        assert result.ftfc_up
+
     def test_scan_insufficient_data(self):
         """Should return empty result for < 4 bars."""
         daily = _build_daily([(100, 102, 99, 101)] * 3)
