@@ -276,9 +276,11 @@ class ScannerConfig:
     bf_reversal_zone_pct: float = 1.0
     # Enabled patterns. Names: "22rev" (2D->2U for longs, 2U->2D for
     # shorts), "f2" (Failed 2, uses failed_2_method), "hammer_shooter"
-    # (uses hammer_shooter_logic), "pin" (Pin Bar (Strict) shape).
+    # (uses hammer_shooter_logic), "pin" (Pin Bar (Strict) shape),
+    # "13" (inside bar then an outside bar closing toward the target),
+    # "3bar" (an outside bar closing toward the target, not after an inside bar).
     bf_reversal_patterns: list[str] = field(
-        default_factory=lambda: ["22rev", "f2", "hammer_shooter", "pin"]
+        default_factory=lambda: ["22rev", "f2", "13", "3bar", "hammer_shooter", "pin"]
     )
 
     # =================================================================

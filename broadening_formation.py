@@ -391,6 +391,8 @@ class TickerMagnitudeResult:
 _PATTERN_LABELS = {
     "22rev": "2-2 Rev",
     "f2": "Failed 2",
+    "13": "1-3",
+    "3bar": "3 Bar",
     "pin": "Pin Bar",
 }
 
@@ -407,7 +409,15 @@ def detect_reversal_patterns(
                (Failed 2D).  Short: Failed 2U.  Uses config.failed_2_method.
       Hammer / Shooter: long wants a hammer, short a shooter, under
                config.hammer_shooter_logic.
+      1-3      long: bar j-1 was an inside bar (1) and bar j is an outside
+               bar (3) that closed up (3U).  Short: inside bar, then 3D.
+      3 Bar    long: bar j is an outside bar (3U) NOT preceded by an inside
+               bar.  Short: 3D.  A 1-3 is labelled "1-3" only, never both.
       Pin Bar: same direction test but always the "Pin Bar (Strict)" shape.
+
+    "Outside" and "inside" follow strat_engine.classify_bar (strict high/low
+    breaks), and a 3's colour is close >= open, as everywhere else in the
+    scanner.
     """
     enabled = set(config.bf_reversal_patterns)
     found: list[str] = []
@@ -427,6 +437,23 @@ def detect_reversal_patterns(
                 found.append(_PATTERN_LABELS["22rev"])
             elif not is_long and prev_cls.is_2u and cur_cls.is_2d:
                 found.append(_PATTERN_LABELS["22rev"])
+
+        if ("13" in enabled or "3bar" in enabled):
+            cur_cls = classify_bar(
+                prev.high, prev.low, bar.high, bar.low, bar.open, bar.close)
+            if cur_cls.is_3 and ((is_long and cur_cls.bar_type == "3u")
+                                 or (not is_long and cur_cls.bar_type == "3d")):
+                prev_is_inside = False
+                if j >= 2:
+                    pp = bars[j - 2].bar
+                    prev_is_inside = classify_bar(
+                        pp.high, pp.low, prev.high, prev.low,
+                        prev.open, prev.close).is_inside
+                if prev_is_inside:
+                    if "13" in enabled:
+                        found.append(_PATTERN_LABELS["13"])
+                elif "3bar" in enabled:
+                    found.append(_PATTERN_LABELS["3bar"])
 
         if "f2" in enabled:
             f2 = detect_failed_2(
