@@ -599,3 +599,60 @@ class TestReversalIntoRange:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
+
+
+# =========================================================================
+# 1-3 AND 3 BAR REVERSAL PATTERNS
+# =========================================================================
+
+# After _BASE (bar 6 is a 2D): an outside bar that swept under the level (90)
+# and closed up at 93, short of the 98 target. Prev bar (6) is a 2D, not an
+# inside bar -> a plain "3 Bar".
+_THREE_UP = (88, 94, 86, 93)
+# Inside bar vs bar 6, then the same kind of outside bar -> "1-3".
+_INSIDE_AFTER_BASE = (90, 91.5, 88, 91)
+_THREE_UP_AFTER_INSIDE = (88.5, 94, 86, 93)
+
+
+def _only(pats, **kw):
+    return _cfg(bf_long_only=True, bf_reversal_patterns=pats, **kw)
+
+
+class TestOneThreeAndThreeBar:
+    def test_plain_three_bar(self):
+        revs = _revs(_BASE + [_THREE_UP], _only(["13", "3bar"]))
+        assert [r.patterns for r in revs] == [["3 Bar"]]
+        assert revs[0].entry == "retest"
+
+    def test_one_three(self):
+        ohlc = _BASE + [_INSIDE_AFTER_BASE, _THREE_UP_AFTER_INSIDE]
+        revs = _revs(ohlc, _only(["13", "3bar"]))
+        # One row per active setup: the original level 90, plus the newer
+        # swing low (87) that this same outside bar reclaimed.
+        assert {(r.level, r.entry) for r in revs} == {(90, "retest"), (87, "reclaim")}
+        assert all(r.patterns == ["1-3"] for r in revs)
+
+    def test_one_three_is_not_also_a_three_bar(self):
+        ohlc = _BASE + [_INSIDE_AFTER_BASE, _THREE_UP_AFTER_INSIDE]
+        assert _revs(ohlc, _only(["3bar"])) == []
+        assert _revs(_BASE + [_THREE_UP], _only(["13"])) == []
+
+    def test_wrong_colour_outside_bar_is_ignored_for_longs(self):
+        three_down = (93, 94, 86, 91)          # outside bar, closes below open
+        assert _revs(_BASE + [three_down], _only(["13", "3bar"])) == []
+
+    def test_outside_bar_closing_beyond_target_is_ignored(self):
+        huge = (88, 99.5, 86, 99)              # closes over the 98 target
+        assert _revs(_BASE + [huge], _only(["13", "3bar"])) == []
+
+    def test_short_side_mirror(self):
+        revs = _revs(_mirror(_BASE + [_THREE_UP]), _cfg(bf_reversal_patterns=["13", "3bar"]))
+        shorts = [r for r in revs if r.direction == "short"]
+        assert [r.patterns for r in shorts] == [["3 Bar"]]
+        ohlc = _mirror(_BASE + [_INSIDE_AFTER_BASE, _THREE_UP_AFTER_INSIDE])
+        revs = _revs(ohlc, _cfg(bf_reversal_patterns=["13", "3bar"]))
+        shorts = [r for r in revs if r.direction == "short"]
+        assert shorts and all(r.patterns == ["1-3"] for r in shorts)
+
+    def test_on_by_default(self):
+        assert {"13", "3bar"} <= set(ScannerConfig().bf_reversal_patterns)
