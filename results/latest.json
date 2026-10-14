@@ -1,6 +1,6 @@
 {
   "scan_date": "2026-10-13",
-  "timestamp": "2026-10-14T00:35:49.567706",
+  "timestamp": "2026-10-14T01:25:04.205090",
   "config": {
     "timeframes": [
       "M",
@@ -19,20 +19,20 @@
     ]
   },
   "summary": {
-    "tickers_scanned": 1251,
-    "total_signals": 3446,
-    "total_dominos": 108,
-    "bullish_signals": 1334,
-    "bearish_signals": 1338,
-    "neutral_signals": 774,
-    "total_sfp_signals": 220,
-    "sfp_formed": 179,
+    "tickers_scanned": 1250,
+    "total_signals": 3450,
+    "total_dominos": 109,
+    "bullish_signals": 1328,
+    "bearish_signals": 1346,
+    "neutral_signals": 776,
+    "total_sfp_signals": 224,
+    "sfp_formed": 183,
     "sfp_confirmed": 41,
-    "total_bf_signals": 1213,
-    "bf_reclaimed": 761,
-    "bf_target_hit": 452,
-    "bf_active_long": 2562,
-    "bf_active_short": 2170,
+    "total_bf_signals": 1222,
+    "bf_reclaimed": 766,
+    "bf_target_hit": 456,
+    "bf_active_long": 2564,
+    "bf_active_short": 2181,
     "bf_reversals": 976,
     "sector_rotation_tracked": 61,
     "sector_rotation_skipped": 0,
@@ -2397,57 +2397,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "ALHC",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 13.94,
-      "stop": null,
-      "mag": 14.9,
-      "exh": 25.12,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "ALHC",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "outside_then_inside",
-      "pattern_tag": "3_1",
-      "combo": "3-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": true,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "ALHC",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2u-F2u",
-      "trigger": 7.48,
-      "stop": null,
-      "mag": 6.01,
-      "exh": 6.01,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
       "ticker": "ALK",
       "tf": "W",
       "direction": "bearish",
@@ -3041,6 +2990,57 @@
       "ftfc": false,
       "in_force": false,
       "c1_f2": true
+    },
+    {
+      "ticker": "AMG",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "F2d-2u",
+      "trigger": 379.06,
+      "stop": null,
+      "mag": 392.9199,
+      "exh": 392.9199,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "AMG",
+      "tf": "W",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2u-F2u",
+      "trigger": 370.44,
+      "stop": null,
+      "mag": 356.18,
+      "exh": 339.87,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "AMG",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "outside_bar",
+      "pattern_tag": "1_3",
+      "combo": "2-1-3d",
+      "trigger": 384.68,
+      "stop": null,
+      "mag": 375.835,
+      "exh": 370.44,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
     },
     {
       "ticker": "AMGN",
@@ -4145,74 +4145,6 @@
       "shooter": false,
       "ftfc": false,
       "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "ARMK",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 60.15,
-      "stop": null,
-      "mag": 62.6475,
-      "exh": 62.6475,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "ARMK",
-      "tf": "W",
-      "direction": "bearish",
-      "signal_type": "inside_continuation",
-      "pattern_tag": "inside_continuation",
-      "combo": "F2-1-2d",
-      "trigger": 54.83,
-      "stop": null,
-      "mag": 53.25,
-      "exh": 53.25,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "ARMK",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2u",
-      "trigger": 54.38,
-      "stop": null,
-      "mag": 54.87,
-      "exh": 53.25,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "ARMK",
-      "tf": "D",
-      "direction": "bullish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "2d-F2u",
-      "trigger": 55.05,
-      "stop": 55.29999923706055,
-      "mag": 55.55,
-      "exh": 55.84,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
       "c1_f2": false
     },
     {
@@ -5947,57 +5879,6 @@
       "shooter": true,
       "ftfc": false,
       "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "BAP",
-      "tf": "M",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "F2d-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": true
-    },
-    {
-      "ticker": "BAP",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "double_inside_bar",
-      "pattern_tag": "double_inside_bar",
-      "combo": "2-1-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "BAP",
-      "tf": "D",
-      "direction": "neutral",
-      "signal_type": "outside_then_inside",
-      "pattern_tag": "3_1",
-      "combo": "3-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
       "c1_f2": false
     },
     {
@@ -7847,6 +7728,74 @@
       "stop": 38.36000061035156,
       "mag": 39.8,
       "exh": 40.16,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "BSP",
+      "tf": "M",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "2d-1u",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "BSP",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "2u-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "BSP",
+      "tf": "D",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "1_failed_2",
+      "combo": "1d-F2d",
+      "trigger": 38.8,
+      "stop": null,
+      "mag": 39.465,
+      "exh": 42.27,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "BSP",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "inside_continuation",
+      "pattern_tag": "inside_continuation",
+      "combo": "1d-F2d",
+      "trigger": 37.0014,
+      "stop": 35.73,
+      "mag": 36.31,
+      "exh": 31.48,
       "hammer": false,
       "shooter": false,
       "ftfc": false,
@@ -13736,23 +13685,6 @@
       "c1_f2": true
     },
     {
-      "ticker": "DBRG",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "2u-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
       "ticker": "DBX",
       "tf": "M",
       "direction": "neutral",
@@ -16099,6 +16031,40 @@
       "c1_f2": true
     },
     {
+      "ticker": "EGP",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 205.205,
+      "stop": null,
+      "mag": 213.19,
+      "exh": 226.71,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "EGP",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "F2d-1u",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
       "ticker": "EHC",
       "tf": "M",
       "direction": "bullish",
@@ -17918,6 +17884,74 @@
       "c1_f2": false
     },
     {
+      "ticker": "EWBC",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 131.89,
+      "stop": null,
+      "mag": 137.47,
+      "exh": 137.47,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "EWBC",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "F2u-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
+      "ticker": "EWBC",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "1_failed_2",
+      "combo": "1d-F2u",
+      "trigger": 124.97,
+      "stop": null,
+      "mag": 123.9,
+      "exh": 123.9,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "EWBC",
+      "tf": "D",
+      "direction": "bullish",
+      "signal_type": "inside_reversal",
+      "pattern_tag": "inside_reversal",
+      "combo": "1d-F2u",
+      "trigger": 125.94,
+      "stop": 126.5,
+      "mag": 126.5,
+      "exh": 128.49,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
       "ticker": "EWJ",
       "tf": "M",
       "direction": "bearish",
@@ -18596,6 +18630,74 @@
       "ftfc": false,
       "in_force": true,
       "c1_f2": true
+    },
+    {
+      "ticker": "FCEL",
+      "tf": "M",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2u",
+      "trigger": 13.83,
+      "stop": null,
+      "mag": 16.735,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "FCEL",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "2d-F2u",
+      "trigger": 18.8699,
+      "stop": 21.06,
+      "mag": 24.38,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "FCEL",
+      "tf": "W",
+      "direction": "bearish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "F2u-2d",
+      "trigger": 16.56,
+      "stop": null,
+      "mag": 15.75,
+      "exh": 15.75,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "FCEL",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "inside_continuation",
+      "pattern_tag": "inside_continuation",
+      "combo": "2-1-2d",
+      "trigger": 16.87,
+      "stop": null,
+      "mag": 16.56,
+      "exh": 16.56,
+      "hammer": true,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
     },
     {
       "ticker": "FCNCA",
@@ -22151,23 +22253,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "GLXY",
-      "tf": "M",
-      "direction": "bearish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "F2u-2d",
-      "trigger": 21.61,
-      "stop": null,
-      "mag": 18.65,
-      "exh": 18.22,
-      "hammer": false,
-      "shooter": true,
-      "ftfc": true,
-      "in_force": true,
-      "c1_f2": true
-    },
-    {
       "ticker": "GM",
       "tf": "M",
       "direction": "bullish",
@@ -22489,40 +22574,6 @@
       "ftfc": false,
       "in_force": true,
       "c1_f2": false
-    },
-    {
-      "ticker": "GPC",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 138.81,
-      "stop": null,
-      "mag": 139.89,
-      "exh": 139.89,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": true,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "GPC",
-      "tf": "W",
-      "direction": "bullish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "F2d-2u",
-      "trigger": 128.91,
-      "stop": null,
-      "mag": 129.82,
-      "exh": 139.89,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": true,
-      "in_force": true,
-      "c1_f2": true
     },
     {
       "ticker": "GPN",
@@ -26010,57 +26061,6 @@
       "c1_f2": true
     },
     {
-      "ticker": "IHI",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 55.77,
-      "stop": null,
-      "mag": 57.17,
-      "exh": 57.17,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "IHI",
-      "tf": "W",
-      "direction": "bullish",
-      "signal_type": "inside_reversal",
-      "pattern_tag": "inside_reversal",
-      "combo": "2-1-2u",
-      "trigger": 51.95,
-      "stop": null,
-      "mag": 52.05,
-      "exh": 52.53,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "IHI",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2u-F2u",
-      "trigger": 51.9,
-      "stop": null,
-      "mag": 51.145,
-      "exh": 50.46,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
       "ticker": "IJH",
       "tf": "M",
       "direction": "bullish",
@@ -26364,6 +26364,40 @@
       "shooter": false,
       "ftfc": false,
       "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "INOD",
+      "tf": "M",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "double_failed_2",
+      "combo": "F2d-F2u",
+      "trigger": 51.97,
+      "stop": null,
+      "mag": 55.41,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "INOD",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "F2d-F2u",
+      "trigger": 74.93,
+      "stop": 75.1895,
+      "mag": 79.44,
+      "exh": 79.44,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
       "c1_f2": true
     },
     {
@@ -30124,23 +30158,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "L",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 111.06,
-      "stop": null,
-      "mag": 117.66,
-      "exh": 121.01,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
       "ticker": "LABD",
       "tf": "M",
       "direction": "bullish",
@@ -31615,6 +31632,57 @@
       "exh": 72.55,
       "hammer": false,
       "shooter": true,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "MANE",
+      "tf": "M",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2u-F2u",
+      "trigger": 95.42,
+      "stop": null,
+      "mag": 93.77,
+      "exh": 93.77,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "MANE",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "outside_then_inside",
+      "pattern_tag": "3_1",
+      "combo": "3-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "MANE",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "inside_reversal",
+      "pattern_tag": "inside_reversal",
+      "combo": "2-1-2d",
+      "trigger": 123.02,
+      "stop": null,
+      "mag": 110.56,
+      "exh": 108.77,
+      "hammer": false,
+      "shooter": false,
       "ftfc": false,
       "in_force": true,
       "c1_f2": false
@@ -38556,23 +38624,6 @@
       "c1_f2": true
     },
     {
-      "ticker": "PDBC",
-      "tf": "M",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "2u-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
       "ticker": "PDD",
       "tf": "M",
       "direction": "bullish",
@@ -39518,57 +39569,6 @@
       "stop": 46.709999084472656,
       "mag": 44.72,
       "exh": 40.935,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": true
-    },
-    {
-      "ticker": "PLTD",
-      "tf": "W",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 4.78,
-      "stop": null,
-      "mag": 4.845,
-      "exh": 5.48,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "PLTD",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "double_failed_2",
-      "combo": "F2d-F2u",
-      "trigger": 4.205,
-      "stop": null,
-      "mag": 4.27,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": true
-    },
-    {
-      "ticker": "PLTD",
-      "tf": "D",
-      "direction": "bullish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "F2d-F2u",
-      "trigger": 4.34,
-      "stop": 4.34499979019165,
-      "mag": 4.515,
-      "exh": 4.7199,
       "hammer": false,
       "shooter": false,
       "ftfc": false,
@@ -41378,6 +41378,40 @@
       "c1_f2": true
     },
     {
+      "ticker": "RAM",
+      "tf": "M",
+      "direction": "bearish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "F2u-2d",
+      "trigger": 11.25,
+      "stop": null,
+      "mag": 9.31,
+      "exh": 8.29,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "RAM",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "inside_continuation",
+      "pattern_tag": "inside_continuation",
+      "combo": "2-1-2d",
+      "trigger": 12.015,
+      "stop": null,
+      "mag": 11.885,
+      "exh": 11.885,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
       "ticker": "RBA",
       "tf": "M",
       "direction": "bullish",
@@ -41800,74 +41834,6 @@
       "shooter": false,
       "ftfc": false,
       "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "REXR",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "double_failed_2",
-      "combo": "F2u-F2d",
-      "trigger": 39.67,
-      "stop": null,
-      "mag": 38.25,
-      "exh": null,
-      "hammer": false,
-      "shooter": true,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": true
-    },
-    {
-      "ticker": "REXR",
-      "tf": "M",
-      "direction": "bearish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "F2u-F2d",
-      "trigger": 36.2,
-      "stop": 36.005,
-      "mag": 35.68,
-      "exh": null,
-      "hammer": false,
-      "shooter": true,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": true
-    },
-    {
-      "ticker": "REXR",
-      "tf": "W",
-      "direction": "bullish",
-      "signal_type": "inside_reversal",
-      "pattern_tag": "inside_reversal",
-      "combo": "2-1-2u",
-      "trigger": 37.6,
-      "stop": null,
-      "mag": 37.75,
-      "exh": 39.67,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "REXR",
-      "tf": "D",
-      "direction": "bullish",
-      "signal_type": "inside_continuation",
-      "pattern_tag": "inside_continuation",
-      "combo": "F2-1-2u",
-      "trigger": 37.52,
-      "stop": null,
-      "mag": 37.6,
-      "exh": 37.6,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
       "c1_f2": false
     },
     {
@@ -43059,6 +43025,57 @@
       "ftfc": true,
       "in_force": false,
       "c1_f2": false
+    },
+    {
+      "ticker": "RRC",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "3_failed_2",
+      "combo": "3d-F2d",
+      "trigger": 43.06,
+      "stop": null,
+      "mag": 42.46,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "RRC",
+      "tf": "W",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2u-F2u",
+      "trigger": 37.53,
+      "stop": null,
+      "mag": 36.75,
+      "exh": 36.75,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "RRC",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "double_failed_2",
+      "combo": "F2u-F2u",
+      "trigger": 40.62,
+      "stop": null,
+      "mag": 40.16,
+      "exh": 36.75,
+      "hammer": false,
+      "shooter": true,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": true
     },
     {
       "ticker": "RRX",
@@ -46935,6 +46952,57 @@
       "ftfc": false,
       "in_force": true,
       "c1_f2": false
+    },
+    {
+      "ticker": "SPXC",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 199.99,
+      "stop": null,
+      "mag": 222.545,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "SPXC",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "F2u-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": true,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
+      "ticker": "SPXC",
+      "tf": "D",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "F2u-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
     },
     {
       "ticker": "SPXL",
@@ -52054,6 +52122,57 @@
       "c1_f2": true
     },
     {
+      "ticker": "UBS",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 55.71,
+      "stop": null,
+      "mag": 55.985,
+      "exh": 55.985,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "UBS",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "F2d-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
+      "ticker": "UBS",
+      "tf": "D",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "2u-1d",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": true,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
       "ticker": "UBSI",
       "tf": "M",
       "direction": "bullish",
@@ -53142,57 +53261,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "USIG",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 50.085,
-      "stop": null,
-      "mag": 50.55,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "USIG",
-      "tf": "W",
-      "direction": "bullish",
-      "signal_type": "inside_reversal",
-      "pattern_tag": "inside_reversal",
-      "combo": "2-1-2u",
-      "trigger": 48.82,
-      "stop": null,
-      "mag": 48.89,
-      "exh": 49.8,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "USIG",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2u-F2u",
-      "trigger": 48.72,
-      "stop": null,
-      "mag": 48.705,
-      "exh": 48.38,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
       "ticker": "USMV",
       "tf": "M",
       "direction": "neutral",
@@ -53802,57 +53870,6 @@
       "shooter": false,
       "ftfc": false,
       "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "VEEA",
-      "tf": "M",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "F2u-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": true,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": true
-    },
-    {
-      "ticker": "VEEA",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "2u-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "VEEA",
-      "tf": "D",
-      "direction": "bullish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "2d-2u",
-      "trigger": 4.9199,
-      "stop": null,
-      "mag": 7.09,
-      "exh": 7.09,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": true,
-      "in_force": true,
       "c1_f2": false
     },
     {
@@ -56933,6 +56950,57 @@
       "c1_f2": false
     },
     {
+      "ticker": "WK",
+      "tf": "M",
+      "direction": "neutral",
+      "signal_type": "double_inside_bar",
+      "pattern_tag": "double_inside_bar",
+      "combo": "2-1-1u",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "WK",
+      "tf": "W",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "double_failed_2",
+      "combo": "F2u-F2u",
+      "trigger": 68.6,
+      "stop": null,
+      "mag": 64.85,
+      "exh": 64.85,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "WK",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "outside_bar",
+      "pattern_tag": "outside_bar",
+      "combo": "F2u-3d",
+      "trigger": 72.97,
+      "stop": null,
+      "mag": 70.81,
+      "exh": 68.6,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
       "ticker": "WM",
       "tf": "M",
       "direction": "bullish",
@@ -59138,20 +59206,6 @@
       }
     },
     {
-      "ticker": "BAP",
-      "count": 3,
-      "tfs": [
-        "M",
-        "W",
-        "D"
-      ],
-      "patterns": {
-        "M": "2-1",
-        "W": "1-1",
-        "D": "3-1"
-      }
-    },
-    {
       "ticker": "BBWI",
       "count": 2,
       "tfs": [
@@ -59213,6 +59267,18 @@
     },
     {
       "ticker": "BMNR",
+      "count": 2,
+      "tfs": [
+        "M",
+        "W"
+      ],
+      "patterns": {
+        "M": "2-1",
+        "W": "2-1"
+      }
+    },
+    {
+      "ticker": "BSP",
       "count": 2,
       "tfs": [
         "M",
@@ -60122,6 +60188,18 @@
       }
     },
     {
+      "ticker": "SPXC",
+      "count": 2,
+      "tfs": [
+        "W",
+        "D"
+      ],
+      "patterns": {
+        "W": "2-1",
+        "D": "2-1"
+      }
+    },
+    {
       "ticker": "STIP",
       "count": 2,
       "tfs": [
@@ -60256,6 +60334,18 @@
       }
     },
     {
+      "ticker": "UBS",
+      "count": 2,
+      "tfs": [
+        "W",
+        "D"
+      ],
+      "patterns": {
+        "W": "2-1",
+        "D": "2-1"
+      }
+    },
+    {
       "ticker": "URI",
       "count": 2,
       "tfs": [
@@ -60289,18 +60379,6 @@
       "patterns": {
         "M": "3-1",
         "W": "3-1"
-      }
-    },
-    {
-      "ticker": "VEEA",
-      "count": 2,
-      "tfs": [
-        "M",
-        "W"
-      ],
-      "patterns": {
-        "M": "2-1",
-        "W": "2-1"
       }
     },
     {
@@ -60353,10 +60431,10 @@
     }
   ],
   "market_breadth": {
-    "above_open": 578,
-    "below_open": 717,
+    "above_open": 575,
+    "below_open": 720,
     "total": 1295,
-    "pct_above": 44.6,
+    "pct_above": 44.4,
     "vix": {
       "value": 15.27,
       "change": 0.06,
@@ -61210,24 +61288,6 @@
       "lc": 72.34,
       "chg": -3.03
     },
-    "ALHC": {
-      "M": "F2D",
-      "W": "1",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "3-1u",
-        "D": "2u-F2u"
-      },
-      "lc": 8.3,
-      "chg": 2.6
-    },
     "ALK": {
       "M": "2D",
       "W": "2D",
@@ -61425,6 +61485,24 @@
       },
       "lc": 250.48,
       "chg": 0.24
+    },
+    "AMG": {
+      "M": "2U",
+      "W": "F2U",
+      "D": "3D",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "F2d-2u",
+        "W": "2u-F2u",
+        "D": "2-1-3d"
+      },
+      "lc": 381.83,
+      "chg": -1.4
     },
     "AMGN": {
       "M": "1",
@@ -61857,24 +61935,6 @@
       },
       "lc": 255.39,
       "chg": 0.06
-    },
-    "ARMK": {
-      "M": "F2D",
-      "W": "2D",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "F2-1-2d",
-        "D": "2d-F2u"
-      },
-      "lc": 54.78,
-      "chg": 0.04
     },
     "ARR": {
       "M": "2D",
@@ -62595,24 +62655,6 @@
       },
       "lc": 45.23,
       "chg": -1.31
-    },
-    "BAP": {
-      "M": "1",
-      "W": "1",
-      "D": "1",
-      "ft": "u",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "u"
-      },
-      "cb": {
-        "M": "F2d-1u",
-        "W": "2-1-1u",
-        "D": "3-1u"
-      },
-      "lc": 380.69,
-      "chg": -0.31
     },
     "BAX": {
       "M": "1",
@@ -63387,6 +63429,24 @@
       },
       "lc": 37.98,
       "chg": 1.88
+    },
+    "BSP": {
+      "M": "1",
+      "W": "1",
+      "D": "F2D",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2d-1u",
+        "W": "2u-1d",
+        "D": "1d-F2d"
+      },
+      "lc": 37.04,
+      "chg": -2.55
     },
     "BSV": {
       "M": "F2D",
@@ -65707,24 +65767,6 @@
       "lc": 193.09,
       "chg": -0.59
     },
-    "DBRG": {
-      "M": "2U",
-      "W": "1",
-      "D": "2U",
-      "ft": "u",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "u"
-      },
-      "cb": {
-        "M": "3-F2u-2u",
-        "W": "2u-1u",
-        "D": "F2u-2u"
-      },
-      "lc": 16.0,
-      "chg": 0.13
-    },
     "DBX": {
       "M": "1",
       "W": "2U",
@@ -66697,6 +66739,24 @@
       "lc": 36.65,
       "chg": -2.37
     },
+    "EGP": {
+      "M": "F2D",
+      "W": "1",
+      "D": "2U",
+      "ft": "u",
+      "fd": {
+        "M": "u",
+        "W": "u",
+        "D": "u"
+      },
+      "cb": {
+        "M": "2d-F2d",
+        "W": "F2d-1u",
+        "D": "3-2u-2u"
+      },
+      "lc": 197.45,
+      "chg": 0.75
+    },
     "EHC": {
       "M": "3U",
       "W": "F2U",
@@ -67378,6 +67438,24 @@
       "lc": 85.27,
       "chg": -1.3
     },
+    "EWBC": {
+      "M": "F2D",
+      "W": "1",
+      "D": "F2U",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2d-F2d",
+        "W": "F2u-1d",
+        "D": "1d-F2u"
+      },
+      "lc": 125.56,
+      "chg": 0.02
+    },
     "EWJ": {
       "M": "F2U",
       "W": "1",
@@ -67665,6 +67743,24 @@
       },
       "lc": 72.35,
       "chg": 0.5
+    },
+    "FCEL": {
+      "M": "F2U",
+      "W": "2D",
+      "D": "2D",
+      "ft": "d",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2d-F2u",
+        "W": "F2u-2d",
+        "D": "2-1-2d"
+      },
+      "lc": 16.37,
+      "chg": -9.21
     },
     "FCNCA": {
       "M": "F2D",
@@ -68223,6 +68319,24 @@
       },
       "lc": 99.28,
       "chg": 0.26
+    },
+    "FRVO": {
+      "M": "2D",
+      "W": "2D",
+      "D": "2D",
+      "ft": "d",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2d-2d",
+        "W": "F2d-2d",
+        "D": "3-F2d-2d"
+      },
+      "lc": 12.87,
+      "chg": -6.4
     },
     "FSLR": {
       "M": "F2D",
@@ -68872,24 +68986,6 @@
       "lc": 148.54,
       "chg": 0.86
     },
-    "GLXY": {
-      "M": "2D",
-      "W": "2D",
-      "D": "2D",
-      "ft": "d",
-      "fd": {
-        "M": "d",
-        "W": "d",
-        "D": "d"
-      },
-      "cb": {
-        "M": "F2u-2d",
-        "W": "2d-2d",
-        "D": "F2d-2d"
-      },
-      "lc": 19.71,
-      "chg": -0.81
-    },
     "GM": {
       "M": "F2D",
       "W": "2U",
@@ -69033,24 +69129,6 @@
       },
       "lc": 21.91,
       "chg": 0.14
-    },
-    "GPC": {
-      "M": "F2D",
-      "W": "2U",
-      "D": "2U",
-      "ft": "u",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "u"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "F2d-2u",
-        "D": "3-2u"
-      },
-      "lc": 130.71,
-      "chg": 0.84
     },
     "GPN": {
       "M": "F2D",
@@ -70420,24 +70498,6 @@
       "lc": 110.98,
       "chg": -0.27
     },
-    "IHI": {
-      "M": "F2D",
-      "W": "2U",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "2-1-2u",
-        "D": "2u-F2u"
-      },
-      "lc": 52.69,
-      "chg": -0.19
-    },
     "IJH": {
       "M": "F2D",
       "W": "1",
@@ -70563,6 +70623,24 @@
       },
       "lc": 18.31,
       "chg": -1.61
+    },
+    "INOD": {
+      "M": "F2U",
+      "W": "2D",
+      "D": "2D",
+      "ft": "d",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "F2d-F2u",
+        "W": "2d-2d",
+        "D": "F2d-2d"
+      },
+      "lc": 59.91,
+      "chg": -3.43
     },
     "INSM": {
       "M": "2D",
@@ -72148,24 +72226,6 @@
       "lc": 106.68,
       "chg": -4.82
     },
-    "L": {
-      "M": "F2D",
-      "W": "2U",
-      "D": "2U",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "2u-2u",
-        "D": "F2u-2u"
-      },
-      "lc": 108.47,
-      "chg": 0.64
-    },
     "LABD": {
       "M": "2U",
       "W": "1",
@@ -72759,6 +72819,24 @@
       },
       "lc": 74.3,
       "chg": 0.43
+    },
+    "MANE": {
+      "M": "F2U",
+      "W": "1",
+      "D": "2D",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2u-F2u",
+        "W": "3-1d",
+        "D": "2-1-2d"
+      },
+      "lc": 122.4,
+      "chg": -6.49
     },
     "MANH": {
       "M": "F2U",
@@ -75568,24 +75646,6 @@
       "lc": 16.68,
       "chg": 2.71
     },
-    "PDBC": {
-      "M": "1",
-      "W": "2U",
-      "D": "2U",
-      "ft": "u",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "u"
-      },
-      "cb": {
-        "M": "2u-1u",
-        "W": "2u-2u",
-        "D": "2u-2u"
-      },
-      "lc": 19.98,
-      "chg": 0.6
-    },
     "PDD": {
       "M": "F2D",
       "W": "2U",
@@ -75945,24 +76005,6 @@
       },
       "lc": 47.45,
       "chg": -0.92
-    },
-    "PLTD": {
-      "M": "2D",
-      "W": "F2D",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "d",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-2d",
-        "W": "2d-F2d",
-        "D": "F2d-F2u"
-      },
-      "lc": 4.28,
-      "chg": 0.0
     },
     "PLTR": {
       "M": "2U",
@@ -76702,6 +76744,24 @@
       "lc": 391.6,
       "chg": 0.61
     },
+    "RAM": {
+      "M": "2D",
+      "W": "2D",
+      "D": "2D",
+      "ft": "d",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "F2u-2d",
+        "W": "2d-2d",
+        "D": "2-1-2d"
+      },
+      "lc": 11.13,
+      "chg": -8.55
+    },
     "RBA": {
       "M": "3U",
       "W": "2U",
@@ -76845,24 +76905,6 @@
       },
       "lc": 753.12,
       "chg": -1.27
-    },
-    "REXR": {
-      "M": "F2D",
-      "W": "2U",
-      "D": "2U",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "F2u-F2d",
-        "W": "2-1-2u",
-        "D": "F2-1-2u"
-      },
-      "lc": 37.84,
-      "chg": 0.88
     },
     "RF": {
       "M": "F2D",
@@ -77331,6 +77373,24 @@
       },
       "lc": 56.57,
       "chg": -2.09
+    },
+    "RRC": {
+      "M": "F2D",
+      "W": "F2U",
+      "D": "F2U",
+      "ft": "u",
+      "fd": {
+        "M": "u",
+        "W": "u",
+        "D": "u"
+      },
+      "cb": {
+        "M": "3d-F2d",
+        "W": "2u-F2u",
+        "D": "F2u-F2u"
+      },
+      "lc": 41.42,
+      "chg": 1.3
     },
     "RRX": {
       "M": "F2U",
@@ -78879,6 +78939,24 @@
       },
       "lc": 24.0,
       "chg": 0.42
+    },
+    "SPXC": {
+      "M": "F2D",
+      "W": "1",
+      "D": "1",
+      "ft": "d",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2d-F2d",
+        "W": "F2u-1d",
+        "D": "F2u-1d"
+      },
+      "lc": 168.45,
+      "chg": -0.6
     },
     "SPXL": {
       "M": "2U",
@@ -80893,6 +80971,24 @@
       "lc": 71.32,
       "chg": -0.25
     },
+    "UBS": {
+      "M": "F2D",
+      "W": "1",
+      "D": "1",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2d-F2d",
+        "W": "F2d-1d",
+        "D": "2u-1d"
+      },
+      "lc": 47.82,
+      "chg": -0.64
+    },
     "UBSI": {
       "M": "F2D",
       "W": "1",
@@ -81343,24 +81439,6 @@
       "lc": 35.66,
       "chg": -0.2
     },
-    "USIG": {
-      "M": "F2D",
-      "W": "2U",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "2-1-2u",
-        "D": "2u-F2u"
-      },
-      "lc": 48.84,
-      "chg": 0.03
-    },
     "USMV": {
       "M": "1",
       "W": "2U",
@@ -81594,24 +81672,6 @@
       },
       "lc": 70.06,
       "chg": 0.16
-    },
-    "VEEA": {
-      "M": "1",
-      "W": "1",
-      "D": "2U",
-      "ft": "u",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "u"
-      },
-      "cb": {
-        "M": "F2u-1u",
-        "W": "2u-1u",
-        "D": "2d-2u"
-      },
-      "lc": 5.2,
-      "chg": 12.8
     },
     "VEEV": {
       "M": "2U",
@@ -82780,6 +82840,24 @@
       "lc": 125.76,
       "chg": -0.21
     },
+    "WK": {
+      "M": "1",
+      "W": "F2U",
+      "D": "3D",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2-1-1u",
+        "W": "F2u-F2u",
+        "D": "F2u-3d"
+      },
+      "lc": 73.04,
+      "chg": -0.29
+    },
     "WM": {
       "M": "F2D",
       "W": "2U",
@@ -83866,16 +83944,52 @@
       "sfp_extreme": 71.30000305175781
     },
     {
-      "ticker": "ALHC",
-      "tf": "W",
-      "direction": "bullish",
+      "ticker": "AMG",
+      "tf": "D",
+      "direction": "bearish",
+      "stage": "formed",
+      "date": "2026-10-12",
+      "swing_price": 393.42,
+      "swing_date": "2026-10-08",
+      "oppos_price": 384.68,
+      "oppos_date": "2026-10-09",
+      "sfp_extreme": 395.0
+    },
+    {
+      "ticker": "AMG",
+      "tf": "D",
+      "direction": "bearish",
       "stage": "confirmed",
-      "date": "2026-10-13",
-      "swing_price": 7.3703,
-      "swing_date": "2026-09-25",
-      "oppos_price": 8.27,
-      "oppos_date": "2026-10-02",
-      "sfp_extreme": 6.01
+      "date": "2026-10-12",
+      "swing_price": 393.42,
+      "swing_date": "2026-10-08",
+      "oppos_price": 384.68,
+      "oppos_date": "2026-10-09",
+      "sfp_extreme": 395.0
+    },
+    {
+      "ticker": "AMG",
+      "tf": "W",
+      "direction": "bearish",
+      "stage": "formed",
+      "date": "2026-10-12",
+      "swing_price": 392.9199,
+      "swing_date": "2026-08-07",
+      "oppos_price": 339.87,
+      "oppos_date": "2026-09-18",
+      "sfp_extreme": 395.0
+    },
+    {
+      "ticker": "AMG",
+      "tf": "M",
+      "direction": "bearish",
+      "stage": "formed",
+      "date": "2026-10-12",
+      "swing_price": 392.9199,
+      "swing_date": "2026-08-31",
+      "oppos_price": 339.87,
+      "oppos_date": "2026-09-30",
+      "sfp_extreme": 395.0
     },
     {
       "ticker": "AMT",
@@ -85196,6 +85310,18 @@
       "oppos_price": 15.745,
       "oppos_date": "2026-10-12",
       "sfp_extreme": 16.514999389648438
+    },
+    {
+      "ticker": "MANE",
+      "tf": "M",
+      "direction": "bearish",
+      "stage": "formed",
+      "date": "2026-10-12",
+      "swing_price": 131.2399,
+      "swing_date": "2026-07-31",
+      "oppos_price": 93.77,
+      "oppos_date": "2026-08-31",
+      "sfp_extreme": 136.715
     },
     {
       "ticker": "MAS",
@@ -87226,6 +87352,28 @@
       "swing_date": "2026-09-30",
       "target": 91.16,
       "target_date": "2026-10-13"
+    },
+    {
+      "ticker": "AMG",
+      "tf": "D",
+      "direction": "short",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 385.86,
+      "swing_date": "2026-10-06",
+      "target": 370.44,
+      "target_date": "2026-10-12"
+    },
+    {
+      "ticker": "AMG",
+      "tf": "D",
+      "direction": "short",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 393.42,
+      "swing_date": "2026-10-08",
+      "target": 381.145,
+      "target_date": "2026-10-12"
     },
     {
       "ticker": "AMGN",
@@ -90968,6 +91116,28 @@
       "target_date": "2026-10-13"
     },
     {
+      "ticker": "FCEL",
+      "tf": "D",
+      "direction": "long",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 16.02,
+      "swing_date": "2026-10-01",
+      "target": 21.06,
+      "target_date": "2026-10-12"
+    },
+    {
+      "ticker": "FCEL",
+      "tf": "D",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 17.58,
+      "swing_date": "2026-09-29",
+      "target": 16.02,
+      "target_date": "2026-10-08"
+    },
+    {
       "ticker": "FDS",
       "tf": "D",
       "direction": "long",
@@ -91529,28 +91699,6 @@
       "target_date": "2026-10-13"
     },
     {
-      "ticker": "GLXY",
-      "tf": "D",
-      "direction": "long",
-      "stage": "reclaimed",
-      "date": "2026-10-13",
-      "level": 19.445,
-      "swing_date": "2026-08-10",
-      "target": 27.6764,
-      "target_date": "2026-10-13"
-    },
-    {
-      "ticker": "GLXY",
-      "tf": "D",
-      "direction": "short",
-      "stage": "target_hit",
-      "date": "2026-10-13",
-      "level": 20.875,
-      "swing_date": "2026-08-07",
-      "target": 19.445,
-      "target_date": "2026-08-11"
-    },
-    {
       "ticker": "GM",
       "tf": "D",
       "direction": "long",
@@ -91625,50 +91773,6 @@
       "level": 21.91,
       "swing_date": "2026-10-02",
       "target": 21.74,
-      "target_date": "2026-10-13"
-    },
-    {
-      "ticker": "GPC",
-      "tf": "D",
-      "direction": "long",
-      "stage": "target_hit",
-      "date": "2026-10-13",
-      "level": 126.24,
-      "swing_date": "2026-09-21",
-      "target": 131.4506,
-      "target_date": "2026-10-02"
-    },
-    {
-      "ticker": "GPC",
-      "tf": "D",
-      "direction": "long",
-      "stage": "target_hit",
-      "date": "2026-10-13",
-      "level": 127.47,
-      "swing_date": "2026-09-23",
-      "target": 131.09,
-      "target_date": "2026-10-08"
-    },
-    {
-      "ticker": "GPC",
-      "tf": "D",
-      "direction": "short",
-      "stage": "reclaimed",
-      "date": "2026-10-13",
-      "level": 131.4506,
-      "swing_date": "2026-09-22",
-      "target": 123.85,
-      "target_date": "2026-10-13"
-    },
-    {
-      "ticker": "GPC",
-      "tf": "D",
-      "direction": "short",
-      "stage": "reclaimed",
-      "date": "2026-10-13",
-      "level": 131.09,
-      "swing_date": "2026-09-25",
-      "target": 123.85,
       "target_date": "2026-10-13"
     },
     {
@@ -92385,17 +92489,6 @@
       "swing_date": "2026-10-08",
       "target": 51.21,
       "target_date": "2026-10-13"
-    },
-    {
-      "ticker": "IHI",
-      "tf": "W",
-      "direction": "long",
-      "stage": "target_hit",
-      "date": "2026-10-13",
-      "level": 50.49,
-      "swing_date": "2026-09-11",
-      "target": 52.53,
-      "target_date": "2026-10-09"
     },
     {
       "ticker": "INDA",
@@ -93529,6 +93622,17 @@
       "swing_date": "2026-10-09",
       "target": 115.38,
       "target_date": "2026-10-13"
+    },
+    {
+      "ticker": "MANE",
+      "tf": "D",
+      "direction": "short",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 123.829,
+      "swing_date": "2026-10-01",
+      "target": 108.77,
+      "target_date": "2026-10-12"
     },
     {
       "ticker": "MANH",
@@ -95093,17 +95197,6 @@
       "target_date": "2026-10-13"
     },
     {
-      "ticker": "PDBC",
-      "tf": "D",
-      "direction": "long",
-      "stage": "target_hit",
-      "date": "2026-10-13",
-      "level": 19.29,
-      "swing_date": "2026-09-22",
-      "target": 19.95,
-      "target_date": "2026-09-28"
-    },
-    {
       "ticker": "PDD",
       "tf": "D",
       "direction": "long",
@@ -95773,6 +95866,94 @@
       "swing_date": "2026-08-14",
       "target": 301.22,
       "target_date": "2026-10-13"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "D",
+      "direction": "long",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 11.05,
+      "swing_date": "2026-08-24",
+      "target": 15.44,
+      "target_date": "2026-10-12"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "D",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 15.358,
+      "swing_date": "2026-08-17",
+      "target": 11.05,
+      "target_date": "2026-09-22"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "D",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 13.64,
+      "swing_date": "2026-08-21",
+      "target": 11.05,
+      "target_date": "2026-09-10"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "D",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 15.14,
+      "swing_date": "2026-09-09",
+      "target": 11.25,
+      "target_date": "2026-09-23"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "D",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 13.87,
+      "swing_date": "2026-09-11",
+      "target": 11.25,
+      "target_date": "2026-09-28"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "W",
+      "direction": "long",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 11.05,
+      "swing_date": "2026-08-28",
+      "target": 15.44,
+      "target_date": "2026-10-12"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "W",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 15.358,
+      "swing_date": "2026-08-21",
+      "target": 11.05,
+      "target_date": "2026-09-25"
+    },
+    {
+      "ticker": "RAM",
+      "tf": "W",
+      "direction": "short",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 15.14,
+      "swing_date": "2026-09-11",
+      "target": 11.25,
+      "target_date": "2026-09-25"
     },
     {
       "ticker": "RBA",
@@ -99229,6 +99410,50 @@
       "target_date": "2026-08-28"
     },
     {
+      "ticker": "WK",
+      "tf": "D",
+      "direction": "long",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 70.7,
+      "swing_date": "2026-09-10",
+      "target": 76.45,
+      "target_date": "2026-09-23"
+    },
+    {
+      "ticker": "WK",
+      "tf": "D",
+      "direction": "short",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 76.45,
+      "swing_date": "2026-09-15",
+      "target": 64.85,
+      "target_date": "2026-10-12"
+    },
+    {
+      "ticker": "WK",
+      "tf": "W",
+      "direction": "long",
+      "stage": "target_hit",
+      "date": "2026-10-12",
+      "level": 70.7,
+      "swing_date": "2026-09-11",
+      "target": 76.45,
+      "target_date": "2026-10-02"
+    },
+    {
+      "ticker": "WK",
+      "tf": "W",
+      "direction": "short",
+      "stage": "reclaimed",
+      "date": "2026-10-12",
+      "level": 76.45,
+      "swing_date": "2026-09-18",
+      "target": 64.85,
+      "target_date": "2026-10-12"
+    },
+    {
       "ticker": "WOLF",
       "tf": "W",
       "direction": "short",
@@ -100572,39 +100797,6 @@
         "magnitude": 12.829999999999998,
         "expected_move": 12.660003662109375,
         "risk": 0.1699963378906233
-      },
-      {
-        "ticker": "ALHC",
-        "tf": "D",
-        "level": 7.3703,
-        "swing_date": "2026-09-24",
-        "target": 8.785,
-        "target_date": "2026-10-09",
-        "magnitude": 1.4146999999999998,
-        "expected_move": 0.48499980926513686,
-        "risk": 0.929700190734863
-      },
-      {
-        "ticker": "ALHC",
-        "tf": "W",
-        "level": 7.3703,
-        "swing_date": "2026-09-25",
-        "target": 8.785,
-        "target_date": "2026-10-09",
-        "magnitude": 1.4146999999999998,
-        "expected_move": 0.48499980926513686,
-        "risk": 0.929700190734863
-      },
-      {
-        "ticker": "ALHC",
-        "tf": "D",
-        "level": 7.595,
-        "swing_date": "2026-10-01",
-        "target": 8.785,
-        "target_date": "2026-10-12",
-        "magnitude": 1.1900000000000004,
-        "expected_move": 0.48499980926513686,
-        "risk": 0.7050001907348635
       },
       {
         "ticker": "ALL",
@@ -102213,83 +102405,6 @@
         "risk": 0.5799995422363295
       },
       {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 368.53,
-        "swing_date": "2026-06-23",
-        "target": 413.245,
-        "target_date": "2026-08-19",
-        "magnitude": 44.71500000000003,
-        "expected_move": 32.554997558593755,
-        "risk": 12.160002441406277
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 376.59,
-        "swing_date": "2026-07-08",
-        "target": 413.245,
-        "target_date": "2026-08-11",
-        "magnitude": 36.65500000000003,
-        "expected_move": 32.554997558593755,
-        "risk": 4.100002441406275
-      },
-      {
-        "ticker": "BAP",
-        "tf": "W",
-        "level": 376.59,
-        "swing_date": "2026-07-10",
-        "target": 413.245,
-        "target_date": "2026-08-14",
-        "magnitude": 36.65500000000003,
-        "expected_move": 32.554997558593755,
-        "risk": 4.100002441406275
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 377.45,
-        "swing_date": "2026-07-17",
-        "target": 413.245,
-        "target_date": "2026-08-14",
-        "magnitude": 35.795000000000016,
-        "expected_move": 32.554997558593755,
-        "risk": 3.2400024414062614
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 380.43,
-        "swing_date": "2026-07-29",
-        "target": 413.245,
-        "target_date": "2026-08-14",
-        "magnitude": 32.815,
-        "expected_move": 32.554997558593755,
-        "risk": 0.2600024414062432
-      },
-      {
-        "ticker": "BAP",
-        "tf": "W",
-        "level": 380.43,
-        "swing_date": "2026-07-31",
-        "target": 401.93,
-        "target_date": "2026-08-14",
-        "magnitude": 21.5,
-        "expected_move": 21.239997558593757,
-        "risk": 0.2600024414062432
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 379.0,
-        "swing_date": "2026-09-28",
-        "target": 390.51,
-        "target_date": "2026-09-30",
-        "magnitude": 11.509999999999991,
-        "expected_move": 9.819997558593741,
-        "risk": 1.69000244140625
-      },
-      {
         "ticker": "BBWI",
         "tf": "D",
         "level": 17.93,
@@ -102959,6 +103074,39 @@
         "magnitude": 2.739999999999995,
         "expected_move": 2.1800004577636685,
         "risk": 0.5599995422363264
+      },
+      {
+        "ticker": "BSP",
+        "tf": "D",
+        "level": 32.0,
+        "swing_date": "2026-07-27",
+        "target": 58.94,
+        "target_date": "2026-09-25",
+        "magnitude": 26.939999999999998,
+        "expected_move": 21.9,
+        "risk": 5.039999999999999
+      },
+      {
+        "ticker": "BSP",
+        "tf": "W",
+        "level": 32.0,
+        "swing_date": "2026-07-31",
+        "target": 58.94,
+        "target_date": "2026-09-25",
+        "magnitude": 26.939999999999998,
+        "expected_move": 21.9,
+        "risk": 5.039999999999999
+      },
+      {
+        "ticker": "BSP",
+        "tf": "D",
+        "level": 32.2572,
+        "swing_date": "2026-07-30",
+        "target": 58.94,
+        "target_date": "2026-09-25",
+        "magnitude": 26.6828,
+        "expected_move": 21.9,
+        "risk": 4.782800000000002
       },
       {
         "ticker": "BSV",
@@ -107889,6 +108037,39 @@
         "risk": 0.04000152587890682
       },
       {
+        "ticker": "EGP",
+        "tf": "D",
+        "level": 196.89,
+        "swing_date": "2026-06-17",
+        "target": 226.71,
+        "target_date": "2026-09-02",
+        "magnitude": 29.82000000000002,
+        "expected_move": 29.26000000000002,
+        "risk": 0.5600000000000023
+      },
+      {
+        "ticker": "EGP",
+        "tf": "D",
+        "level": 195.71,
+        "swing_date": "2026-09-15",
+        "target": 205.205,
+        "target_date": "2026-10-02",
+        "magnitude": 9.495000000000005,
+        "expected_move": 7.755000000000024,
+        "risk": 1.7399999999999807
+      },
+      {
+        "ticker": "EGP",
+        "tf": "W",
+        "level": 195.71,
+        "swing_date": "2026-09-18",
+        "target": 205.205,
+        "target_date": "2026-10-02",
+        "magnitude": 9.495000000000005,
+        "expected_move": 7.755000000000024,
+        "risk": 1.7399999999999807
+      },
+      {
         "ticker": "EIX",
         "tf": "D",
         "level": 52.5,
@@ -108978,6 +109159,50 @@
         "risk": 0.3449966430664091
       },
       {
+        "ticker": "EWBC",
+        "tf": "D",
+        "level": 125.18,
+        "swing_date": "2026-06-17",
+        "target": 137.47,
+        "target_date": "2026-09-16",
+        "magnitude": 12.289999999999992,
+        "expected_move": 11.909999999999997,
+        "risk": 0.37999999999999545
+      },
+      {
+        "ticker": "EWBC",
+        "tf": "D",
+        "level": 125.382,
+        "swing_date": "2026-06-23",
+        "target": 137.47,
+        "target_date": "2026-09-16",
+        "magnitude": 12.087999999999994,
+        "expected_move": 11.909999999999997,
+        "risk": 0.17799999999999727
+      },
+      {
+        "ticker": "EWBC",
+        "tf": "D",
+        "level": 124.24,
+        "swing_date": "2026-09-16",
+        "target": 128.555,
+        "target_date": "2026-09-24",
+        "magnitude": 4.315000000000012,
+        "expected_move": 2.9950000000000045,
+        "risk": 1.3200000000000074
+      },
+      {
+        "ticker": "EWBC",
+        "tf": "D",
+        "level": 124.86,
+        "swing_date": "2026-09-18",
+        "target": 128.555,
+        "target_date": "2026-09-24",
+        "magnitude": 3.6950000000000074,
+        "expected_move": 2.9950000000000045,
+        "risk": 0.7000000000000028
+      },
+      {
         "ticker": "EWT",
         "tf": "D",
         "level": 112.74,
@@ -109251,6 +109476,17 @@
         "magnitude": 4.079999999999998,
         "expected_move": 3.520001525878911,
         "risk": 0.5599984741210875
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "D",
+        "level": 16.02,
+        "swing_date": "2026-10-01",
+        "target": 21.06,
+        "target_date": "2026-10-12",
+        "magnitude": 5.039999999999999,
+        "expected_move": 4.689999999999998,
+        "risk": 0.3500000000000014
       },
       {
         "ticker": "FCNCA",
@@ -110595,17 +110831,6 @@
         "risk": 6.189993286132818
       },
       {
-        "ticker": "GLXY",
-        "tf": "D",
-        "level": 19.445,
-        "swing_date": "2026-08-10",
-        "target": 27.6764,
-        "target_date": "2026-10-13",
-        "magnitude": 8.2314,
-        "expected_move": 7.966400915527345,
-        "risk": 0.26499908447265597
-      },
-      {
         "ticker": "GM",
         "tf": "D",
         "level": 79.0,
@@ -110890,39 +111115,6 @@
         "magnitude": 23.53000000000003,
         "expected_move": 10.390001220703141,
         "risk": 13.139998779296889
-      },
-      {
-        "ticker": "GPC",
-        "tf": "D",
-        "level": 129.4,
-        "swing_date": "2026-08-20",
-        "target": 139.89,
-        "target_date": "2026-09-16",
-        "magnitude": 10.48999999999998,
-        "expected_move": 9.179993286132799,
-        "risk": 1.3100067138671818
-      },
-      {
-        "ticker": "GPC",
-        "tf": "W",
-        "level": 129.4,
-        "swing_date": "2026-08-21",
-        "target": 139.89,
-        "target_date": "2026-09-25",
-        "magnitude": 10.48999999999998,
-        "expected_move": 9.179993286132799,
-        "risk": 1.3100067138671818
-      },
-      {
-        "ticker": "GPC",
-        "tf": "D",
-        "level": 129.39,
-        "swing_date": "2026-09-16",
-        "target": 132.85,
-        "target_date": "2026-09-22",
-        "magnitude": 3.460000000000008,
-        "expected_move": 2.139993286132807,
-        "risk": 1.3200067138672011
       },
       {
         "ticker": "GRAL",
@@ -112487,17 +112679,6 @@
         "risk": 0.11999832153320256
       },
       {
-        "ticker": "IHI",
-        "tf": "D",
-        "level": 51.66,
-        "swing_date": "2026-07-31",
-        "target": 57.17,
-        "target_date": "2026-09-08",
-        "magnitude": 5.510000000000005,
-        "expected_move": 4.480001373291017,
-        "risk": 1.0299986267089878
-      },
-      {
         "ticker": "IJH",
         "tf": "D",
         "level": 72.85,
@@ -112639,6 +112820,28 @@
         "magnitude": 0.8650000000000002,
         "expected_move": 0.47500038146972656,
         "risk": 0.38999961853027365
+      },
+      {
+        "ticker": "INOD",
+        "tf": "D",
+        "level": 54.3601,
+        "swing_date": "2026-07-29",
+        "target": 79.44,
+        "target_date": "2026-09-01",
+        "magnitude": 25.079899999999995,
+        "expected_move": 19.53,
+        "risk": 5.549899999999994
+      },
+      {
+        "ticker": "INOD",
+        "tf": "W",
+        "level": 54.3601,
+        "swing_date": "2026-07-31",
+        "target": 79.44,
+        "target_date": "2026-09-04",
+        "magnitude": 25.079899999999995,
+        "expected_move": 19.53,
+        "risk": 5.549899999999994
       },
       {
         "ticker": "INSM",
@@ -114225,39 +114428,6 @@
         "risk": 3.3100003051757767
       },
       {
-        "ticker": "L",
-        "tf": "D",
-        "level": 106.581,
-        "swing_date": "2026-06-18",
-        "target": 121.01,
-        "target_date": "2026-10-08",
-        "magnitude": 14.429000000000002,
-        "expected_move": 12.53999877929688,
-        "risk": 1.889001220703122
-      },
-      {
-        "ticker": "L",
-        "tf": "D",
-        "level": 107.925,
-        "swing_date": "2026-09-01",
-        "target": 111.06,
-        "target_date": "2026-09-08",
-        "magnitude": 3.135000000000005,
-        "expected_move": 2.5899987792968773,
-        "risk": 0.5450012207031278
-      },
-      {
-        "ticker": "L",
-        "tf": "D",
-        "level": 107.41,
-        "swing_date": "2026-09-08",
-        "target": 110.275,
-        "target_date": "2026-09-18",
-        "magnitude": 2.865000000000009,
-        "expected_move": 1.8049987792968807,
-        "risk": 1.0600012207031284
-      },
-      {
         "ticker": "LABD",
         "tf": "D",
         "level": 6.6801,
@@ -114982,6 +115152,17 @@
         "magnitude": 4.219999999999999,
         "expected_move": 2.160003051757812,
         "risk": 2.059996948242187
+      },
+      {
+        "ticker": "MANE",
+        "tf": "D",
+        "level": 112.0344,
+        "swing_date": "2026-09-29",
+        "target": 136.715,
+        "target_date": "2026-10-08",
+        "magnitude": 24.6806,
+        "expected_move": 14.314999999999998,
+        "risk": 10.3656
       },
       {
         "ticker": "MANH",
@@ -118163,17 +118344,6 @@
         "risk": 0.23999862670898153
       },
       {
-        "ticker": "PDBC",
-        "tf": "D",
-        "level": 19.6801,
-        "swing_date": "2026-09-11",
-        "target": 20.1597,
-        "target_date": "2026-09-17",
-        "magnitude": 0.47960000000000136,
-        "expected_move": 0.17970045776367272,
-        "risk": 0.29989954223632864
-      },
-      {
         "ticker": "PEN",
         "tf": "D",
         "level": 317.09,
@@ -119461,6 +119631,28 @@
         "risk": 2.6299890136718886
       },
       {
+        "ticker": "RAM",
+        "tf": "D",
+        "level": 11.05,
+        "swing_date": "2026-08-24",
+        "target": 15.44,
+        "target_date": "2026-10-12",
+        "magnitude": 4.389999999999999,
+        "expected_move": 4.309999999999999,
+        "risk": 0.08000000000000007
+      },
+      {
+        "ticker": "RAM",
+        "tf": "W",
+        "level": 11.05,
+        "swing_date": "2026-08-28",
+        "target": 15.44,
+        "target_date": "2026-10-12",
+        "magnitude": 4.389999999999999,
+        "expected_move": 4.309999999999999,
+        "risk": 0.08000000000000007
+      },
+      {
         "ticker": "RBC",
         "tf": "D",
         "level": 490.86,
@@ -119668,50 +119860,6 @@
         "magnitude": 35.601,
         "expected_move": 24.31000488281245,
         "risk": 11.29099511718755
-      },
-      {
-        "ticker": "REXR",
-        "tf": "D",
-        "level": 36.56,
-        "swing_date": "2026-09-02",
-        "target": 39.67,
-        "target_date": "2026-10-02",
-        "magnitude": 3.1099999999999994,
-        "expected_move": 1.829999847412111,
-        "risk": 1.2800001525878884
-      },
-      {
-        "ticker": "REXR",
-        "tf": "W",
-        "level": 36.56,
-        "swing_date": "2026-09-04",
-        "target": 39.67,
-        "target_date": "2026-10-02",
-        "magnitude": 3.1099999999999994,
-        "expected_move": 1.829999847412111,
-        "risk": 1.2800001525878884
-      },
-      {
-        "ticker": "REXR",
-        "tf": "D",
-        "level": 36.695,
-        "swing_date": "2026-09-08",
-        "target": 39.67,
-        "target_date": "2026-10-06",
-        "magnitude": 2.9750000000000014,
-        "expected_move": 1.829999847412111,
-        "risk": 1.1450001525878903
-      },
-      {
-        "ticker": "REXR",
-        "tf": "D",
-        "level": 36.71,
-        "swing_date": "2026-09-10",
-        "target": 39.67,
-        "target_date": "2026-10-06",
-        "magnitude": 2.960000000000001,
-        "expected_move": 1.829999847412111,
-        "risk": 1.1300001525878898
       },
       {
         "ticker": "RGEN",
@@ -120141,6 +120289,83 @@
         "magnitude": 7.849899999999998,
         "expected_move": 7.810000305175777,
         "risk": 0.0398996948242214
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 37.78,
+        "swing_date": "2026-07-28",
+        "target": 43.06,
+        "target_date": "2026-09-21",
+        "magnitude": 5.280000000000001,
+        "expected_move": 1.6400000000000006,
+        "risk": 3.6400000000000006
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 38.07,
+        "swing_date": "2026-08-05",
+        "target": 43.06,
+        "target_date": "2026-09-22",
+        "magnitude": 4.990000000000002,
+        "expected_move": 1.6400000000000006,
+        "risk": 3.3500000000000014
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 38.97,
+        "swing_date": "2026-08-17",
+        "target": 43.06,
+        "target_date": "2026-09-17",
+        "magnitude": 4.090000000000003,
+        "expected_move": 1.6400000000000006,
+        "risk": 2.450000000000003
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 40.27,
+        "swing_date": "2026-08-25",
+        "target": 43.06,
+        "target_date": "2026-10-08",
+        "magnitude": 2.789999999999999,
+        "expected_move": 1.6400000000000006,
+        "risk": 1.1499999999999986
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 41.15,
+        "swing_date": "2026-08-31",
+        "target": 43.06,
+        "target_date": "2026-09-10",
+        "magnitude": 1.9100000000000037,
+        "expected_move": 1.6400000000000006,
+        "risk": 0.2700000000000031
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 40.76,
+        "swing_date": "2026-09-14",
+        "target": 42.3,
+        "target_date": "2026-10-08",
+        "magnitude": 1.5399999999999991,
+        "expected_move": 0.8799999999999955,
+        "risk": 0.6600000000000037
+      },
+      {
+        "ticker": "RRC",
+        "tf": "D",
+        "level": 40.9,
+        "swing_date": "2026-09-10",
+        "target": 42.3,
+        "target_date": "2026-09-15",
+        "magnitude": 1.3999999999999986,
+        "expected_move": 0.8799999999999955,
+        "risk": 0.5200000000000031
       },
       {
         "ticker": "RRX",
@@ -124532,6 +124757,28 @@
         "risk": 2.079999694824224
       },
       {
+        "ticker": "UBS",
+        "tf": "D",
+        "level": 47.1801,
+        "swing_date": "2026-09-24",
+        "target": 49.735,
+        "target_date": "2026-10-01",
+        "magnitude": 2.5548999999999964,
+        "expected_move": 1.9149999999999991,
+        "risk": 0.6398999999999972
+      },
+      {
+        "ticker": "UBS",
+        "tf": "D",
+        "level": 46.82,
+        "swing_date": "2026-10-01",
+        "target": 49.055,
+        "target_date": "2026-10-07",
+        "magnitude": 2.2349999999999994,
+        "expected_move": 1.2349999999999994,
+        "risk": 1.0
+      },
+      {
         "ticker": "UBSI",
         "tf": "D",
         "level": 45.03,
@@ -125124,39 +125371,6 @@
         "magnitude": 1.7349999999999994,
         "expected_move": 1.420002441406254,
         "risk": 0.31499755859374545
-      },
-      {
-        "ticker": "VEEA",
-        "tf": "W",
-        "level": 2.222,
-        "swing_date": "2026-08-14",
-        "target": 8.88,
-        "target_date": "2026-09-18",
-        "magnitude": 6.658000000000001,
-        "expected_move": 3.680000190734864,
-        "risk": 2.9779998092651367
-      },
-      {
-        "ticker": "VEEA",
-        "tf": "W",
-        "level": 2.9,
-        "swing_date": "2026-07-31",
-        "target": 8.88,
-        "target_date": "2026-09-18",
-        "magnitude": 5.98,
-        "expected_move": 3.680000190734864,
-        "risk": 2.299999809265137
-      },
-      {
-        "ticker": "VEEA",
-        "tf": "D",
-        "level": 4.46,
-        "swing_date": "2026-10-06",
-        "target": 7.09,
-        "target_date": "2026-10-09",
-        "magnitude": 2.63,
-        "expected_move": 1.8900001907348631,
-        "risk": 0.7399998092651368
       },
       {
         "ticker": "VEU",
@@ -126532,6 +126746,39 @@
         "magnitude": 3.4399999999999977,
         "expected_move": 2.090000915527341,
         "risk": 1.3499990844726568
+      },
+      {
+        "ticker": "WK",
+        "tf": "D",
+        "level": 68.395,
+        "swing_date": "2026-08-17",
+        "target": 80.56,
+        "target_date": "2026-10-01",
+        "magnitude": 12.165000000000006,
+        "expected_move": 7.519999999999996,
+        "risk": 4.64500000000001
+      },
+      {
+        "ticker": "WK",
+        "tf": "D",
+        "level": 69.04,
+        "swing_date": "2026-08-19",
+        "target": 80.56,
+        "target_date": "2026-10-01",
+        "magnitude": 11.519999999999996,
+        "expected_move": 7.519999999999996,
+        "risk": 4.0
+      },
+      {
+        "ticker": "WK",
+        "tf": "D",
+        "level": 72.23,
+        "swing_date": "2026-08-26",
+        "target": 80.56,
+        "target_date": "2026-09-14",
+        "magnitude": 8.329999999999998,
+        "expected_move": 7.519999999999996,
+        "risk": 0.8100000000000023
       },
       {
         "ticker": "WMB",
@@ -129165,6 +129412,72 @@
         "risk": 1.5999987792968682
       },
       {
+        "ticker": "AMG",
+        "tf": "D",
+        "level": 382.75,
+        "swing_date": "2026-07-15",
+        "target": 328.11,
+        "target_date": "2026-08-03",
+        "magnitude": 54.639999999999986,
+        "expected_move": 53.71999999999997,
+        "risk": 0.9200000000000159
+      },
+      {
+        "ticker": "AMG",
+        "tf": "W",
+        "level": 382.75,
+        "swing_date": "2026-07-17",
+        "target": 328.11,
+        "target_date": "2026-08-07",
+        "magnitude": 54.639999999999986,
+        "expected_move": 53.71999999999997,
+        "risk": 0.9200000000000159
+      },
+      {
+        "ticker": "AMG",
+        "tf": "D",
+        "level": 392.9199,
+        "swing_date": "2026-08-04",
+        "target": 339.87,
+        "target_date": "2026-10-08",
+        "magnitude": 53.04989999999998,
+        "expected_move": 41.95999999999998,
+        "risk": 11.0899
+      },
+      {
+        "ticker": "AMG",
+        "tf": "W",
+        "level": 392.9199,
+        "swing_date": "2026-08-07",
+        "target": 339.87,
+        "target_date": "2026-10-09",
+        "magnitude": 53.04989999999998,
+        "expected_move": 41.95999999999998,
+        "risk": 11.0899
+      },
+      {
+        "ticker": "AMG",
+        "tf": "D",
+        "level": 385.86,
+        "swing_date": "2026-10-06",
+        "target": 370.44,
+        "target_date": "2026-10-12",
+        "magnitude": 15.420000000000016,
+        "expected_move": 11.389999999999986,
+        "risk": 4.03000000000003
+      },
+      {
+        "ticker": "AMG",
+        "tf": "D",
+        "level": 393.42,
+        "swing_date": "2026-10-08",
+        "target": 381.145,
+        "target_date": "2026-10-12",
+        "magnitude": 12.275000000000034,
+        "expected_move": 0.6850000000000023,
+        "risk": 11.590000000000032
+      },
+      {
         "ticker": "AMGN",
         "tf": "D",
         "level": 415.79,
@@ -130595,61 +130908,6 @@
         "risk": 0.03990045776367168
       },
       {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 392.39,
-        "swing_date": "2026-08-17",
-        "target": 364.49,
-        "target_date": "2026-09-23",
-        "magnitude": 27.899999999999977,
-        "expected_move": 16.20000244140624,
-        "risk": 11.699997558593736
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 385.97,
-        "swing_date": "2026-08-26",
-        "target": 364.49,
-        "target_date": "2026-09-03",
-        "magnitude": 21.480000000000018,
-        "expected_move": 16.20000244140624,
-        "risk": 5.279997558593777
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 386.2,
-        "swing_date": "2026-09-03",
-        "target": 369.705,
-        "target_date": "2026-09-16",
-        "magnitude": 16.495000000000005,
-        "expected_move": 10.985002441406266,
-        "risk": 5.509997558593739
-      },
-      {
-        "ticker": "BAP",
-        "tf": "W",
-        "level": 386.2,
-        "swing_date": "2026-09-04",
-        "target": 369.705,
-        "target_date": "2026-09-18",
-        "magnitude": 16.495000000000005,
-        "expected_move": 10.985002441406266,
-        "risk": 5.509997558593739
-      },
-      {
-        "ticker": "BAP",
-        "tf": "D",
-        "level": 385.72,
-        "swing_date": "2026-09-11",
-        "target": 369.705,
-        "target_date": "2026-09-16",
-        "magnitude": 16.015000000000043,
-        "expected_move": 10.985002441406266,
-        "risk": 5.029997558593777
-      },
-      {
         "ticker": "BB",
         "tf": "D",
         "level": 9.34,
@@ -131330,6 +131588,50 @@
         "magnitude": 8.75,
         "expected_move": 4.649998626708985,
         "risk": 4.100001373291015
+      },
+      {
+        "ticker": "BSP",
+        "tf": "D",
+        "level": 42.15,
+        "swing_date": "2026-09-14",
+        "target": 31.425,
+        "target_date": "2026-10-07",
+        "magnitude": 10.724999999999998,
+        "expected_move": 5.614999999999998,
+        "risk": 5.109999999999999
+      },
+      {
+        "ticker": "BSP",
+        "tf": "W",
+        "level": 42.15,
+        "swing_date": "2026-09-18",
+        "target": 31.425,
+        "target_date": "2026-10-09",
+        "magnitude": 10.724999999999998,
+        "expected_move": 5.614999999999998,
+        "risk": 5.109999999999999
+      },
+      {
+        "ticker": "BSP",
+        "tf": "D",
+        "level": 38.77,
+        "swing_date": "2026-07-07",
+        "target": 30.11,
+        "target_date": "2026-08-17",
+        "magnitude": 8.660000000000004,
+        "expected_move": 6.93,
+        "risk": 1.730000000000004
+      },
+      {
+        "ticker": "BSP",
+        "tf": "D",
+        "level": 39.1136,
+        "swing_date": "2026-09-22",
+        "target": 31.425,
+        "target_date": "2026-10-08",
+        "magnitude": 7.688599999999997,
+        "expected_move": 5.614999999999998,
+        "risk": 2.073599999999999
       },
       {
         "ticker": "BSV",
@@ -135292,6 +135594,17 @@
         "risk": 3.8101033569335954
       },
       {
+        "ticker": "EWBC",
+        "tf": "D",
+        "level": 127.75,
+        "swing_date": "2026-09-28",
+        "target": 120.94,
+        "target_date": "2026-10-05",
+        "magnitude": 6.810000000000002,
+        "expected_move": 4.6200000000000045,
+        "risk": 2.1899999999999977
+      },
+      {
         "ticker": "EWJ",
         "tf": "W",
         "level": 97.52,
@@ -135653,6 +135966,72 @@
         "magnitude": 0.9449999999999932,
         "expected_move": 0.8699984741210898,
         "risk": 0.07500152587890341
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "D",
+        "level": 20.0671,
+        "swing_date": "2026-08-25",
+        "target": 13.83,
+        "target_date": "2026-10-07",
+        "magnitude": 6.2371,
+        "expected_move": 2.540000000000001,
+        "risk": 3.697099999999999
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "D",
+        "level": 18.33,
+        "swing_date": "2026-09-09",
+        "target": 14.71,
+        "target_date": "2026-09-18",
+        "magnitude": 3.6199999999999974,
+        "expected_move": 1.6600000000000001,
+        "risk": 1.9599999999999973
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "D",
+        "level": 18.8699,
+        "swing_date": "2026-09-22",
+        "target": 15.75,
+        "target_date": "2026-10-07",
+        "magnitude": 3.1199000000000012,
+        "expected_move": 0.620000000000001,
+        "risk": 2.4999000000000002
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "W",
+        "level": 18.8699,
+        "swing_date": "2026-09-25",
+        "target": 15.75,
+        "target_date": "2026-10-09",
+        "magnitude": 3.1199000000000012,
+        "expected_move": 0.620000000000001,
+        "risk": 2.4999000000000002
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "D",
+        "level": 16.55,
+        "swing_date": "2026-09-11",
+        "target": 14.71,
+        "target_date": "2026-09-24",
+        "magnitude": 1.8399999999999999,
+        "expected_move": 1.6600000000000001,
+        "risk": 0.17999999999999972
+      },
+      {
+        "ticker": "FCEL",
+        "tf": "D",
+        "level": 16.98,
+        "swing_date": "2026-09-25",
+        "target": 15.75,
+        "target_date": "2026-09-29",
+        "magnitude": 1.2300000000000004,
+        "expected_move": 0.620000000000001,
+        "risk": 0.6099999999999994
       },
       {
         "ticker": "FCX",
@@ -137063,61 +137442,6 @@
         "risk": 9.03000671386718
       },
       {
-        "ticker": "GLXY",
-        "tf": "D",
-        "level": 27.51,
-        "swing_date": "2026-07-02",
-        "target": 18.22,
-        "target_date": "2026-09-08",
-        "magnitude": 9.290000000000003,
-        "expected_move": 1.4899990844726574,
-        "risk": 7.800000915527345
-      },
-      {
-        "ticker": "GLXY",
-        "tf": "D",
-        "level": 26.66,
-        "swing_date": "2026-07-10",
-        "target": 18.22,
-        "target_date": "2026-09-03",
-        "magnitude": 8.440000000000001,
-        "expected_move": 1.4899990844726574,
-        "risk": 6.950000915527344
-      },
-      {
-        "ticker": "GLXY",
-        "tf": "D",
-        "level": 26.0499,
-        "swing_date": "2026-07-22",
-        "target": 18.22,
-        "target_date": "2026-08-27",
-        "magnitude": 7.829900000000002,
-        "expected_move": 1.4899990844726574,
-        "risk": 6.339900915527345
-      },
-      {
-        "ticker": "GLXY",
-        "tf": "W",
-        "level": 26.0499,
-        "swing_date": "2026-07-24",
-        "target": 18.22,
-        "target_date": "2026-08-28",
-        "magnitude": 7.829900000000002,
-        "expected_move": 1.4899990844726574,
-        "risk": 6.339900915527345
-      },
-      {
-        "ticker": "GLXY",
-        "tf": "D",
-        "level": 22.645,
-        "swing_date": "2026-08-04",
-        "target": 18.65,
-        "target_date": "2026-09-15",
-        "magnitude": 3.995000000000001,
-        "expected_move": 1.0599990844726577,
-        "risk": 2.9350009155273433
-      },
-      {
         "ticker": "GM",
         "tf": "D",
         "level": 85.41,
@@ -137303,61 +137627,6 @@
         "magnitude": 0.1700000000000017,
         "expected_move": 0.16999984741211094,
         "risk": 1.5258789076710855e-07
-      },
-      {
-        "ticker": "GPC",
-        "tf": "W",
-        "level": 135.44,
-        "swing_date": "2026-07-02",
-        "target": 109.5,
-        "target_date": "2026-08-14",
-        "magnitude": 25.939999999999998,
-        "expected_move": 21.210006713867188,
-        "risk": 4.72999328613281
-      },
-      {
-        "ticker": "GPC",
-        "tf": "D",
-        "level": 131.58,
-        "swing_date": "2026-07-07",
-        "target": 109.5,
-        "target_date": "2026-07-28",
-        "magnitude": 22.080000000000013,
-        "expected_move": 21.210006713867188,
-        "risk": 0.869993286132825
-      },
-      {
-        "ticker": "GPC",
-        "tf": "D",
-        "level": 132.0,
-        "swing_date": "2026-07-28",
-        "target": 123.33,
-        "target_date": "2026-08-05",
-        "magnitude": 8.670000000000002,
-        "expected_move": 7.380006713867189,
-        "risk": 1.2899932861328125
-      },
-      {
-        "ticker": "GPC",
-        "tf": "D",
-        "level": 131.4506,
-        "swing_date": "2026-09-22",
-        "target": 123.85,
-        "target_date": "2026-10-13",
-        "magnitude": 7.600600000000014,
-        "expected_move": 6.860006713867193,
-        "risk": 0.740593286132821
-      },
-      {
-        "ticker": "GPC",
-        "tf": "D",
-        "level": 131.09,
-        "swing_date": "2026-09-25",
-        "target": 123.85,
-        "target_date": "2026-10-13",
-        "magnitude": 7.240000000000009,
-        "expected_move": 6.860006713867193,
-        "risk": 0.3799932861328159
       },
       {
         "ticker": "GPN",
@@ -138757,28 +139026,6 @@
         "risk": 1.3599966430664097
       },
       {
-        "ticker": "IHI",
-        "tf": "D",
-        "level": 53.19,
-        "swing_date": "2026-07-07",
-        "target": 48.91,
-        "target_date": "2026-07-28",
-        "magnitude": 4.280000000000001,
-        "expected_move": 3.779998626708988,
-        "risk": 0.5000013732910134
-      },
-      {
-        "ticker": "IHI",
-        "tf": "W",
-        "level": 53.19,
-        "swing_date": "2026-07-10",
-        "target": 48.91,
-        "target_date": "2026-07-31",
-        "magnitude": 4.280000000000001,
-        "expected_move": 3.779998626708988,
-        "risk": 0.5000013732910134
-      },
-      {
         "ticker": "IJH",
         "tf": "D",
         "level": 73.81,
@@ -138821,6 +139068,28 @@
         "magnitude": 2.2399999999999984,
         "expected_move": 0.7799994659423817,
         "risk": 1.4600005340576168
+      },
+      {
+        "ticker": "INOD",
+        "tf": "D",
+        "level": 66.8593,
+        "swing_date": "2026-08-14",
+        "target": 51.97,
+        "target_date": "2026-09-28",
+        "magnitude": 14.889300000000006,
+        "expected_move": 7.939999999999998,
+        "risk": 6.949300000000008
+      },
+      {
+        "ticker": "INOD",
+        "tf": "D",
+        "level": 66.6199,
+        "swing_date": "2026-08-21",
+        "target": 51.97,
+        "target_date": "2026-09-30",
+        "magnitude": 14.649900000000002,
+        "expected_move": 7.939999999999998,
+        "risk": 6.709900000000005
       },
       {
         "ticker": "INSM",
@@ -140944,6 +141213,50 @@
         "magnitude": 2.0500000000000114,
         "expected_move": 1.069996948242192,
         "risk": 0.9800030517578193
+      },
+      {
+        "ticker": "MANE",
+        "tf": "D",
+        "level": 131.2399,
+        "swing_date": "2026-07-01",
+        "target": 93.77,
+        "target_date": "2026-10-08",
+        "magnitude": 37.46990000000001,
+        "expected_move": 28.63000000000001,
+        "risk": 8.8399
+      },
+      {
+        "ticker": "MANE",
+        "tf": "W",
+        "level": 131.2399,
+        "swing_date": "2026-07-02",
+        "target": 93.77,
+        "target_date": "2026-10-09",
+        "magnitude": 37.46990000000001,
+        "expected_move": 28.63000000000001,
+        "risk": 8.8399
+      },
+      {
+        "ticker": "MANE",
+        "tf": "D",
+        "level": 129.8,
+        "swing_date": "2026-07-15",
+        "target": 93.77,
+        "target_date": "2026-10-08",
+        "magnitude": 36.030000000000015,
+        "expected_move": 28.63000000000001,
+        "risk": 7.400000000000006
+      },
+      {
+        "ticker": "MANE",
+        "tf": "D",
+        "level": 123.829,
+        "swing_date": "2026-10-01",
+        "target": 108.77,
+        "target_date": "2026-10-12",
+        "magnitude": 15.058999999999997,
+        "expected_move": 13.63000000000001,
+        "risk": 1.4289999999999878
       },
       {
         "ticker": "MANH",
@@ -145038,6 +145351,50 @@
         "risk": 6.8099938964844
       },
       {
+        "ticker": "RAM",
+        "tf": "D",
+        "level": 15.24,
+        "swing_date": "2026-07-21",
+        "target": 8.29,
+        "target_date": "2026-08-17",
+        "magnitude": 6.950000000000001,
+        "expected_move": 2.8400000000000016,
+        "risk": 4.109999999999999
+      },
+      {
+        "ticker": "RAM",
+        "tf": "D",
+        "level": 15.165,
+        "swing_date": "2026-07-23",
+        "target": 8.29,
+        "target_date": "2026-08-17",
+        "magnitude": 6.875,
+        "expected_move": 2.8400000000000016,
+        "risk": 4.034999999999998
+      },
+      {
+        "ticker": "RAM",
+        "tf": "D",
+        "level": 12.61,
+        "swing_date": "2026-07-31",
+        "target": 9.31,
+        "target_date": "2026-08-18",
+        "magnitude": 3.299999999999999,
+        "expected_move": 1.8200000000000003,
+        "risk": 1.4799999999999986
+      },
+      {
+        "ticker": "RAM",
+        "tf": "D",
+        "level": 12.53,
+        "swing_date": "2026-08-05",
+        "target": 9.6,
+        "target_date": "2026-08-18",
+        "magnitude": 2.9299999999999997,
+        "expected_move": 1.5300000000000011,
+        "risk": 1.3999999999999986
+      },
+      {
         "ticker": "RBA",
         "tf": "D",
         "level": 88.69,
@@ -145135,17 +145492,6 @@
         "magnitude": 30.0329999999999,
         "expected_move": 29.472995117187452,
         "risk": 0.56000488281245
-      },
-      {
-        "ticker": "REXR",
-        "tf": "D",
-        "level": 39.17,
-        "swing_date": "2026-07-28",
-        "target": 35.68,
-        "target_date": "2026-09-15",
-        "magnitude": 3.490000000000002,
-        "expected_move": 2.160000152587891,
-        "risk": 1.329999847412111
       },
       {
         "ticker": "RF",
@@ -147601,6 +147947,28 @@
         "risk": 0.007499389648437216
       },
       {
+        "ticker": "SPXC",
+        "tf": "D",
+        "level": 176.1406,
+        "swing_date": "2026-09-25",
+        "target": 166.17,
+        "target_date": "2026-10-06",
+        "magnitude": 9.970600000000019,
+        "expected_move": 2.280000000000001,
+        "risk": 7.690600000000018
+      },
+      {
+        "ticker": "SPXC",
+        "tf": "D",
+        "level": 173.48,
+        "swing_date": "2026-09-30",
+        "target": 166.17,
+        "target_date": "2026-10-02",
+        "magnitude": 7.310000000000002,
+        "expected_move": 2.280000000000001,
+        "risk": 5.030000000000001
+      },
+      {
         "ticker": "SPY",
         "tf": "D",
         "level": 779.37,
@@ -149834,39 +150202,6 @@
         "risk": 0.47000244140625114
       },
       {
-        "ticker": "VEEA",
-        "tf": "D",
-        "level": 7.398,
-        "swing_date": "2026-06-22",
-        "target": 1.34,
-        "target_date": "2026-09-15",
-        "magnitude": 6.058,
-        "expected_move": 3.859999809265137,
-        "risk": 2.198000190734863
-      },
-      {
-        "ticker": "VEEA",
-        "tf": "D",
-        "level": 6.962,
-        "swing_date": "2026-06-24",
-        "target": 1.34,
-        "target_date": "2026-09-15",
-        "magnitude": 5.622,
-        "expected_move": 3.859999809265137,
-        "risk": 1.762000190734863
-      },
-      {
-        "ticker": "VEEA",
-        "tf": "D",
-        "level": 6.7799,
-        "swing_date": "2026-10-05",
-        "target": 3.61,
-        "target_date": "2026-10-09",
-        "magnitude": 3.1698999999999997,
-        "expected_move": 1.5899998092651368,
-        "risk": 1.5799001907348629
-      },
-      {
         "ticker": "VEU",
         "tf": "D",
         "level": 84.3651,
@@ -151086,6 +151421,39 @@
         "magnitude": 30.42,
         "expected_move": 29.940002136230476,
         "risk": 0.47999786376952613
+      },
+      {
+        "ticker": "WK",
+        "tf": "D",
+        "level": 76.45,
+        "swing_date": "2026-09-15",
+        "target": 64.85,
+        "target_date": "2026-10-12",
+        "magnitude": 11.600000000000009,
+        "expected_move": 8.190000000000012,
+        "risk": 3.4099999999999966
+      },
+      {
+        "ticker": "WK",
+        "tf": "W",
+        "level": 76.45,
+        "swing_date": "2026-09-18",
+        "target": 64.85,
+        "target_date": "2026-10-12",
+        "magnitude": 11.600000000000009,
+        "expected_move": 8.190000000000012,
+        "risk": 3.4099999999999966
+      },
+      {
+        "ticker": "WK",
+        "tf": "D",
+        "level": 73.79,
+        "swing_date": "2026-10-05",
+        "target": 68.6,
+        "target_date": "2026-10-09",
+        "magnitude": 5.190000000000012,
+        "expected_move": 4.440000000000012,
+        "risk": 0.75
       },
       {
         "ticker": "WOLF",
@@ -152680,6 +153048,46 @@
       "magnitude": 9.609999999999985,
       "expected_move": 4.930004272460934,
       "risk": 4.679995727539051
+    },
+    {
+      "ticker": "AMG",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "Failed 2"
+      ],
+      "entry": "retest",
+      "date": "2026-10-12",
+      "bars_ago": 0,
+      "level": 382.75,
+      "swing_date": "2026-07-17",
+      "target": 328.11,
+      "target_date": "2026-08-07",
+      "close": 381.83,
+      "bar_extreme": 395.0,
+      "magnitude": 54.639999999999986,
+      "expected_move": 53.71999999999997,
+      "risk": 0.9200000000000159
+    },
+    {
+      "ticker": "AMG",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "Failed 2"
+      ],
+      "entry": "retest",
+      "date": "2026-10-12",
+      "bars_ago": 0,
+      "level": 392.9199,
+      "swing_date": "2026-08-07",
+      "target": 339.87,
+      "target_date": "2026-10-09",
+      "close": 381.83,
+      "bar_extreme": 395.0,
+      "magnitude": 53.04989999999998,
+      "expected_move": 41.95999999999998,
+      "risk": 11.0899
     },
     {
       "ticker": "AMKR",
@@ -158138,6 +158546,28 @@
       "risk": 1.6849972534179756
     },
     {
+      "ticker": "EWBC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "Failed 2",
+        "Shooter",
+        "Pin Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-12",
+      "bars_ago": 0,
+      "level": 127.75,
+      "swing_date": "2026-09-28",
+      "target": 120.94,
+      "target_date": "2026-10-05",
+      "close": 125.56,
+      "bar_extreme": 126.5,
+      "magnitude": 6.810000000000002,
+      "expected_move": 4.6200000000000045,
+      "risk": 2.1899999999999977
+    },
+    {
       "ticker": "EXEL",
       "tf": "D",
       "direction": "short",
@@ -159112,27 +159542,6 @@
       "risk": 6.189993286132818
     },
     {
-      "ticker": "GLXY",
-      "tf": "D",
-      "direction": "long",
-      "patterns": [
-        "Hammer",
-        "Pin Bar"
-      ],
-      "entry": "reclaim",
-      "date": "2026-10-13",
-      "bars_ago": 0,
-      "level": 19.445,
-      "swing_date": "2026-08-10",
-      "target": 27.6764,
-      "target_date": "2026-10-13",
-      "close": 19.709999084472656,
-      "bar_extreme": 18.989999771118164,
-      "magnitude": 8.2314,
-      "expected_move": 7.966400915527345,
-      "risk": 0.26499908447265597
-    },
-    {
       "ticker": "GMED",
       "tf": "D",
       "direction": "long",
@@ -159294,26 +159703,6 @@
       "magnitude": 6.519999999999982,
       "expected_move": 3.4699987792968727,
       "risk": 3.050001220703109
-    },
-    {
-      "ticker": "GPC",
-      "tf": "W",
-      "direction": "long",
-      "patterns": [
-        "2-2 Rev"
-      ],
-      "entry": "retest",
-      "date": "2026-10-13",
-      "bars_ago": 0,
-      "level": 129.4,
-      "swing_date": "2026-08-21",
-      "target": 139.89,
-      "target_date": "2026-09-25",
-      "close": 130.7100067138672,
-      "bar_extreme": 126.01,
-      "magnitude": 10.48999999999998,
-      "expected_move": 9.179993286132799,
-      "risk": 1.3100067138671818
     },
     {
       "ticker": "GS",
@@ -160451,26 +160840,6 @@
       "magnitude": 3.510000000000005,
       "expected_move": 2.1500033569335955,
       "risk": 1.3599966430664097
-    },
-    {
-      "ticker": "IHI",
-      "tf": "D",
-      "direction": "short",
-      "patterns": [
-        "Failed 2"
-      ],
-      "entry": "retest",
-      "date": "2026-10-13",
-      "bars_ago": 0,
-      "level": 53.19,
-      "swing_date": "2026-07-07",
-      "target": 48.91,
-      "target_date": "2026-07-28",
-      "close": 52.689998626708984,
-      "bar_extreme": 53.209999084472656,
-      "magnitude": 4.280000000000001,
-      "expected_move": 3.779998626708988,
-      "risk": 0.5000013732910134
     },
     {
       "ticker": "IJH",
@@ -161961,69 +162330,6 @@
       "magnitude": 0.9749999999999979,
       "expected_move": 0.939999313354491,
       "risk": 0.03500068664550682
-    },
-    {
-      "ticker": "L",
-      "tf": "D",
-      "direction": "long",
-      "patterns": [
-        "Hammer",
-        "Pin Bar"
-      ],
-      "entry": "retest",
-      "date": "2026-10-13",
-      "bars_ago": 0,
-      "level": 106.581,
-      "swing_date": "2026-06-18",
-      "target": 121.01,
-      "target_date": "2026-10-08",
-      "close": 108.47000122070312,
-      "bar_extreme": 107.3499984741211,
-      "magnitude": 14.429000000000002,
-      "expected_move": 12.53999877929688,
-      "risk": 1.889001220703122
-    },
-    {
-      "ticker": "L",
-      "tf": "D",
-      "direction": "long",
-      "patterns": [
-        "Hammer",
-        "Pin Bar"
-      ],
-      "entry": "retest",
-      "date": "2026-10-13",
-      "bars_ago": 0,
-      "level": 107.925,
-      "swing_date": "2026-09-01",
-      "target": 111.06,
-      "target_date": "2026-09-08",
-      "close": 108.47000122070312,
-      "bar_extreme": 107.3499984741211,
-      "magnitude": 3.135000000000005,
-      "expected_move": 2.5899987792968773,
-      "risk": 0.5450012207031278
-    },
-    {
-      "ticker": "L",
-      "tf": "D",
-      "direction": "long",
-      "patterns": [
-        "Hammer",
-        "Pin Bar"
-      ],
-      "entry": "retest",
-      "date": "2026-10-13",
-      "bars_ago": 0,
-      "level": 107.41,
-      "swing_date": "2026-09-08",
-      "target": 110.275,
-      "target_date": "2026-09-18",
-      "close": 108.47000122070312,
-      "bar_extreme": 107.3499984741211,
-      "magnitude": 2.865000000000009,
-      "expected_move": 1.8049987792968807,
-      "risk": 1.0600012207031284
     },
     {
       "ticker": "LADR",
@@ -170933,6 +171239,67 @@
       "magnitude": 30.42,
       "expected_move": 29.940002136230476,
       "risk": 0.47999786376952613
+    },
+    {
+      "ticker": "WK",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "Shooter"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-12",
+      "bars_ago": 0,
+      "level": 76.45,
+      "swing_date": "2026-09-15",
+      "target": 64.85,
+      "target_date": "2026-10-12",
+      "close": 73.04,
+      "bar_extreme": 77.225,
+      "magnitude": 11.600000000000009,
+      "expected_move": 8.190000000000012,
+      "risk": 3.4099999999999966
+    },
+    {
+      "ticker": "WK",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "Failed 2",
+        "Shooter"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-12",
+      "bars_ago": 0,
+      "level": 76.45,
+      "swing_date": "2026-09-18",
+      "target": 64.85,
+      "target_date": "2026-10-12",
+      "close": 73.04,
+      "bar_extreme": 77.225,
+      "magnitude": 11.600000000000009,
+      "expected_move": 8.190000000000012,
+      "risk": 3.4099999999999966
+    },
+    {
+      "ticker": "WK",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "Shooter"
+      ],
+      "entry": "retest",
+      "date": "2026-10-12",
+      "bars_ago": 0,
+      "level": 73.79,
+      "swing_date": "2026-10-05",
+      "target": 68.6,
+      "target_date": "2026-10-09",
+      "close": 73.04,
+      "bar_extreme": 77.225,
+      "magnitude": 5.190000000000012,
+      "expected_move": 4.440000000000012,
+      "risk": 0.75
     },
     {
       "ticker": "WMB",
