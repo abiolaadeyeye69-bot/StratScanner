@@ -1,6 +1,6 @@
 {
   "scan_date": "2026-10-21",
-  "timestamp": "2026-10-22T00:12:45.216346",
+  "timestamp": "2026-10-22T01:11:44.390915",
   "config": {
     "timeframes": [
       "M",
@@ -20,20 +20,20 @@
   },
   "summary": {
     "tickers_scanned": 1283,
-    "total_signals": 3525,
-    "total_dominos": 120,
-    "bullish_signals": 1398,
-    "bearish_signals": 1246,
-    "neutral_signals": 881,
-    "total_sfp_signals": 304,
-    "sfp_formed": 230,
+    "total_signals": 3522,
+    "total_dominos": 119,
+    "bullish_signals": 1400,
+    "bearish_signals": 1244,
+    "neutral_signals": 878,
+    "total_sfp_signals": 306,
+    "sfp_formed": 232,
     "sfp_confirmed": 74,
-    "total_bf_signals": 1032,
-    "bf_reclaimed": 641,
-    "bf_target_hit": 391,
-    "bf_active_long": 2865,
-    "bf_active_short": 2056,
-    "bf_reversals": 985,
+    "total_bf_signals": 1033,
+    "bf_reclaimed": 643,
+    "bf_target_hit": 390,
+    "bf_active_long": 2871,
+    "bf_active_short": 2053,
+    "bf_reversals": 987,
     "sector_rotation_tracked": 61,
     "sector_rotation_skipped": 0,
     "gex_tracked": 2,
@@ -11623,40 +11623,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "CORO",
-      "tf": "M",
-      "direction": "bearish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "F2u-2d",
-      "trigger": 36.0701,
-      "stop": null,
-      "mag": 35.59,
-      "exh": 34.62,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": true
-    },
-    {
-      "ticker": "CORO",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "3-2d-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
       "ticker": "CORT",
       "tf": "M",
       "direction": "bullish",
@@ -13576,6 +13542,57 @@
       "ftfc": false,
       "in_force": true,
       "c1_f2": true
+    },
+    {
+      "ticker": "DBMF",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "outside_then_inside",
+      "pattern_tag": "3_1",
+      "combo": "3-1u",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "DBMF",
+      "tf": "D",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2u-F2d",
+      "trigger": 33.08,
+      "stop": null,
+      "mag": 32.935,
+      "exh": 33.6,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "DBMF",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "2u-F2d",
+      "trigger": 32.73,
+      "stop": 32.62,
+      "mag": 32.465,
+      "exh": 32.325,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
     },
     {
       "ticker": "DBX",
@@ -22690,57 +22707,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "GRML",
-      "tf": "M",
-      "direction": "neutral",
-      "signal_type": "outside_then_inside",
-      "pattern_tag": "3_1",
-      "combo": "3-1d",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "GRML",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "double_inside_bar",
-      "pattern_tag": "double_inside_bar",
-      "combo": "2-1-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "GRML",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2u-F2u",
-      "trigger": 5.69,
-      "stop": null,
-      "mag": 5.37,
-      "exh": 5.37,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
       "ticker": "GRMN",
       "tf": "M",
       "direction": "bullish",
@@ -25937,74 +25903,6 @@
       "c1_f2": true
     },
     {
-      "ticker": "IGLB",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 47.875,
-      "stop": null,
-      "mag": 48.53,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "IGLB",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "inside_bar",
-      "pattern_tag": "inside_bar",
-      "combo": "2u-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "IGLB",
-      "tf": "D",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "double_failed_2",
-      "combo": "F2u-F2d",
-      "trigger": 46.62,
-      "stop": null,
-      "mag": 46.48,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": true
-    },
-    {
-      "ticker": "IGLB",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "F2u-F2d",
-      "trigger": 46.2894,
-      "stop": 46.27000045776367,
-      "mag": 46.085,
-      "exh": 46.085,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": true
-    },
-    {
       "ticker": "IGSB",
       "tf": "M",
       "direction": "bullish",
@@ -28174,6 +28072,57 @@
       "stop": null,
       "mag": null,
       "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "IWP",
+      "tf": "M",
+      "direction": "bearish",
+      "signal_type": "outside_bar",
+      "pattern_tag": "outside_bar",
+      "combo": "F2d-3d",
+      "trigger": 134.35,
+      "stop": null,
+      "mag": 136.57,
+      "exh": 134.0,
+      "hammer": true,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
+      "ticker": "IWP",
+      "tf": "W",
+      "direction": "neutral",
+      "signal_type": "inside_bar",
+      "pattern_tag": "inside_bar",
+      "combo": "2d-1u",
+      "trigger": null,
+      "stop": null,
+      "mag": null,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "IWP",
+      "tf": "D",
+      "direction": "bullish",
+      "signal_type": "outside_bar",
+      "pattern_tag": "1_3",
+      "combo": "3-1-3u",
+      "trigger": 135.99,
+      "stop": null,
+      "mag": 137.68,
+      "exh": 137.68,
       "hammer": false,
       "shooter": false,
       "ftfc": false,
@@ -30748,74 +30697,6 @@
       "c1_f2": false
     },
     {
-      "ticker": "LABU",
-      "tf": "M",
-      "direction": "bearish",
-      "signal_type": "inside_reversal",
-      "pattern_tag": "inside_reversal",
-      "combo": "3-1-2d",
-      "trigger": 240.22,
-      "stop": null,
-      "mag": 212.565,
-      "exh": 212.565,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "LABU",
-      "tf": "W",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2u",
-      "trigger": 196.56,
-      "stop": null,
-      "mag": 208.28,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "LABU",
-      "tf": "W",
-      "direction": "bullish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "2d-F2u",
-      "trigger": 244.6716,
-      "stop": 247.3800048828125,
-      "mag": 260.26,
-      "exh": 293.1,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "LABU",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2u-F2u",
-      "trigger": 213.22,
-      "stop": null,
-      "mag": 202.11,
-      "exh": 196.56,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
       "ticker": "LAC",
       "tf": "W",
       "direction": "neutral",
@@ -31000,6 +30881,23 @@
       "shooter": false,
       "ftfc": false,
       "in_force": false,
+      "c1_f2": false
+    },
+    {
+      "ticker": "LEU",
+      "tf": "D",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 118.35,
+      "stop": null,
+      "mag": 126.47,
+      "exh": 159.42,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
       "c1_f2": false
     },
     {
@@ -40931,6 +40829,74 @@
       "c1_f2": false
     },
     {
+      "ticker": "PRIM",
+      "tf": "M",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "double_failed_2",
+      "combo": "F2d-F2u",
+      "trigger": 70.1,
+      "stop": null,
+      "mag": 71.625,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": true
+    },
+    {
+      "ticker": "PRIM",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "F2d-F2u",
+      "trigger": 79.94,
+      "stop": 87.85,
+      "mag": 92.2478,
+      "exh": null,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": false,
+      "c1_f2": true
+    },
+    {
+      "ticker": "PRIM",
+      "tf": "W",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 84.515,
+      "stop": null,
+      "mag": 87.85,
+      "exh": 87.85,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "PRIM",
+      "tf": "D",
+      "direction": "bearish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "2u-2d",
+      "trigger": 73.5801,
+      "stop": null,
+      "mag": 71.51,
+      "exh": 71.51,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
       "ticker": "PRU",
       "tf": "M",
       "direction": "bullish",
@@ -45147,6 +45113,57 @@
       "c1_f2": true
     },
     {
+      "ticker": "SCHV",
+      "tf": "M",
+      "direction": "bullish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2d-F2d",
+      "trigger": 34.88,
+      "stop": null,
+      "mag": 35.485,
+      "exh": 35.485,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "SCHV",
+      "tf": "W",
+      "direction": "bearish",
+      "signal_type": "failing_2",
+      "pattern_tag": "failed_2",
+      "combo": "2u-F2u",
+      "trigger": 33.76,
+      "stop": null,
+      "mag": 33.325,
+      "exh": 33.12,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": false,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
+      "ticker": "SCHV",
+      "tf": "D",
+      "direction": "bullish",
+      "signal_type": "22_reversal",
+      "pattern_tag": "22_reversal",
+      "combo": "2d-2u",
+      "trigger": 34.22,
+      "stop": null,
+      "mag": 34.405,
+      "exh": 34.405,
+      "hammer": false,
+      "shooter": false,
+      "ftfc": true,
+      "in_force": true,
+      "c1_f2": false
+    },
+    {
       "ticker": "SCHW",
       "tf": "W",
       "direction": "bullish",
@@ -45961,74 +45978,6 @@
       "ftfc": false,
       "in_force": true,
       "c1_f2": true
-    },
-    {
-      "ticker": "SIRI",
-      "tf": "M",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2d-F2d",
-      "trigger": 30.15,
-      "stop": null,
-      "mag": 31.065,
-      "exh": 32.66,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "SIRI",
-      "tf": "W",
-      "direction": "neutral",
-      "signal_type": "double_inside_bar",
-      "pattern_tag": "double_inside_bar",
-      "combo": "2-1-1u",
-      "trigger": null,
-      "stop": null,
-      "mag": null,
-      "exh": null,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
-    },
-    {
-      "ticker": "SIRI",
-      "tf": "D",
-      "direction": "bullish",
-      "signal_type": "failing_2",
-      "pattern_tag": "failed_2",
-      "combo": "2u-F2d",
-      "trigger": 27.47,
-      "stop": null,
-      "mag": 26.935,
-      "exh": 27.8,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": true,
-      "c1_f2": false
-    },
-    {
-      "ticker": "SIRI",
-      "tf": "D",
-      "direction": "bearish",
-      "signal_type": "22_reversal",
-      "pattern_tag": "22_reversal",
-      "combo": "2u-F2d",
-      "trigger": 26.95,
-      "stop": 26.760000228881836,
-      "mag": 26.615,
-      "exh": 26.325,
-      "hammer": false,
-      "shooter": false,
-      "ftfc": false,
-      "in_force": false,
-      "c1_f2": false
     },
     {
       "ticker": "SITM",
@@ -61014,18 +60963,6 @@
       }
     },
     {
-      "ticker": "GRML",
-      "count": 2,
-      "tfs": [
-        "M",
-        "W"
-      ],
-      "patterns": {
-        "M": "3-1",
-        "W": "1-1"
-      }
-    },
-    {
       "ticker": "GSAT",
       "count": 2,
       "tfs": [
@@ -61791,10 +61728,10 @@
     }
   ],
   "market_breadth": {
-    "above_open": 601,
-    "below_open": 699,
+    "above_open": 603,
+    "below_open": 697,
     "total": 1300,
-    "pct_above": 46.2,
+    "pct_above": 46.4,
     "vix": {
       "value": 16.68,
       "change": -0.63,
@@ -66302,24 +66239,6 @@
       "lc": 340.43,
       "chg": -0.83
     },
-    "CORO": {
-      "M": "2D",
-      "W": "1",
-      "D": "2U",
-      "ft": "",
-      "fd": {
-        "M": "d",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "F2u-2d",
-        "W": "3-2d-1u",
-        "D": "3-2u"
-      },
-      "lc": 35.9,
-      "chg": 0.5
-    },
     "CORT": {
       "M": "3U",
       "W": "1",
@@ -67072,6 +66991,24 @@
       },
       "lc": 184.45,
       "chg": -3.77
+    },
+    "DBMF": {
+      "M": "2U",
+      "W": "1",
+      "D": "F2D",
+      "ft": "",
+      "fd": {
+        "M": "u",
+        "W": "u",
+        "D": "d"
+      },
+      "cb": {
+        "M": "2u-2u",
+        "W": "3-1u",
+        "D": "2u-F2d"
+      },
+      "lc": 32.84,
+      "chg": -0.39
     },
     "DBX": {
       "M": "1",
@@ -70544,24 +70481,6 @@
       "lc": 132.6,
       "chg": 6.36
     },
-    "GRML": {
-      "M": "1",
-      "W": "1",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "d",
-        "W": "u",
-        "D": "u"
-      },
-      "cb": {
-        "M": "3-1d",
-        "W": "2-1-1u",
-        "D": "2u-F2u"
-      },
-      "lc": 6.19,
-      "chg": -0.16
-    },
     "GRMN": {
       "M": "F2D",
       "W": "1",
@@ -71804,24 +71723,6 @@
       "lc": 50.67,
       "chg": 0.02
     },
-    "IGLB": {
-      "M": "F2D",
-      "W": "1",
-      "D": "F2D",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "2u-1u",
-        "D": "F2u-F2d"
-      },
-      "lc": 46.48,
-      "chg": 0.04
-    },
     "IGSB": {
       "M": "F2D",
       "W": "1",
@@ -72649,6 +72550,24 @@
       },
       "lc": 350.51,
       "chg": 0.57
+    },
+    "IWP": {
+      "M": "3D",
+      "W": "1",
+      "D": "3U",
+      "ft": "",
+      "fd": {
+        "M": "d",
+        "W": "u",
+        "D": "u"
+      },
+      "cb": {
+        "M": "F2d-3d",
+        "W": "2d-1u",
+        "D": "3-1-3u"
+      },
+      "lc": 135.67,
+      "chg": 0.73
     },
     "IWR": {
       "M": "F2D",
@@ -73604,24 +73523,6 @@
       "lc": 7.46,
       "chg": 0.67
     },
-    "LABU": {
-      "M": "2D",
-      "W": "F2U",
-      "D": "F2U",
-      "ft": "",
-      "fd": {
-        "M": "d",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "3-1-2d",
-        "W": "2d-F2u",
-        "D": "2u-F2u"
-      },
-      "lc": 234.18,
-      "chg": -0.77
-    },
     "LAC": {
       "M": "2D",
       "W": "1",
@@ -73693,6 +73594,24 @@
       },
       "lc": 77.7,
       "chg": -1.21
+    },
+    "LEU": {
+      "M": "2D",
+      "W": "2D",
+      "D": "F2D",
+      "ft": "",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "u"
+      },
+      "cb": {
+        "M": "2d-2d",
+        "W": "2d-2d",
+        "D": "2d-F2d"
+      },
+      "lc": 109.88,
+      "chg": -0.22
     },
     "LH": {
       "M": "F2D",
@@ -77528,6 +77447,24 @@
       "lc": 256.47,
       "chg": -3.03
     },
+    "PRIM": {
+      "M": "F2U",
+      "W": "F2D",
+      "D": "2D",
+      "ft": "d",
+      "fd": {
+        "M": "d",
+        "W": "d",
+        "D": "d"
+      },
+      "cb": {
+        "M": "F2d-F2u",
+        "W": "2d-F2d",
+        "D": "2u-2d"
+      },
+      "lc": 72.14,
+      "chg": -3.18
+    },
     "PRU": {
       "M": "F2D",
       "W": "1",
@@ -79148,6 +79085,24 @@
       "lc": 23.84,
       "chg": -0.08
     },
+    "SCHV": {
+      "M": "F2D",
+      "W": "F2U",
+      "D": "2U",
+      "ft": "u",
+      "fd": {
+        "M": "u",
+        "W": "u",
+        "D": "u"
+      },
+      "cb": {
+        "M": "2d-F2d",
+        "W": "2u-F2u",
+        "D": "2d-2u"
+      },
+      "lc": 34.34,
+      "chg": 1.0
+    },
     "SCHW": {
       "M": "2D",
       "W": "F2D",
@@ -79471,24 +79426,6 @@
       },
       "lc": 222.3,
       "chg": 4.02
-    },
-    "SIRI": {
-      "M": "F2D",
-      "W": "1",
-      "D": "F2D",
-      "ft": "",
-      "fd": {
-        "M": "u",
-        "W": "u",
-        "D": "d"
-      },
-      "cb": {
-        "M": "2d-F2d",
-        "W": "2-1-1u",
-        "D": "2u-F2d"
-      },
-      "lc": 26.96,
-      "chg": -0.74
     },
     "SITM": {
       "M": "3D",
@@ -87020,6 +86957,18 @@
       "sfp_extreme": 427.04
     },
     {
+      "ticker": "IWP",
+      "tf": "M",
+      "direction": "bullish",
+      "stage": "formed",
+      "date": "2026-10-20",
+      "swing_price": 134.0,
+      "swing_date": "2026-07-31",
+      "oppos_price": 148.29,
+      "oppos_date": "2026-08-31",
+      "sfp_extreme": 133.3851
+    },
+    {
       "ticker": "JBHT",
       "tf": "W",
       "direction": "bullish",
@@ -87162,18 +87111,6 @@
       "oppos_price": 25.37,
       "oppos_date": "2026-09-30",
       "sfp_extreme": 10.45
-    },
-    {
-      "ticker": "LABU",
-      "tf": "M",
-      "direction": "bullish",
-      "stage": "formed",
-      "date": "2026-10-21",
-      "swing_price": 212.565,
-      "swing_date": "2026-08-31",
-      "oppos_price": 327.02,
-      "oppos_date": "2026-09-30",
-      "sfp_extreme": 196.56
     },
     {
       "ticker": "LIN",
@@ -87668,6 +87605,18 @@
       "sfp_extreme": 101.695
     },
     {
+      "ticker": "PRIM",
+      "tf": "D",
+      "direction": "bullish",
+      "stage": "formed",
+      "date": "2026-10-20",
+      "swing_price": 71.51,
+      "swing_date": "2026-10-16",
+      "oppos_price": 75.77,
+      "oppos_date": "2026-10-19",
+      "sfp_extreme": 70.86
+    },
+    {
       "ticker": "PSA",
       "tf": "D",
       "direction": "bearish",
@@ -87894,6 +87843,18 @@
       "oppos_price": 25.37,
       "oppos_date": "2026-10-19",
       "sfp_extreme": 25.489999771118164
+    },
+    {
+      "ticker": "SCHV",
+      "tf": "D",
+      "direction": "bearish",
+      "stage": "formed",
+      "date": "2026-10-20",
+      "swing_price": 34.405,
+      "swing_date": "2026-10-16",
+      "oppos_price": 33.99,
+      "oppos_date": "2026-10-19",
+      "sfp_extreme": 34.41
     },
     {
       "ticker": "SCHX",
@@ -91386,17 +91347,6 @@
       "target_date": "2026-10-20"
     },
     {
-      "ticker": "CORO",
-      "tf": "D",
-      "direction": "long",
-      "stage": "reclaimed",
-      "date": "2026-10-21",
-      "level": 35.7701,
-      "swing_date": "2026-10-08",
-      "target": 36.18,
-      "target_date": "2026-10-21"
-    },
-    {
       "ticker": "CP",
       "tf": "D",
       "direction": "short",
@@ -94400,6 +94350,28 @@
       "target_date": "2026-10-21"
     },
     {
+      "ticker": "IWP",
+      "tf": "W",
+      "direction": "long",
+      "stage": "reclaimed",
+      "date": "2026-10-20",
+      "level": 134.0,
+      "swing_date": "2026-07-31",
+      "target": 148.29,
+      "target_date": "2026-10-20"
+    },
+    {
+      "ticker": "IWP",
+      "tf": "W",
+      "direction": "long",
+      "stage": "reclaimed",
+      "date": "2026-10-20",
+      "level": 134.35,
+      "swing_date": "2026-09-18",
+      "target": 144.11,
+      "target_date": "2026-10-20"
+    },
+    {
       "ticker": "IWR",
       "tf": "D",
       "direction": "long",
@@ -94716,28 +94688,6 @@
       "level": 7.11,
       "swing_date": "2026-10-06",
       "target": 9.0311,
-      "target_date": "2026-10-21"
-    },
-    {
-      "ticker": "LABU",
-      "tf": "D",
-      "direction": "long",
-      "stage": "target_hit",
-      "date": "2026-10-21",
-      "level": 208.28,
-      "swing_date": "2026-10-08",
-      "target": 246.22,
-      "target_date": "2026-10-14"
-    },
-    {
-      "ticker": "LABU",
-      "tf": "D",
-      "direction": "short",
-      "stage": "reclaimed",
-      "date": "2026-10-21",
-      "level": 246.22,
-      "swing_date": "2026-10-09",
-      "target": 196.56,
       "target_date": "2026-10-21"
     },
     {
@@ -96611,6 +96561,17 @@
       "target_date": "2026-10-21"
     },
     {
+      "ticker": "PRIM",
+      "tf": "D",
+      "direction": "long",
+      "stage": "reclaimed",
+      "date": "2026-10-20",
+      "level": 71.51,
+      "swing_date": "2026-10-16",
+      "target": 75.77,
+      "target_date": "2026-10-20"
+    },
+    {
       "ticker": "PSLV",
       "tf": "D",
       "direction": "short",
@@ -97302,6 +97263,17 @@
       "swing_date": "2026-10-19",
       "target": 23.905,
       "target_date": "2026-10-21"
+    },
+    {
+      "ticker": "SCHV",
+      "tf": "D",
+      "direction": "short",
+      "stage": "reclaimed",
+      "date": "2026-10-20",
+      "level": 34.405,
+      "swing_date": "2026-10-16",
+      "target": 33.99,
+      "target_date": "2026-10-20"
     },
     {
       "ticker": "SCHW",
@@ -105590,28 +105562,6 @@
         "risk": 0.7799966430664114
       },
       {
-        "ticker": "CORO",
-        "tf": "D",
-        "level": 35.9,
-        "swing_date": "2026-10-01",
-        "target": 36.89,
-        "target_date": "2026-10-08",
-        "magnitude": 0.990000000000002,
-        "expected_move": 0.9899984741210943,
-        "risk": 1.5258789076710855e-06
-      },
-      {
-        "ticker": "CORO",
-        "tf": "D",
-        "level": 35.7701,
-        "swing_date": "2026-10-08",
-        "target": 36.18,
-        "target_date": "2026-10-21",
-        "magnitude": 0.4099000000000004,
-        "expected_move": 0.27999847412109347,
-        "risk": 0.1299015258789069
-      },
-      {
         "ticker": "CORT",
         "tf": "D",
         "level": 110.085,
@@ -106534,6 +106484,28 @@
         "magnitude": 18.32499999999999,
         "expected_move": 13.465003051757805,
         "risk": 4.859996948242184
+      },
+      {
+        "ticker": "DBMF",
+        "tf": "D",
+        "level": 32.4,
+        "swing_date": "2026-09-29",
+        "target": 33.6,
+        "target_date": "2026-10-15",
+        "magnitude": 1.2000000000000028,
+        "expected_move": 0.759999999999998,
+        "risk": 0.44000000000000483
+      },
+      {
+        "ticker": "DBMF",
+        "tf": "D",
+        "level": 32.48,
+        "swing_date": "2026-10-02",
+        "target": 33.6,
+        "target_date": "2026-10-15",
+        "magnitude": 1.1200000000000045,
+        "expected_move": 0.759999999999998,
+        "risk": 0.36000000000000654
       },
       {
         "ticker": "DBX",
@@ -111299,28 +111271,6 @@
         "risk": 5.140006103515631
       },
       {
-        "ticker": "GRML",
-        "tf": "W",
-        "level": 4.3701,
-        "swing_date": "2026-08-28",
-        "target": 18.2099,
-        "target_date": "2026-09-25",
-        "magnitude": 13.8398,
-        "expected_move": 12.019899942779542,
-        "risk": 1.819900057220459
-      },
-      {
-        "ticker": "GRML",
-        "tf": "D",
-        "level": 5.81,
-        "swing_date": "2026-10-15",
-        "target": 6.8539,
-        "target_date": "2026-10-20",
-        "magnitude": 1.0439000000000007,
-        "expected_move": 0.6638999427795413,
-        "risk": 0.3800000572204594
-      },
-      {
         "ticker": "GRMN",
         "tf": "D",
         "level": 268.01,
@@ -114401,6 +114351,50 @@
         "risk": 0.4500097656249977
       },
       {
+        "ticker": "IWP",
+        "tf": "D",
+        "level": 134.0,
+        "swing_date": "2026-07-29",
+        "target": 148.29,
+        "target_date": "2026-10-15",
+        "magnitude": 14.289999999999992,
+        "expected_move": 12.620000000000005,
+        "risk": 1.6699999999999875
+      },
+      {
+        "ticker": "IWP",
+        "tf": "W",
+        "level": 134.0,
+        "swing_date": "2026-07-31",
+        "target": 148.29,
+        "target_date": "2026-10-20",
+        "magnitude": 14.289999999999992,
+        "expected_move": 12.620000000000005,
+        "risk": 1.6699999999999875
+      },
+      {
+        "ticker": "IWP",
+        "tf": "D",
+        "level": 134.35,
+        "swing_date": "2026-09-16",
+        "target": 144.11,
+        "target_date": "2026-10-15",
+        "magnitude": 9.76000000000002,
+        "expected_move": 8.440000000000026,
+        "risk": 1.3199999999999932
+      },
+      {
+        "ticker": "IWP",
+        "tf": "W",
+        "level": 134.35,
+        "swing_date": "2026-09-18",
+        "target": 144.11,
+        "target_date": "2026-10-20",
+        "magnitude": 9.76000000000002,
+        "expected_move": 8.440000000000026,
+        "risk": 1.3199999999999932
+      },
+      {
         "ticker": "IWR",
         "tf": "D",
         "level": 108.25,
@@ -115829,28 +115823,6 @@
         "magnitude": 1.6310000000000002,
         "expected_move": 1.5710999618530277,
         "risk": 0.059900038146972534
-      },
-      {
-        "ticker": "LABU",
-        "tf": "D",
-        "level": 212.565,
-        "swing_date": "2026-08-03",
-        "target": 341.93,
-        "target_date": "2026-10-08",
-        "magnitude": 129.365,
-        "expected_move": 107.75000732421876,
-        "risk": 21.614992675781252
-      },
-      {
-        "ticker": "LABU",
-        "tf": "W",
-        "level": 212.565,
-        "swing_date": "2026-08-07",
-        "target": 341.93,
-        "target_date": "2026-10-09",
-        "magnitude": 129.365,
-        "expected_move": 107.75000732421876,
-        "risk": 21.614992675781252
       },
       {
         "ticker": "LADR",
@@ -121144,6 +121116,17 @@
         "risk": 0.5500018310546864
       },
       {
+        "ticker": "PRIM",
+        "tf": "D",
+        "level": 71.51,
+        "swing_date": "2026-10-16",
+        "target": 75.77,
+        "target_date": "2026-10-20",
+        "magnitude": 4.259999999999991,
+        "expected_move": 3.6299999999999955,
+        "risk": 0.6299999999999955
+      },
+      {
         "ticker": "PRU",
         "tf": "D",
         "level": 112.44,
@@ -123397,6 +123380,61 @@
         "magnitude": 0.08500000000000085,
         "expected_move": 0.06499984741211051,
         "risk": 0.02000015258789034
+      },
+      {
+        "ticker": "SCHV",
+        "tf": "D",
+        "level": 33.6,
+        "swing_date": "2026-07-20",
+        "target": 35.485,
+        "target_date": "2026-10-05",
+        "magnitude": 1.884999999999998,
+        "expected_move": 1.144999999999996,
+        "risk": 0.740000000000002
+      },
+      {
+        "ticker": "SCHV",
+        "tf": "W",
+        "level": 33.6,
+        "swing_date": "2026-07-24",
+        "target": 35.485,
+        "target_date": "2026-10-09",
+        "magnitude": 1.884999999999998,
+        "expected_move": 1.144999999999996,
+        "risk": 0.740000000000002
+      },
+      {
+        "ticker": "SCHV",
+        "tf": "D",
+        "level": 33.75,
+        "swing_date": "2026-07-29",
+        "target": 35.485,
+        "target_date": "2026-09-16",
+        "magnitude": 1.7349999999999994,
+        "expected_move": 1.144999999999996,
+        "risk": 0.5900000000000034
+      },
+      {
+        "ticker": "SCHV",
+        "tf": "D",
+        "level": 34.2401,
+        "swing_date": "2026-09-01",
+        "target": 34.88,
+        "target_date": "2026-09-11",
+        "magnitude": 0.6399000000000044,
+        "expected_move": 0.5399999999999991,
+        "risk": 0.0999000000000052
+      },
+      {
+        "ticker": "SCHV",
+        "tf": "D",
+        "level": 34.19,
+        "swing_date": "2026-09-10",
+        "target": 34.56,
+        "target_date": "2026-09-21",
+        "magnitude": 0.37000000000000455,
+        "expected_move": 0.21999999999999886,
+        "risk": 0.15000000000000568
       },
       {
         "ticker": "SCHW",
@@ -136117,28 +136155,6 @@
         "risk": 2.415003356933596
       },
       {
-        "ticker": "CORO",
-        "tf": "D",
-        "level": 36.07,
-        "swing_date": "2026-07-14",
-        "target": 34.62,
-        "target_date": "2026-10-08",
-        "magnitude": 1.4500000000000028,
-        "expected_move": 1.2800015258789088,
-        "risk": 0.16999847412109403
-      },
-      {
-        "ticker": "CORO",
-        "tf": "D",
-        "level": 35.979,
-        "swing_date": "2026-07-22",
-        "target": 34.62,
-        "target_date": "2026-07-31",
-        "magnitude": 1.3590000000000018,
-        "expected_move": 1.2800015258789088,
-        "risk": 0.07899847412109295
-      },
-      {
         "ticker": "CORT",
         "tf": "D",
         "level": 122.21,
@@ -140022,61 +140038,6 @@
         "risk": 0.2650000667572021
       },
       {
-        "ticker": "GRML",
-        "tf": "D",
-        "level": 14.85,
-        "swing_date": "2026-07-23",
-        "target": 2.82,
-        "target_date": "2026-09-22",
-        "magnitude": 12.03,
-        "expected_move": 3.370000057220459,
-        "risk": 8.65999994277954
-      },
-      {
-        "ticker": "GRML",
-        "tf": "W",
-        "level": 14.85,
-        "swing_date": "2026-07-24",
-        "target": 2.82,
-        "target_date": "2026-09-25",
-        "magnitude": 12.03,
-        "expected_move": 3.370000057220459,
-        "risk": 8.65999994277954
-      },
-      {
-        "ticker": "GRML",
-        "tf": "D",
-        "level": 12.7,
-        "swing_date": "2026-08-21",
-        "target": 2.82,
-        "target_date": "2026-09-23",
-        "magnitude": 9.879999999999999,
-        "expected_move": 3.370000057220459,
-        "risk": 6.50999994277954
-      },
-      {
-        "ticker": "GRML",
-        "tf": "W",
-        "level": 12.7,
-        "swing_date": "2026-08-21",
-        "target": 2.82,
-        "target_date": "2026-10-02",
-        "magnitude": 9.879999999999999,
-        "expected_move": 3.370000057220459,
-        "risk": 6.50999994277954
-      },
-      {
-        "ticker": "GRML",
-        "tf": "D",
-        "level": 11.6599,
-        "swing_date": "2026-08-25",
-        "target": 2.82,
-        "target_date": "2026-09-21",
-        "magnitude": 8.8399,
-        "expected_move": 3.370000057220459,
-        "risk": 5.469899942779541
-      },
-      {
         "ticker": "GTLB",
         "tf": "D",
         "level": 55.55,
@@ -142902,17 +142863,6 @@
         "magnitude": 0.8651,
         "expected_move": 0.735000038146973,
         "risk": 0.13009996185302697
-      },
-      {
-        "ticker": "LABU",
-        "tf": "D",
-        "level": 246.22,
-        "swing_date": "2026-10-09",
-        "target": 196.56,
-        "target_date": "2026-10-21",
-        "magnitude": 49.66,
-        "expected_move": 37.61999267578125,
-        "risk": 12.040007324218749
       },
       {
         "ticker": "LADR",
@@ -146292,6 +146242,72 @@
         "risk": 1.7699926757812534
       },
       {
+        "ticker": "PRIM",
+        "tf": "D",
+        "level": 85.6,
+        "swing_date": "2026-08-17",
+        "target": 70.1,
+        "target_date": "2026-10-06",
+        "magnitude": 15.5,
+        "expected_move": 2.0400000000000063,
+        "risk": 13.459999999999994
+      },
+      {
+        "ticker": "PRIM",
+        "tf": "W",
+        "level": 85.6,
+        "swing_date": "2026-08-21",
+        "target": 70.1,
+        "target_date": "2026-10-09",
+        "magnitude": 15.5,
+        "expected_move": 2.0400000000000063,
+        "risk": 13.459999999999994
+      },
+      {
+        "ticker": "PRIM",
+        "tf": "D",
+        "level": 80.805,
+        "swing_date": "2026-08-20",
+        "target": 70.1,
+        "target_date": "2026-10-05",
+        "magnitude": 10.705000000000013,
+        "expected_move": 2.0400000000000063,
+        "risk": 8.665000000000006
+      },
+      {
+        "ticker": "PRIM",
+        "tf": "D",
+        "level": 79.94,
+        "swing_date": "2026-09-17",
+        "target": 70.1,
+        "target_date": "2026-10-14",
+        "magnitude": 9.840000000000003,
+        "expected_move": 2.0400000000000063,
+        "risk": 7.799999999999997
+      },
+      {
+        "ticker": "PRIM",
+        "tf": "W",
+        "level": 79.94,
+        "swing_date": "2026-09-18",
+        "target": 70.1,
+        "target_date": "2026-10-16",
+        "magnitude": 9.840000000000003,
+        "expected_move": 2.0400000000000063,
+        "risk": 7.799999999999997
+      },
+      {
+        "ticker": "PRIM",
+        "tf": "D",
+        "level": 78.365,
+        "swing_date": "2026-09-21",
+        "target": 70.1,
+        "target_date": "2026-10-14",
+        "magnitude": 8.265,
+        "expected_move": 2.0400000000000063,
+        "risk": 6.224999999999994
+      },
+      {
         "ticker": "PRU",
         "tf": "D",
         "level": 115.51,
@@ -147997,6 +148013,17 @@
         "risk": 0.010000915527342613
       },
       {
+        "ticker": "SCHV",
+        "tf": "D",
+        "level": 34.405,
+        "swing_date": "2026-10-16",
+        "target": 33.99,
+        "target_date": "2026-10-20",
+        "magnitude": 0.41499999999999915,
+        "expected_move": 0.3500000000000014,
+        "risk": 0.06499999999999773
+      },
+      {
         "ticker": "SCHX",
         "tf": "D",
         "level": 30.7699,
@@ -148314,28 +148341,6 @@
         "magnitude": 0.36999999999999034,
         "expected_move": 0.3400009155273409,
         "risk": 0.02999908447264943
-      },
-      {
-        "ticker": "SIRI",
-        "tf": "D",
-        "level": 27.7,
-        "swing_date": "2026-09-22",
-        "target": 25.305,
-        "target_date": "2026-10-09",
-        "magnitude": 2.3949999999999996,
-        "expected_move": 1.6549990844726565,
-        "risk": 0.740000915527343
-      },
-      {
-        "ticker": "SIRI",
-        "tf": "D",
-        "level": 27.085,
-        "swing_date": "2026-10-13",
-        "target": 26.325,
-        "target_date": "2026-10-16",
-        "magnitude": 0.7600000000000016,
-        "expected_move": 0.634999084472657,
-        "risk": 0.1250009155273446
       },
       {
         "ticker": "SITM",
@@ -158959,6 +158964,50 @@
       "risk": 5.5100030517578205
     },
     {
+      "ticker": "DBMF",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "Failed 2",
+        "Hammer",
+        "Pin Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-20",
+      "bars_ago": 0,
+      "level": 32.4,
+      "swing_date": "2026-09-29",
+      "target": 33.6,
+      "target_date": "2026-10-15",
+      "close": 32.84,
+      "bar_extreme": 32.62,
+      "magnitude": 1.2000000000000028,
+      "expected_move": 0.759999999999998,
+      "risk": 0.44000000000000483
+    },
+    {
+      "ticker": "DBMF",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "Failed 2",
+        "Hammer",
+        "Pin Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-20",
+      "bars_ago": 0,
+      "level": 32.48,
+      "swing_date": "2026-10-02",
+      "target": 33.6,
+      "target_date": "2026-10-15",
+      "close": 32.84,
+      "bar_extreme": 32.62,
+      "magnitude": 1.1200000000000045,
+      "expected_move": 0.759999999999998,
+      "risk": 0.36000000000000654
+    },
+    {
       "ticker": "DD",
       "tf": "W",
       "direction": "long",
@@ -164704,47 +164753,6 @@
       "risk": 0.5099999618530271
     },
     {
-      "ticker": "LABU",
-      "tf": "W",
-      "direction": "long",
-      "patterns": [
-        "2-2 Rev"
-      ],
-      "entry": "retest",
-      "date": "2026-10-21",
-      "bars_ago": 0,
-      "level": 212.565,
-      "swing_date": "2026-08-07",
-      "target": 341.93,
-      "target_date": "2026-10-09",
-      "close": 234.17999267578125,
-      "bar_extreme": 202.11,
-      "magnitude": 129.365,
-      "expected_move": 107.75000732421876,
-      "risk": 21.614992675781252
-    },
-    {
-      "ticker": "LABU",
-      "tf": "D",
-      "direction": "short",
-      "patterns": [
-        "Failed 2",
-        "Shooter"
-      ],
-      "entry": "reclaim",
-      "date": "2026-10-21",
-      "bars_ago": 0,
-      "level": 246.22,
-      "swing_date": "2026-10-09",
-      "target": 196.56,
-      "target_date": "2026-10-21",
-      "close": 234.17999267578125,
-      "bar_extreme": 247.3800048828125,
-      "magnitude": 49.66,
-      "expected_move": 37.61999267578125,
-      "risk": 12.040007324218749
-    },
-    {
       "ticker": "LEN",
       "tf": "W",
       "direction": "long",
@@ -169393,6 +169401,66 @@
       "risk": 0.02000015258789034
     },
     {
+      "ticker": "SCHV",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "2-2 Rev"
+      ],
+      "entry": "retest",
+      "date": "2026-10-20",
+      "bars_ago": 0,
+      "level": 33.75,
+      "swing_date": "2026-07-29",
+      "target": 35.485,
+      "target_date": "2026-09-16",
+      "close": 34.34,
+      "bar_extreme": 34.08,
+      "magnitude": 1.7349999999999994,
+      "expected_move": 1.144999999999996,
+      "risk": 0.5900000000000034
+    },
+    {
+      "ticker": "SCHV",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "2-2 Rev"
+      ],
+      "entry": "retest",
+      "date": "2026-10-20",
+      "bars_ago": 0,
+      "level": 34.2401,
+      "swing_date": "2026-09-01",
+      "target": 34.88,
+      "target_date": "2026-09-11",
+      "close": 34.34,
+      "bar_extreme": 34.08,
+      "magnitude": 0.6399000000000044,
+      "expected_move": 0.5399999999999991,
+      "risk": 0.0999000000000052
+    },
+    {
+      "ticker": "SCHV",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "2-2 Rev"
+      ],
+      "entry": "retest",
+      "date": "2026-10-20",
+      "bars_ago": 0,
+      "level": 34.19,
+      "swing_date": "2026-09-10",
+      "target": 34.56,
+      "target_date": "2026-09-21",
+      "close": 34.34,
+      "bar_extreme": 34.08,
+      "magnitude": 0.37000000000000455,
+      "expected_move": 0.21999999999999886,
+      "risk": 0.15000000000000568
+    },
+    {
       "ticker": "SCHW",
       "tf": "D",
       "direction": "long",
@@ -169573,26 +169641,6 @@
       "magnitude": 3.1799999999999926,
       "expected_move": 1.5899978637695256,
       "risk": 1.590002136230467
-    },
-    {
-      "ticker": "SIRI",
-      "tf": "D",
-      "direction": "short",
-      "patterns": [
-        "2-2 Rev"
-      ],
-      "entry": "retest",
-      "date": "2026-10-21",
-      "bars_ago": 0,
-      "level": 27.085,
-      "swing_date": "2026-10-13",
-      "target": 26.325,
-      "target_date": "2026-10-16",
-      "close": 26.959999084472656,
-      "bar_extreme": 27.2450008392334,
-      "magnitude": 0.7600000000000016,
-      "expected_move": 0.634999084472657,
-      "risk": 0.1250009155273446
     },
     {
       "ticker": "SIVR",
@@ -175512,15 +175560,15 @@
         "ticker": "DIA",
         "spot": 527.7000122070312,
         "error": null,
-        "net_gex": 338994966.4583522,
-        "call_gex": 570800749.4520899,
+        "net_gex": 338989960.84986806,
+        "call_gex": 570795743.8436058,
         "put_gex": -231805782.99373773,
-        "call_oi_total": 125573,
+        "call_oi_total": 125559,
         "put_oi_total": 118044,
-        "zero_gamma": 519.0639429745584,
+        "zero_gamma": 519.0641647402618,
         "call_wall": 532.0,
         "put_wall": 510.0,
-        "contracts_used": 1100,
+        "contracts_used": 1099,
         "by_strike": [
           {
             "strike": 185.0,
@@ -175796,10 +175844,10 @@
           },
           {
             "strike": 395.0,
-            "call_gex": 5005.608484159506,
+            "call_gex": 0.0,
             "put_gex": -35371.24404747259,
-            "net_gex": -30365.63556331308,
-            "call_oi": 14,
+            "net_gex": -35371.24404747259,
+            "call_oi": 0,
             "put_oi": 415
           },
           {
@@ -176922,7 +176970,7 @@
             "bucket": "Weekly",
             "net_gex": 209233667.55922672,
             "gross_gex": 344244759.62427413,
-            "pct_of_total": 0.42890849464586095
+            "pct_of_total": 0.4289111696320502
           },
           {
             "expiry": "2026-10-30",
@@ -176930,7 +176978,7 @@
             "bucket": "Monthly",
             "net_gex": 73419202.96102189,
             "gross_gex": 150063841.90149793,
-            "pct_of_total": 0.1869706211388538
+            "pct_of_total": 0.18697178722401087
           },
           {
             "expiry": "2026-11-06",
@@ -176938,7 +176986,7 @@
             "bucket": "Monthly",
             "net_gex": 6374857.7014489295,
             "gross_gex": 39575667.2122776,
-            "pct_of_total": 0.049308927366534736
+            "pct_of_total": 0.049309234892968366
           },
           {
             "expiry": "2026-11-13",
@@ -176946,7 +176994,7 @@
             "bucket": "Monthly",
             "net_gex": 5106360.226263636,
             "gross_gex": 21312599.879372913,
-            "pct_of_total": 0.026554231765876426
+            "pct_of_total": 0.026554397377432565
           },
           {
             "expiry": "2026-11-20",
@@ -176954,7 +177002,7 @@
             "bucket": "Monthly",
             "net_gex": 29330615.15332096,
             "gross_gex": 112233657.65898961,
-            "pct_of_total": 0.13983646173047432
+            "pct_of_total": 0.13983733385263686
           },
           {
             "expiry": "2026-11-27",
@@ -176962,15 +177010,15 @@
             "bucket": "Other",
             "net_gex": -1154188.9081221411,
             "gross_gex": 5597000.459476039,
-            "pct_of_total": 0.0069735296601935075
+            "pct_of_total": 0.006973573152210486
           },
           {
             "expiry": "2026-12-18",
             "dte": 58,
             "bucket": "Other",
-            "net_gex": 16684451.765191872,
-            "gross_gex": 129579005.70993896,
-            "pct_of_total": 0.1614477336922062
+            "net_gex": 16679446.156707693,
+            "gross_gex": 129574000.10145478,
+            "pct_of_total": 0.16144250386869066
           }
         ],
         "heatmap": [
@@ -180662,7 +180710,7 @@
             "strike": 395.0,
             "expiry": "2026-12-18",
             "dte": 58,
-            "net_gex": -20585.567489683664
+            "net_gex": -25591.175973843172
           },
           {
             "strike": 400.0,
@@ -181424,167 +181472,167 @@
         "price_profile": [
           {
             "spot": 448.55,
-            "net_gex": -62147472.39915652
+            "net_gex": -62155454.67171616
           },
           {
             "spot": 452.5,
-            "net_gex": -66862046.312288895
+            "net_gex": -66869912.39901557
           },
           {
             "spot": 456.46,
-            "net_gex": -71893589.23147121
+            "net_gex": -71901332.5820568
           },
           {
             "spot": 460.42,
-            "net_gex": -77224858.37853745
+            "net_gex": -77232473.02167313
           },
           {
             "spot": 464.38,
-            "net_gex": -82843182.92621551
+            "net_gex": -82850663.46116461
           },
           {
             "spot": 468.33,
-            "net_gex": -88755932.3444191
+            "net_gex": -88763273.93020503
           },
           {
             "spot": 472.29,
-            "net_gex": -95010581.39920901
+            "net_gex": -95017779.74167752
           },
           {
             "spot": 476.25,
-            "net_gex": -101710280.2713162
+            "net_gex": -101717331.60832456
           },
           {
             "spot": 480.21,
-            "net_gex": -109016093.69944969
+            "net_gex": -109022994.78442678
           },
           {
             "spot": 484.16,
-            "net_gex": -117148983.57115576
+            "net_gex": -117155731.65526745
           },
           {
             "spot": 488.12,
-            "net_gex": -126413800.82799475
+            "net_gex": -126420393.64113726
           },
           {
             "spot": 492.08,
-            "net_gex": -137127435.2865212
+            "net_gex": -137133871.01735446
           },
           {
             "spot": 496.04,
-            "net_gex": -149036603.29068053
+            "net_gex": -149042880.5658998
           },
           {
             "spot": 500.0,
-            "net_gex": -159978744.63032198
+            "net_gex": -159984862.49335384
           },
           {
             "spot": 503.95,
-            "net_gex": -164880652.231026
+            "net_gex": -164886610.12032166
           },
           {
             "spot": 507.91,
-            "net_gex": -157110234.7506959
+            "net_gex": -157116032.4777809
           },
           {
             "spot": 511.87,
-            "net_gex": -130809698.0941922
+            "net_gex": -130815335.82161906
           },
           {
             "spot": 515.83,
-            "net_gex": -77992251.25637625
+            "net_gex": -77997729.475713
           },
           {
             "spot": 519.78,
-            "net_gex": 17268980.894680463
+            "net_gex": 17263661.384705447
           },
           {
             "spot": 523.74,
-            "net_gex": 166220721.30810755
+            "net_gex": 166215559.42319635
           },
           {
             "spot": 527.7,
-            "net_gex": 338994966.45835143
+            "net_gex": 338989960.8498673
           },
           {
             "spot": 531.66,
-            "net_gex": 459039720.4114702
+            "net_gex": 459034869.4872235
           },
           {
             "spot": 535.62,
-            "net_gex": 472867830.9205756
+            "net_gex": 472863132.86509144
           },
           {
             "spot": 539.57,
-            "net_gex": 411055888.34024185
+            "net_gex": 411051341.1344467
           },
           {
             "spot": 543.53,
-            "net_gex": 340956489.5902618
+            "net_gex": 340952091.0305347
           },
           {
             "spot": 547.49,
-            "net_gex": 292168795.0075932
+            "net_gex": 292164542.7241381
           },
           {
             "spot": 551.45,
-            "net_gex": 257809469.35028595
+            "net_gex": 257805360.8247891
           },
           {
             "spot": 555.4,
-            "net_gex": 227686112.92522368
+            "net_gex": 227682145.50776795
           },
           {
             "spot": 559.36,
-            "net_gex": 198961183.9027134
+            "net_gex": 198957354.8279287
           },
           {
             "spot": 563.32,
-            "net_gex": 172284773.318164
+            "net_gex": 172281079.72059998
           },
           {
             "spot": 567.28,
-            "net_gex": 148586142.48710123
+            "net_gex": 148582581.41581407
           },
           {
             "spot": 571.24,
-            "net_gex": 128295731.28059208
+            "net_gex": 128292299.71294242
           },
           {
             "spot": 575.19,
-            "net_gex": 111389640.72308713
+            "net_gex": 111386335.57775155
           },
           {
             "spot": 579.15,
-            "net_gex": 97571820.90803261
+            "net_gex": 97568639.0572352
           },
           {
             "spot": 583.11,
-            "net_gex": 86431123.73799412
+            "net_gex": 86428062.01896845
           },
           {
             "spot": 587.07,
-            "net_gex": 77537178.26051816
+            "net_gex": 77534233.48621345
           },
           {
             "spot": 591.02,
-            "net_gex": 70486149.56951968
+            "net_gex": 70483318.5385677
           },
           {
             "spot": 594.98,
-            "net_gex": 64919530.81969396
+            "net_gex": 64916810.32565609
           },
           {
             "spot": 598.94,
-            "net_gex": 60531240.577127784
+            "net_gex": 60528627.41704333
           },
           {
             "spot": 602.9,
-            "net_gex": 57068715.22260102
+            "net_gex": 57066206.20485958
           },
           {
             "spot": 606.86,
-            "net_gex": 54329462.319792196
+            "net_gex": 54327054.27135504
           }
         ]
       },
@@ -181592,15 +181640,15 @@
         "ticker": "IWM",
         "spot": 276.4800109863281,
         "error": null,
-        "net_gex": -1581675153.8538299,
-        "call_gex": 2403319149.767221,
+        "net_gex": -1581676923.1277795,
+        "call_gex": 2403317380.4932714,
         "put_gex": -3984994303.621051,
-        "call_oi_total": 1858138,
+        "call_oi_total": 1858108,
         "put_oi_total": 3886110,
-        "zero_gamma": 280.7101964860376,
+        "zero_gamma": 280.71020483830193,
         "call_wall": 280.0,
         "put_wall": 270.0,
-        "contracts_used": 1471,
+        "contracts_used": 1470,
         "by_strike": [
           {
             "strike": 90.0,
@@ -181684,10 +181732,10 @@
           },
           {
             "strike": 140.0,
-            "call_gex": 1829.8486655514416,
+            "call_gex": 60.574715630107214,
             "put_gex": -123183.70257185803,
-            "net_gex": -121353.85390630658,
-            "call_oi": 31,
+            "net_gex": -123123.12785622792,
+            "call_oi": 1,
             "put_oi": 15249
           },
           {
@@ -182858,7 +182906,7 @@
             "bucket": "Weekly",
             "net_gex": 100898494.7296137,
             "gross_gex": 238853918.65971473,
-            "pct_of_total": 0.03738919832323348
+            "pct_of_total": 0.03738920867835357
           },
           {
             "expiry": "2026-10-23",
@@ -182866,7 +182914,7 @@
             "bucket": "Weekly",
             "net_gex": -3423411.626226956,
             "gross_gex": 953066729.0304116,
-            "pct_of_total": 0.14918909912363773
+            "pct_of_total": 0.1491891404422834
           },
           {
             "expiry": "2026-10-26",
@@ -182874,7 +182922,7 @@
             "bucket": "Weekly",
             "net_gex": 56079332.32730599,
             "gross_gex": 140392137.5129567,
-            "pct_of_total": 0.021976400897876208
+            "pct_of_total": 0.02197640698434718
           },
           {
             "expiry": "2026-10-27",
@@ -182882,7 +182930,7 @@
             "bucket": "Weekly",
             "net_gex": 36456082.76203918,
             "gross_gex": 75286268.51953436,
-            "pct_of_total": 0.011784999134568697
+            "pct_of_total": 0.01178500239848145
           },
           {
             "expiry": "2026-10-28",
@@ -182890,7 +182938,7 @@
             "bucket": "Weekly",
             "net_gex": 13797977.029568966,
             "gross_gex": 36724678.70306159,
-            "pct_of_total": 0.005748728357025644
+            "pct_of_total": 0.005748729949163886
           },
           {
             "expiry": "2026-10-29",
@@ -182898,7 +182946,7 @@
             "bucket": "Monthly",
             "net_gex": 120833485.6168451,
             "gross_gex": 139222407.0387532,
-            "pct_of_total": 0.02179329615783201
+            "pct_of_total": 0.02179330219359124
           },
           {
             "expiry": "2026-10-30",
@@ -182906,7 +182954,7 @@
             "bucket": "Monthly",
             "net_gex": -467414330.43643826,
             "gross_gex": 1118363547.1702995,
-            "pct_of_total": 0.17506397507422478
+            "pct_of_total": 0.17506402355904302
           },
           {
             "expiry": "2026-11-06",
@@ -182914,7 +182962,7 @@
             "bucket": "Monthly",
             "net_gex": -88916968.63308297,
             "gross_gex": 244292639.85623527,
-            "pct_of_total": 0.03824055310352153
+            "pct_of_total": 0.03824056369442846
           },
           {
             "expiry": "2026-11-13",
@@ -182922,7 +182970,7 @@
             "bucket": "Monthly",
             "net_gex": -17286031.60050849,
             "gross_gex": 120199369.76511171,
-            "pct_of_total": 0.01881550907639944
+            "pct_of_total": 0.018815514287446072
           },
           {
             "expiry": "2026-11-20",
@@ -182930,7 +182978,7 @@
             "bucket": "Monthly",
             "net_gex": -957565870.9697446,
             "gross_gex": 1905137133.523841,
-            "pct_of_total": 0.29822223775093293
+            "pct_of_total": 0.2982223203450302
           },
           {
             "expiry": "2026-11-27",
@@ -182938,15 +182986,15 @@
             "bucket": "Other",
             "net_gex": 19895720.05348709,
             "gross_gex": 42638755.98388687,
-            "pct_of_total": 0.006674493400331172
+            "pct_of_total": 0.006674495248864539
           },
           {
             "expiry": "2026-12-18",
             "dte": 58,
             "bucket": "Other",
-            "net_gex": -395029633.10668904,
-            "gross_gex": 1374135867.6244664,
-            "pct_of_total": 0.21510150960041632
+            "net_gex": -395031402.3806389,
+            "gross_gex": 1374134098.3505166,
+            "pct_of_total": 0.21510129221896707
           }
         ],
         "heatmap": [
@@ -187976,7 +188024,7 @@
             "strike": 140.0,
             "expiry": "2026-12-18",
             "dte": 58,
-            "net_gex": -121318.78054511605
+            "net_gex": -123088.05449503739
           },
           {
             "strike": 145.0,
@@ -188660,167 +188708,167 @@
         "price_profile": [
           {
             "spot": 235.01,
-            "net_gex": -1177283077.1137593
+            "net_gex": -1177284923.4348164
           },
           {
             "spot": 237.08,
-            "net_gex": -1325297660.616298
+            "net_gex": -1325299504.252476
           },
           {
             "spot": 239.16,
-            "net_gex": -1492694948.3638463
+            "net_gex": -1492696789.1661146
           },
           {
             "spot": 241.23,
-            "net_gex": -1679192077.751608
+            "net_gex": -1679193915.5757842
           },
           {
             "spot": 243.3,
-            "net_gex": -1883546368.919147
+            "net_gex": -1883548203.625773
           },
           {
             "spot": 245.38,
-            "net_gex": -2103496164.9857664
+            "net_gex": -2103497996.4399862
           },
           {
             "spot": 247.45,
-            "net_gex": -2335782523.0041018
+            "net_gex": -2335784351.0755434
           },
           {
             "spot": 249.52,
-            "net_gex": -2576219290.210293
+            "net_gex": -2576221114.7729506
           },
           {
             "spot": 251.6,
-            "net_gex": -2819781100.673724
+            "net_gex": -2819782921.605848
           },
           {
             "spot": 253.67,
-            "net_gex": -3060706046.8339314
+            "net_gex": -3060707864.0179124
           },
           {
             "spot": 255.74,
-            "net_gex": -3292540705.22918
+            "net_gex": -3292542518.5514455
           },
           {
             "spot": 257.82,
-            "net_gex": -3507744895.6230273
+            "net_gex": -3507746704.973934
           },
           {
             "spot": 259.89,
-            "net_gex": -3696137914.04336
+            "net_gex": -3696139719.317091
           },
           {
             "spot": 261.96,
-            "net_gex": -3842022779.621094
+            "net_gex": -3842024580.7155576
           },
           {
             "spot": 264.04,
-            "net_gex": -3921868351.816707
+            "net_gex": -3921870148.6334386
           },
           {
             "spot": 266.11,
-            "net_gex": -3905575893.244036
+            "net_gex": -3905577685.688104
           },
           {
             "spot": 268.19,
-            "net_gex": -3761551328.3286915
+            "net_gex": -3761553116.3086004
           },
           {
             "spot": 270.26,
-            "net_gex": -3463175391.77724
+            "net_gex": -3463177175.204843
           },
           {
             "spot": 272.33,
-            "net_gex": -2994959940.3335595
+            "net_gex": -2994961719.1239676
           },
           {
             "spot": 274.41,
-            "net_gex": -2359174119.326455
+            "net_gex": -2359175893.39795
           },
           {
             "spot": 276.48,
-            "net_gex": -1581675153.8538308
+            "net_gex": -1581676923.1277807
           },
           {
             "spot": 278.55,
-            "net_gex": -740270824.2786981
+            "net_gex": -740272588.6794754
           },
           {
             "spot": 280.63,
-            "net_gex": -16892007.88402893
+            "net_gex": -16893767.338929433
           },
           {
             "spot": 282.7,
-            "net_gex": 419117823.06480294
+            "net_gex": 419116068.6256388
           },
           {
             "spot": 284.77,
-            "net_gex": 603041437.1151012
+            "net_gex": 603039687.7587637
           },
           {
             "spot": 286.85,
-            "net_gex": 697740046.5243869
+            "net_gex": 697738302.3152735
           },
           {
             "spot": 288.92,
-            "net_gex": 802070297.0168732
+            "net_gex": 802068558.01676
           },
           {
             "spot": 291.0,
-            "net_gex": 920151021.8130131
+            "net_gex": 920149288.0811257
           },
           {
             "spot": 293.07,
-            "net_gex": 1032713773.1134689
+            "net_gex": 1032712044.7065523
           },
           {
             "spot": 295.14,
-            "net_gex": 1128832160.530021
+            "net_gex": 1128830437.5024068
           },
           {
             "spot": 297.22,
-            "net_gex": 1203200119.886069
+            "net_gex": 1203198402.2897408
           },
           {
             "spot": 299.29,
-            "net_gex": 1253394629.374869
+            "net_gex": 1253392917.2595258
           },
           {
             "spot": 301.36,
-            "net_gex": 1279578226.3837523
+            "net_gex": 1279576519.7968724
           },
           {
             "spot": 303.44,
-            "net_gex": 1283810658.5599763
+            "net_gex": 1283808957.5468771
           },
           {
             "spot": 305.51,
-            "net_gex": 1269158727.0488791
+            "net_gex": 1269157031.6527767
           },
           {
             "spot": 307.58,
-            "net_gex": 1239094900.1698747
+            "net_gex": 1239093210.4319415
           },
           {
             "spot": 309.66,
-            "net_gex": 1197183936.5975146
+            "net_gex": 1197182252.5569358
           },
           {
             "spot": 311.73,
-            "net_gex": 1146899022.1911445
+            "net_gex": 1146897343.8851724
           },
           {
             "spot": 313.8,
-            "net_gex": 1091468998.948703
+            "net_gex": 1091467326.4127111
           },
           {
             "spot": 315.88,
-            "net_gex": 1033736207.6354697
+            "net_gex": 1033734540.9030046
           },
           {
             "spot": 317.95,
-            "net_gex": 976041948.900852
+            "net_gex": 976040288.0036836
           }
         ]
       }
