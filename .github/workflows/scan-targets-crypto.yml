@@ -1,0 +1,69 @@
+name: Strat Targets Scan (Crypto)
+
+# Crypto trades 7 days a week and its UTC day closes at 00:00. The nightly
+# crypto scan runs 01:15 UTC and publishes results/latest_crypto.json (the
+# universe); this runs 30 minutes later. Only fully closed UTC days and fully
+# closed hours are scanned.
+
+on:
+  schedule:
+    - cron: "45 1 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: results-publish
+  cancel-in-progress: false
+
+jobs:
+  targets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Targets scan (crypto)
+        run: python targets_scan.py --asset crypto --verbose
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: targets-crypto-${{ github.run_id }}
+          path: output/targets/
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Publish latest crypto Targets result for the dashboard
+        if: success()
+        run: |
+          LATEST=$(ls -t output/targets/targets_crypto_*.json 2>/dev/null | head -n1)
+          if [ -z "$LATEST" ]; then
+            echo "No crypto Targets output found."
+            exit 1
+          fi
+          mkdir -p results
+          cp "$LATEST" results/latest_targets_crypto.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/latest_targets_crypto.json
+          if git diff --cached --quiet; then
+            echo "No change in results, nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update latest crypto Targets scan results [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push; then
+              exit 0
+            fi
+            echo "push attempt ${attempt} failed, retrying..."
+            sleep 5
+          done
+          echo "Could not push results after 3 attempts" >&2
+          exit 1

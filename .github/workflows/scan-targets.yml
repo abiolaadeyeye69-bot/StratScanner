@@ -1,0 +1,73 @@
+name: Strat Targets Scan (Stocks)
+
+# Runs the Strat Targets engine over the stock universe on 60m / D / W / M bars.
+# 22:15 UTC is after the US close in both EDT and EST, and after the nightly
+# scan (21:30 UTC) has published results/latest.json, which supplies the
+# universe. Data is Yahoo Finance (no API key).
+
+on:
+  schedule:
+    - cron: "15 22 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Never let two result-publishing runs push at the same time.
+concurrency:
+  group: results-publish
+  cancel-in-progress: false
+
+jobs:
+  targets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Targets scan
+        # Exits non-zero (and publishes nothing) if the feed is thin or stale.
+        run: python targets_scan.py --asset stocks --verbose
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: targets-stocks-${{ github.run_id }}
+          path: output/targets/
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Publish latest Targets result for the dashboard
+        # success() on purpose: a failed/aborted scan leaves the previous good
+        # file live instead of overwriting it with something partial.
+        if: success()
+        run: |
+          LATEST=$(ls -t output/targets/targets_stocks_*.json 2>/dev/null | head -n1)
+          if [ -z "$LATEST" ]; then
+            echo "No Targets output found."
+            exit 1
+          fi
+          mkdir -p results
+          cp "$LATEST" results/latest_targets.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/latest_targets.json
+          if git diff --cached --quiet; then
+            echo "No change in results, nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update latest Targets scan results [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push; then
+              exit 0
+            fi
+            echo "push attempt ${attempt} failed, retrying..."
+            sleep 5
+          done
+          echo "Could not push results after 3 attempts" >&2
+          exit 1
