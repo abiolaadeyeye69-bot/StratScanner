@@ -15,3 +15,18 @@ Runs every day 01:15 UTC (`.github/workflows/scan-crypto.yml`), publishes `resul
 - A "day" is a UTC day, 7 days a week. Only fully closed days are scanned (`--include-partial` to override).
 - The run aborts rather than publish if BTC/ETH data is missing or stale, or too few coins return data.
 - No sector rotation / GEX / VIX for crypto. Email is off by default (`--email` to enable).
+
+## Strat Targets (60m / D / W / M)
+`python targets_scan.py [--asset crypto] [--timeframes 60,D,W,M]` — a Python port of the Pine indicator
+"TheStrat Magnitude + Targets (MTF)" (`strat_targets.py`). For every ticker and timeframe it reports the
+signal the indicator would be **holding** right now: pattern, trigger, target ladder (open / taken /
+reclaimed), status (IN-FORCE / STILL GOOD / RETRACEMENT / POTENTIAL 3) and the chop counter. `fresh` rows are
+signals adopted on the latest bar.
+Runs weekdays 22:15 UTC (`scan-targets.yml`) and daily 01:45 UTC for crypto (`scan-targets-crypto.yml`);
+publishes `results/latest_targets.json` and `results/latest_targets_crypto.json`.
+
+- Universe = the tickers already in `results/latest.json` / `latest_crypto.json` (no Polygon key needed).
+- Data = Yahoo (yfinance): ~3y daily, ~60d hourly. Closed bars only; the last W/M bar may be forming (`partial`).
+- The run aborts rather than publish if too few symbols return data or the newest bar is stale.
+- Held-signal state is replayed bar by bar, so results depend on history; chart timeframe is assumed equal to the
+  signal timeframe. See the `strat_targets.py` docstring for fidelity notes.
