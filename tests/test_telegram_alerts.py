@@ -90,3 +90,32 @@ def test_failed_send_not_recorded(tmp_path):
     except RuntimeError:
         pass
     assert not (tmp_path / "telegram_sent.json").exists()
+
+
+def _scan(**over):
+    a = dict(ticker="ZZZ", tf="D", level=100.0, swing_date="2026-10-01", target=130.0,
+             target_date="2026-10-29", magnitude=40.0, expected_move=29.0, risk=1.0)
+    a.update(over)
+    return {"panels": {"ZZZ": {"ft": "u"}}, "bf_active": {"long": [a], "short": []},
+            "bf_signals": [{"date": "2026-10-29"}], "signals": []}
+
+
+def test_magnitude_accepts_preset_match():
+    r = ta.select_magnitude(_scan())
+    assert len(r) == 1 and r[0]["rr"] > 2 and r[0]["room"] >= 10 and r[0]["fresh"]
+
+
+def test_magnitude_rejections():
+    assert ta.select_magnitude(_scan(target_date="2026-10-28")) == []        # not reclaimed today
+    assert ta.select_magnitude(_scan(expected_move=5.0, risk=4.0)) == []     # R:R < 2 and room < 10%
+    assert ta.select_magnitude(_scan(risk=20.0)) == []                      # move already > 1/3
+    s = _scan(); s["panels"]["ZZZ"]["ft"] = "d"
+    assert ta.select_magnitude(s) == []                                      # FTFC against
+    s = _scan(); s["panels"] = {}
+    assert ta.select_magnitude(s) == []                                      # FTFC unknown
+
+
+def test_magnitude_latest_per_ticker():
+    s = _scan()
+    s["bf_active"]["long"].append(dict(s["bf_active"]["long"][0], level=90.0, target_date="2026-10-20"))
+    assert len(ta.select_magnitude(s)) == 1

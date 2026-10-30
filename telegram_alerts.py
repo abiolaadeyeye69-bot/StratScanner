@@ -80,8 +80,57 @@ def select(rows: list[dict], panels: dict, *, tfs=("D", "W"), min_room=1.0,
     return out[:top]
 
 
+def _ftfc_dir(panel: Optional[dict], signals: list, sym: str):
+    """(up, down) FTFC like the dashboard: panel.ft is 'u'/'d'/'' on newer scans."""
+    if panel and isinstance(panel.get("ft"), str):
+        return panel["ft"] == "u", panel["ft"] == "d"
+    return None, None
+
+
+def select_magnitude(scan: dict, *, tfs=("D", "W"), min_rr=2.0, min_room=10.0,
+                     max_prog=33.34, min_price=0.0, top=8) -> list[dict]:
+    """Port of the dashboard's 'Active setups' tab with the preset: reclaimed on
+    the latest bar, FTFC, R:R >= 2, room to target >= 10%, move completed < 1/3,
+    latest reclaim per ticker/timeframe/direction."""
+    panels = scan.get("panels", {})
+    active = scan.get("bf_active") or {}
+    last_bar = ""
+    for s in scan.get("bf_signals", []):
+        last_bar = max(last_bar, s.get("date", ""))
+    for d in ("long", "short"):
+        for s in active.get(d, []):
+            last_bar = max(last_bar, s.get("target_date", ""))
+    groups: dict = {}
+    for d in ("long", "short"):
+        for s in active.get(d, []):
+            if s["tf"] not in tfs:
+                continue
+            up, dn = _ftfc_dir(panels.get(s["ticker"]), scan.get("signals", []), s["ticker"])
+            if not (up if d == "long" else dn):
+                continue
+            em, mag, risk = s["expected_move"], s["magnitude"], s["risk"]
+            close = s["target"] - em if d == "long" else s["target"] + em
+            if close <= 0 or mag <= 0 or risk <= 0:
+                continue
+            row = dict(sym=s["ticker"], tf=s["tf"], dir=1 if d == "long" else -1, kind="mag",
+                       level=s["level"], target=s["target"], close=close, sd=s["target_date"],
+                       room=em / close * 100, risk_pct=risk / close * 100, rr=em / risk,
+                       prog=max(0.0, min(100.0, risk / mag * 100)), fresh=s["target_date"] == last_bar)
+            groups.setdefault((row["sym"], row["tf"], d), []).append(row)
+    out = []
+    for g in groups.values():
+        g = sorted(g, key=lambda r: (-int(r["sd"].replace("-", "")), r["risk_pct"]))
+        r = g[0]
+        if (r["fresh"] and r["rr"] >= min_rr and r["room"] >= min_room
+                and r["prog"] < max_prog and r["close"] >= min_price):
+            r["_score"] = min(r["rr"], 10.0) + min(r["room"], 30.0) / 10
+            out.append(r)
+    out.sort(key=lambda r: (-r["_score"], r["sym"]))
+    return out[:top]
+
+
 def sent_key(r: dict) -> str:
-    return f'{r["sym"]}|{r["tf"]}|{r["dir"]}|{r.get("sd")}'
+    return f'{r.get("kind", "tgt")}|{r["sym"]}|{r["tf"]}|{r["dir"]}|{r.get("sd")}'
 
 
 def fmt_price(v) -> str:
@@ -90,12 +139,25 @@ def fmt_price(v) -> str:
     return f"{v:,.2f}" if abs(v) >= 1 else f"{v:.4f}"
 
 
-def format_message(rows: list[dict], scan_date: str) -> list[str]:
+def _mag_block(r: dict) -> str:
+    arrow = "🟢 ▲ LONG" if r["dir"] == 1 else "🔴 ▼ SHORT"
+    tf = {"D": "Daily", "W": "Weekly"}.get(r["tf"], r["tf"])
+    link = TV + urllib.parse.quote(r["sym"])
+    return (f'\n\n{arrow} <a href="{link}"><b>{html.escape(r["sym"])}</b></a> · {tf} · reclaimed today\n'
+            f'Close {fmt_price(r["close"])} · Level {fmt_price(r["level"])} · Target {fmt_price(r["target"])}\n'
+            f'To target {r["room"]:.1f}% · Risk {r["risk_pct"]:.1f}% · R:R {min(r["rr"], 10):.1f}{"+" if r["rr"] >= 10 else ""} · '
+            f'move done {r["prog"]:.0f}%')
+
+
+def format_message(rows: list[dict], scan_date: str, title: str = "Strat Targets", sub: str = "Fresh, in force, D/W/M all in favour, no target touched.") -> list[str]:
     """One or more HTML messages (split under Telegram's size limit)."""
-    head = f"<b>Strat Targets: {len(rows)} solid setup{'s' if len(rows) != 1 else ''}</b> ({html.escape(scan_date)})\n"
-    head += "<i>Fresh, in force, D/W/M all in favour, no target touched.</i>\n"
+    head = f"<b>{html.escape(title)}: {len(rows)} setup{'s' if len(rows) != 1 else ''}</b> ({html.escape(scan_date)})\n"
+    head += f"<i>{html.escape(sub)}</i>"
     blocks = []
     for r in rows:
+        if r.get("kind") == "mag":
+            blocks.append(_mag_block(r))
+            continue
         arrow = "🟢 ▲ LONG" if r["dir"] == 1 else "🔴 ▼ SHORT"
         tf = {"D": "Daily", "W": "Weekly"}.get(r["tf"], r["tf"])
         tg = r["tg"]
@@ -142,16 +204,24 @@ def run(results_dir: Path, *, dry_run: bool = False, token: Optional[str] = None
     targets = json.loads(tpath.read_text())
     panels = json.loads(mpath.read_text()).get("panels", {})
     sent = json.loads(spath.read_text()) if spath.exists() else {}
-
     picks = select(targets.get("rows", []), panels, tfs=tfs, min_room=min_room, top=top)
-    new = [r for r in picks if sent_key(r) not in sent]
-    summary = {"scan_date": targets.get("scan_date"), "selected": len(picks),
-               "new": len(new), "sent": 0, "state_changed": False}
+    scan = json.loads(mpath.read_text())
+    mags = select_magnitude(scan, tfs=tfs, top=max(top, 25))
+    sd = targets.get("scan_date", "?")
+    sections = []
+    for rows_, title, sub in (
+            (picks, "Strat Targets", "Fresh, in force, D/W/M all in favour, no target touched."),
+            (mags, "Active setups", "Reclaimed today, FTFC, R:R >= 2, room >= 10%, move done < 1/3.")):
+        new_ = [r for r in rows_ if sent_key(r) not in sent]
+        if new_:
+            sections.append((new_, format_message(new_, sd, title, sub)))
+    new = [r for rows_, _ in sections for r in rows_]
+    summary = {"scan_date": sd, "selected": len(picks) + len(mags), "new": len(new),
+               "targets": len(picks), "active_setups": len(mags), "sent": 0, "state_changed": False}
     if not new:
-        logger.info("No new solid setups (%d selected, all already sent).", len(picks))
+        logger.info("No new setups (%d selected, all already sent).", len(picks) + len(mags))
         return summary
-
-    msgs = format_message(new, targets.get("scan_date", "?"))
+    msgs = [m for _, ms in sections for m in ms]
     if dry_run:
         for m in msgs:
             print(m, "\n" + "-" * 40)
@@ -164,12 +234,14 @@ def run(results_dir: Path, *, dry_run: bool = False, token: Optional[str] = None
         sender(token, chat_id, m)
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     for r in new:
-        sent[sent_key(r)] = {"at": now, "trig": r.get("trig"), "t1": r["tg"][0][0],
-                             "lc": r.get("lc"), "room": round(r["_room"], 2)}
-    # keep the log bounded: newest 2,000 entries
+        if r.get("kind") == "mag":
+            sent[sent_key(r)] = {"at": now, "level": r["level"], "target": r["target"],
+                                 "close": r["close"], "rr": round(r["rr"], 2)}
+        else:
+            sent[sent_key(r)] = {"at": now, "trig": r.get("trig"), "t1": r["tg"][0][0],
+                                 "lc": r.get("lc"), "room": round(r["_room"], 2)}
     if len(sent) > 2000:
-        keep = sorted(sent.items(), key=lambda kv: kv[1].get("at", ""))[-2000:]
-        sent = dict(keep)
+        sent = dict(sorted(sent.items(), key=lambda kv: kv[1].get("at", ""))[-2000:])
     spath.write_text(json.dumps(sent, separators=(",", ":")))
     summary["sent"] = len(new)
     summary["state_changed"] = True
