@@ -130,3 +130,20 @@ def test_weekly_pz_preset():
                 row(tf="W", pz=True, tg=[[102, "x", 2, 2.0, "x"]] * 3)):
         assert ta.select_weekly_pz([bad], panels()) == [], bad
     assert ta.select_weekly_pz([ok], {"AAA": {"fd": {"D": "u", "W": "d", "M": "u"}}}) == []
+
+
+def test_discover_chat_id_oldest_private(monkeypatch):
+    import io, json as j
+    body = {"result": [{"message": {"chat": {"type": "group", "id": -5}}},
+                       {"message": {"chat": {"type": "private", "id": 111}}},
+                       {"message": {"chat": {"type": "private", "id": 222}}}]}
+    monkeypatch.setattr(ta.urllib.request, "urlopen", lambda *a, **k: io.BytesIO(j.dumps(body).encode()))
+    assert ta.discover_chat_id("t") == "111"
+
+
+def test_run_discovers_chat_id(tmp_path, monkeypatch):
+    _setup(tmp_path)
+    monkeypatch.setattr(ta, "discover_chat_id", lambda t: "42")
+    got = []
+    s = ta.run(tmp_path, token="t", sender=lambda tok, chat, m: got.append(chat))
+    assert s["sent"] == 1 and got == ["42"]

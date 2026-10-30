@@ -32,8 +32,8 @@ direction, no target touched yet and at least 3 open, T1 room >= 1.0% and price 
 (+1 pizazz), top 8, each signal sent once (`results/telegram_sent.json`).
 A second section, **Active setups**, reproduces the dashboard tab preset (reclaimed today, FTFC, R:R >= 2, room >= 10%, move done < 1/3, latest per ticker, Daily/Weekly, never capped) from `results/latest.json`; it matches the tab's count (19 on 2026-10-29).
 A third section, **Weekly reversals**, reproduces the Strat Targets tab preset (FTFC D/W/M, Weekly, In force or Potential 3, Reversal, Pizazz, no target touched; held signals, forming weekly bar allowed; never capped).
-Setup: create a bot with @BotFather, message it once, get your chat id, then add repo secrets
-`TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`. Without them the step skips. Preview: `python telegram_alerts.py --dry-run`.
+Setup: create a bot with @BotFather, press Start on it and send it a message, then add the repo secret `TELEGRAM_BOT_TOKEN` (`TELEGRAM_CHAT_ID` is optional: if unset, the oldest private chat that messaged the bot is used; Telegram keeps messages ~24h, so run soon after messaging). Or add both secrets, as
+before. Without a token the step skips. Preview: `python telegram_alerts.py --dry-run`.
 The filter is a judgment call, not a backtested edge.
 
 - Universe = the tickers already in `results/latest.json` / `latest_crypto.json` (no Polygon key needed).
