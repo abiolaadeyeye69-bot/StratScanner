@@ -204,6 +204,20 @@ def format_message(rows: list[dict], scan_date: str, title: str = "Strat Targets
     return msgs
 
 
+def discover_chat_id(token: str, timeout: int = 20) -> Optional[str]:
+    """Find the chat id from the bot's pending updates: the OLDEST private chat that
+    messaged the bot (the owner messages first; a stranger can't displace them).
+    Telegram keeps updates ~24h, so message the bot shortly before the run."""
+    url = f"https://api.telegram.org/bot{token}/getUpdates"
+    with urllib.request.urlopen(url, timeout=timeout) as resp:
+        body = json.loads(resp.read().decode())
+    for u in body.get("result", []):
+        chat = (u.get("message") or u.get("edited_message") or {}).get("chat") or {}
+        if chat.get("type") == "private" and chat.get("id") is not None:
+            return str(chat["id"])
+    return None
+
+
 def send(token: str, chat_id: str, text: str, timeout: int = 20) -> None:
     data = urllib.parse.urlencode({
         "chat_id": chat_id, "text": text, "parse_mode": "HTML",
@@ -249,6 +263,13 @@ def run(results_dir: Path, *, dry_run: bool = False, token: Optional[str] = None
         for m in msgs:
             print(m, "\n" + "-" * 40)
         return summary
+    if token and not chat_id:
+        chat_id = discover_chat_id(token)
+        if chat_id:
+            logger.info("TELEGRAM_CHAT_ID not set: using the chat that messaged the bot.")
+        else:
+            logger.warning("No chat id: message your bot once (press Start), then re-run.")
+            return summary
     if not token or not chat_id:
         logger.warning("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set: nothing sent.")
         return summary
