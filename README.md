@@ -25,6 +25,15 @@ signals adopted on the latest bar.
 Runs weekdays 22:15 UTC (`scan-targets.yml`) and daily 01:45 UTC for crypto (`scan-targets-crypto.yml`);
 publishes `results/latest_targets.json` and `results/latest_targets_crypto.json`.
 
+### Telegram "solid setups" (`telegram_alerts.py`)
+Runs after the stock Targets scan and sends a short list instead of every signal. A setup must be Daily/Weekly,
+fresh (adopted on the last closed bar), IN-FORCE, not choppy, with the current D, W and M candles all in its
+direction, no target touched yet and at least 3 open, T1 room >= 1.0% and price >= $10. Ranked by room to T1
+(+1 pizazz), top 8, each signal sent once (`results/telegram_sent.json`).
+Setup: create a bot with @BotFather, message it once, get your chat id, then add repo secrets
+`TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`. Without them the step skips. Preview: `python telegram_alerts.py --dry-run`.
+The filter is a judgment call, not a backtested edge.
+
 - Universe = the tickers already in `results/latest.json` / `latest_crypto.json` (no Polygon key needed).
 - Data = Yahoo (yfinance): ~3y daily, ~60d hourly. Closed bars only; the last W/M bar may be forming (`partial`).
 - The run aborts rather than publish if too few symbols return data or the newest bar is stale.
