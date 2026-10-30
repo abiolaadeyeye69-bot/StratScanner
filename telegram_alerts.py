@@ -88,7 +88,7 @@ def _ftfc_dir(panel: Optional[dict], signals: list, sym: str):
 
 
 def select_magnitude(scan: dict, *, tfs=("D", "W"), min_rr=2.0, min_room=10.0,
-                     max_prog=33.34, min_price=0.0, top=8) -> list[dict]:
+                     max_prog=33.34, min_price=0.0, top=None) -> list[dict]:
     """Port of the dashboard's 'Active setups' tab with the preset: reclaimed on
     the latest bar, FTFC, R:R >= 2, room to target >= 10%, move completed < 1/3,
     latest reclaim per ticker/timeframe/direction."""
@@ -126,7 +126,7 @@ def select_magnitude(scan: dict, *, tfs=("D", "W"), min_rr=2.0, min_room=10.0,
             r["_score"] = min(r["rr"], 10.0) + min(r["room"], 30.0) / 10
             out.append(r)
     out.sort(key=lambda r: (-r["_score"], r["sym"]))
-    return out[:top]
+    return out if top is None else out[:top]
 
 
 def sent_key(r: dict) -> str:
@@ -206,7 +206,7 @@ def run(results_dir: Path, *, dry_run: bool = False, token: Optional[str] = None
     sent = json.loads(spath.read_text()) if spath.exists() else {}
     picks = select(targets.get("rows", []), panels, tfs=tfs, min_room=min_room, top=top)
     scan = json.loads(mpath.read_text())
-    mags = select_magnitude(scan, tfs=tfs, top=max(top, 25))
+    mags = select_magnitude(scan, tfs=tfs)  # uncapped on purpose
     sd = targets.get("scan_date", "?")
     sections = []
     for rows_, title, sub in (
