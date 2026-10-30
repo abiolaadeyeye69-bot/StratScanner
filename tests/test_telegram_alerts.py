@@ -119,3 +119,14 @@ def test_magnitude_latest_per_ticker():
     s = _scan()
     s["bf_active"]["long"].append(dict(s["bf_active"]["long"][0], level=90.0, target_date="2026-10-20"))
     assert len(ta.select_magnitude(s)) == 1
+
+
+def test_weekly_pz_preset():
+    ok = row(tf="W", pz=True, rev=True)
+    assert len(ta.select_weekly_pz([ok], panels())) == 1
+    assert len(ta.select_weekly_pz([row(tf="W", pz=True, rev=True, st="POTENTIAL 3", partial=True)], panels())) == 1
+    for bad in (row(tf="D", pz=True), row(tf="W", pz=False), row(tf="W", pz=True, rev=False),
+                row(tf="W", pz=True, st="STILL GOOD"),
+                row(tf="W", pz=True, tg=[[102, "x", 2, 2.0, "x"]] * 3)):
+        assert ta.select_weekly_pz([bad], panels()) == [], bad
+    assert ta.select_weekly_pz([ok], {"AAA": {"fd": {"D": "u", "W": "d", "M": "u"}}}) == []

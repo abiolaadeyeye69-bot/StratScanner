@@ -80,6 +80,27 @@ def select(rows: list[dict], panels: dict, *, tfs=("D", "W"), min_room=1.0,
     return out[:top]
 
 
+def select_weekly_pz(rows: list[dict], panels: dict, *, statuses=("IN-FORCE", "POTENTIAL 3")) -> list[dict]:
+    """Port of the Strat Targets tab preset: FTFC Day+Week+Month in favour, Weekly,
+    status In force or Potential 3, Reversal, Pizazz, No target touched.
+    Held signals (not only fresh) and forming weekly bars are allowed, as on the tab."""
+    out = []
+    for r in rows:
+        if r.get("tf") != "W" or r.get("st") not in statuses or not r.get("rev") or not r.get("pz"):
+            continue
+        tg = r.get("tg") or []
+        if not tg or any(t[4] != "o" for t in tg):
+            continue
+        if not ftfc_all(panels.get(r["sym"]), r["dir"]):
+            continue
+        r = dict(r, kind="wk")
+        r["_room"] = tg[0][3] if tg[0][3] is not None else 0.0
+        r["_score"] = r["_room"]
+        out.append(r)
+    out.sort(key=lambda r: (-r["_score"], r["sym"]))
+    return out
+
+
 def _ftfc_dir(panel: Optional[dict], signals: list, sym: str):
     """(up, down) FTFC like the dashboard: panel.ft is 'u'/'d'/'' on newer scans."""
     if panel and isinstance(panel.get("ft"), str):
@@ -207,19 +228,21 @@ def run(results_dir: Path, *, dry_run: bool = False, token: Optional[str] = None
     picks = select(targets.get("rows", []), panels, tfs=tfs, min_room=min_room, top=top)
     scan = json.loads(mpath.read_text())
     mags = select_magnitude(scan, tfs=tfs)  # uncapped on purpose
+    wk = select_weekly_pz(targets.get("rows", []), panels)  # uncapped on purpose
     sd = targets.get("scan_date", "?")
     sections = []
     for rows_, title, sub in (
             (picks, "Strat Targets", "Fresh, in force, D/W/M all in favour, no target touched."),
-            (mags, "Active setups", "Reclaimed today, FTFC, R:R >= 2, room >= 10%, move done < 1/3.")):
+            (mags, "Active setups", "Reclaimed today, FTFC, R:R >= 2, room >= 10%, move done < 1/3."),
+            (wk, "Weekly reversals", "FTFC D/W/M, In force or Potential 3, Pizazz, no target touched. Weekly bar may still be forming.")):
         new_ = [r for r in rows_ if sent_key(r) not in sent]
         if new_:
             sections.append((new_, format_message(new_, sd, title, sub)))
     new = [r for rows_, _ in sections for r in rows_]
-    summary = {"scan_date": sd, "selected": len(picks) + len(mags), "new": len(new),
-               "targets": len(picks), "active_setups": len(mags), "sent": 0, "state_changed": False}
+    summary = {"scan_date": sd, "selected": len(picks) + len(mags) + len(wk), "new": len(new),
+               "targets": len(picks), "active_setups": len(mags), "weekly_reversals": len(wk), "sent": 0, "state_changed": False}
     if not new:
-        logger.info("No new setups (%d selected, all already sent).", len(picks) + len(mags))
+        logger.info("No new setups (%d selected, all already sent).", len(picks) + len(mags) + len(wk))
         return summary
     msgs = [m for _, ms in sections for m in ms]
     if dry_run:
