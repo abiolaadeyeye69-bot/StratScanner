@@ -1,6 +1,6 @@
 {
   "scan_date": "2026-11-01",
-  "timestamp": "2026-11-01T05:51:07.711665",
+  "timestamp": "2026-11-01T06:33:27.928958",
   "config": {
     "timeframes": [
       "M",
@@ -34,7 +34,7 @@
     "bf_target_hit": 784,
     "bf_active_long": 2139,
     "bf_active_short": 2090,
-    "bf_reversals": 1010,
+    "bf_reversals": 1218,
     "sector_rotation_tracked": 61,
     "sector_rotation_skipped": 0,
     "gex_tracked": 3,
@@ -147592,6 +147592,26 @@
     },
     {
       "ticker": "AES",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 14.8772,
+      "swing_date": "2026-07-24",
+      "target": 14.65,
+      "target_date": "2026-09-18",
+      "close": 14.83,
+      "bar_extreme": 15.05,
+      "magnitude": 0.22719999999999985,
+      "expected_move": 0.17999999999999972,
+      "risk": 0.04720000000000013
+    },
+    {
+      "ticker": "AES",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -147859,6 +147879,26 @@
       "risk": 5.729999999999997
     },
     {
+      "ticker": "ALAB",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 251.625,
+      "swing_date": "2026-09-18",
+      "target": 401.7399,
+      "target_date": "2026-10-30",
+      "close": 258.7,
+      "bar_extreme": 249.09,
+      "magnitude": 150.11489999999998,
+      "expected_move": 143.0399,
+      "risk": 7.074999999999989
+    },
+    {
       "ticker": "ALGN",
       "tf": "W",
       "direction": "short",
@@ -148083,6 +148123,7 @@
       "tf": "W",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter"
       ],
       "entry": "retest",
@@ -148103,6 +148144,7 @@
       "tf": "W",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter"
       ],
       "entry": "retest",
@@ -148123,6 +148165,7 @@
       "tf": "W",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter"
       ],
       "entry": "retest",
@@ -148143,6 +148186,7 @@
       "tf": "W",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter"
       ],
       "entry": "retest",
@@ -148241,6 +148285,26 @@
       "risk": 1.9199999999999875
     },
     {
+      "ticker": "ANET",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 214.89,
+      "swing_date": "2026-08-31",
+      "target": 166.8601,
+      "target_date": "2026-10-30",
+      "close": 168.86,
+      "bar_extreme": 217.4099,
+      "magnitude": 48.0299,
+      "expected_move": 1.999900000000025,
+      "risk": 46.02999999999997
+    },
+    {
       "ticker": "APG",
       "tf": "D",
       "direction": "short",
@@ -148259,6 +148323,26 @@
       "magnitude": 9.380000000000003,
       "expected_move": 8.770000000000003,
       "risk": 0.6099999999999994
+    },
+    {
+      "ticker": "APH",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 88.165,
+      "swing_date": "2026-08-31",
+      "target": 71.44,
+      "target_date": "2026-10-30",
+      "close": 79.3,
+      "bar_extreme": 89.93,
+      "magnitude": 16.72500000000001,
+      "expected_move": 7.859999999999999,
+      "risk": 8.865000000000009
     },
     {
       "ticker": "APH",
@@ -148425,6 +148509,7 @@
       "tf": "D",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter",
         "Pin Bar"
       ],
@@ -148446,6 +148531,7 @@
       "tf": "D",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter",
         "Pin Bar"
       ],
@@ -148845,6 +148931,46 @@
       "risk": 2.5400000000000063
     },
     {
+      "ticker": "AVT",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 91.32,
+      "swing_date": "2026-07-24",
+      "target": 83.48,
+      "target_date": "2026-08-21",
+      "close": 88.2,
+      "bar_extreme": 94.5,
+      "magnitude": 7.839999999999989,
+      "expected_move": 4.719999999999999,
+      "risk": 3.1199999999999903
+    },
+    {
+      "ticker": "AVTR",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 16.375,
+      "swing_date": "2026-10-06",
+      "target": 14.96,
+      "target_date": "2026-10-19",
+      "close": 16.05,
+      "bar_extreme": 16.8,
+      "magnitude": 1.4149999999999991,
+      "expected_move": 1.0899999999999999,
+      "risk": 0.3249999999999993
+    },
+    {
       "ticker": "AVUV",
       "tf": "D",
       "direction": "long",
@@ -148923,6 +149049,86 @@
       "magnitude": 8.620000000000005,
       "expected_move": 7.8799999999999955,
       "risk": 0.7400000000000091
+    },
+    {
+      "ticker": "AXTI",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 52.76,
+      "swing_date": "2026-09-04",
+      "target": 88.36,
+      "target_date": "2026-10-30",
+      "close": 55.06,
+      "bar_extreme": 50.96,
+      "magnitude": 35.6,
+      "expected_move": 33.3,
+      "risk": 2.3000000000000043
+    },
+    {
+      "ticker": "BAX",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 25.985,
+      "swing_date": "2026-10-16",
+      "target": 22.495,
+      "target_date": "2026-10-30",
+      "close": 23.0,
+      "bar_extreme": 26.1,
+      "magnitude": 3.4899999999999984,
+      "expected_move": 0.504999999999999,
+      "risk": 2.9849999999999994
+    },
+    {
+      "ticker": "BAX",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 23.71,
+      "swing_date": "2026-07-17",
+      "target": 21.4,
+      "target_date": "2026-09-18",
+      "close": 23.0,
+      "bar_extreme": 26.1,
+      "magnitude": 2.3100000000000023,
+      "expected_move": 1.6000000000000014,
+      "risk": 0.7100000000000009
+    },
+    {
+      "ticker": "BAX",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 24.3,
+      "swing_date": "2026-09-25",
+      "target": 22.495,
+      "target_date": "2026-10-30",
+      "close": 23.0,
+      "bar_extreme": 26.1,
+      "magnitude": 1.8049999999999997,
+      "expected_move": 0.504999999999999,
+      "risk": 1.3000000000000007
     },
     {
       "ticker": "BB",
@@ -149411,6 +149617,26 @@
       "risk": 0.4299999999999926
     },
     {
+      "ticker": "BR",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 182.94,
+      "swing_date": "2026-09-03",
+      "target": 155.68,
+      "target_date": "2026-10-26",
+      "close": 178.82,
+      "bar_extreme": 181.29,
+      "magnitude": 27.25999999999999,
+      "expected_move": 23.139999999999986,
+      "risk": 4.1200000000000045
+    },
+    {
       "ticker": "BRKR",
       "tf": "W",
       "direction": "short",
@@ -149473,6 +149699,66 @@
       "magnitude": 10.8052,
       "expected_move": 5.86999999999999,
       "risk": 4.935200000000009
+    },
+    {
+      "ticker": "BROS",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 44.0979,
+      "swing_date": "2026-10-20",
+      "target": 40.11,
+      "target_date": "2026-10-29",
+      "close": 42.87,
+      "bar_extreme": 44.6,
+      "magnitude": 3.9879000000000033,
+      "expected_move": 2.759999999999998,
+      "risk": 1.2279000000000053
+    },
+    {
+      "ticker": "BROS",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 42.89,
+      "swing_date": "2026-10-26",
+      "target": 40.845,
+      "target_date": "2026-10-30",
+      "close": 42.87,
+      "bar_extreme": 44.6,
+      "magnitude": 2.0450000000000017,
+      "expected_move": 2.0249999999999986,
+      "risk": 0.020000000000003126
+    },
+    {
+      "ticker": "BTSG",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 66.58,
+      "swing_date": "2026-07-17",
+      "target": 73.7499,
+      "target_date": "2026-10-30",
+      "close": 66.89,
+      "bar_extreme": 58.03,
+      "magnitude": 7.169899999999998,
+      "expected_move": 6.859899999999996,
+      "risk": 0.3100000000000023
     },
     {
       "ticker": "BUD",
@@ -149685,6 +149971,26 @@
     },
     {
       "ticker": "CAH",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 258.3021,
+      "swing_date": "2026-08-14",
+      "target": 216.7,
+      "target_date": "2026-10-23",
+      "close": 250.48,
+      "bar_extreme": 259.84,
+      "magnitude": 41.60210000000001,
+      "expected_move": 33.78,
+      "risk": 7.822100000000006
+    },
+    {
+      "ticker": "CAH",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -149744,6 +150050,26 @@
       "risk": 1.1598999999999933
     },
     {
+      "ticker": "CAVA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 50.67,
+      "swing_date": "2026-10-16",
+      "target": 60.33,
+      "target_date": "2026-10-30",
+      "close": 58.74,
+      "bar_extreme": 50.33,
+      "magnitude": 9.659999999999997,
+      "expected_move": 1.5899999999999963,
+      "risk": 8.07
+    },
+    {
       "ticker": "CB",
       "tf": "W",
       "direction": "short",
@@ -149784,6 +150110,66 @@
       "risk": 4.11999999999999
     },
     {
+      "ticker": "CBSH",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 56.57,
+      "swing_date": "2026-09-28",
+      "target": 53.49,
+      "target_date": "2026-10-22",
+      "close": 55.06,
+      "bar_extreme": 56.16,
+      "magnitude": 3.0799999999999983,
+      "expected_move": 1.5700000000000003,
+      "risk": 1.509999999999998
+    },
+    {
+      "ticker": "CBSH",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 55.8,
+      "swing_date": "2026-10-02",
+      "target": 53.49,
+      "target_date": "2026-10-16",
+      "close": 55.06,
+      "bar_extreme": 56.16,
+      "magnitude": 2.309999999999995,
+      "expected_move": 1.5700000000000003,
+      "risk": 0.7399999999999949
+    },
+    {
+      "ticker": "CCC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 7.68,
+      "swing_date": "2026-08-19",
+      "target": 6.24,
+      "target_date": "2026-10-12",
+      "close": 7.65,
+      "bar_extreme": 7.69,
+      "magnitude": 1.4399999999999995,
+      "expected_move": 1.4100000000000001,
+      "risk": 0.02999999999999936
+    },
+    {
       "ticker": "CCC",
       "tf": "W",
       "direction": "short",
@@ -149803,6 +150189,66 @@
       "bar_extreme": 7.71,
       "magnitude": 1.4399999999999995,
       "expected_move": 1.4100000000000001,
+      "risk": 0.02999999999999936
+    },
+    {
+      "ticker": "CCC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 7.67,
+      "swing_date": "2026-08-27",
+      "target": 6.24,
+      "target_date": "2026-10-12",
+      "close": 7.65,
+      "bar_extreme": 7.69,
+      "magnitude": 1.4299999999999997,
+      "expected_move": 1.4100000000000001,
+      "risk": 0.019999999999999574
+    },
+    {
+      "ticker": "CCC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 7.66,
+      "swing_date": "2026-10-16",
+      "target": 7.61,
+      "target_date": "2026-10-22",
+      "close": 7.65,
+      "bar_extreme": 7.69,
+      "magnitude": 0.04999999999999982,
+      "expected_move": 0.040000000000000036,
+      "risk": 0.009999999999999787
+    },
+    {
+      "ticker": "CCC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 7.68,
+      "swing_date": "2026-10-22",
+      "target": 7.63,
+      "target_date": "2026-10-28",
+      "close": 7.65,
+      "bar_extreme": 7.69,
+      "magnitude": 0.04999999999999982,
+      "expected_move": 0.020000000000000462,
       "risk": 0.02999999999999936
     },
     {
@@ -150207,6 +150653,26 @@
     },
     {
       "ticker": "CI",
+      "tf": "M",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 263.11,
+      "swing_date": "2026-08-31",
+      "target": 316.265,
+      "target_date": "2026-10-30",
+      "close": 298.23,
+      "bar_extreme": 262.85,
+      "magnitude": 53.15499999999997,
+      "expected_move": 18.034999999999968,
+      "risk": 35.120000000000005
+    },
+    {
+      "ticker": "CI",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -150326,6 +150792,26 @@
       "risk": 0.009399999999999409
     },
     {
+      "ticker": "CINF",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 183.245,
+      "swing_date": "2026-10-27",
+      "target": 179.03,
+      "target_date": "2026-10-29",
+      "close": 181.19,
+      "bar_extreme": 185.165,
+      "magnitude": 4.215000000000003,
+      "expected_move": 2.1599999999999966,
+      "risk": 2.055000000000007
+    },
+    {
       "ticker": "CLSK",
       "tf": "D",
       "direction": "long",
@@ -150345,6 +150831,66 @@
       "magnitude": 1.2399999999999993,
       "expected_move": 0.9299999999999997,
       "risk": 0.3099999999999996
+    },
+    {
+      "ticker": "CLX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 89.92,
+      "swing_date": "2026-09-14",
+      "target": 79.12,
+      "target_date": "2026-10-30",
+      "close": 88.0,
+      "bar_extreme": 90.78,
+      "magnitude": 10.799999999999997,
+      "expected_move": 8.879999999999995,
+      "risk": 1.9200000000000017
+    },
+    {
+      "ticker": "CLX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 88.055,
+      "swing_date": "2026-10-20",
+      "target": 84.43,
+      "target_date": "2026-10-23",
+      "close": 88.0,
+      "bar_extreme": 90.78,
+      "magnitude": 3.625,
+      "expected_move": 3.569999999999993,
+      "risk": 0.05500000000000682
+    },
+    {
+      "ticker": "CLX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 88.7,
+      "swing_date": "2026-10-22",
+      "target": 85.25,
+      "target_date": "2026-10-29",
+      "close": 88.0,
+      "bar_extreme": 90.78,
+      "magnitude": 3.450000000000003,
+      "expected_move": 2.75,
+      "risk": 0.7000000000000028
     },
     {
       "ticker": "CMF",
@@ -150430,6 +150976,26 @@
     },
     {
       "ticker": "CNC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 69.355,
+      "swing_date": "2026-07-14",
+      "target": 56.67,
+      "target_date": "2026-09-15",
+      "close": 68.45,
+      "bar_extreme": 70.17,
+      "magnitude": 12.685000000000002,
+      "expected_move": 11.780000000000001,
+      "risk": 0.9050000000000011
+    },
+    {
+      "ticker": "CNC",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -150450,6 +151016,26 @@
     },
     {
       "ticker": "CNC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 69.63,
+      "swing_date": "2026-09-14",
+      "target": 59.46,
+      "target_date": "2026-10-13",
+      "close": 68.45,
+      "bar_extreme": 70.17,
+      "magnitude": 10.169999999999995,
+      "expected_move": 8.990000000000002,
+      "risk": 1.1799999999999926
+    },
+    {
+      "ticker": "CNC",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -150467,6 +151053,26 @@
       "magnitude": 10.169999999999995,
       "expected_move": 8.990000000000002,
       "risk": 1.1799999999999926
+    },
+    {
+      "ticker": "CNC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 69.41,
+      "swing_date": "2026-09-16",
+      "target": 59.46,
+      "target_date": "2026-10-13",
+      "close": 68.45,
+      "bar_extreme": 70.17,
+      "magnitude": 9.949999999999996,
+      "expected_move": 8.990000000000002,
+      "risk": 0.9599999999999937
     },
     {
       "ticker": "CNI",
@@ -151155,6 +151761,46 @@
     },
     {
       "ticker": "CVNA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 56.12,
+      "swing_date": "2026-07-31",
+      "target": 76.8,
+      "target_date": "2026-10-30",
+      "close": 68.29,
+      "bar_extreme": 55.915,
+      "magnitude": 20.68,
+      "expected_move": 8.509999999999991,
+      "risk": 12.170000000000009
+    },
+    {
+      "ticker": "CVNA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 56.275,
+      "swing_date": "2026-10-16",
+      "target": 69.84,
+      "target_date": "2026-10-30",
+      "close": 68.29,
+      "bar_extreme": 55.915,
+      "magnitude": 13.565000000000005,
+      "expected_move": 1.5499999999999972,
+      "risk": 12.015000000000008
+    },
+    {
+      "ticker": "CVNA",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -151172,6 +151818,46 @@
       "magnitude": 13.285000000000004,
       "expected_move": 12.375000000000007,
       "risk": 0.9099999999999966
+    },
+    {
+      "ticker": "CVNA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 64.76,
+      "swing_date": "2026-08-21",
+      "target": 76.8,
+      "target_date": "2026-09-18",
+      "close": 68.29,
+      "bar_extreme": 55.915,
+      "magnitude": 12.039999999999992,
+      "expected_move": 8.509999999999991,
+      "risk": 3.530000000000001
+    },
+    {
+      "ticker": "CVNA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 58.92,
+      "swing_date": "2026-10-02",
+      "target": 69.84,
+      "target_date": "2026-10-30",
+      "close": 68.29,
+      "bar_extreme": 55.915,
+      "magnitude": 10.920000000000002,
+      "expected_move": 1.5499999999999972,
+      "risk": 9.370000000000005
     },
     {
       "ticker": "CW",
@@ -151294,6 +151980,26 @@
       "risk": 57.45000000000002
     },
     {
+      "ticker": "DE",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 665.4475,
+      "swing_date": "2026-09-18",
+      "target": 721.22,
+      "target_date": "2026-10-02",
+      "close": 675.48,
+      "bar_extreme": 625.24,
+      "magnitude": 55.772500000000036,
+      "expected_move": 45.74000000000001,
+      "risk": 10.032500000000027
+    },
+    {
       "ticker": "DECK",
       "tf": "D",
       "direction": "short",
@@ -151332,6 +152038,26 @@
       "magnitude": 4.019999999999996,
       "expected_move": 3.8699999999999903,
       "risk": 0.15000000000000568
+    },
+    {
+      "ticker": "DELL",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 463.48,
+      "swing_date": "2026-07-17",
+      "target": 358.8801,
+      "target_date": "2026-08-07",
+      "close": 424.3,
+      "bar_extreme": 507.385,
+      "magnitude": 104.59989999999999,
+      "expected_move": 65.41989999999998,
+      "risk": 39.18000000000001
     },
     {
       "ticker": "DG",
@@ -151392,6 +152118,66 @@
       "magnitude": 7.684100000000001,
       "expected_move": 5.25,
       "risk": 2.434100000000001
+    },
+    {
+      "ticker": "DHR",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 233.02,
+      "swing_date": "2026-10-15",
+      "target": 217.55,
+      "target_date": "2026-10-22",
+      "close": 232.23,
+      "bar_extreme": 238.46,
+      "magnitude": 15.469999999999999,
+      "expected_move": 14.679999999999978,
+      "risk": 0.7900000000000205
+    },
+    {
+      "ticker": "DHR",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 238.128,
+      "swing_date": "2026-10-22",
+      "target": 225.6,
+      "target_date": "2026-10-30",
+      "close": 232.23,
+      "bar_extreme": 238.46,
+      "magnitude": 12.527999999999992,
+      "expected_move": 6.6299999999999955,
+      "risk": 5.897999999999996
+    },
+    {
+      "ticker": "DHR",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 238.03,
+      "swing_date": "2026-10-28",
+      "target": 230.46,
+      "target_date": "2026-10-30",
+      "close": 232.23,
+      "bar_extreme": 238.46,
+      "magnitude": 7.569999999999993,
+      "expected_move": 1.7699999999999818,
+      "risk": 5.800000000000011
     },
     {
       "ticker": "DHT",
@@ -151458,6 +152244,7 @@
       "tf": "D",
       "direction": "long",
       "patterns": [
+        "1-3",
         "Hammer"
       ],
       "entry": "retest",
@@ -151478,6 +152265,7 @@
       "tf": "D",
       "direction": "long",
       "patterns": [
+        "1-3",
         "Hammer"
       ],
       "entry": "retest",
@@ -151532,6 +152320,26 @@
       "magnitude": 14.045000000000016,
       "expected_move": 13.530000000000001,
       "risk": 0.5150000000000148
+    },
+    {
+      "ticker": "DOV",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 212.91,
+      "swing_date": "2026-08-11",
+      "target": 184.0,
+      "target_date": "2026-10-30",
+      "close": 207.74,
+      "bar_extreme": 213.835,
+      "magnitude": 28.909999999999997,
+      "expected_move": 23.74000000000001,
+      "risk": 5.1699999999999875
     },
     {
       "ticker": "DPZ",
@@ -151679,6 +152487,26 @@
     },
     {
       "ticker": "DVA",
+      "tf": "M",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 171.4,
+      "swing_date": "2026-08-31",
+      "target": 196.965,
+      "target_date": "2026-10-30",
+      "close": 187.5,
+      "bar_extreme": 171.0901,
+      "magnitude": 25.564999999999998,
+      "expected_move": 9.465000000000003,
+      "risk": 16.099999999999994
+    },
+    {
+      "ticker": "DVA",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -151736,6 +152564,26 @@
       "magnitude": 17.069999999999993,
       "expected_move": 9.465000000000003,
       "risk": 7.60499999999999
+    },
+    {
+      "ticker": "DYNF",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 70.5101,
+      "swing_date": "2026-08-31",
+      "target": 66.84,
+      "target_date": "2026-10-30",
+      "close": 67.35,
+      "bar_extreme": 70.905,
+      "magnitude": 3.670099999999991,
+      "expected_move": 0.5099999999999909,
+      "risk": 3.1601
     },
     {
       "ticker": "EAT",
@@ -152039,6 +152887,26 @@
       "risk": 0.22999999999998977
     },
     {
+      "ticker": "EIX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 59.96,
+      "swing_date": "2026-09-09",
+      "target": 51.1,
+      "target_date": "2026-10-30",
+      "close": 58.79,
+      "bar_extreme": 60.46,
+      "magnitude": 8.86,
+      "expected_move": 7.689999999999998,
+      "risk": 1.1700000000000017
+    },
+    {
       "ticker": "EL",
       "tf": "D",
       "direction": "long",
@@ -152120,6 +152988,26 @@
     },
     {
       "ticker": "ELV",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 427.17,
+      "swing_date": "2026-09-14",
+      "target": 375.74,
+      "target_date": "2026-10-13",
+      "close": 420.07,
+      "bar_extreme": 426.7714,
+      "magnitude": 51.43000000000001,
+      "expected_move": 44.329999999999984,
+      "risk": 7.100000000000023
+    },
+    {
+      "ticker": "ELV",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -152160,6 +153048,26 @@
     },
     {
       "ticker": "EMBJ",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 71.29,
+      "swing_date": "2026-09-04",
+      "target": 78.895,
+      "target_date": "2026-10-16",
+      "close": 73.4,
+      "bar_extreme": 66.26,
+      "magnitude": 7.60499999999999,
+      "expected_move": 5.49499999999999,
+      "risk": 2.1099999999999994
+    },
+    {
+      "ticker": "EMBJ",
       "tf": "D",
       "direction": "long",
       "patterns": [
@@ -152174,6 +153082,26 @@
       "target_date": "2026-10-19",
       "close": 73.4,
       "bar_extreme": 72.49,
+      "magnitude": 6.5249999999999915,
+      "expected_move": 5.49499999999999,
+      "risk": 1.0300000000000011
+    },
+    {
+      "ticker": "EMBJ",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 72.37,
+      "swing_date": "2026-09-18",
+      "target": 78.895,
+      "target_date": "2026-10-30",
+      "close": 73.4,
+      "bar_extreme": 66.26,
       "magnitude": 6.5249999999999915,
       "expected_move": 5.49499999999999,
       "risk": 1.0300000000000011
@@ -152641,6 +153569,106 @@
       "risk": 10.480000000000018
     },
     {
+      "ticker": "EW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 93.09,
+      "swing_date": "2026-07-13",
+      "target": 81.155,
+      "target_date": "2026-08-12",
+      "close": 92.01,
+      "bar_extreme": 95.34,
+      "magnitude": 11.935000000000002,
+      "expected_move": 10.855000000000004,
+      "risk": 1.0799999999999983
+    },
+    {
+      "ticker": "EW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 93.91,
+      "swing_date": "2026-08-11",
+      "target": 82.425,
+      "target_date": "2026-10-30",
+      "close": 92.01,
+      "bar_extreme": 95.34,
+      "magnitude": 11.485,
+      "expected_move": 9.585000000000008,
+      "risk": 1.8999999999999915
+    },
+    {
+      "ticker": "EW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 93.75,
+      "swing_date": "2026-08-13",
+      "target": 82.425,
+      "target_date": "2026-10-30",
+      "close": 92.01,
+      "bar_extreme": 95.34,
+      "magnitude": 11.325000000000003,
+      "expected_move": 9.585000000000008,
+      "risk": 1.7399999999999949
+    },
+    {
+      "ticker": "EW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 93.25,
+      "swing_date": "2026-08-19",
+      "target": 82.425,
+      "target_date": "2026-10-30",
+      "close": 92.01,
+      "bar_extreme": 95.34,
+      "magnitude": 10.825000000000003,
+      "expected_move": 9.585000000000008,
+      "risk": 1.2399999999999949
+    },
+    {
+      "ticker": "EW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 92.95,
+      "swing_date": "2026-09-01",
+      "target": 82.425,
+      "target_date": "2026-10-30",
+      "close": 92.01,
+      "bar_extreme": 95.34,
+      "magnitude": 10.525000000000006,
+      "expected_move": 9.585000000000008,
+      "risk": 0.9399999999999977
+    },
+    {
       "ticker": "EWBC",
       "tf": "D",
       "direction": "short",
@@ -153063,6 +154091,26 @@
       "risk": 4.5
     },
     {
+      "ticker": "FDXF",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 105.75,
+      "swing_date": "2026-10-16",
+      "target": 128.0,
+      "target_date": "2026-10-30",
+      "close": 126.04,
+      "bar_extreme": 103.475,
+      "magnitude": 22.25,
+      "expected_move": 1.9599999999999937,
+      "risk": 20.290000000000006
+    },
+    {
       "ticker": "FE",
       "tf": "D",
       "direction": "short",
@@ -153163,6 +154211,86 @@
       "risk": 1.799999999999983
     },
     {
+      "ticker": "FFIV",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 425.605,
+      "swing_date": "2026-08-14",
+      "target": 334.01,
+      "target_date": "2026-10-30",
+      "close": 338.34,
+      "bar_extreme": 472.03,
+      "magnitude": 91.59500000000003,
+      "expected_move": 4.329999999999984,
+      "risk": 87.26500000000004
+    },
+    {
+      "ticker": "FHN",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 23.56,
+      "swing_date": "2026-10-05",
+      "target": 22.2501,
+      "target_date": "2026-10-15",
+      "close": 23.27,
+      "bar_extreme": 23.76,
+      "magnitude": 1.309899999999999,
+      "expected_move": 1.0198999999999998,
+      "risk": 0.28999999999999915
+    },
+    {
+      "ticker": "FHN",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 23.31,
+      "swing_date": "2026-10-08",
+      "target": 22.2501,
+      "target_date": "2026-10-15",
+      "close": 23.27,
+      "bar_extreme": 23.76,
+      "magnitude": 1.059899999999999,
+      "expected_move": 1.0198999999999998,
+      "risk": 0.03999999999999915
+    },
+    {
+      "ticker": "FHN",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 23.62,
+      "swing_date": "2026-10-15",
+      "target": 22.65,
+      "target_date": "2026-10-26",
+      "close": 23.27,
+      "bar_extreme": 23.76,
+      "magnitude": 0.9700000000000024,
+      "expected_move": 0.620000000000001,
+      "risk": 0.3500000000000014
+    },
+    {
       "ticker": "FHN",
       "tf": "W",
       "direction": "short",
@@ -153181,6 +154309,26 @@
       "magnitude": 0.9700000000000024,
       "expected_move": 0.620000000000001,
       "risk": 0.3500000000000014
+    },
+    {
+      "ticker": "FHN",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 23.755,
+      "swing_date": "2026-10-26",
+      "target": 22.985,
+      "target_date": "2026-10-30",
+      "close": 23.27,
+      "bar_extreme": 23.76,
+      "magnitude": 0.7699999999999996,
+      "expected_move": 0.28500000000000014,
+      "risk": 0.48499999999999943
     },
     {
       "ticker": "FICO",
@@ -153261,6 +154409,26 @@
       "magnitude": 6.419999999999995,
       "expected_move": 5.959999999999994,
       "risk": 0.46000000000000085
+    },
+    {
+      "ticker": "FITB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 53.995,
+      "swing_date": "2026-09-22",
+      "target": 49.09,
+      "target_date": "2026-10-30",
+      "close": 53.87,
+      "bar_extreme": 55.0,
+      "magnitude": 4.904999999999994,
+      "expected_move": 4.779999999999994,
+      "risk": 0.125
     },
     {
       "ticker": "FLEX",
@@ -153564,6 +154732,106 @@
       "risk": 0.9399999999999977
     },
     {
+      "ticker": "FOXA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 65.74,
+      "swing_date": "2026-09-21",
+      "target": 60.26,
+      "target_date": "2026-10-16",
+      "close": 63.24,
+      "bar_extreme": 65.12,
+      "magnitude": 5.479999999999997,
+      "expected_move": 2.980000000000004,
+      "risk": 2.499999999999993
+    },
+    {
+      "ticker": "FOXA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 64.35,
+      "swing_date": "2026-09-24",
+      "target": 60.26,
+      "target_date": "2026-10-15",
+      "close": 63.24,
+      "bar_extreme": 65.12,
+      "magnitude": 4.089999999999996,
+      "expected_move": 2.980000000000004,
+      "risk": 1.1099999999999923
+    },
+    {
+      "ticker": "FOXA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 63.74,
+      "swing_date": "2026-09-28",
+      "target": 60.26,
+      "target_date": "2026-10-08",
+      "close": 63.24,
+      "bar_extreme": 65.12,
+      "magnitude": 3.480000000000004,
+      "expected_move": 2.980000000000004,
+      "risk": 0.5
+    },
+    {
+      "ticker": "FOXA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 63.59,
+      "swing_date": "2026-09-30",
+      "target": 60.26,
+      "target_date": "2026-10-08",
+      "close": 63.24,
+      "bar_extreme": 65.12,
+      "magnitude": 3.3300000000000054,
+      "expected_move": 2.980000000000004,
+      "risk": 0.3500000000000014
+    },
+    {
+      "ticker": "FOXA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 64.24,
+      "swing_date": "2026-10-09",
+      "target": 61.12,
+      "target_date": "2026-10-15",
+      "close": 63.24,
+      "bar_extreme": 65.12,
+      "magnitude": 3.1199999999999974,
+      "expected_move": 2.1200000000000045,
+      "risk": 0.9999999999999929
+    },
+    {
       "ticker": "FROG",
       "tf": "W",
       "direction": "short",
@@ -153621,6 +154889,26 @@
       "target_date": "2026-10-27",
       "close": 174.4,
       "bar_extreme": 168.0,
+      "magnitude": 19.25,
+      "expected_move": 13.449999999999989,
+      "risk": 5.800000000000011
+    },
+    {
+      "ticker": "FSLR",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 168.6,
+      "swing_date": "2026-10-02",
+      "target": 187.85,
+      "target_date": "2026-10-30",
+      "close": 174.4,
+      "bar_extreme": 165.86,
       "magnitude": 19.25,
       "expected_move": 13.449999999999989,
       "risk": 5.800000000000011
@@ -153808,6 +155096,46 @@
       "risk": 3.039999999999992
     },
     {
+      "ticker": "GAP",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 22.755,
+      "swing_date": "2026-09-04",
+      "target": 19.845,
+      "target_date": "2026-10-01",
+      "close": 22.32,
+      "bar_extreme": 23.09,
+      "magnitude": 2.91,
+      "expected_move": 2.4750000000000014,
+      "risk": 0.4349999999999987
+    },
+    {
+      "ticker": "GAP",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 22.7,
+      "swing_date": "2026-10-26",
+      "target": 21.595,
+      "target_date": "2026-10-30",
+      "close": 22.32,
+      "bar_extreme": 23.09,
+      "magnitude": 1.1050000000000004,
+      "expected_move": 0.7250000000000014,
+      "risk": 0.379999999999999
+    },
+    {
       "ticker": "GE",
       "tf": "D",
       "direction": "short",
@@ -153912,6 +155240,7 @@
       "tf": "M",
       "direction": "short",
       "patterns": [
+        "1-3",
         "Shooter",
         "Pin Bar"
       ],
@@ -153993,6 +155322,7 @@
       "tf": "D",
       "direction": "long",
       "patterns": [
+        "3 Bar",
         "Hammer",
         "Pin Bar"
       ],
@@ -154014,6 +155344,7 @@
       "tf": "D",
       "direction": "long",
       "patterns": [
+        "3 Bar",
         "Hammer",
         "Pin Bar"
       ],
@@ -154035,6 +155366,7 @@
       "tf": "D",
       "direction": "long",
       "patterns": [
+        "3 Bar",
         "Hammer",
         "Pin Bar"
       ],
@@ -154050,6 +155382,26 @@
       "magnitude": 1.1854999999999976,
       "expected_move": 0.05999999999999872,
       "risk": 1.1254999999999988
+    },
+    {
+      "ticker": "GNRC",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 187.5499,
+      "swing_date": "2026-07-31",
+      "target": 231.8871,
+      "target_date": "2026-09-18",
+      "close": 197.93,
+      "bar_extreme": 181.0,
+      "magnitude": 44.337199999999996,
+      "expected_move": 33.9571,
+      "risk": 10.380099999999999
     },
     {
       "ticker": "GNRC",
@@ -154150,6 +155502,26 @@
       "magnitude": 34.72500000000002,
       "expected_move": 10.205000000000041,
       "risk": 24.519999999999982
+    },
+    {
+      "ticker": "GRMN",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 288.09,
+      "swing_date": "2026-10-05",
+      "target": 262.465,
+      "target_date": "2026-10-15",
+      "close": 272.67,
+      "bar_extreme": 285.77,
+      "magnitude": 25.625,
+      "expected_move": 10.205000000000041,
+      "risk": 15.419999999999959
     },
     {
       "ticker": "GS",
@@ -154537,6 +155909,46 @@
       "risk": 6.060000000000002
     },
     {
+      "ticker": "HIMS",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 27.38,
+      "swing_date": "2026-08-21",
+      "target": 32.72,
+      "target_date": "2026-09-11",
+      "close": 27.68,
+      "bar_extreme": 26.68,
+      "magnitude": 5.34,
+      "expected_move": 5.039999999999999,
+      "risk": 0.3000000000000007
+    },
+    {
+      "ticker": "HIMS",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 26.73,
+      "swing_date": "2026-09-11",
+      "target": 31.81,
+      "target_date": "2026-10-16",
+      "close": 27.68,
+      "bar_extreme": 26.68,
+      "magnitude": 5.079999999999998,
+      "expected_move": 4.129999999999999,
+      "risk": 0.9499999999999993
+    },
+    {
       "ticker": "HITI",
       "tf": "W",
       "direction": "short",
@@ -154599,6 +156011,26 @@
     },
     {
       "ticker": "HOMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 30.36,
+      "swing_date": "2026-09-15",
+      "target": 27.6,
+      "target_date": "2026-10-26",
+      "close": 29.77,
+      "bar_extreme": 30.35,
+      "magnitude": 2.759999999999998,
+      "expected_move": 2.169999999999998,
+      "risk": 0.5899999999999999
+    },
+    {
+      "ticker": "HOMB",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -154616,6 +156048,86 @@
       "magnitude": 2.759999999999998,
       "expected_move": 2.169999999999998,
       "risk": 0.5899999999999999
+    },
+    {
+      "ticker": "HOMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 29.96,
+      "swing_date": "2026-09-21",
+      "target": 27.6,
+      "target_date": "2026-10-28",
+      "close": 29.77,
+      "bar_extreme": 30.35,
+      "magnitude": 2.3599999999999994,
+      "expected_move": 2.169999999999998,
+      "risk": 0.19000000000000128
+    },
+    {
+      "ticker": "HONA",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 176.25,
+      "swing_date": "2026-08-21",
+      "target": 149.19,
+      "target_date": "2026-10-30",
+      "close": 154.15,
+      "bar_extreme": 177.47,
+      "magnitude": 27.060000000000002,
+      "expected_move": 4.960000000000008,
+      "risk": 22.099999999999994
+    },
+    {
+      "ticker": "HONA",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 170.32,
+      "swing_date": "2026-09-25",
+      "target": 149.882,
+      "target_date": "2026-10-30",
+      "close": 154.15,
+      "bar_extreme": 177.47,
+      "magnitude": 20.437999999999988,
+      "expected_move": 4.268000000000001,
+      "risk": 16.169999999999987
+    },
+    {
+      "ticker": "HONA",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 170.3,
+      "swing_date": "2026-10-16",
+      "target": 151.31,
+      "target_date": "2026-10-30",
+      "close": 154.15,
+      "bar_extreme": 177.47,
+      "magnitude": 18.99000000000001,
+      "expected_move": 2.8400000000000034,
+      "risk": 16.150000000000006
     },
     {
       "ticker": "HOOD",
@@ -154637,6 +156149,26 @@
       "magnitude": 43.05999999999999,
       "expected_move": 41.75,
       "risk": 1.309999999999988
+    },
+    {
+      "ticker": "HPQ",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 32.19,
+      "swing_date": "2026-08-14",
+      "target": 26.73,
+      "target_date": "2026-09-25",
+      "close": 28.78,
+      "bar_extreme": 34.265,
+      "magnitude": 5.459999999999997,
+      "expected_move": 2.0500000000000007,
+      "risk": 3.4099999999999966
     },
     {
       "ticker": "HRL",
@@ -155140,6 +156672,106 @@
       "risk": 0.269999999999996
     },
     {
+      "ticker": "IDXX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 575.56,
+      "swing_date": "2026-08-19",
+      "target": 500.61,
+      "target_date": "2026-10-30",
+      "close": 551.21,
+      "bar_extreme": 586.0,
+      "magnitude": 74.94999999999993,
+      "expected_move": 50.60000000000002,
+      "risk": 24.34999999999991
+    },
+    {
+      "ticker": "IDXX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 562.19,
+      "swing_date": "2026-08-24",
+      "target": 500.61,
+      "target_date": "2026-10-16",
+      "close": 551.21,
+      "bar_extreme": 586.0,
+      "magnitude": 61.58000000000004,
+      "expected_move": 50.60000000000002,
+      "risk": 10.980000000000018
+    },
+    {
+      "ticker": "IDXX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 561.24,
+      "swing_date": "2026-08-31",
+      "target": 500.61,
+      "target_date": "2026-10-16",
+      "close": 551.21,
+      "bar_extreme": 586.0,
+      "magnitude": 60.629999999999995,
+      "expected_move": 50.60000000000002,
+      "risk": 10.029999999999973
+    },
+    {
+      "ticker": "IDXX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 558.42,
+      "swing_date": "2026-09-02",
+      "target": 500.61,
+      "target_date": "2026-10-19",
+      "close": 551.21,
+      "bar_extreme": 586.0,
+      "magnitude": 57.809999999999945,
+      "expected_move": 50.60000000000002,
+      "risk": 7.209999999999923
+    },
+    {
+      "ticker": "IDXX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 571.75,
+      "swing_date": "2026-10-26",
+      "target": 540.61,
+      "target_date": "2026-10-30",
+      "close": 551.21,
+      "bar_extreme": 586.0,
+      "magnitude": 31.139999999999986,
+      "expected_move": 10.600000000000023,
+      "risk": 20.539999999999964
+    },
+    {
       "ticker": "IEFA",
       "tf": "D",
       "direction": "long",
@@ -155308,6 +156940,46 @@
       "risk": 0.004900000000006344
     },
     {
+      "ticker": "IFF",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 90.13,
+      "swing_date": "2026-10-22",
+      "target": 94.65,
+      "target_date": "2026-10-28",
+      "close": 93.02,
+      "bar_extreme": 90.28,
+      "magnitude": 4.52000000000001,
+      "expected_move": 1.6300000000000097,
+      "risk": 2.8900000000000006
+    },
+    {
+      "ticker": "IGV",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 110.57,
+      "swing_date": "2026-09-04",
+      "target": 100.59,
+      "target_date": "2026-10-16",
+      "close": 104.29,
+      "bar_extreme": 112.375,
+      "magnitude": 9.97999999999999,
+      "expected_move": 3.700000000000003,
+      "risk": 6.279999999999987
+    },
+    {
       "ticker": "IGV",
       "tf": "M",
       "direction": "short",
@@ -155326,6 +156998,86 @@
       "magnitude": 9.97999999999999,
       "expected_move": 3.700000000000003,
       "risk": 6.279999999999987
+    },
+    {
+      "ticker": "IGV",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 106.75,
+      "swing_date": "2026-08-14",
+      "target": 99.72,
+      "target_date": "2026-09-04",
+      "close": 104.29,
+      "bar_extreme": 112.375,
+      "magnitude": 7.030000000000001,
+      "expected_move": 4.570000000000007,
+      "risk": 2.4599999999999937
+    },
+    {
+      "ticker": "IHI",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 55.77,
+      "swing_date": "2026-09-01",
+      "target": 50.19,
+      "target_date": "2026-10-30",
+      "close": 54.59,
+      "bar_extreme": 55.89,
+      "magnitude": 5.580000000000005,
+      "expected_move": 4.400000000000006,
+      "risk": 1.1799999999999997
+    },
+    {
+      "ticker": "IHI",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 54.62,
+      "swing_date": "2026-10-16",
+      "target": 52.96,
+      "target_date": "2026-10-27",
+      "close": 54.59,
+      "bar_extreme": 55.89,
+      "magnitude": 1.6599999999999966,
+      "expected_move": 1.6300000000000026,
+      "risk": 0.02999999999999403
+    },
+    {
+      "ticker": "IHI",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 55.37,
+      "swing_date": "2026-10-26",
+      "target": 54.03,
+      "target_date": "2026-10-30",
+      "close": 54.59,
+      "bar_extreme": 55.89,
+      "magnitude": 1.3399999999999963,
+      "expected_move": 0.5600000000000023,
+      "risk": 0.779999999999994
     },
     {
       "ticker": "IJH",
@@ -155429,6 +157181,46 @@
     },
     {
       "ticker": "INCY",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 110.56,
+      "swing_date": "2026-07-17",
+      "target": 132.6,
+      "target_date": "2026-10-09",
+      "close": 120.39,
+      "bar_extreme": 111.01,
+      "magnitude": 22.039999999999992,
+      "expected_move": 12.209999999999994,
+      "risk": 9.829999999999998
+    },
+    {
+      "ticker": "INCY",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 115.77,
+      "swing_date": "2026-08-07",
+      "target": 130.8,
+      "target_date": "2026-10-30",
+      "close": 120.39,
+      "bar_extreme": 111.01,
+      "magnitude": 15.030000000000015,
+      "expected_move": 10.41000000000001,
+      "risk": 4.6200000000000045
+    },
+    {
+      "ticker": "INCY",
       "tf": "D",
       "direction": "long",
       "patterns": [
@@ -155445,6 +157237,26 @@
       "bar_extreme": 119.55,
       "magnitude": 8.75,
       "expected_move": 8.329999999999998,
+      "risk": 0.4200000000000017
+    },
+    {
+      "ticker": "INCY",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 119.97,
+      "swing_date": "2026-09-18",
+      "target": 128.21,
+      "target_date": "2026-10-30",
+      "close": 120.39,
+      "bar_extreme": 111.01,
+      "magnitude": 8.240000000000009,
+      "expected_move": 7.820000000000007,
       "risk": 0.4200000000000017
     },
     {
@@ -155712,6 +157524,26 @@
       "risk": 0.879999999999999
     },
     {
+      "ticker": "IP",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 35.87,
+      "swing_date": "2026-07-17",
+      "target": 44.82,
+      "target_date": "2026-09-04",
+      "close": 36.37,
+      "bar_extreme": 31.15,
+      "magnitude": 8.950000000000003,
+      "expected_move": 8.450000000000003,
+      "risk": 0.5
+    },
+    {
       "ticker": "IQMM",
       "tf": "W",
       "direction": "short",
@@ -155730,6 +157562,66 @@
       "magnitude": 0.1280000000000001,
       "expected_move": 0.09799999999999898,
       "risk": 0.030000000000001137
+    },
+    {
+      "ticker": "IQV",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 277.4,
+      "swing_date": "2026-09-25",
+      "target": 252.56,
+      "target_date": "2026-10-30",
+      "close": 267.33,
+      "bar_extreme": 284.5,
+      "magnitude": 24.839999999999975,
+      "expected_move": 14.769999999999982,
+      "risk": 10.069999999999993
+    },
+    {
+      "ticker": "IQV",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 271.7999,
+      "swing_date": "2026-09-04",
+      "target": 252.53,
+      "target_date": "2026-09-18",
+      "close": 267.33,
+      "bar_extreme": 284.5,
+      "magnitude": 19.26989999999998,
+      "expected_move": 14.799999999999983,
+      "risk": 4.4698999999999955
+    },
+    {
+      "ticker": "IQV",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 274.275,
+      "swing_date": "2026-10-09",
+      "target": 257.3,
+      "target_date": "2026-10-30",
+      "close": 267.33,
+      "bar_extreme": 284.5,
+      "magnitude": 16.974999999999966,
+      "expected_move": 10.029999999999973,
+      "risk": 6.944999999999993
     },
     {
       "ticker": "IR",
@@ -155950,6 +157842,66 @@
       "magnitude": 7.4950000000000045,
       "expected_move": 6.835000000000008,
       "risk": 0.6599999999999966
+    },
+    {
+      "ticker": "ISRG",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 443.84,
+      "swing_date": "2026-07-07",
+      "target": 328.57,
+      "target_date": "2026-10-30",
+      "close": 432.01,
+      "bar_extreme": 453.6,
+      "magnitude": 115.26999999999998,
+      "expected_move": 103.44,
+      "risk": 11.829999999999984
+    },
+    {
+      "ticker": "ISRG",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 440.4,
+      "swing_date": "2026-10-20",
+      "target": 398.992,
+      "target_date": "2026-10-30",
+      "close": 432.01,
+      "bar_extreme": 453.6,
+      "magnitude": 41.40799999999996,
+      "expected_move": 33.01799999999997,
+      "risk": 8.389999999999986
+    },
+    {
+      "ticker": "ISRG",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 434.89,
+      "swing_date": "2026-10-16",
+      "target": 398.992,
+      "target_date": "2026-10-21",
+      "close": 432.01,
+      "bar_extreme": 453.6,
+      "magnitude": 35.89799999999997,
+      "expected_move": 33.01799999999997,
+      "risk": 2.8799999999999955
     },
     {
       "ticker": "ITA",
@@ -156722,6 +158674,46 @@
       "risk": 0.1850000000000005
     },
     {
+      "ticker": "JLL",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 314.39,
+      "swing_date": "2026-07-17",
+      "target": 393.84,
+      "target_date": "2026-10-30",
+      "close": 359.79,
+      "bar_extreme": 297.5,
+      "magnitude": 79.44999999999999,
+      "expected_move": 34.049999999999955,
+      "risk": 45.400000000000034
+    },
+    {
+      "ticker": "JLL",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 354.5932,
+      "swing_date": "2026-08-14",
+      "target": 393.84,
+      "target_date": "2026-09-04",
+      "close": 359.79,
+      "bar_extreme": 297.5,
+      "magnitude": 39.24679999999995,
+      "expected_move": 34.049999999999955,
+      "risk": 5.196799999999996
+    },
+    {
       "ticker": "JMUB",
       "tf": "D",
       "direction": "long",
@@ -156741,6 +158733,66 @@
       "magnitude": 0.17500000000000426,
       "expected_move": 0.02499999999999858,
       "risk": 0.15000000000000568
+    },
+    {
+      "ticker": "JNJ",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 281.07,
+      "swing_date": "2026-09-02",
+      "target": 245.17,
+      "target_date": "2026-10-30",
+      "close": 273.2,
+      "bar_extreme": 282.015,
+      "magnitude": 35.900000000000006,
+      "expected_move": 28.03,
+      "risk": 7.8700000000000045
+    },
+    {
+      "ticker": "JNJ",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 275.23,
+      "swing_date": "2026-09-24",
+      "target": 245.17,
+      "target_date": "2026-10-29",
+      "close": 273.2,
+      "bar_extreme": 282.015,
+      "magnitude": 30.06000000000003,
+      "expected_move": 28.03,
+      "risk": 2.0300000000000296
+    },
+    {
+      "ticker": "JNJ",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 273.78,
+      "swing_date": "2026-09-28",
+      "target": 245.17,
+      "target_date": "2026-10-30",
+      "close": 273.2,
+      "bar_extreme": 282.015,
+      "magnitude": 28.609999999999985,
+      "expected_move": 28.03,
+      "risk": 0.5799999999999841
     },
     {
       "ticker": "JPM",
@@ -157088,6 +159140,66 @@
     },
     {
       "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 112.7,
+      "swing_date": "2026-08-03",
+      "target": 93.945,
+      "target_date": "2026-10-30",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 18.75500000000001,
+      "expected_move": 13.995000000000005,
+      "risk": 4.760000000000005
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 112.7,
+      "swing_date": "2026-08-06",
+      "target": 93.945,
+      "target_date": "2026-10-30",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 18.75500000000001,
+      "expected_move": 13.995000000000005,
+      "risk": 4.760000000000005
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 112.38,
+      "swing_date": "2026-08-24",
+      "target": 93.945,
+      "target_date": "2026-10-22",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 18.435000000000002,
+      "expected_move": 13.995000000000005,
+      "risk": 4.439999999999998
+    },
+    {
+      "ticker": "KMB",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -157105,6 +159217,106 @@
       "magnitude": 18.435000000000002,
       "expected_move": 13.995000000000005,
       "risk": 4.439999999999998
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 111.84,
+      "swing_date": "2026-08-26",
+      "target": 93.945,
+      "target_date": "2026-10-23",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 17.89500000000001,
+      "expected_move": 13.995000000000005,
+      "risk": 3.9000000000000057
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 111.39,
+      "swing_date": "2026-08-28",
+      "target": 93.945,
+      "target_date": "2026-10-23",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 17.445000000000007,
+      "expected_move": 13.995000000000005,
+      "risk": 3.450000000000003
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 110.0,
+      "swing_date": "2026-09-03",
+      "target": 93.945,
+      "target_date": "2026-10-26",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 16.055000000000007,
+      "expected_move": 13.995000000000005,
+      "risk": 2.0600000000000023
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 112.39,
+      "swing_date": "2026-10-22",
+      "target": 107.37,
+      "target_date": "2026-10-30",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 5.019999999999996,
+      "expected_move": 0.5699999999999932,
+      "risk": 4.450000000000003
+    },
+    {
+      "ticker": "KMB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 108.36,
+      "swing_date": "2026-10-20",
+      "target": 106.42,
+      "target_date": "2026-10-30",
+      "close": 107.94,
+      "bar_extreme": 112.82,
+      "magnitude": 1.9399999999999977,
+      "expected_move": 1.519999999999996,
+      "risk": 0.4200000000000017
     },
     {
       "ticker": "KMI",
@@ -157268,6 +159480,46 @@
     },
     {
       "ticker": "KVUE",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 19.7,
+      "swing_date": "2026-08-06",
+      "target": 17.1614,
+      "target_date": "2026-10-23",
+      "close": 19.31,
+      "bar_extreme": 20.0,
+      "magnitude": 2.538599999999999,
+      "expected_move": 2.1485999999999983,
+      "risk": 0.39000000000000057
+    },
+    {
+      "ticker": "KVUE",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 19.56,
+      "swing_date": "2026-08-24",
+      "target": 17.1614,
+      "target_date": "2026-10-26",
+      "close": 19.31,
+      "bar_extreme": 20.0,
+      "magnitude": 2.3985999999999983,
+      "expected_move": 2.1485999999999983,
+      "risk": 0.25
+    },
+    {
+      "ticker": "KVUE",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -157286,6 +159538,66 @@
       "magnitude": 2.3985999999999983,
       "expected_move": 2.1485999999999983,
       "risk": 0.25
+    },
+    {
+      "ticker": "KVUE",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 19.47,
+      "swing_date": "2026-08-26",
+      "target": 17.1614,
+      "target_date": "2026-10-27",
+      "close": 19.31,
+      "bar_extreme": 20.0,
+      "magnitude": 2.3085999999999984,
+      "expected_move": 2.1485999999999983,
+      "risk": 0.16000000000000014
+    },
+    {
+      "ticker": "KVUE",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 19.39,
+      "swing_date": "2026-08-28",
+      "target": 17.1614,
+      "target_date": "2026-10-28",
+      "close": 19.31,
+      "bar_extreme": 20.0,
+      "magnitude": 2.2286,
+      "expected_move": 2.1485999999999983,
+      "risk": 0.08000000000000185
+    },
+    {
+      "ticker": "KVUE",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 19.89,
+      "swing_date": "2026-10-22",
+      "target": 19.2,
+      "target_date": "2026-10-30",
+      "close": 19.31,
+      "bar_extreme": 20.0,
+      "magnitude": 0.6900000000000013,
+      "expected_move": 0.10999999999999943,
+      "risk": 0.5800000000000018
     },
     {
       "ticker": "KYMR",
@@ -157569,6 +159881,26 @@
       "risk": 1.0330000000000013
     },
     {
+      "ticker": "LYB",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 66.27,
+      "swing_date": "2026-10-27",
+      "target": 68.74,
+      "target_date": "2026-10-30",
+      "close": 68.64,
+      "bar_extreme": 64.67,
+      "magnitude": 2.469999999999999,
+      "expected_move": 0.09999999999999432,
+      "risk": 2.3700000000000045
+    },
+    {
       "ticker": "LYFT",
       "tf": "W",
       "direction": "short",
@@ -157589,6 +159921,46 @@
       "risk": 0.35999999999999943
     },
     {
+      "ticker": "LYV",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 171.0,
+      "swing_date": "2026-07-31",
+      "target": 189.245,
+      "target_date": "2026-10-23",
+      "close": 177.89,
+      "bar_extreme": 169.065,
+      "magnitude": 18.245000000000005,
+      "expected_move": 11.355000000000018,
+      "risk": 6.889999999999986
+    },
+    {
+      "ticker": "M",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 24.71,
+      "swing_date": "2026-10-16",
+      "target": 23.02,
+      "target_date": "2026-10-26",
+      "close": 24.11,
+      "bar_extreme": 25.055,
+      "magnitude": 1.6900000000000013,
+      "expected_move": 1.0899999999999999,
+      "risk": 0.6000000000000014
+    },
+    {
       "ticker": "M",
       "tf": "W",
       "direction": "short",
@@ -157607,6 +159979,26 @@
       "magnitude": 1.6900000000000013,
       "expected_move": 1.0899999999999999,
       "risk": 0.6000000000000014
+    },
+    {
+      "ticker": "M",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 24.8,
+      "swing_date": "2026-10-26",
+      "target": 23.35,
+      "target_date": "2026-10-30",
+      "close": 24.11,
+      "bar_extreme": 25.055,
+      "magnitude": 1.4499999999999993,
+      "expected_move": 0.759999999999998,
+      "risk": 0.6900000000000013
     },
     {
       "ticker": "MAA",
@@ -158052,6 +160444,66 @@
       "risk": 0.5100000000000016
     },
     {
+      "ticker": "MMM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 176.18,
+      "swing_date": "2026-10-22",
+      "target": 170.67,
+      "target_date": "2026-10-30",
+      "close": 174.34,
+      "bar_extreme": 178.79,
+      "magnitude": 5.510000000000019,
+      "expected_move": 3.670000000000016,
+      "risk": 1.8400000000000034
+    },
+    {
+      "ticker": "MMM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 175.56,
+      "swing_date": "2026-10-26",
+      "target": 170.67,
+      "target_date": "2026-10-30",
+      "close": 174.34,
+      "bar_extreme": 178.79,
+      "magnitude": 4.890000000000015,
+      "expected_move": 3.670000000000016,
+      "risk": 1.2199999999999989
+    },
+    {
+      "ticker": "MNST",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 44.75,
+      "swing_date": "2026-08-07",
+      "target": 49.24,
+      "target_date": "2026-10-16",
+      "close": 47.34,
+      "bar_extreme": 44.92,
+      "magnitude": 4.490000000000002,
+      "expected_move": 1.8999999999999986,
+      "risk": 2.5900000000000034
+    },
+    {
       "ticker": "MNST",
       "tf": "D",
       "direction": "long",
@@ -158068,6 +160520,26 @@
       "target_date": "2026-08-03",
       "close": 47.34,
       "bar_extreme": 46.76,
+      "magnitude": 3.1700000000000017,
+      "expected_move": 2.3049999999999997,
+      "risk": 0.865000000000002
+    },
+    {
+      "ticker": "MNST",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 46.475,
+      "swing_date": "2026-07-24",
+      "target": 49.645,
+      "target_date": "2026-08-14",
+      "close": 47.34,
+      "bar_extreme": 44.92,
       "magnitude": 3.1700000000000017,
       "expected_move": 2.3049999999999997,
       "risk": 0.865000000000002
@@ -158296,6 +160768,26 @@
       "risk": 3.32000000000005
     },
     {
+      "ticker": "MSM",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 130.46,
+      "swing_date": "2026-08-31",
+      "target": 111.76,
+      "target_date": "2026-10-30",
+      "close": 121.02,
+      "bar_extreme": 133.95,
+      "magnitude": 18.700000000000003,
+      "expected_move": 9.259999999999991,
+      "risk": 9.440000000000012
+    },
+    {
       "ticker": "MSTZ",
       "tf": "W",
       "direction": "short",
@@ -158480,6 +160972,7 @@
       "tf": "D",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter"
       ],
       "entry": "retest",
@@ -158500,6 +160993,7 @@
       "tf": "D",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter"
       ],
       "entry": "retest",
@@ -158576,6 +161070,46 @@
       "risk": 3.0399999999999636
     },
     {
+      "ticker": "NET",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 332.22,
+      "swing_date": "2026-08-14",
+      "target": 269.3,
+      "target_date": "2026-09-18",
+      "close": 280.7,
+      "bar_extreme": 337.0,
+      "magnitude": 62.920000000000016,
+      "expected_move": 11.399999999999977,
+      "risk": 51.52000000000004
+    },
+    {
+      "ticker": "NET",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 291.0,
+      "swing_date": "2026-07-17",
+      "target": 250.69,
+      "target_date": "2026-07-31",
+      "close": 280.7,
+      "bar_extreme": 337.0,
+      "magnitude": 40.31,
+      "expected_move": 30.00999999999999,
+      "risk": 10.300000000000011
+    },
+    {
       "ticker": "NI",
       "tf": "D",
       "direction": "short",
@@ -158594,6 +161128,46 @@
       "magnitude": 6.600000000000001,
       "expected_move": 6.149999999999999,
       "risk": 0.45000000000000284
+    },
+    {
+      "ticker": "NLY",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 18.57,
+      "swing_date": "2026-10-22",
+      "target": 18.08,
+      "target_date": "2026-10-30",
+      "close": 18.23,
+      "bar_extreme": 18.7,
+      "magnitude": 0.490000000000002,
+      "expected_move": 0.15000000000000213,
+      "risk": 0.33999999999999986
+    },
+    {
+      "ticker": "NLY",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 18.565,
+      "swing_date": "2026-10-26",
+      "target": 18.1,
+      "target_date": "2026-10-30",
+      "close": 18.23,
+      "bar_extreme": 18.7,
+      "magnitude": 0.46499999999999986,
+      "expected_move": 0.129999999999999,
+      "risk": 0.33500000000000085
     },
     {
       "ticker": "NNN",
@@ -158636,6 +161210,86 @@
       "risk": 0.4872000000000014
     },
     {
+      "ticker": "NOC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 566.5599,
+      "swing_date": "2026-10-27",
+      "target": 545.0,
+      "target_date": "2026-10-29",
+      "close": 557.54,
+      "bar_extreme": 575.5495,
+      "magnitude": 21.55989999999997,
+      "expected_move": 12.539999999999964,
+      "risk": 9.019900000000007
+    },
+    {
+      "ticker": "NOW",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 149.6,
+      "swing_date": "2026-08-31",
+      "target": 103.511,
+      "target_date": "2026-10-30",
+      "close": 105.12,
+      "bar_extreme": 159.5,
+      "magnitude": 46.089,
+      "expected_move": 1.6090000000000089,
+      "risk": 44.47999999999999
+    },
+    {
+      "ticker": "NTAP",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 209.06,
+      "swing_date": "2026-08-14",
+      "target": 161.0,
+      "target_date": "2026-10-16",
+      "close": 199.18,
+      "bar_extreme": 231.56,
+      "magnitude": 48.06,
+      "expected_move": 38.18000000000001,
+      "risk": 9.879999999999995
+    },
+    {
+      "ticker": "NTAP",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 199.62,
+      "swing_date": "2026-09-11",
+      "target": 186.13,
+      "target_date": "2026-10-30",
+      "close": 199.18,
+      "bar_extreme": 231.56,
+      "magnitude": 13.490000000000009,
+      "expected_move": 13.050000000000011,
+      "risk": 0.4399999999999977
+    },
+    {
       "ticker": "NTLA",
       "tf": "D",
       "direction": "short",
@@ -158657,6 +161311,26 @@
     },
     {
       "ticker": "NTNX",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 74.42,
+      "swing_date": "2026-08-28",
+      "target": 65.25,
+      "target_date": "2026-10-16",
+      "close": 67.21,
+      "bar_extreme": 74.13,
+      "magnitude": 9.170000000000002,
+      "expected_move": 1.9599999999999937,
+      "risk": 7.210000000000008
+    },
+    {
+      "ticker": "NTNX",
       "tf": "M",
       "direction": "short",
       "patterns": [
@@ -158674,6 +161348,26 @@
       "magnitude": 9.170000000000002,
       "expected_move": 1.9599999999999937,
       "risk": 7.210000000000008
+    },
+    {
+      "ticker": "NTNX",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 68.8,
+      "swing_date": "2026-08-14",
+      "target": 64.74,
+      "target_date": "2026-09-04",
+      "close": 67.21,
+      "bar_extreme": 74.13,
+      "magnitude": 4.060000000000002,
+      "expected_move": 2.469999999999999,
+      "risk": 1.5900000000000034
     },
     {
       "ticker": "NTRA",
@@ -159098,6 +161792,46 @@
       "risk": 0.01979999999999993
     },
     {
+      "ticker": "OKTA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 212.0,
+      "swing_date": "2026-10-16",
+      "target": 183.6,
+      "target_date": "2026-10-30",
+      "close": 208.24,
+      "bar_extreme": 222.64,
+      "magnitude": 28.400000000000006,
+      "expected_move": 24.640000000000015,
+      "risk": 3.759999999999991
+    },
+    {
+      "ticker": "OKTA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 210.8629,
+      "swing_date": "2026-10-21",
+      "target": 199.0,
+      "target_date": "2026-10-30",
+      "close": 208.24,
+      "bar_extreme": 222.64,
+      "magnitude": 11.862899999999996,
+      "expected_move": 9.240000000000009,
+      "risk": 2.622899999999987
+    },
+    {
       "ticker": "OLLI",
       "tf": "W",
       "direction": "long",
@@ -159164,6 +161898,7 @@
       "tf": "W",
       "direction": "short",
       "patterns": [
+        "3 Bar",
         "Shooter",
         "Pin Bar"
       ],
@@ -159219,6 +161954,86 @@
       "magnitude": 8.02000000000001,
       "expected_move": 7.6200000000000045,
       "risk": 0.4000000000000057
+    },
+    {
+      "ticker": "ONB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 25.57,
+      "swing_date": "2026-09-25",
+      "target": 24.06,
+      "target_date": "2026-10-16",
+      "close": 25.09,
+      "bar_extreme": 25.37,
+      "magnitude": 1.5100000000000016,
+      "expected_move": 1.0300000000000011,
+      "risk": 0.4800000000000004
+    },
+    {
+      "ticker": "ONB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 25.43,
+      "swing_date": "2026-10-02",
+      "target": 24.145,
+      "target_date": "2026-10-16",
+      "close": 25.09,
+      "bar_extreme": 25.37,
+      "magnitude": 1.2850000000000001,
+      "expected_move": 0.9450000000000003,
+      "risk": 0.33999999999999986
+    },
+    {
+      "ticker": "ONB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 25.49,
+      "swing_date": "2026-10-20",
+      "target": 24.445,
+      "target_date": "2026-10-23",
+      "close": 25.09,
+      "bar_extreme": 25.37,
+      "magnitude": 1.0449999999999982,
+      "expected_move": 0.6449999999999996,
+      "risk": 0.3999999999999986
+    },
+    {
+      "ticker": "ONB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 25.11,
+      "swing_date": "2026-10-06",
+      "target": 24.145,
+      "target_date": "2026-10-15",
+      "close": 25.09,
+      "bar_extreme": 25.37,
+      "magnitude": 0.9649999999999999,
+      "expected_move": 0.9450000000000003,
+      "risk": 0.019999999999999574
     },
     {
       "ticker": "ONC",
@@ -159531,6 +162346,26 @@
     },
     {
       "ticker": "PAAA",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 51.51,
+      "swing_date": "2026-08-28",
+      "target": 51.26,
+      "target_date": "2026-10-02",
+      "close": 51.3,
+      "bar_extreme": 51.49,
+      "magnitude": 0.25,
+      "expected_move": 0.03999999999999915,
+      "risk": 0.21000000000000085
+    },
+    {
+      "ticker": "PAAA",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -159571,6 +162406,26 @@
     },
     {
       "ticker": "PANW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 387.3325,
+      "swing_date": "2026-08-27",
+      "target": 321.39,
+      "target_date": "2026-09-25",
+      "close": 365.87,
+      "bar_extreme": 390.0,
+      "magnitude": 65.9425,
+      "expected_move": 44.48000000000002,
+      "risk": 21.462499999999977
+    },
+    {
+      "ticker": "PANW",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -159591,6 +162446,46 @@
     },
     {
       "ticker": "PANW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 383.73,
+      "swing_date": "2026-08-31",
+      "target": 321.39,
+      "target_date": "2026-09-25",
+      "close": 365.87,
+      "bar_extreme": 390.0,
+      "magnitude": 62.34000000000003,
+      "expected_move": 44.48000000000002,
+      "risk": 17.860000000000014
+    },
+    {
+      "ticker": "PANW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 368.8,
+      "swing_date": "2026-07-17",
+      "target": 308.54,
+      "target_date": "2026-08-05",
+      "close": 365.87,
+      "bar_extreme": 390.0,
+      "magnitude": 60.25999999999999,
+      "expected_move": 57.329999999999984,
+      "risk": 2.930000000000007
+    },
+    {
+      "ticker": "PANW",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -159608,6 +162503,26 @@
       "magnitude": 60.25999999999999,
       "expected_move": 57.329999999999984,
       "risk": 2.930000000000007
+    },
+    {
+      "ticker": "PANW",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 375.71,
+      "swing_date": "2026-10-16",
+      "target": 334.75,
+      "target_date": "2026-10-30",
+      "close": 365.87,
+      "bar_extreme": 390.0,
+      "magnitude": 40.95999999999998,
+      "expected_move": 31.120000000000005,
+      "risk": 9.839999999999975
     },
     {
       "ticker": "PATH",
@@ -159750,6 +162665,26 @@
       "magnitude": 8.894999999999996,
       "expected_move": 6.945,
       "risk": 1.9499999999999957
+    },
+    {
+      "ticker": "PCVX",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 62.9,
+      "swing_date": "2026-09-02",
+      "target": 55.085,
+      "target_date": "2026-10-22",
+      "close": 62.03,
+      "bar_extreme": 63.275,
+      "magnitude": 7.814999999999998,
+      "expected_move": 6.945,
+      "risk": 0.8699999999999974
     },
     {
       "ticker": "PD",
@@ -159933,6 +162868,26 @@
     },
     {
       "ticker": "PEN",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 325.0,
+      "swing_date": "2026-09-04",
+      "target": 316.32,
+      "target_date": "2026-10-23",
+      "close": 318.95,
+      "bar_extreme": 325.58,
+      "magnitude": 8.680000000000007,
+      "expected_move": 2.6299999999999955,
+      "risk": 6.050000000000011
+    },
+    {
+      "ticker": "PEN",
       "tf": "D",
       "direction": "long",
       "patterns": [
@@ -160090,6 +163045,46 @@
       "magnitude": 9.1695,
       "expected_move": 8.560000000000002,
       "risk": 0.609499999999997
+    },
+    {
+      "ticker": "PFG",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 112.73,
+      "swing_date": "2026-10-05",
+      "target": 106.07,
+      "target_date": "2026-10-27",
+      "close": 111.63,
+      "bar_extreme": 114.0,
+      "magnitude": 6.660000000000011,
+      "expected_move": 5.560000000000002,
+      "risk": 1.1000000000000085
+    },
+    {
+      "ticker": "PFG",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 113.225,
+      "swing_date": "2026-10-27",
+      "target": 110.56,
+      "target_date": "2026-10-30",
+      "close": 111.63,
+      "bar_extreme": 114.0,
+      "magnitude": 2.664999999999992,
+      "expected_move": 1.0699999999999932,
+      "risk": 1.5949999999999989
     },
     {
       "ticker": "PFGC",
@@ -160291,6 +163286,66 @@
       "magnitude": 2.1599999999999966,
       "expected_move": 1.6700000000000017,
       "risk": 0.4899999999999949
+    },
+    {
+      "ticker": "PODD",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 151.75,
+      "swing_date": "2026-08-24",
+      "target": 128.01,
+      "target_date": "2026-10-30",
+      "close": 149.68,
+      "bar_extreme": 154.95,
+      "magnitude": 23.74000000000001,
+      "expected_move": 21.670000000000016,
+      "risk": 2.069999999999993
+    },
+    {
+      "ticker": "PODD",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 151.5,
+      "swing_date": "2026-09-02",
+      "target": 128.01,
+      "target_date": "2026-10-30",
+      "close": 149.68,
+      "bar_extreme": 154.95,
+      "magnitude": 23.49000000000001,
+      "expected_move": 21.670000000000016,
+      "risk": 1.8199999999999932
+    },
+    {
+      "ticker": "PODD",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 150.735,
+      "swing_date": "2026-10-26",
+      "target": 146.62,
+      "target_date": "2026-10-30",
+      "close": 149.68,
+      "bar_extreme": 154.95,
+      "magnitude": 4.115000000000009,
+      "expected_move": 3.0600000000000023,
+      "risk": 1.0550000000000068
     },
     {
       "ticker": "POR",
@@ -160833,6 +163888,26 @@
       "risk": 4.920000000000002
     },
     {
+      "ticker": "QCOM",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 168.87,
+      "swing_date": "2026-08-14",
+      "target": 156.225,
+      "target_date": "2026-09-04",
+      "close": 164.79,
+      "bar_extreme": 185.59,
+      "magnitude": 12.64500000000001,
+      "expected_move": 8.564999999999998,
+      "risk": 4.0800000000000125
+    },
+    {
       "ticker": "QLYS",
       "tf": "D",
       "direction": "short",
@@ -161013,6 +164088,26 @@
       "magnitude": 0.9100000000000001,
       "expected_move": 0.8399999999999999,
       "risk": 0.07000000000000028
+    },
+    {
+      "ticker": "RBLX",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 51.96,
+      "swing_date": "2026-09-25",
+      "target": 40.75,
+      "target_date": "2026-10-30",
+      "close": 42.99,
+      "bar_extreme": 56.08,
+      "magnitude": 11.21,
+      "expected_move": 2.240000000000002,
+      "risk": 8.969999999999999
     },
     {
       "ticker": "RBRK",
@@ -161316,6 +164411,26 @@
       "risk": 3.2849999999999966
     },
     {
+      "ticker": "RL",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 393.93,
+      "swing_date": "2026-10-16",
+      "target": 370.69,
+      "target_date": "2026-10-28",
+      "close": 392.87,
+      "bar_extreme": 403.96,
+      "magnitude": 23.24000000000001,
+      "expected_move": 22.180000000000007,
+      "risk": 1.0600000000000023
+    },
+    {
       "ticker": "RMBS",
       "tf": "W",
       "direction": "short",
@@ -161562,6 +164677,66 @@
       "risk": 18.49000000000001
     },
     {
+      "ticker": "ROKU",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 157.83,
+      "swing_date": "2026-09-14",
+      "target": 150.03,
+      "target_date": "2026-10-21",
+      "close": 155.12,
+      "bar_extreme": 156.69,
+      "magnitude": 7.800000000000011,
+      "expected_move": 5.090000000000003,
+      "risk": 2.710000000000008
+    },
+    {
+      "ticker": "ROKU",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 155.27,
+      "swing_date": "2026-09-22",
+      "target": 150.03,
+      "target_date": "2026-10-16",
+      "close": 155.12,
+      "bar_extreme": 156.69,
+      "magnitude": 5.240000000000009,
+      "expected_move": 5.090000000000003,
+      "risk": 0.15000000000000568
+    },
+    {
+      "ticker": "ROKU",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 156.49,
+      "swing_date": "2026-10-16",
+      "target": 154.0,
+      "target_date": "2026-10-28",
+      "close": 155.12,
+      "bar_extreme": 156.69,
+      "magnitude": 2.490000000000009,
+      "expected_move": 1.1200000000000045,
+      "risk": 1.3700000000000045
+    },
+    {
       "ticker": "ROL",
       "tf": "D",
       "direction": "short",
@@ -161603,6 +164778,26 @@
     },
     {
       "ticker": "ROST",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 236.0,
+      "swing_date": "2026-10-02",
+      "target": 220.0956,
+      "target_date": "2026-10-15",
+      "close": 228.28,
+      "bar_extreme": 235.705,
+      "magnitude": 15.90440000000001,
+      "expected_move": 8.18440000000001,
+      "risk": 7.719999999999999
+    },
+    {
+      "ticker": "ROST",
       "tf": "W",
       "direction": "long",
       "patterns": [
@@ -161620,6 +164815,26 @@
       "magnitude": 14.449999999999989,
       "expected_move": 14.219999999999999,
       "risk": 0.22999999999998977
+    },
+    {
+      "ticker": "RPM",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 99.65,
+      "swing_date": "2026-07-24",
+      "target": 117.93,
+      "target_date": "2026-09-11",
+      "close": 102.44,
+      "bar_extreme": 97.26,
+      "magnitude": 18.28,
+      "expected_move": 15.490000000000009,
+      "risk": 2.789999999999992
     },
     {
       "ticker": "RRX",
@@ -161742,6 +164957,46 @@
       "risk": 0.010000000000000675
     },
     {
+      "ticker": "RVMD",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 188.18,
+      "swing_date": "2026-09-18",
+      "target": 211.51,
+      "target_date": "2026-10-09",
+      "close": 191.31,
+      "bar_extreme": 187.2775,
+      "magnitude": 23.329999999999984,
+      "expected_move": 20.19999999999999,
+      "risk": 3.1299999999999955
+    },
+    {
+      "ticker": "RVMD",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 189.05,
+      "swing_date": "2026-09-23",
+      "target": 211.51,
+      "target_date": "2026-10-09",
+      "close": 191.31,
+      "bar_extreme": 187.2775,
+      "magnitude": 22.45999999999998,
+      "expected_move": 20.19999999999999,
+      "risk": 2.259999999999991
+    },
+    {
       "ticker": "RVTY",
       "tf": "W",
       "direction": "short",
@@ -161845,6 +165100,66 @@
     },
     {
       "ticker": "SAIA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 341.59,
+      "swing_date": "2026-07-31",
+      "target": 389.5575,
+      "target_date": "2026-08-28",
+      "close": 344.61,
+      "bar_extreme": 319.58,
+      "magnitude": 47.96750000000003,
+      "expected_move": 44.94749999999999,
+      "risk": 3.0200000000000387
+    },
+    {
+      "ticker": "SAIA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 321.54,
+      "swing_date": "2026-09-25",
+      "target": 358.28,
+      "target_date": "2026-10-30",
+      "close": 344.61,
+      "bar_extreme": 319.58,
+      "magnitude": 36.73999999999995,
+      "expected_move": 13.669999999999959,
+      "risk": 23.069999999999993
+    },
+    {
+      "ticker": "SAIA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 324.575,
+      "swing_date": "2026-09-04",
+      "target": 361.3,
+      "target_date": "2026-10-02",
+      "close": 344.61,
+      "bar_extreme": 319.58,
+      "magnitude": 36.72500000000002,
+      "expected_move": 16.689999999999998,
+      "risk": 20.035000000000025
+    },
+    {
+      "ticker": "SAIA",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -161862,6 +165177,26 @@
       "magnitude": 27.910000000000025,
       "expected_move": 25.03000000000003,
       "risk": 2.8799999999999955
+    },
+    {
+      "ticker": "SAIA",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 326.38,
+      "swing_date": "2026-10-16",
+      "target": 352.06,
+      "target_date": "2026-10-30",
+      "close": 344.61,
+      "bar_extreme": 319.58,
+      "magnitude": 25.680000000000007,
+      "expected_move": 7.449999999999989,
+      "risk": 18.230000000000018
     },
     {
       "ticker": "SBAC",
@@ -161988,6 +165323,7 @@
       "tf": "M",
       "direction": "short",
       "patterns": [
+        "1-3",
         "Shooter"
       ],
       "entry": "reclaim",
@@ -162022,6 +165358,46 @@
       "magnitude": 4.660000000000004,
       "expected_move": 1.3100000000000023,
       "risk": 3.3500000000000014
+    },
+    {
+      "ticker": "SEI",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 67.32,
+      "swing_date": "2026-09-30",
+      "target": 80.28,
+      "target_date": "2026-10-21",
+      "close": 70.7,
+      "bar_extreme": 66.0,
+      "magnitude": 12.960000000000008,
+      "expected_move": 9.579999999999998,
+      "risk": 3.3800000000000097
+    },
+    {
+      "ticker": "SEI",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 70.17,
+      "swing_date": "2026-10-08",
+      "target": 79.31,
+      "target_date": "2026-10-30",
+      "close": 70.7,
+      "bar_extreme": 66.0,
+      "magnitude": 9.14,
+      "expected_move": 8.61,
+      "risk": 0.5300000000000011
     },
     {
       "ticker": "SGI",
@@ -162187,6 +165563,26 @@
     },
     {
       "ticker": "SIMO",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 204.37,
+      "swing_date": "2026-07-31",
+      "target": 294.98,
+      "target_date": "2026-10-30",
+      "close": 208.65,
+      "bar_extreme": 182.4396,
+      "magnitude": 90.61000000000001,
+      "expected_move": 86.33000000000001,
+      "risk": 4.280000000000001
+    },
+    {
+      "ticker": "SIMO",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -162266,6 +165662,26 @@
       "magnitude": 44.900000000000006,
       "expected_move": 24.28,
       "risk": 20.620000000000005
+    },
+    {
+      "ticker": "SNA",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 362.625,
+      "swing_date": "2026-10-26",
+      "target": 353.56,
+      "target_date": "2026-10-30",
+      "close": 355.66,
+      "bar_extreme": 362.915,
+      "magnitude": 9.064999999999998,
+      "expected_move": 2.1000000000000227,
+      "risk": 6.964999999999975
     },
     {
       "ticker": "SNDL",
@@ -163160,6 +166576,7 @@
       "tf": "W",
       "direction": "long",
       "patterns": [
+        "3 Bar",
         "Hammer",
         "Pin Bar"
       ],
@@ -163181,6 +166598,7 @@
       "tf": "W",
       "direction": "long",
       "patterns": [
+        "3 Bar",
         "Hammer",
         "Pin Bar"
       ],
@@ -163527,6 +166945,26 @@
       "magnitude": 2.615000000000002,
       "expected_move": 2.010000000000005,
       "risk": 0.6049999999999969
+    },
+    {
+      "ticker": "TD",
+      "tf": "M",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 115.1201,
+      "swing_date": "2026-08-31",
+      "target": 127.958436,
+      "target_date": "2026-10-30",
+      "close": 124.5,
+      "bar_extreme": 112.67,
+      "magnitude": 12.838336000000012,
+      "expected_move": 3.458436000000006,
+      "risk": 9.379900000000006
     },
     {
       "ticker": "TD",
@@ -163922,6 +167360,66 @@
       "risk": 0.585000000000008
     },
     {
+      "ticker": "TER",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 444.17,
+      "swing_date": "2026-08-31",
+      "target": 266.36,
+      "target_date": "2026-10-30",
+      "close": 274.37,
+      "bar_extreme": 451.86,
+      "magnitude": 177.81,
+      "expected_move": 8.009999999999991,
+      "risk": 169.8
+    },
+    {
+      "ticker": "TFC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 49.24,
+      "swing_date": "2026-09-21",
+      "target": 45.055,
+      "target_date": "2026-10-27",
+      "close": 48.79,
+      "bar_extreme": 49.67,
+      "magnitude": 4.185000000000002,
+      "expected_move": 3.7349999999999994,
+      "risk": 0.45000000000000284
+    },
+    {
+      "ticker": "TFC",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 49.27,
+      "swing_date": "2026-10-27",
+      "target": 48.12,
+      "target_date": "2026-10-30",
+      "close": 48.79,
+      "bar_extreme": 49.67,
+      "magnitude": 1.1500000000000057,
+      "expected_move": 0.6700000000000017,
+      "risk": 0.480000000000004
+    },
+    {
       "ticker": "TGT",
       "tf": "W",
       "direction": "long",
@@ -164149,6 +167647,66 @@
       "magnitude": 19.710000000000008,
       "expected_move": 17.53,
       "risk": 2.180000000000007
+    },
+    {
+      "ticker": "TKO",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 178.5,
+      "swing_date": "2026-07-24",
+      "target": 203.04,
+      "target_date": "2026-10-30",
+      "close": 180.68,
+      "bar_extreme": 170.14,
+      "magnitude": 24.539999999999992,
+      "expected_move": 22.359999999999985,
+      "risk": 2.180000000000007
+    },
+    {
+      "ticker": "TKO",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 180.211,
+      "swing_date": "2026-09-11",
+      "target": 197.81,
+      "target_date": "2026-09-25",
+      "close": 180.68,
+      "bar_extreme": 170.14,
+      "magnitude": 17.59899999999999,
+      "expected_move": 17.129999999999995,
+      "risk": 0.4689999999999941
+    },
+    {
+      "ticker": "TKO",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 170.92,
+      "swing_date": "2026-10-16",
+      "target": 182.04,
+      "target_date": "2026-10-30",
+      "close": 180.68,
+      "bar_extreme": 170.14,
+      "magnitude": 11.120000000000005,
+      "expected_move": 1.3599999999999852,
+      "risk": 9.76000000000002
     },
     {
       "ticker": "TLT",
@@ -164735,6 +168293,66 @@
       "risk": 0.15000000000000568
     },
     {
+      "ticker": "TTD",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 12.42,
+      "swing_date": "2026-10-01",
+      "target": 11.62,
+      "target_date": "2026-10-09",
+      "close": 12.29,
+      "bar_extreme": 13.11,
+      "magnitude": 0.8000000000000007,
+      "expected_move": 0.6699999999999999,
+      "risk": 0.13000000000000078
+    },
+    {
+      "ticker": "TTD",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 12.48,
+      "swing_date": "2026-10-13",
+      "target": 11.71,
+      "target_date": "2026-10-16",
+      "close": 12.29,
+      "bar_extreme": 13.11,
+      "magnitude": 0.7699999999999996,
+      "expected_move": 0.5799999999999983,
+      "risk": 0.19000000000000128
+    },
+    {
+      "ticker": "TVTX",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 49.46,
+      "swing_date": "2026-10-16",
+      "target": 54.83,
+      "target_date": "2026-10-26",
+      "close": 50.39,
+      "bar_extreme": 49.71,
+      "magnitude": 5.369999999999997,
+      "expected_move": 4.439999999999998,
+      "risk": 0.9299999999999997
+    },
+    {
       "ticker": "TVTX",
       "tf": "W",
       "direction": "long",
@@ -164937,6 +168555,26 @@
     },
     {
       "ticker": "UHS",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 190.55,
+      "swing_date": "2026-10-16",
+      "target": 169.125,
+      "target_date": "2026-10-30",
+      "close": 176.05,
+      "bar_extreme": 191.58,
+      "magnitude": 21.42500000000001,
+      "expected_move": 6.925000000000011,
+      "risk": 14.5
+    },
+    {
+      "ticker": "UHS",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -164951,6 +168589,26 @@
       "target_date": "2026-09-18",
       "close": 176.05,
       "bar_extreme": 179.44,
+      "magnitude": 13.509999999999991,
+      "expected_move": 9.620000000000005,
+      "risk": 3.8899999999999864
+    },
+    {
+      "ticker": "UHS",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 179.94,
+      "swing_date": "2026-08-28",
+      "target": 166.43,
+      "target_date": "2026-09-18",
+      "close": 176.05,
+      "bar_extreme": 191.58,
       "magnitude": 13.509999999999991,
       "expected_move": 9.620000000000005,
       "risk": 3.8899999999999864
@@ -165223,6 +168881,46 @@
       "risk": 0.36999999999999744
     },
     {
+      "ticker": "URI",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 1179.18,
+      "swing_date": "2026-08-07",
+      "target": 967.58,
+      "target_date": "2026-10-27",
+      "close": 1170.05,
+      "bar_extreme": 1202.12,
+      "magnitude": 211.60000000000002,
+      "expected_move": 202.4699999999999,
+      "risk": 9.13000000000011
+    },
+    {
+      "ticker": "URI",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 1176.44,
+      "swing_date": "2026-08-17",
+      "target": 967.58,
+      "target_date": "2026-10-27",
+      "close": 1170.05,
+      "bar_extreme": 1202.12,
+      "magnitude": 208.86,
+      "expected_move": 202.4699999999999,
+      "risk": 6.3900000000001
+    },
+    {
       "ticker": "URTH",
       "tf": "W",
       "direction": "long",
@@ -165241,6 +168939,146 @@
       "magnitude": 6.819999999999993,
       "expected_move": 5.730000000000018,
       "risk": 1.089999999999975
+    },
+    {
+      "ticker": "USB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 60.75,
+      "swing_date": "2026-09-22",
+      "target": 55.63,
+      "target_date": "2026-10-29",
+      "close": 59.45,
+      "bar_extreme": 61.05,
+      "magnitude": 5.119999999999997,
+      "expected_move": 3.8200000000000003,
+      "risk": 1.2999999999999972
+    },
+    {
+      "ticker": "USB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 59.52,
+      "swing_date": "2026-09-25",
+      "target": 55.63,
+      "target_date": "2026-10-21",
+      "close": 59.45,
+      "bar_extreme": 61.05,
+      "magnitude": 3.8900000000000006,
+      "expected_move": 3.8200000000000003,
+      "risk": 0.07000000000000028
+    },
+    {
+      "ticker": "USB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 60.49,
+      "swing_date": "2026-10-26",
+      "target": 59.15,
+      "target_date": "2026-10-30",
+      "close": 59.45,
+      "bar_extreme": 61.05,
+      "magnitude": 1.3400000000000034,
+      "expected_move": 0.30000000000000426,
+      "risk": 1.0399999999999991
+    },
+    {
+      "ticker": "USB",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 60.03,
+      "swing_date": "2026-10-22",
+      "target": 58.99,
+      "target_date": "2026-10-26",
+      "close": 59.45,
+      "bar_extreme": 61.05,
+      "magnitude": 1.0399999999999991,
+      "expected_move": 0.46000000000000085,
+      "risk": 0.5799999999999983
+    },
+    {
+      "ticker": "USFR",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 50.51,
+      "swing_date": "2026-07-31",
+      "target": 50.34,
+      "target_date": "2026-10-30",
+      "close": 50.4,
+      "bar_extreme": 50.54,
+      "magnitude": 0.1699999999999946,
+      "expected_move": 0.05999999999999517,
+      "risk": 0.10999999999999943
+    },
+    {
+      "ticker": "USFR",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 50.51,
+      "swing_date": "2026-08-28",
+      "target": 50.35,
+      "target_date": "2026-10-30",
+      "close": 50.4,
+      "bar_extreme": 50.54,
+      "magnitude": 0.1599999999999966,
+      "expected_move": 0.04999999999999716,
+      "risk": 0.10999999999999943
+    },
+    {
+      "ticker": "USFR",
+      "tf": "W",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 50.51,
+      "swing_date": "2026-09-25",
+      "target": 50.36,
+      "target_date": "2026-10-30",
+      "close": 50.4,
+      "bar_extreme": 50.54,
+      "magnitude": 0.14999999999999858,
+      "expected_move": 0.03999999999999915,
+      "risk": 0.10999999999999943
     },
     {
       "ticker": "USMV",
@@ -165725,6 +169563,26 @@
       "risk": 0.035000000000003695
     },
     {
+      "ticker": "VIAV",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 46.66,
+      "swing_date": "2026-08-31",
+      "target": 28.735,
+      "target_date": "2026-10-30",
+      "close": 29.92,
+      "bar_extreme": 48.42,
+      "magnitude": 17.924999999999997,
+      "expected_move": 1.1850000000000023,
+      "risk": 16.739999999999995
+    },
+    {
       "ticker": "VIK",
       "tf": "D",
       "direction": "short",
@@ -165946,6 +169804,66 @@
       "magnitude": 27.350000000000023,
       "expected_move": 5.769999999999982,
       "risk": 21.58000000000004
+    },
+    {
+      "ticker": "VOYA",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 94.86,
+      "swing_date": "2026-08-05",
+      "target": 105.64,
+      "target_date": "2026-09-29",
+      "close": 98.05,
+      "bar_extreme": 95.21,
+      "magnitude": 10.780000000000001,
+      "expected_move": 7.590000000000003,
+      "risk": 3.1899999999999977
+    },
+    {
+      "ticker": "VOYA",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 97.08,
+      "swing_date": "2026-08-20",
+      "target": 105.64,
+      "target_date": "2026-09-22",
+      "close": 98.05,
+      "bar_extreme": 95.21,
+      "magnitude": 8.560000000000002,
+      "expected_move": 7.590000000000003,
+      "risk": 0.9699999999999989
+    },
+    {
+      "ticker": "VOYA",
+      "tf": "D",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 95.65,
+      "swing_date": "2026-10-28",
+      "target": 99.02,
+      "target_date": "2026-10-30",
+      "close": 98.05,
+      "bar_extreme": 95.21,
+      "magnitude": 3.3699999999999903,
+      "expected_move": 0.9699999999999989,
+      "risk": 2.3999999999999915
     },
     {
       "ticker": "VRNS",
@@ -166193,6 +170111,26 @@
       "risk": 4.950000000000003
     },
     {
+      "ticker": "VTV",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 228.5695,
+      "swing_date": "2026-08-19",
+      "target": 214.8001,
+      "target_date": "2026-10-30",
+      "close": 228.02,
+      "bar_extreme": 230.1,
+      "magnitude": 13.769400000000019,
+      "expected_move": 13.219900000000024,
+      "risk": 0.5494999999999948
+    },
+    {
       "ticker": "VTWO",
       "tf": "D",
       "direction": "short",
@@ -166353,6 +170291,46 @@
       "risk": 1.0400000000000063
     },
     {
+      "ticker": "VYM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 165.31,
+      "swing_date": "2026-08-26",
+      "target": 154.24,
+      "target_date": "2026-10-30",
+      "close": 163.74,
+      "bar_extreme": 165.33,
+      "magnitude": 11.069999999999993,
+      "expected_move": 9.5,
+      "risk": 1.5699999999999932
+    },
+    {
+      "ticker": "VYM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 165.055,
+      "swing_date": "2026-09-03",
+      "target": 154.24,
+      "target_date": "2026-10-30",
+      "close": 163.74,
+      "bar_extreme": 165.33,
+      "magnitude": 10.814999999999998,
+      "expected_move": 9.5,
+      "risk": 1.3149999999999977
+    },
+    {
       "ticker": "W",
       "tf": "D",
       "direction": "short",
@@ -166413,6 +170391,66 @@
       "risk": 0.4399999999999977
     },
     {
+      "ticker": "WAL",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 77.6,
+      "swing_date": "2026-10-02",
+      "target": 71.295,
+      "target_date": "2026-10-30",
+      "close": 76.29,
+      "bar_extreme": 77.995,
+      "magnitude": 6.304999999999993,
+      "expected_move": 4.9950000000000045,
+      "risk": 1.309999999999988
+    },
+    {
+      "ticker": "WAL",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 76.8096,
+      "swing_date": "2026-10-16",
+      "target": 73.34,
+      "target_date": "2026-10-22",
+      "close": 76.29,
+      "bar_extreme": 77.995,
+      "magnitude": 3.4696,
+      "expected_move": 2.950000000000003,
+      "risk": 0.519599999999997
+    },
+    {
+      "ticker": "WAL",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 77.31,
+      "swing_date": "2026-10-23",
+      "target": 74.8,
+      "target_date": "2026-10-30",
+      "close": 76.29,
+      "bar_extreme": 77.995,
+      "magnitude": 2.510000000000005,
+      "expected_move": 1.490000000000009,
+      "risk": 1.019999999999996
+    },
+    {
       "ticker": "WBD",
       "tf": "D",
       "direction": "short",
@@ -166433,6 +170471,26 @@
       "magnitude": 0.03999999999999915,
       "expected_move": 0.019999999999999574,
       "risk": 0.019999999999999574
+    },
+    {
+      "ticker": "WCC",
+      "tf": "M",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 385.3699,
+      "swing_date": "2026-08-31",
+      "target": 312.94,
+      "target_date": "2026-10-30",
+      "close": 343.11,
+      "bar_extreme": 388.64,
+      "magnitude": 72.42989999999998,
+      "expected_move": 30.170000000000016,
+      "risk": 42.25989999999996
     },
     {
       "ticker": "WCC",
@@ -166782,6 +170840,7 @@
       "tf": "M",
       "direction": "short",
       "patterns": [
+        "1-3",
         "Shooter",
         "Pin Bar"
       ],
@@ -166860,6 +170919,26 @@
     },
     {
       "ticker": "WPC",
+      "tf": "W",
+      "direction": "long",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 62.24,
+      "swing_date": "2026-10-09",
+      "target": 65.5,
+      "target_date": "2026-10-30",
+      "close": 64.1,
+      "bar_extreme": 62.19,
+      "magnitude": 3.259999999999998,
+      "expected_move": 1.4000000000000057,
+      "risk": 1.8599999999999923
+    },
+    {
+      "ticker": "WPC",
       "tf": "D",
       "direction": "short",
       "patterns": [
@@ -166880,6 +170959,26 @@
     },
     {
       "ticker": "WSM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 254.89,
+      "swing_date": "2026-08-11",
+      "target": 216.68,
+      "target_date": "2026-10-16",
+      "close": 252.72,
+      "bar_extreme": 263.65,
+      "magnitude": 38.20999999999998,
+      "expected_move": 36.03999999999999,
+      "risk": 2.1699999999999875
+    },
+    {
+      "ticker": "WSM",
       "tf": "W",
       "direction": "short",
       "patterns": [
@@ -166897,6 +170996,46 @@
       "magnitude": 38.20999999999998,
       "expected_move": 36.03999999999999,
       "risk": 2.1699999999999875
+    },
+    {
+      "ticker": "WSM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 261.11,
+      "swing_date": "2026-10-22",
+      "target": 247.19,
+      "target_date": "2026-10-30",
+      "close": 252.72,
+      "bar_extreme": 263.65,
+      "magnitude": 13.920000000000016,
+      "expected_move": 5.530000000000001,
+      "risk": 8.390000000000015
+    },
+    {
+      "ticker": "WSM",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 255.33,
+      "swing_date": "2026-10-16",
+      "target": 246.445,
+      "target_date": "2026-10-20",
+      "close": 252.72,
+      "bar_extreme": 263.65,
+      "magnitude": 8.88500000000002,
+      "expected_move": 6.275000000000006,
+      "risk": 2.6100000000000136
     },
     {
       "ticker": "WSO",
@@ -166937,6 +171076,26 @@
       "magnitude": 35.77999999999997,
       "expected_move": 32.879999999999995,
       "risk": 2.8999999999999773
+    },
+    {
+      "ticker": "WSO",
+      "tf": "M",
+      "direction": "long",
+      "patterns": [
+        "1-3"
+      ],
+      "entry": "reclaim",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 295.75,
+      "swing_date": "2026-08-31",
+      "target": 330.65,
+      "target_date": "2026-10-30",
+      "close": 303.56,
+      "bar_extreme": 277.34,
+      "magnitude": 34.89999999999998,
+      "expected_move": 27.089999999999975,
+      "risk": 7.810000000000002
     },
     {
       "ticker": "WSO",
@@ -167441,6 +171600,26 @@
       "magnitude": 11.189999999999998,
       "expected_move": 10.700000000000003,
       "risk": 0.4899999999999949
+    },
+    {
+      "ticker": "Z",
+      "tf": "D",
+      "direction": "short",
+      "patterns": [
+        "3 Bar"
+      ],
+      "entry": "retest",
+      "date": "2026-10-30",
+      "bars_ago": 0,
+      "level": 31.59,
+      "swing_date": "2026-09-22",
+      "target": 26.67,
+      "target_date": "2026-10-16",
+      "close": 30.96,
+      "bar_extreme": 31.525,
+      "magnitude": 4.919999999999998,
+      "expected_move": 4.289999999999999,
+      "risk": 0.629999999999999
     },
     {
       "ticker": "ZBH",
