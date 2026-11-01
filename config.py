@@ -250,11 +250,13 @@ class ScannerConfig:
                                               # this cap is exceeded
 
     # Timeframes to run detection on (scanner-specific — the original runs
-    # on whatever single chart TF is loaded). Monthly excluded by default:
-    # swing detection here is a fixed 1-bar pivot (no configurable length),
-    # and a ~4-bar monthly window gives too few pivots for the "largest
-    # active setup by magnitude" ranking to mean much.
-    bf_timeframes: list[str] = field(default_factory=lambda: ["D", "W"])
+    # on whatever single chart TF is loaded). Monthly is included so the
+    # dashboard's Monthly filter has data, but it is SPARSE: swing detection
+    # is a fixed 1-bar pivot and the default 120-day window yields only
+    # ~4-5 monthly bars (~6% of tickers show an active M setup in a random-
+    # walk simulation vs most on D/W). Raise history_calendar_days to get
+    # a deeper monthly sample.
+    bf_timeframes: list[str] = field(default_factory=lambda: ["D", "W", "M"])
 
     # -----------------------------------------------------------------
     # Reversal INTO the BF range
