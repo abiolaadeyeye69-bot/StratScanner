@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write
 
+# Never let two result-publishing runs push at the same time.
+concurrency:
+  group: results-publish
+  cancel-in-progress: false
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -59,7 +64,15 @@ jobs:
             echo "No change in results, nothing to commit."
           else
             git commit -m "Update latest scan results [skip ci]"
-            git push
+            for attempt in 1 2 3; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push; then
+                exit 0
+              fi
+              echo "push attempt ${attempt} failed, retrying..."
+              sleep 5
+            done
+            echo "Could not push results after 3 attempts" >&2
+            exit 1
           fi
 
 # Wake scheduler — ensure cron fires on schedule
