@@ -1,0 +1,61 @@
+name: Intraday Index Simultaneous Break Scan
+
+on:
+  schedule:
+    # Every 30 minutes, 13:00–21:30 UTC Mon-Fri.
+    # Covers both EDT (13:30-20:00 UTC) and EST (14:30-21:00 UTC) market
+    # hours with buffer.  The Python script skips runs outside 9:30-16:00 ET.
+    - cron: "0,30 13-21 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Only one intraday scan at a time; if a new one is triggered while
+# the previous is still running, wait (don't cancel — we want the
+# sent log written).
+concurrency:
+  group: intraday-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install yfinance requests
+
+      - name: Run intraday scanner
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python intraday_scanner.py --results-dir results
+
+      - name: Commit sent log if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/intraday_sent.json
+          if git diff --cached --quiet; then
+            echo "No new alerts sent, nothing to commit."
+          else
+            git commit -m "Update intraday sent log [skip ci]"
+            for attempt in 1 2 3; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push; then
+                exit 0
+              fi
+              echo "push attempt ${attempt} failed, retrying..."
+              sleep 3
+            done
+            echo "Could not push sent log after 3 attempts" >&2
+            exit 1
+          fi
