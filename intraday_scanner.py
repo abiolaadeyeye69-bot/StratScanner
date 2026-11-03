@@ -3,7 +3,7 @@
 Intraday Index Simultaneous Break Scanner
 ==========================================
 
-Monitors SPY, QQQ, DIA, IWM on 60-minute bars and detects STRAT patterns:
+Monitors SPY, QQQ, DIA, IWM on 30-minute bars and detects STRAT patterns:
   * Inside bars (1s)
   * Failed 2s
   * 1-3s (inside bar → outside bar)
@@ -12,7 +12,7 @@ Monitors SPY, QQQ, DIA, IWM on 60-minute bars and detects STRAT patterns:
   * 3-Failed 2 (outside bar → failed 2)
 
 When 2+ indexes form the same pattern in the same direction on the same
-60-minute bar, that's an Intraday Index Simultaneous Break — the highest-
+30-minute bar, that's an Intraday Index Simultaneous Break — the highest-
 conviction intraday signal in The Strat framework.
 
 Every alert shows ALL four indexes (SPY, QQQ, DIA, IWM) so you always
@@ -78,7 +78,7 @@ PATTERN_LABELS = {
 # ---------------------------------------------------------------------------
 @dataclass
 class Bar60:
-    """One 60-minute OHLC bar with timestamp."""
+    """One 30-minute OHLC bar with timestamp."""
     timestamp: datetime
     open: float
     high: float
@@ -113,21 +113,21 @@ class BarInfo:
 
 
 # ---------------------------------------------------------------------------
-# Data fetching — yfinance 60-minute bars
+# Data fetching — yfinance 30-minute bars
 # ---------------------------------------------------------------------------
 def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
-    """Fetch 60-minute bars for *symbols* over the last *days* trading days.
+    """Fetch 30-minute bars for *symbols* over the last *days* trading days.
 
     Returns a dict mapping each symbol to a chronologically sorted list of
     Bar60 objects.
     """
     import yfinance as yf
 
-    logger.info("Fetching %dd of 60-min bars for %s", days, ", ".join(symbols))
+    logger.info("Fetching %dd of 30-min bars for %s", days, ", ".join(symbols))
     df = yf.download(
         symbols,
         period=f"{days}d",
-        interval="1h",
+        interval="30m",
         auto_adjust=False,
         progress=False,
         threads=True,
@@ -186,7 +186,7 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
 # Pattern detection per symbol
 # ---------------------------------------------------------------------------
 def _detect_patterns(bars: list[Bar60], symbol: str) -> tuple[list[PatternHit], Optional[BarInfo]]:
-    """Detect the six STRAT patterns on the latest COMPLETE 60-min bar.
+    """Detect the six STRAT patterns on the latest COMPLETE 30-min bar.
 
     Returns (hits, bar_info) where bar_info is the current bar state for
     the market overview.  Requires at least 4 consecutive bars: CC, C1, C2, C3.
@@ -427,7 +427,7 @@ def format_alert(result: dict) -> list[str]:
         bar_ts = result["latest_bar"].strftime(" · bar %H:%M")
 
     head = (f"<b>\U0001f514 Intraday Index STRAT Scan</b>\n"
-            f"<i>{html.escape(ts)}{html.escape(bar_ts)} · 60-min bars</i>")
+            f"<i>{html.escape(ts)}{html.escape(bar_ts)} · 30-min bars</i>")
     blocks: list[str] = [head]
 
     # --- Market overview — ALWAYS show ALL indexes -----------------------
@@ -661,7 +661,7 @@ def run(results_dir: Path, *, dry_run: bool = False,
         sent = dict(sorted(sent.items(),
                             key=lambda kv: kv[1].get("at", ""))[-1000:])
     results_dir.mkdir(parents=True, exist_ok=True)
-    sent_path.write_text(json.dumps(sent, separators=(",", ":")))
+    sent_path.write_text(json.dumps(sent, separators=(",",":")))
 
     summary["sent"] = len(msgs)
     summary["state_changed"] = True

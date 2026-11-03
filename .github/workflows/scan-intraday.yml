@@ -2,10 +2,11 @@ name: Intraday Index Simultaneous Break Scan
 
 on:
   schedule:
-    # Every 30 minutes, 13:00–21:30 UTC Mon-Fri.
-    # Covers both EDT (13:30-20:00 UTC) and EST (14:30-21:00 UTC) market
-    # hours with buffer.  The Python script skips runs outside 9:30-16:00 ET.
-    - cron: "0,30 13-21 * * 1-5"
+    # Every 30 minutes at :25 and :55 — 5 min early to compensate for
+    # GitHub Actions cron delay (~3-8 min), so actual execution lands
+    # near :30 and :00 when 30-min bars close.
+    # Range 13:25–21:55 UTC covers EDT and EST market hours with buffer.
+    - cron: "25,55 13-21 * * 1-5"
   workflow_dispatch: {}
 
 permissions:
