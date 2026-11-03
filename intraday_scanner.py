@@ -15,6 +15,9 @@ When 2+ indexes form the same pattern in the same direction on the same
 60-minute bar, that's an Intraday Index Simultaneous Break — the highest-
 conviction intraday signal in The Strat framework.
 
+Every alert shows ALL four indexes (SPY, QQQ, DIA, IWM) so you always
+have the full market picture before entering a trade.
+
 Usage:
     python intraday_scanner.py                # scan & alert
     python intraday_scanner.py --dry-run      # print without sending
@@ -91,10 +94,22 @@ class PatternHit:
     bar_time: datetime       # bar's timestamp
     pattern: str             # key into PATTERN_LABELS
     direction: str           # "bullish", "bearish", "neutral"
-    bar_type: str            # CC bar type: "1u", "2u", "2d", "3u", "3d", …
-    combo: str               # STRAT combo notation, e.g. "2d-1-2u"
+    bar_type: str            # CC display type: "1u", "2u", "F2d", "3u", …
+    combo: str               # STRAT combo notation with F2 prefix, e.g. "2u-F2d-1d"
     close: float
     detail: str = ""
+
+
+@dataclass
+class BarInfo:
+    """Current bar state for one index — used in the market overview."""
+    symbol: str
+    bar_time: datetime
+    combo: str               # 3-bar STRAT combo with F2 notation, e.g. "2d-F2d-1u"
+    cc_display: str          # CC bar type with F2 prefix if applicable
+    close: float
+    direction: str           # "bullish" or "bearish" (based on CC open vs close)
+    patterns: list[str] = field(default_factory=list)  # short pattern tags
 
 
 # ---------------------------------------------------------------------------
@@ -170,13 +185,14 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
 # ---------------------------------------------------------------------------
 # Pattern detection per symbol
 # ---------------------------------------------------------------------------
-def _detect_patterns(bars: list[Bar60], symbol: str) -> list[PatternHit]:
+def _detect_patterns(bars: list[Bar60], symbol: str) -> tuple[list[PatternHit], Optional[BarInfo]]:
     """Detect the six STRAT patterns on the latest COMPLETE 60-min bar.
 
-    Requires at least 4 consecutive bars: CC, C1, C2, C3.
+    Returns (hits, bar_info) where bar_info is the current bar state for
+    the market overview.  Requires at least 4 consecutive bars: CC, C1, C2, C3.
     """
     if len(bars) < 4:
-        return []
+        return [], None
 
     cc, c1, c2, c3 = bars[-1], bars[-2], bars[-3], bars[-4]
 
@@ -188,79 +204,123 @@ def _detect_patterns(bars: list[Bar60], symbol: str) -> list[PatternHit]:
     c2_cls: BarClassification = classify_bar(
         c3.high, c3.low, c2.high, c2.low, c2.open, c2.close)
 
-    cc_type = cc_cls.bar_type       # e.g. "2u", "1d", "3u"
+    cc_type = cc_cls.bar_type       # raw type: "2u", "1d", "3u", etc.
     c1_type = c1_cls.bar_type
     c2_type = c2_cls.bar_type
-    combo = f"{c2_type}-{c1_type}-{cc_type}"
 
-    # --- Failed 2 detection ----------------------------------------------
-    f2: Failed2Result = detect_failed_2(
+    # --- Failed 2 detection on each bar relative to its predecessor ------
+    f2_cc: Failed2Result = detect_failed_2(
         c1.high, c1.low, cc.open, cc.close, cc.high, cc.low, method="Reclaim")
+    f2_c1: Failed2Result = detect_failed_2(
+        c2.high, c2.low, c1.open, c1.close, c1.high, c1.low, method="Reclaim")
+    f2_c2: Failed2Result = detect_failed_2(
+        c3.high, c3.low, c2.open, c2.close, c2.high, c2.low, method="Reclaim")
+
+    # --- Build display types with F2 prefix where applicable -------------
+    cc_display = cc_type
+    if f2_cc.is_f2u:
+        cc_display = "F2u"
+    elif f2_cc.is_f2d:
+        cc_display = "F2d"
+
+    c1_display = c1_type
+    if f2_c1.is_f2u:
+        c1_display = "F2u"
+    elif f2_c1.is_f2d:
+        c1_display = "F2d"
+
+    c2_display = c2_type
+    if f2_c2.is_f2u:
+        c2_display = "F2u"
+    elif f2_c2.is_f2d:
+        c2_display = "F2d"
+
+    combo = f"{c2_display}-{c1_display}-{cc_display}"
+
+    # --- Bar overview info -----------------------------------------------
+    bar_direction = "bullish" if cc.close >= cc.open else "bearish"
 
     hits: list[PatternHit] = []
+    detected_labels: list[str] = []
     bt = cc.timestamp
 
     # 1. Inside Bar — CC is a 1 (inside C1's range)
     if cc_cls.is_inside:
         hits.append(PatternHit(
             symbol=symbol, bar_time=bt, pattern="inside_bar",
-            direction="neutral", bar_type=cc_type, combo=combo,
+            direction="neutral", bar_type=cc_display, combo=combo,
             close=cc.close,
             detail="Coiling — watch for break of range"))
+        detected_labels.append("Inside")
 
     # 2. Failed 2 — CC broke one side of C1 but closed back inside
     #    is_f2u = broke UP and failed → bearish reversal
     #    is_f2d = broke DOWN and failed → bullish reversal
-    has_f2 = f2.is_f2u or f2.is_f2d
+    has_f2 = f2_cc.is_f2u or f2_cc.is_f2d
     if has_f2:
-        f2_dir = "bearish" if f2.is_f2u else "bullish"
+        f2_dir = "bearish" if f2_cc.is_f2u else "bullish"
         hits.append(PatternHit(
             symbol=symbol, bar_time=bt, pattern="failed_2",
-            direction=f2_dir, bar_type=cc_type, combo=combo,
+            direction=f2_dir, bar_type=cc_display, combo=combo,
             close=cc.close,
-            detail=f"Broke {'high' if f2.is_f2u else 'low'} but reclaimed"))
+            detail=f"Broke {'high' if f2_cc.is_f2u else 'low'} but reclaimed"))
+        detected_labels.append(cc_display)  # "F2u" or "F2d"
 
     # 3. 1-3 — C1 was inside (1), CC is outside (3)
     if c1_cls.is_inside and cc_cls.is_3:
         d = "bullish" if cc_type == "3u" else "bearish"
         hits.append(PatternHit(
             symbol=symbol, bar_time=bt, pattern="1_3",
-            direction=d, bar_type=cc_type, combo=combo,
+            direction=d, bar_type=cc_display, combo=combo,
             close=cc.close,
             detail="Inside → Outside expansion"))
+        detected_labels.append("1-3")
 
     # 4. 2-2 Reversal — C1 was a 2 in one direction, CC is a 2 the other way
-    c1_is_2u = c1_cls.bar_type == "2u"
-    c1_is_2d = c1_cls.bar_type == "2d"
-    cc_is_2u = cc_cls.bar_type == "2u"
-    cc_is_2d = cc_cls.bar_type == "2d"
+    c1_is_2u = c1_type == "2u"
+    c1_is_2d = c1_type == "2d"
+    cc_is_2u = cc_type == "2u"
+    cc_is_2d = cc_type == "2d"
     if (c1_is_2u and cc_is_2d) or (c1_is_2d and cc_is_2u):
         d = "bullish" if cc_is_2u else "bearish"
         hits.append(PatternHit(
             symbol=symbol, bar_time=bt, pattern="22_rev",
-            direction=d, bar_type=cc_type, combo=combo,
+            direction=d, bar_type=cc_display, combo=combo,
             close=cc.close,
-            detail=f"{c1_type}→{cc_type} reversal"))
+            detail=f"{c1_display}→{cc_display} reversal"))
+        detected_labels.append("2-2 Rev")
 
     # 5. 1-Failed 2 — C1 was inside, CC is a failed 2
     if c1_cls.is_inside and has_f2:
-        f2_dir = "bearish" if f2.is_f2u else "bullish"
+        f2_dir = "bearish" if f2_cc.is_f2u else "bullish"
         hits.append(PatternHit(
             symbol=symbol, bar_time=bt, pattern="1_failed_2",
-            direction=f2_dir, bar_type=cc_type, combo=combo,
+            direction=f2_dir, bar_type=cc_display, combo=combo,
             close=cc.close,
             detail="Inside → Failed 2 (high conviction)"))
+        detected_labels.append("1-F2")
 
     # 6. 3-Failed 2 — C1 was outside (3), CC is a failed 2
     if c1_cls.is_3 and has_f2:
-        f2_dir = "bearish" if f2.is_f2u else "bullish"
+        f2_dir = "bearish" if f2_cc.is_f2u else "bullish"
         hits.append(PatternHit(
             symbol=symbol, bar_time=bt, pattern="3_failed_2",
-            direction=f2_dir, bar_type=cc_type, combo=combo,
+            direction=f2_dir, bar_type=cc_display, combo=combo,
             close=cc.close,
             detail="Outside → Failed 2 (exhaustion reversal)"))
+        detected_labels.append("3-F2")
 
-    return hits
+    bar_info = BarInfo(
+        symbol=symbol,
+        bar_time=cc.timestamp,
+        combo=combo,
+        cc_display=cc_display,
+        close=cc.close,
+        direction=bar_direction,
+        patterns=detected_labels,
+    )
+
+    return hits, bar_info
 
 
 # ---------------------------------------------------------------------------
@@ -269,12 +329,21 @@ def _detect_patterns(bars: list[Bar60], symbol: str) -> list[PatternHit]:
 def scan_all(bar_data: dict[str, list[Bar60]]) -> dict:
     """Run pattern detection on every index and find simultaneous breaks.
 
-    Returns a result dict with 'simultaneous', 'individual', and metadata.
+    Returns a result dict with 'simultaneous', 'individual', 'overview',
+    and metadata.
     """
     all_hits: dict[str, list[PatternHit]] = {}
-    for sym, bars in bar_data.items():
+    overview: list[BarInfo] = []
+
+    for sym in INDEXES:
+        bars = bar_data.get(sym, [])
         if bars:
-            all_hits[sym] = _detect_patterns(bars, sym)
+            hits, bar_info = _detect_patterns(bars, sym)
+            all_hits[sym] = hits
+            if bar_info:
+                overview.append(bar_info)
+        else:
+            all_hits[sym] = []
 
     # Group by (pattern, direction) to find simultaneous occurrences
     groups: dict[tuple[str, str], list[PatternHit]] = defaultdict(list)
@@ -318,6 +387,7 @@ def scan_all(bar_data: dict[str, list[Bar60]]) -> dict:
         "simultaneous": simultaneous,
         "individual": individual,
         "all_hits": all_hits,
+        "overview": overview,
         "scan_time": scan_time,
         "latest_bar": latest_bar,
     }
@@ -339,9 +409,15 @@ def _fmt(v: float) -> str:
 
 
 def format_alert(result: dict) -> list[str]:
-    """Build one or more HTML messages for Telegram (split under MAX_LEN)."""
+    """Build one or more HTML messages for Telegram (split under MAX_LEN).
+
+    Every alert starts with the INDEX STATUS showing all four indexes,
+    followed by simultaneous breaks and individual patterns.
+    """
     sim = result["simultaneous"]
     ind = result["individual"]
+    overview = result.get("overview", [])
+
     if not sim and not ind:
         return []
 
@@ -354,7 +430,21 @@ def format_alert(result: dict) -> list[str]:
             f"<i>{html.escape(ts)}{html.escape(bar_ts)} · 60-min bars</i>")
     blocks: list[str] = [head]
 
-    # --- Simultaneous breaks (the headline) ---
+    # --- Market overview — ALWAYS show ALL indexes -----------------------
+    if overview:
+        blocks.append("\n\n<b>\U0001f4ca INDEX STATUS</b>")
+        for bi in overview:
+            arrow = _dir_emoji(bi.direction)
+            link = TV + urllib.parse.quote(bi.symbol)
+            pat_tag = ""
+            if bi.patterns:
+                pat_tag = f"  ← <i>{', '.join(bi.patterns)}</i>"
+            blocks.append(
+                f'\n  <a href="{link}"><b>{html.escape(bi.symbol)}</b></a>'
+                f'  <code>{html.escape(bi.combo)}</code>'
+                f'  @ {_fmt(bi.close)}  {arrow}{pat_tag}')
+
+    # --- Simultaneous breaks (the headline) ------------------------------
     if sim:
         blocks.append("\n\n<b>⚡ SIMULTANEOUS BREAKS</b>")
         for s in sim:
@@ -369,11 +459,11 @@ def format_alert(result: dict) -> list[str]:
                 link = TV + urllib.parse.quote(h.symbol)
                 blocks.append(
                     f'  <a href="{link}">{html.escape(h.symbol)}</a> '
-                    f'{html.escape(h.combo)} @ {_fmt(h.close)}')
+                    f'<code>{html.escape(h.combo)}</code> @ {_fmt(h.close)}')
 
-    # --- Individual patterns ---
+    # --- Individual patterns (not part of a sim break) -------------------
     if ind:
-        blocks.append("\n\n<b>\U0001f4ca INDIVIDUAL PATTERNS</b>")
+        blocks.append("\n\n<b>\U0001f50d PATTERNS DETECTED</b>")
         for h in ind:
             arrow = _dir_emoji(h.direction)
             label = PATTERN_LABELS.get(h.pattern, h.pattern)
@@ -381,7 +471,8 @@ def format_alert(result: dict) -> list[str]:
             blocks.append(
                 f'\n{arrow} <a href="{link}"><b>{html.escape(h.symbol)}</b></a>'
                 f' · {html.escape(label)}\n'
-                f'  {html.escape(h.combo)} @ {_fmt(h.close)}')
+                f'  <code>{html.escape(h.combo)}</code> @ {_fmt(h.close)}'
+                f'{" — " + html.escape(h.detail) if h.detail else ""}')
 
     # Merge blocks and split into messages under Telegram's limit
     text = "".join(blocks)
@@ -408,7 +499,11 @@ def _sent_key(h: PatternHit) -> str:
 
 
 def _filter_new(result: dict, sent: dict) -> dict:
-    """Remove already-sent hits from the result; return a new result dict."""
+    """Remove already-sent hits from the result; return a new result dict.
+
+    The 'overview' key is preserved so the INDEX STATUS section always
+    shows all four indexes.
+    """
     def _is_new(h: PatternHit) -> bool:
         return _sent_key(h) not in sent
 
