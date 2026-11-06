@@ -2,7 +2,7 @@ name: Daily STRAT Scan
 
 on:
   schedule:
-    - cron: "30 21 * * 1-5"   # 21:30 UTC, Mon-Fri — after US market close
+    - cron: "0 21 * * 1-5"   # 21:00 UTC, Mon-Fri — right at US market close
   workflow_dispatch: {}
 
 permissions:

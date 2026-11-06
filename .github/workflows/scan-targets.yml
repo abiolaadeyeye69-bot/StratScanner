@@ -1,13 +1,13 @@
 name: Strat Targets Scan (Stocks)
 
 # Runs the Strat Targets engine over the stock universe on 60m / D / W / M bars.
-# 22:15 UTC is after the US close in both EDT and EST, and after the nightly
-# scan (21:30 UTC) has published results/latest.json, which supplies the
+# 21:40 UTC is after the US close in both EDT and EST, and after the nightly
+# scan (21:00 UTC) has published results/latest.json, which supplies the
 # universe. Data is Yahoo Finance (no API key).
 
 on:
   schedule:
-    - cron: "15 22 * * 1-5"
+    - cron: "40 21 * * 1-5"
   workflow_dispatch: {}
 
 permissions:
