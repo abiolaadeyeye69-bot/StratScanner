@@ -45,7 +45,7 @@ import urllib.parse
 import urllib.request
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
@@ -180,6 +180,24 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
                      sym, len(bars),
                      bars[-1].timestamp.strftime("%Y-%m-%d %H:%M %Z") if bars else "–")
     return result
+
+
+BAR_MINUTES = 30
+SETTLE_SECONDS = 60   # let the feed finalise a just-closed bar
+
+
+def drop_forming_bars(bars: list, now: Optional[datetime] = None) -> list:
+    """Keep only COMPLETE 30-minute bars.
+
+    Yahoo returns the in-progress bar as the last row. Its timestamp is the bar
+    START, so a bar is complete once start + 30 min (+ a short settle) is in the
+    past. Classifying a forming bar produced false alerts: a bar one minute old
+    is trivially an inside bar, and a bar four minutes from the close can still
+    flip to a 2.
+    """
+    now = now or datetime.now(ET)
+    cutoff = timedelta(minutes=BAR_MINUTES, seconds=SETTLE_SECONDS)
+    return [b for b in bars if b.timestamp + cutoff <= now]
 
 
 # ---------------------------------------------------------------------------
@@ -566,12 +584,13 @@ def send_telegram(token: str, chat_id: str, text: str,
 # Market hours check
 # ---------------------------------------------------------------------------
 def is_market_hours() -> bool:
-    """Rough check: 9:30–16:00 ET, weekdays only."""
+    """Rough check: 9:30–16:10 ET, weekdays only. The window runs a few minutes
+    past the close so the final 15:30 bar (complete at 16:00) can be scanned."""
     now = datetime.now(ET)
     if now.weekday() >= 5:
         return False
     t = now.hour * 60 + now.minute
-    return 9 * 60 + 30 <= t <= 16 * 60
+    return 9 * 60 + 30 <= t <= 16 * 60 + 10
 
 
 # ---------------------------------------------------------------------------
@@ -588,6 +607,7 @@ def run(results_dir: Path, *, dry_run: bool = False,
 
     # --- Fetch data -------------------------------------------------------
     bar_data = fetch_bars(INDEXES, days=5)
+    bar_data = {sym: drop_forming_bars(b) for sym, b in bar_data.items()}
     if not bar_data or all(len(b) == 0 for b in bar_data.values()):
         logger.error("No bar data fetched.")
         return {"status": "no_data", "sent": 0}
