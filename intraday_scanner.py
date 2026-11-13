@@ -45,7 +45,7 @@ import urllib.parse
 import urllib.request
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
@@ -180,6 +180,25 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
                      sym, len(bars),
                      bars[-1].timestamp.strftime("%Y-%m-%d %H:%M %Z") if bars else "–")
     return result
+
+
+BAR_MINUTES = 30
+MIN_BAR_AGE_MIN = 20   # a forming bar is only trusted once it is this far in
+
+
+def drop_forming_bars(bars: list, now: Optional[datetime] = None) -> list:
+    """Drop bars that are too young to classify.
+
+    Yahoo returns the in-progress bar as the last row; its timestamp is the bar
+    START. The schedule fires at :25/:55 on purpose, to alert a few minutes before
+    the bar closes, so a bar 20+ minutes old is kept (provisional, flagged in the
+    alert). A bar younger than that is dropped, so a delayed run falls back to
+    the last COMPLETE bar instead of classifying a bar seconds old, which is
+    trivially an inside bar (2026-11-13 10:31 ET: four false inside bars).
+    """
+    now = now or datetime.now(ET)
+    cutoff = timedelta(minutes=MIN_BAR_AGE_MIN)
+    return [b for b in bars if b.timestamp + cutoff <= now]
 
 
 # ---------------------------------------------------------------------------
@@ -428,6 +447,10 @@ def format_alert(result: dict) -> list[str]:
 
     head = (f"<b>\U0001f514 Intraday Index STRAT Scan</b>\n"
             f"<i>{html.escape(ts)}{html.escape(bar_ts)} · 30-min bars</i>")
+    lb = result.get("latest_bar")
+    if lb is not None and lb + timedelta(minutes=BAR_MINUTES) > result["scan_time"]:
+        close_at = (lb + timedelta(minutes=BAR_MINUTES)).strftime("%H:%M")
+        head += f"\n⏳ <i>Bar still forming, closes {close_at}. Provisional until then.</i>"
     blocks: list[str] = [head]
 
     # --- Market overview — ALWAYS show ALL indexes -----------------------
@@ -588,6 +611,7 @@ def run(results_dir: Path, *, dry_run: bool = False,
 
     # --- Fetch data -------------------------------------------------------
     bar_data = fetch_bars(INDEXES, days=5)
+    bar_data = {sym: drop_forming_bars(b) for sym, b in bar_data.items()}
     if not bar_data or all(len(b) == 0 for b in bar_data.values()):
         logger.error("No bar data fetched.")
         return {"status": "no_data", "sent": 0}
