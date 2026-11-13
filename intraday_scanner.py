@@ -183,20 +183,21 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
 
 
 BAR_MINUTES = 30
-SETTLE_SECONDS = 60   # let the feed finalise a just-closed bar
+MIN_BAR_AGE_MIN = 20   # a forming bar is only trusted once it is this far in
 
 
 def drop_forming_bars(bars: list, now: Optional[datetime] = None) -> list:
-    """Keep only COMPLETE 30-minute bars.
+    """Drop bars that are too young to classify.
 
-    Yahoo returns the in-progress bar as the last row. Its timestamp is the bar
-    START, so a bar is complete once start + 30 min (+ a short settle) is in the
-    past. Classifying a forming bar produced false alerts: a bar one minute old
-    is trivially an inside bar, and a bar four minutes from the close can still
-    flip to a 2.
+    Yahoo returns the in-progress bar as the last row; its timestamp is the bar
+    START. The schedule fires at :25/:55 on purpose, to alert a few minutes before
+    the bar closes, so a bar 20+ minutes old is kept (provisional, flagged in the
+    alert). A bar younger than that is dropped, so a delayed run falls back to
+    the last COMPLETE bar instead of classifying a bar seconds old, which is
+    trivially an inside bar (2026-11-13 10:31 ET: four false inside bars).
     """
     now = now or datetime.now(ET)
-    cutoff = timedelta(minutes=BAR_MINUTES, seconds=SETTLE_SECONDS)
+    cutoff = timedelta(minutes=MIN_BAR_AGE_MIN)
     return [b for b in bars if b.timestamp + cutoff <= now]
 
 
@@ -446,6 +447,10 @@ def format_alert(result: dict) -> list[str]:
 
     head = (f"<b>\U0001f514 Intraday Index STRAT Scan</b>\n"
             f"<i>{html.escape(ts)}{html.escape(bar_ts)} · 30-min bars</i>")
+    lb = result.get("latest_bar")
+    if lb is not None and lb + timedelta(minutes=BAR_MINUTES) > result["scan_time"]:
+        close_at = (lb + timedelta(minutes=BAR_MINUTES)).strftime("%H:%M")
+        head += f"\n⏳ <i>Bar still forming, closes {close_at}. Provisional until then.</i>"
     blocks: list[str] = [head]
 
     # --- Market overview — ALWAYS show ALL indexes -----------------------
@@ -584,13 +589,12 @@ def send_telegram(token: str, chat_id: str, text: str,
 # Market hours check
 # ---------------------------------------------------------------------------
 def is_market_hours() -> bool:
-    """Rough check: 9:30–16:10 ET, weekdays only. The window runs a few minutes
-    past the close so the final 15:30 bar (complete at 16:00) can be scanned."""
+    """Rough check: 9:30–16:00 ET, weekdays only."""
     now = datetime.now(ET)
     if now.weekday() >= 5:
         return False
     t = now.hour * 60 + now.minute
-    return 9 * 60 + 30 <= t <= 16 * 60 + 10
+    return 9 * 60 + 30 <= t <= 16 * 60
 
 
 # ---------------------------------------------------------------------------
