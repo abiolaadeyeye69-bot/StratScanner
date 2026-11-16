@@ -130,7 +130,7 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
         interval="30m",
         auto_adjust=False,
         progress=False,
-        threads=True,
+        threads=False,   # threaded downloads race on yfinance's SQLite tz cache ('database is locked')
     )
 
     if df is None or df.empty:
@@ -180,6 +180,32 @@ def fetch_bars(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
                      sym, len(bars),
                      bars[-1].timestamp.strftime("%Y-%m-%d %H:%M %Z") if bars else "–")
     return result
+
+
+FETCH_RETRIES = 3
+FETCH_RETRY_SLEEP = 2.0
+
+
+def fetch_bars_with_retry(symbols: list[str], days: int = 5) -> dict[str, list[Bar60]]:
+    """fetch_bars, then re-fetch any symbol that came back empty.
+
+    yfinance intermittently fails one ticker with 'database is locked'; in the
+    run log this dropped one index in about 1 of 5 runs, silently, so simultaneous
+    breaks (which need all four) were computed on three.
+    """
+    import time
+    data = fetch_bars(symbols, days=days) or {}
+    for attempt in range(1, FETCH_RETRIES + 1):
+        missing = [s for s in symbols if not data.get(s)]
+        if not missing:
+            break
+        logger.warning("No bars for %s, retry %d/%d", ", ".join(missing), attempt, FETCH_RETRIES)
+        time.sleep(FETCH_RETRY_SLEEP)
+        for sym in missing:
+            got = fetch_bars([sym], days=days) or {}
+            if got.get(sym):
+                data[sym] = got[sym]
+    return data
 
 
 BAR_MINUTES = 30
@@ -447,6 +473,9 @@ def format_alert(result: dict) -> list[str]:
 
     head = (f"<b>\U0001f514 Intraday Index STRAT Scan</b>\n"
             f"<i>{html.escape(ts)}{html.escape(bar_ts)} · 30-min bars</i>")
+    if result.get("missing"):
+        head += (f"\n⚠️ <i>No data for {html.escape(', '.join(result['missing']))} "
+                 f"(feed error). Simultaneous breaks use {len(INDEXES) - len(result['missing'])} of {len(INDEXES)} indexes.</i>")
     lb = result.get("latest_bar")
     if lb is not None and lb + timedelta(minutes=BAR_MINUTES) > result["scan_time"]:
         close_at = (lb + timedelta(minutes=BAR_MINUTES)).strftime("%H:%M")
@@ -610,7 +639,7 @@ def run(results_dir: Path, *, dry_run: bool = False,
         return {"status": "market_closed", "sent": 0}
 
     # --- Fetch data -------------------------------------------------------
-    bar_data = fetch_bars(INDEXES, days=5)
+    bar_data = fetch_bars_with_retry(INDEXES, days=5)
     bar_data = {sym: drop_forming_bars(b) for sym, b in bar_data.items()}
     if not bar_data or all(len(b) == 0 for b in bar_data.values()):
         logger.error("No bar data fetched.")
@@ -618,6 +647,7 @@ def run(results_dir: Path, *, dry_run: bool = False,
 
     # --- Detect patterns --------------------------------------------------
     result = scan_all(bar_data)
+    result["missing"] = [s for s in INDEXES if not bar_data.get(s)]
     total = sum(len(h) for h in result["all_hits"].values())
 
     # --- Dedup against sent log -------------------------------------------
