@@ -46,3 +46,35 @@ def test_alert_flags_forming_bar():
     assert "still forming, closes 11:00" in forming
     done = isc.format_alert(dict(base, scan_time=datetime(2026, 11, 13, 11, 2, tzinfo=ET)))[0]
     assert "still forming" not in done
+
+
+def test_retry_refetches_missing_index(monkeypatch):
+    calls = []
+
+    def fake_fetch(symbols, days=5):
+        calls.append(list(symbols))
+        if len(symbols) > 1:                      # batch: QQQ dropped ('database is locked')
+            return {s: [_bar(10, 0)] for s in symbols if s != "QQQ"}
+        return {symbols[0]: [_bar(10, 0)]}
+
+    monkeypatch.setattr(isc, "fetch_bars", fake_fetch)
+    monkeypatch.setattr(isc, "FETCH_RETRY_SLEEP", 0)
+    out = isc.fetch_bars_with_retry(["SPY", "QQQ", "DIA", "IWM"])
+    assert set(out) == {"SPY", "QQQ", "DIA", "IWM"}
+    assert calls[1] == ["QQQ"]
+
+
+def test_retry_gives_up_after_limit(monkeypatch):
+    monkeypatch.setattr(isc, "fetch_bars", lambda symbols, days=5: {s: [_bar(10, 0)] for s in symbols if s != "QQQ"})
+    monkeypatch.setattr(isc, "FETCH_RETRY_SLEEP", 0)
+    out = isc.fetch_bars_with_retry(["SPY", "QQQ", "DIA", "IWM"])
+    assert not out.get("QQQ") and out["SPY"]
+
+
+def test_alert_warns_when_index_missing():
+    hit = isc.PatternHit(symbol="SPY", pattern="inside_bar", direction="neutral",
+                         combo="2d-1", close=600.0, bar_time=datetime(2026, 11, 13, 10, 30, tzinfo=ET), bar_type="1")
+    msg = isc.format_alert({"simultaneous": [], "individual": [hit], "overview": [], "missing": ["QQQ"],
+                            "latest_bar": datetime(2026, 11, 13, 10, 30, tzinfo=ET),
+                            "scan_time": datetime(2026, 11, 13, 11, 2, tzinfo=ET)})[0]
+    assert "No data for QQQ" in msg and "3 of 4" in msg
